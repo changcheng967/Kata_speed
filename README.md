@@ -13,20 +13,22 @@ DoudouBot is a Weiqi AI Engine designed to play the ancient Chinese game of Go.
 ### Downloading and Running
 
 1. Download the latest release file from the [Releases](https://github.com/changcheng967/DoudouBot/releases) page.
+2. 
+3. Download network file from the [Network] (https://drive.google.com/drive/folders/1NjjbQwPvC7m9ag4Tv5jgjzjHBMH9_0O0?usp=sharing) page.
 
-2. Unzip the downloaded file.
+4. Unzip the downloaded file.
 
-3. **Using Safari**:
+5. **Using Safari**:
    - Open Safari browser.
    - Drag and drop the unzipped file onto the Safari window.
    - Safari will prompt you to confirm running the file. Click "Open".
 
-4. **Using LizzieYzy**:
+6. **Using LizzieYzy**:
    - Open LizzieYzy.
    - Go to `File` > `Open Network File`.
    - Select the unzipped file to load the network.
 
-5. Follow the instructions provided by Safari or LizzieYzy to interact with DoudouBot and start playing Weiqi!
+7. Follow the instructions provided by Safari or LizzieYzy to interact with DoudouBot and start playing Weiqi!
 
 ## Contributing
 
