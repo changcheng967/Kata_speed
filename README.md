@@ -1,6 +1,6 @@
 # DoudouBot
 
-DoudouBot is a Weiqi AI Engine designed to play the ancient Chinese game of Go.
+DoudouBot is a Weiqi AI Engine designed to play the ancient Chinese game of Go that runs on C++
 
 ## Features
 
@@ -17,29 +17,15 @@ DoudouBot is a Weiqi AI Engine designed to play the ancient Chinese game of Go.
 3. Download network file from the [Network] (https://drive.google.com/drive/folders/1NjjbQwPvC7m9ag4Tv5jgjzjHBMH9_0O0?usp=sharing) page.
 
 4. Unzip the downloaded file.
-
-5. **Using Safari**:
-   - Open Safari browser.
-   - Drag and drop the unzipped file onto the Safari window.
-   - Safari will prompt you to confirm running the file. Click "Open".
-
-6. **Using LizzieYzy**:
+5. run katago benchmark(details in default_gtp.cfg)
+7. **Using LizzieYzy**:
    - Open LizzieYzy.
    - Go to `File` > `Open Network File`.
    - Select the unzipped file to load the network.
 
-7. Follow the instructions provided by Safari or LizzieYzy to interact with DoudouBot and start playing Weiqi!
+8. Follow the instructions provided by LizzieYzy to interact with DoudouBot and start playing Weiqi!
 
-## Contributing
 
-If you would like to contribute to DoudouBot, please follow these guidelines:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/fooBar`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add some fooBar'`).
-5. Push to the branch (`git push origin feature/fooBar`).
-6. Create a new Pull Request.
 
 ## License
 
