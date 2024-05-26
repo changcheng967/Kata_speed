@@ -1,0 +1,20 @@
+This pre-release version introduces several key improvements and lays the groundwork for future enhancements. It includes important bug fixes, enhancements, and new features aimed at improving the stability and performance of the application. Additionally, it announces the upcoming support for new networks b40 and b30, which will be available in the next stable release.
+
+Highlights:
+Bug Fixes:
+CUDA 12.4 Bug: Resolved the issue where the application would exit without sending output when run on CUDA 12.4. Users can now run the application with CUDA 12.4 without encountering this problem.
+Enhancements:
+TensorRT and CUDA Support: Integration of TensorRT 8.6.1.6 and CUDA 12.1, providing improved calculations and more powerful computational capabilities.
+cuDNN 9.1: Integration of cuDNN 9.1 to enhance deep learning operations with optimized implementations for standard routines.
+Longer Load Times: Note that initial load times may be longer due to the integration of TensorRT and CUDA, which is a trade-off for significantly better runtime performance during inference.
+New Features:
+New Networks:
+b28 Network: Designed for medium complexity tasks with optimized performance.
+b60 Network: Designed for high complexity tasks, providing powerful computational capabilities for advanced operations.
+Stronger Bot: The bot has been upgraded to handle higher visit rates per second, improving its performance and responsiveness.
+Upcoming Features:
+b40 Network: Soon to be supported, designed for tasks requiring intermediate complexity and performance.
+b30 Network: Soon to be supported, optimized for tasks requiring low to medium complexity with balanced performance.
+Notes:
+System Requirements: Updated system requirements to include NVIDIA GPU support for CUDA 12.1 and cuDNN 9.1.
+Documentation: Updated the documentation to provide installation instructions for the new dependencies and detailed configuration steps.
