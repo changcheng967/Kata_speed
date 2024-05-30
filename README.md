@@ -1,13 +1,18 @@
 # Kata_speed
 
-Kata_speed is a high-performance Go AI engine designed for speed and accuracy. It utilizes advanced machine learning techniques and optimized algorithms to provide a challenging opponent and valuable tool for Go enthusiasts and researchers.
+Kata_speed is a high-performance Go AI engine designed for speed and accuracy. It leverages advanced machine learning techniques and optimized algorithms to provide a powerful and efficient tool for Go enthusiasts and researchers.
 
 ## Features
 
-- **High Performance**: Optimized for speed and efficiency, allowing for quick analysis and gameplay.
-- **Accuracy**: Implements state-of-the-art machine learning models to ensure accurate move predictions.
-- **Customizability**: Easily adjustable parameters to fine-tune the AI's playing style and strength.
-- **Scalability**: Capable of running on various hardware configurations, from personal computers to high-end servers.
+- **High Performance**: Kata_speed is optimized for speed and efficiency, allowing for quick analysis and gameplay. It utilizes cutting-edge algorithms to deliver rapid move predictions and accurate evaluations.
+
+- **Versatility**: Kata_speed is designed to support a wide range of GPU and CPU configurations, making it accessible to a broad user base. Whether you're using a high-end gaming rig or a modest laptop, Kata_speed can run efficiently on your hardware.
+
+- **Ease of Use**: With Kata_speed, running a powerful Go AI engine is easier than ever. Simply download the latest release from the [Releases](https://github.com/changcheng967/Kata_speed/releases) page, extract the files, and you're ready to go. No complicated setup or configuration required.
+
+- **Fast**: Kata_speed is built for speed. Its optimized codebase and parallel computing capabilities ensure rapid move generation and analysis, allowing for a seamless and responsive gameplay experience.
+
+- **Strong**: Kata_speed is a formidable opponent. By leveraging state-of-the-art machine learning models and sophisticated search algorithms, it provides strong and challenging gameplay for players of all skill levels.
 
 ## Installation
 
