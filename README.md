@@ -1,36 +1,26 @@
-# DoudouBot
 
-DoudouBot is a Weiqi AI Engine designed to play the ancient Chinese game of Go that runs on C++
+Kata_speed
+Kata_speed is a high-performance Go AI engine designed for speed and accuracy. It utilizes advanced machine learning techniques and optimized algorithms to provide a challenging opponent and valuable tool for Go enthusiasts and researchers.
 
-## Features
+Features
+High Performance: Optimized for speed and efficiency, allowing for quick analysis and gameplay.
+Accuracy: Implements state-of-the-art machine learning models to ensure accurate move predictions.
+Customizability: Easily adjustable parameters to fine-tune the AI's playing style and strength.
+Scalability: Capable of running on various hardware configurations, from personal computers to high-end servers.
+Installation
+To install Kata_speed, follow these steps:
 
-- **Intelligent Gameplay**: Utilizes advanced algorithms to play Weiqi (Go) at a high level.
-- **Customizable**: Users can adjust various parameters to customize the bot's gameplay.
-- **User-Friendly Interface**: Simple and intuitive interface for ease of use.
+Visit the Releases page of this repository.
+Find the latest release and download the version that suits your operating system and hardware configuration.
+Extract the downloaded file to your desired location.
+Contributing
+We welcome contributions to Kata_speed! Please see our Contributing Guidelines for more information on how to get started.
 
-## Usage
+Code of Conduct
+We are committed to maintaining a welcoming and respectful community. Please read our Code of Conduct to understand the expectations for all participants.
 
-### Downloading and Running
+License
+Kata_speed is licensed under the MPL-2.0. See the LICENSE file for more details.
 
-1. Download the latest release file from the [Releases](https://github.com/changcheng967/DoudouBot/releases) page.
-2. 
-3. Download network file from the [Network] (https://drive.google.com/drive/folders/1NjjbQwPvC7m9ag4Tv5jgjzjHBMH9_0O0?usp=sharing) page.
-
-4. Unzip the downloaded file.
-5. run katago benchmark(details in default_gtp.cfg)
-7. **Using LizzieYzy**:
-   - Open LizzieYzy.
-   - Go to `File` > `Open Network File`.
-   - Select the unzipped file to load the network.
-
-8. Follow the instructions provided by LizzieYzy to interact with DoudouBot and start playing Weiqi!
-
-
-
-## License
-
-This project is licensed under the Mozilla Public License Version 2.0 - see the (https://github.com/changcheng967/DoudouBot?tab=MPL-2.0-1-ov-file)) file for details.
-
-## Contact
-
-If you have any questions or suggestions regarding DoudouBot, feel free to contact the developer at changcheng6541@gmail.com.
+Contact
+For any questions or suggestions, please contact us at changcheng6541@gmail.com.
