@@ -8,21 +8,13 @@ Gather your training data and place it in a directory. Your data should be in a 
 
 Organize your data in the following structure:
 
-data/
-train/
-game1.sgf
-game2.sgf
-...
-test/
-test_game1.sgf
-test_game2.sgf
-...
 
-makefile
+data/ train/ game1.sgf game2.sgf … test/ test_game1.sgf test_game2.sgf …
 
-# Configuring the Script
 
-## Modify train.py
+## Configuring the Script
+
+### Modify `train.py`
 
 Open the `train.py` script in a text editor and customize the following parameters according to your needs:
 
@@ -44,20 +36,20 @@ num_epochs = 100
 
 # Model parameters
 input_shape = (9, 9, 1)  # For a 9x9 Go board
-Running the Script
-Execute train.py
-Open a terminal or command prompt, navigate to the directory containing train.py, and run the following command:
 
+Running the Script
+Execute train.py by opening a terminal or command prompt, navigating to the directory containing train.py, and running the following command:
 
 python train.py
+
 The script will read your data, initialize the model, and begin training. You will see output related to training progress, loss values, and other metrics.
 
 Monitoring Training
 TensorBoard
 If you have enabled TensorBoard logging in the train.py script, you can monitor your training process by running:
 
-css
 tensorboard --logdir=logs/
+
 Open your browser and navigate to http://localhost:6006/ to see the training metrics and graphs.
 
 Saving and Evaluating the Model
