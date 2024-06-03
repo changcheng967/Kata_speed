@@ -1,65 +1,74 @@
-\# Preparing the Data
+# Preparing the Data
 
-\## Collect Data
+## Collect Data
 
-Gather your training data and place it in a directory. Your data should
-be in a format that the \`train.py\` script can process (e.g., SGF files
-for Go games).
+Gather your training data and place it in a directory. Your data should be in a format that the `train.py` script can process (e.g., SGF files for Go games).
 
-\## Organize Data
+## Organize Data
 
 Organize your data in the following structure:
 
-data/ train/ game1.sgf game2.sgf \... test/ test_game1.sgf
-test_game2.sgf \...
+data/
+train/
+game1.sgf
+game2.sgf
+...
+test/
+test_game1.sgf
+test_game2.sgf
+...
 
-\# Configuring the Script
+makefile
 
-\## Modify train.py
+# Configuring the Script
 
-Open the \`train.py\` script in a text editor and customize the
-following parameters according to your needs:
+## Modify train.py
 
-\- \*\*Data Paths\*\*: Set the paths to your training and testing
-data. - \*\*Training Parameters\*\*: Adjust parameters such as learning
-rate, batch size, number of epochs, etc. - \*\*Model Parameters\*\*:
-Define the architecture of the model you wish to train.
+Open the `train.py` script in a text editor and customize the following parameters according to your needs:
 
-Example snippet from \`train.py\`:
+- **Data Paths**: Set the paths to your training and testing data.
+- **Training Parameters**: Adjust parameters such as learning rate, batch size, number of epochs, etc.
+- **Model Parameters**: Define the architecture of the model you wish to train.
 
-\`\`\`python \# Set data paths train_data_path = \'data/train/\'
-test_data_path = \'data/test/\'
+Example snippet from `train.py`:
 
-\# Training parameters learning_rate = 0.001 batch_size = 32 num_epochs
-= 100
+```python
+# Set data paths
+train_data_path = 'data/train/'
+test_data_path = 'data/test/'
 
-\# Model parameters input_shape = (9, 9, 1) \# For a 9x9 Go board
-Running the Script Execute train.py Open a terminal or command prompt,
-navigate to the directory containing train.py, and run the following
-command:
+# Training parameters
+learning_rate = 0.001
+batch_size = 32
+num_epochs = 100
 
- train.py The script will read your data, initialize the
-model, and begin training. You will see output related to training
-progress, loss values, and other metrics.
+# Model parameters
+input_shape = (9, 9, 1)  # For a 9x9 Go board
+Running the Script
+Execute train.py
+Open a terminal or command prompt, navigate to the directory containing train.py, and run the following command:
 
-Monitoring Training TensorBoard If you have enabled TensorBoard logging
-in the train.py script, you can monitor your training process by
-running:
 
- tensorboard \--logdir=logs/ Open your browser and navigate
-to http://localhost:6006/ to see the training metrics and graphs.
+python train.py
+The script will read your data, initialize the model, and begin training. You will see output related to training progress, loss values, and other metrics.
 
-Saving and Evaluating the Model Model Checkpointing The script is set to
-save the best model during training based on validation performance.
-Checkpoints will be saved in the specified directory.
+Monitoring Training
+TensorBoard
+If you have enabled TensorBoard logging in the train.py script, you can monitor your training process by running:
 
-Evaluate the Model After training, you can evaluate your model using the
-test data to check its performance.
+css
+tensorboard --logdir=logs/
+Open your browser and navigate to http://localhost:6006/ to see the training metrics and graphs.
 
-Customization Feel free to modify the train.py script further to suit
-your specific needs. You can change the model architecture, add more
-advanced data preprocessing steps, or implement custom evaluation
-metrics.
+Saving and Evaluating the Model
+Model Checkpointing
+The script is set to save the best model during training based on validation performance. Checkpoints will be saved in the specified directory.
 
-Support If you encounter any issues or have questions, please reach out
-to changcheng6541@gmail.com.
+Evaluate the Model
+After training, you can evaluate your model using the test data to check its performance.
+
+Customization
+Feel free to modify the train.py script further to suit your specific needs. You can change the model architecture, add more advanced data preprocessing steps, or implement custom evaluation metrics.
+
+Support
+If you encounter any issues or have questions, please reach out to changcheng6541@gmail.com.
