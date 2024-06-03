@@ -2,7 +2,7 @@
 
 ## Collect Data
 
-Gather your training data and place it in a directory. Your data should be in a format that the `train.py` script can process (e.g., SGF files for Go games).
+Gather your training data and place it in a directory. Your data should be in a format that the [train.py](https://github.com/changcheng967/Kata_speed/blob/main/train.py) script can process (e.g., SGF files for Go games).
 
 ## Organize Data
 
@@ -13,15 +13,15 @@ data/ train/ game1.sgf game2.sgf … test/ test_game1.sgf test_game2.sgf …
 
 ## Configuring the Script
 
-### Modify `train.py`
+### Modify [train.py](https://github.com/changcheng967/Kata_speed/blob/main/train.py)
 
-Open the `train.py` script in a text editor and customize the following parameters according to your needs:
+Open the [train.py](https://github.com/changcheng967/Kata_speed/blob/main/train.py) script in a text editor and customize the following parameters according to your needs:
 
 - **Data Paths**: Set the paths to your training and testing data.
 - **Training Parameters**: Adjust parameters such as learning rate, batch size, number of epochs, etc.
 - **Model Parameters**: Define the architecture of the model you wish to train.
 
-Example snippet from `train.py`:
+Example snippet from [train.py](https://github.com/changcheng967/Kata_speed/blob/main/train.py):
 
 python
 # Set data paths
