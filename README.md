@@ -15,7 +15,7 @@ To install Kata_speed, visit the [release page](https://github.com/changcheng967
 
 ## Solving Unsupported CUDA v12.4 Issue
 
-If you are experiencing issues with CUDA v12.4 not being supported, you can use the provided batch script [`solve_cuda_issue.bat`](https://github.com/changcheng967/Kata_speed/blob/main/solve_cuda_issue.bat) to resolve the issue. This script will uninstall CUDA v12.4 and install CUDA v11.4, then rebuild Kata_speed.
+If you are experiencing issues with CUDA v12.4 not being supported, you can use the provided batch script [`solve_cuda_issue.bat`](https://github.com/changcheng967/Kata_speed/blob/main/solve_cuda_issue.bat) to resolve the issue. This script will uninstall CUDA v12.4 and install CUDA v11.4, then rebuild Kata_speed. The script is also available on the release page.
 
 ### Instructions:
 
@@ -29,6 +29,10 @@ If you are experiencing issues with CUDA v12.4 not being supported, you can use 
    - Right-click on `solve_cuda_issue.bat` and select "Run as administrator".
 
 This script automates the process of resolving the unsupported CUDA issue.
+
+## Network Sharing Site
+
+Visit our [network sharing site](https://katagui40b.free.nf/) to download pre-trained networks and share your own.
 
 ## Contributing
 
