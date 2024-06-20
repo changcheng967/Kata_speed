@@ -4,9 +4,7 @@ echo Solving Unsupported CUDA v12.4 Issue for Kata_speed
 REM Step 1: Verify CUDA Version
 echo Checking CUDA version...
 nvcc --version | findstr /C:"release 12.4"
-if %errorlevel% == 0 (
-    echo CUDA v12.4 detected. Proceeding with uninstallation and installation of a supported version.
-) else (
+if %errorlevel% NEQ 0 (
     echo CUDA v12.4 not detected. Please ensure you are running this script on a system with CUDA v12.4.
     exit /b 1
 )
@@ -27,9 +25,10 @@ setx PATH "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.4\bin;%PATH%"
 
 REM Step 5: Rebuild Kata_speed
 echo Rebuilding Kata_speed...
-cd \path\to\Kata_speed
+pushd \path\to\Kata_speed
 make clean
 make
+popd
 
 REM Step 6: Verify Installation
 echo Verification of installation...

@@ -1,24 +1,24 @@
 import os
+from datetime import datetime
+
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Conv2D, Flatten
 from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
-from datetime import datetime
 
 # Set random seed for reproducibility
 np.random.seed(42)
 tf.random.set_seed(42)
 
-# Generate synthetic dataset (replace this with your actual data)
+# Generate synthetic dataset (replace this with your actual data loading)
 def generate_synthetic_data(num_samples=1000, board_size=9):
     X_train = np.random.randint(0, 3, size=(num_samples, board_size, board_size, 1))
     y_train = np.random.randint(0, 2, size=(num_samples,))
     return X_train, y_train
 
-# Load and preprocess data (replace with your data loading code)
+# Load and preprocess data (replace with your actual data loading code)
 def load_data():
-    # Replace this function with actual data loading
     return generate_synthetic_data()
 
 # Define the neural network architecture
