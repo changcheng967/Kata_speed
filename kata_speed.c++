@@ -2,6 +2,8 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <sstream>
+#include <string>
 
 const int BOARD_SIZE = 9;
 
@@ -40,12 +42,14 @@ private:
 public:
     Game() : currentPlayer(Stone::BLACK) {}
 
-    void placeStone(int x, int y) {
-        // Check if the move is legal (simplified for now)
-        if (board.getStone(x, y) == Stone::EMPTY) {
-            board.setStone(x, y, currentPlayer);
-            currentPlayer = (currentPlayer == Stone::BLACK) ? Stone::WHITE : Stone::BLACK;
-        }
+    void placeStone(int x, int y, Stone stone) {
+        board.setStone(x, y, stone);
+        currentPlayer = (currentPlayer == Stone::BLACK) ? Stone::WHITE : Stone::BLACK;
+    }
+
+    bool isLegalMove(int x, int y, Stone stone) const {
+        // Simplified check for empty position
+        return (board.getStone(x, y) == Stone::EMPTY);
     }
 
     // Add methods for checking legal moves, capturing stones, game outcome, etc.
@@ -64,15 +68,83 @@ public:
     Board getBoard() const {
         return board;
     }
+
+    Stone getCurrentPlayer() const {
+        return currentPlayer;
+    }
 };
 
-class SimpleBot {
+class GTPHandler {
+private:
+    Game& game;
+
 public:
-    std::pair<int, int> makeMove(const Board& board) {
-        // Simple bot makes a random move (not legal checking implemented)
-        int x = rand() % BOARD_SIZE;
-        int y = rand() % BOARD_SIZE;
-        return std::make_pair(x, y);
+    GTPHandler(Game& g) : game(g) {}
+
+    void handleCommand(const std::string& command) {
+        std::istringstream iss(command);
+        std::string cmd;
+        iss >> cmd;
+
+        if (cmd == "protocol_version") {
+            std::cout << "= 2" << std::endl;
+        } else if (cmd == "name") {
+            std::cout << "= SimpleGoBot" << std::endl;
+        } else if (cmd == "version") {
+            std::cout << "= 1.0" << std::endl;
+        } else if (cmd == "list_commands") {
+            std::cout << "= protocol_version\n"
+                         "name\n"
+                         "version\n"
+                         "list_commands\n"
+                         "boardsize\n"
+                         "clear_board\n"
+                         "play\n"
+                         "genmove\n"
+                         "quit\n" << std::endl;
+        } else if (cmd == "boardsize") {
+            int size;
+            iss >> size;
+            if (size != BOARD_SIZE) {
+                std::cerr << "? unacceptable size" << std::endl;
+            } else {
+                std::cout << "= " << size << std::endl;
+            }
+        } else if (cmd == "clear_board") {
+            game = Game();
+            std::cout << "=" << std::endl;
+        } else if (cmd == "play") {
+            std::string color, move;
+            iss >> color >> move;
+            Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
+            int x = move[0] - 'a';
+            int y = BOARD_SIZE - (move[1] - '0');
+            if (game.isLegalMove(x, y, stone)) {
+                game.placeStone(x, y, stone);
+                std::cout << "=" << std::endl;
+            } else {
+                std::cerr << "? illegal move" << std::endl;
+            }
+        } else if (cmd == "genmove") {
+            std::string color;
+            iss >> color;
+            Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
+
+            // Simple bot's move (random for now)
+            int x, y;
+            do {
+                x = rand() % BOARD_SIZE;
+                y = rand() % BOARD_SIZE;
+            } while (!game.isLegalMove(x, y, stone));
+
+            game.placeStone(x, y, stone);
+            std::cout << "= " << static_cast<char>('a' + x) << BOARD_SIZE - y << std::endl;
+        } else if (cmd == "quit") {
+            std::cout << "=" << std::endl;
+            exit(0); // Exit the program
+        } else {
+            std::cerr << "? unknown command" << std::endl;
+        }
     }
 };
 
@@ -80,24 +152,12 @@ int main() {
     srand(static_cast<unsigned int>(time(nullptr))); // Seed for random number generation
 
     Game game;
-    SimpleBot bot;
+    GTPHandler gtp(game);
 
-    // Example of a simple main loop
-    while (!game.isGameOver()) {
-        // Bot's turn
-        std::pair<int, int> move = bot.makeMove(game.getBoard());
-        game.placeStone(move.first, move.second);
-
-        // Display board and game status (optional)
-        // Example: Print board state and current player
-        std::cout << "Bot's move: (" << move.first << ", " << move.second << ")" << std::endl;
-
-        // Human player's turn (if playing against a human)
-        // Example: Read input from user and place stone
+    std::string command;
+    while (std::getline(std::cin, command)) {
+        gtp.handleCommand(command);
     }
-
-    // Display final game result (optional)
-    // Example: Print winner or draw
 
     return 0;
 }
