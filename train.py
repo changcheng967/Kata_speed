@@ -108,6 +108,11 @@ def train_model(model, X_train, y_train, batch_size=32, epochs=10):
     model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, 
               validation_split=0.2, callbacks=[tensorboard_callback, checkpoint_callback])
 
+    # Save the model in .bin.gz format
+    model_filename = os.path.join("models", f"model_{datetime.now().strftime('%Y%m%d%H%M%S')}.bin.gz")
+    model.save(model_filename, save_format='tf', options=tf.saved_model.SaveOptions(compression='GZIP'))
+    print(f"Model saved as {model_filename}")
+
 def main():
     """
     Main function to run the script.
