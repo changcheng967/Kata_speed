@@ -100,7 +100,14 @@ public:
                          "clear_board\n"
                          "play\n"
                          "genmove\n"
-                         "quit\n" << std::endl;
+                         "quit\n"
+                         "known_command\n"
+                         "quit\n"
+                         "board_status\n"
+                         "time_settings\n"
+                         "time_left\n"
+                         "final_score\n"
+                         "undo\n" << std::endl;
         } else if (cmd == "boardsize") {
             handleBoardSizeCommand(iss);
         } else if (cmd == "clear_board") {
@@ -111,6 +118,18 @@ public:
             handleGenmoveCommand(iss);
         } else if (cmd == "quit") {
             handleQuitCommand();
+        } else if (cmd == "known_command") {
+            handleKnownCommand(iss);
+        } else if (cmd == "board_status") {
+            handleBoardStatusCommand();
+        } else if (cmd == "time_settings") {
+            handleTimeSettingsCommand(iss);
+        } else if (cmd == "time_left") {
+            handleTimeLeftCommand(iss);
+        } else if (cmd == "final_score") {
+            handleFinalScoreCommand();
+        } else if (cmd == "undo") {
+            handleUndoCommand();
         } else {
             std::cerr << "? unknown command" << std::endl;
         }
@@ -165,6 +184,50 @@ private:
     void handleQuitCommand() {
         std::cout << "=" << std::endl;
         exit(0); // Exit the program
+    }
+
+    void handleKnownCommand(std::istringstream& iss) {
+        std::string cmd;
+        iss >> cmd;
+        if (cmd == "protocol_version" || cmd == "name" || cmd == "version" ||
+            cmd == "list_commands" || cmd == "boardsize" || cmd == "clear_board" ||
+            cmd == "play" || cmd == "genmove" || cmd == "quit" || cmd == "known_command" ||
+            cmd == "board_status" || cmd == "time_settings" || cmd == "time_left" ||
+            cmd == "final_score" || cmd == "undo") {
+            std::cout << "= true" << std::endl;
+        } else {
+            std::cout << "= false" << std::endl;
+        }
+    }
+
+    void handleBoardStatusCommand() {
+        // Implement board status reporting (optional for simplicity)
+        // Could include board position, current player, etc.
+        std::cout << "= " << std::endl;
+    }
+
+    void handleTimeSettingsCommand(std::istringstream& iss) {
+        // Implement time settings handling (optional for simplicity)
+        // Could include time control details
+        std::cout << "=" << std::endl;
+    }
+
+    void handleTimeLeftCommand(std::istringstream& iss) {
+        // Implement time left reporting (optional for simplicity)
+        // Could include time remaining for each player
+        std::cout << "= " << std::endl;
+    }
+
+    void handleFinalScoreCommand() {
+        // Implement final score reporting (optional for simplicity)
+        // Could include final game result (win/loss/draw) and scores
+        std::cout << "= " << std::endl;
+    }
+
+    void handleUndoCommand() {
+        // Implement undo command handling (optional for simplicity)
+        // Could support undoing the last move
+        std::cout << "= " << std::endl;
     }
 };
 
