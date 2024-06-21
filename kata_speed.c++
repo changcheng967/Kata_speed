@@ -52,7 +52,6 @@ public:
         return (board.getStone(x, y) == Stone::EMPTY);
     }
 
-    // Add methods for checking legal moves, capturing stones, game outcome, etc.
     bool isGameOver() const {
         // Simplified: Game is over if board is full
         for (int i = 0; i < BOARD_SIZE; ++i) {
@@ -103,48 +102,69 @@ public:
                          "genmove\n"
                          "quit\n" << std::endl;
         } else if (cmd == "boardsize") {
-            int size;
-            iss >> size;
-            if (size != BOARD_SIZE) {
-                std::cerr << "? unacceptable size" << std::endl;
-            } else {
-                std::cout << "= " << size << std::endl;
-            }
+            handleBoardSizeCommand(iss);
         } else if (cmd == "clear_board") {
-            game = Game();
-            std::cout << "=" << std::endl;
+            handleClearBoardCommand();
         } else if (cmd == "play") {
-            std::string color, move;
-            iss >> color >> move;
-            Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
-            int x = move[0] - 'a';
-            int y = BOARD_SIZE - (move[1] - '0');
-            if (game.isLegalMove(x, y, stone)) {
-                game.placeStone(x, y, stone);
-                std::cout << "=" << std::endl;
-            } else {
-                std::cerr << "? illegal move" << std::endl;
-            }
+            handlePlayCommand(iss);
         } else if (cmd == "genmove") {
-            std::string color;
-            iss >> color;
-            Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
-
-            // Simple bot's move (random for now)
-            int x, y;
-            do {
-                x = rand() % BOARD_SIZE;
-                y = rand() % BOARD_SIZE;
-            } while (!game.isLegalMove(x, y, stone));
-
-            game.placeStone(x, y, stone);
-            std::cout << "= " << static_cast<char>('a' + x) << BOARD_SIZE - y << std::endl;
+            handleGenmoveCommand(iss);
         } else if (cmd == "quit") {
-            std::cout << "=" << std::endl;
-            exit(0); // Exit the program
+            handleQuitCommand();
         } else {
             std::cerr << "? unknown command" << std::endl;
         }
+    }
+
+private:
+    void handleBoardSizeCommand(std::istringstream& iss) {
+        int size;
+        iss >> size;
+        if (size != BOARD_SIZE) {
+            std::cerr << "? unacceptable size" << std::endl;
+        } else {
+            std::cout << "= " << size << std::endl;
+        }
+    }
+
+    void handleClearBoardCommand() {
+        game = Game();
+        std::cout << "=" << std::endl;
+    }
+
+    void handlePlayCommand(std::istringstream& iss) {
+        std::string color, move;
+        iss >> color >> move;
+        Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
+        int x = move[0] - 'a';
+        int y = BOARD_SIZE - (move[1] - '0');
+        if (game.isLegalMove(x, y, stone)) {
+            game.placeStone(x, y, stone);
+            std::cout << "=" << std::endl;
+        } else {
+            std::cerr << "? illegal move" << std::endl;
+        }
+    }
+
+    void handleGenmoveCommand(std::istringstream& iss) {
+        std::string color;
+        iss >> color;
+        Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
+
+        // Simple bot's move (random for now)
+        int x, y;
+        do {
+            x = rand() % BOARD_SIZE;
+            y = rand() % BOARD_SIZE;
+        } while (!game.isLegalMove(x, y, stone));
+
+        game.placeStone(x, y, stone);
+        std::cout << "= " << static_cast<char>('a' + x) << BOARD_SIZE - y << std::endl;
+    }
+
+    void handleQuitCommand() {
+        std::cout << "=" << std::endl;
+        exit(0); // Exit the program
     }
 };
 
