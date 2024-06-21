@@ -86,28 +86,13 @@ public:
         iss >> cmd;
 
         if (cmd == "protocol_version") {
-            std::cout << "= 2" << std::endl;
+            handleProtocolVersion();
         } else if (cmd == "name") {
-            std::cout << "= SimpleGoBot" << std::endl;
+            handleName();
         } else if (cmd == "version") {
-            std::cout << "= 1.0" << std::endl;
+            handleVersion();
         } else if (cmd == "list_commands") {
-            std::cout << "= protocol_version\n"
-                         "name\n"
-                         "version\n"
-                         "list_commands\n"
-                         "boardsize\n"
-                         "clear_board\n"
-                         "play\n"
-                         "genmove\n"
-                         "quit\n"
-                         "known_command\n"
-                         "quit\n"
-                         "board_status\n"
-                         "time_settings\n"
-                         "time_left\n"
-                         "final_score\n"
-                         "undo\n" << std::endl;
+            handleListCommands();
         } else if (cmd == "boardsize") {
             handleBoardSizeCommand(iss);
         } else if (cmd == "clear_board") {
@@ -136,6 +121,37 @@ public:
     }
 
 private:
+    // Command handlers
+    void handleProtocolVersion() {
+        std::cout << "= 2" << std::endl;
+    }
+
+    void handleName() {
+        std::cout << "= SimpleGoBot" << std::endl;
+    }
+
+    void handleVersion() {
+        std::cout << "= 1.0" << std::endl;
+    }
+
+    void handleListCommands() {
+        std::cout << "= protocol_version\n"
+                     "name\n"
+                     "version\n"
+                     "list_commands\n"
+                     "boardsize\n"
+                     "clear_board\n"
+                     "play\n"
+                     "genmove\n"
+                     "quit\n"
+                     "known_command\n"
+                     "board_status\n"
+                     "time_settings\n"
+                     "time_left\n"
+                     "final_score\n"
+                     "undo\n" << std::endl;
+    }
+
     void handleBoardSizeCommand(std::istringstream& iss) {
         int size;
         iss >> size;
@@ -202,31 +218,26 @@ private:
 
     void handleBoardStatusCommand() {
         // Implement board status reporting (optional for simplicity)
-        // Could include board position, current player, etc.
         std::cout << "= " << std::endl;
     }
 
     void handleTimeSettingsCommand(std::istringstream& iss) {
         // Implement time settings handling (optional for simplicity)
-        // Could include time control details
         std::cout << "=" << std::endl;
     }
 
     void handleTimeLeftCommand(std::istringstream& iss) {
         // Implement time left reporting (optional for simplicity)
-        // Could include time remaining for each player
         std::cout << "= " << std::endl;
     }
 
     void handleFinalScoreCommand() {
         // Implement final score reporting (optional for simplicity)
-        // Could include final game result (win/loss/draw) and scores
         std::cout << "= " << std::endl;
     }
 
     void handleUndoCommand() {
         // Implement undo command handling (optional for simplicity)
-        // Could support undoing the last move
         std::cout << "= " << std::endl;
     }
 };
