@@ -4,6 +4,8 @@
 #include <ctime>
 #include <sstream>
 #include <string>
+#include <stdexcept> // For std::invalid_argument
+#include <cmath>     // For std::abs
 
 const int BOARD_SIZE = 9;
 
@@ -31,7 +33,19 @@ public:
         board[x][y] = stone;
     }
 
-    // Add methods for checking liberties, capturing stones, etc.
+    bool isOnBoard(int x, int y) const {
+        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
+    }
+
+    bool isEmpty(int x, int y) const {
+        return board[x][y] == Stone::EMPTY;
+    }
+
+    bool isSameColor(int x, int y, Stone stone) const {
+        return board[x][y] == stone;
+    }
+
+    // Methods for checking liberties, capturing stones, etc. can be added here
 };
 
 class Game {
@@ -48,12 +62,25 @@ public:
     }
 
     bool isLegalMove(int x, int y, Stone stone) const {
-        // Simplified check for empty position
-        return (board.getStone(x, y) == Stone::EMPTY);
+        // Check if the position is within bounds and empty
+        return board.isOnBoard(x, y) && board.isEmpty(x, y);
     }
 
     bool isGameOver() const {
-        // Simplified: Game is over if board is full
+        // Game over if the board is full or other end-game conditions are met
+        return boardIsFull();
+    }
+
+    Board getBoard() const {
+        return board;
+    }
+
+    Stone getCurrentPlayer() const {
+        return currentPlayer;
+    }
+
+private:
+    bool boardIsFull() const {
         for (int i = 0; i < BOARD_SIZE; ++i) {
             for (int j = 0; j < BOARD_SIZE; ++j) {
                 if (board.getStone(i, j) == Stone::EMPTY) {
@@ -64,13 +91,7 @@ public:
         return true;
     }
 
-    Board getBoard() const {
-        return board;
-    }
-
-    Stone getCurrentPlayer() const {
-        return currentPlayer;
-    }
+    // Additional game logic methods can be added here
 };
 
 class GTPHandler {
@@ -170,21 +191,41 @@ private:
     void handlePlayCommand(std::istringstream& iss) {
         std::string color, move;
         iss >> color >> move;
-        Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
+        Stone stone;
+        try {
+            stone = parseStone(color);
+        } catch (const std::invalid_argument& e) {
+            std::cerr << "? invalid color" << std::endl;
+            return;
+        }
+
         int x = move[0] - 'a';
         int y = BOARD_SIZE - (move[1] - '0');
-        if (game.isLegalMove(x, y, stone)) {
-            game.placeStone(x, y, stone);
-            std::cout << "=" << std::endl;
-        } else {
-            std::cerr << "? illegal move" << std::endl;
+        
+        if (!boardCoordinatesValid(x, y)) {
+            std::cerr << "? out of board bounds" << std::endl;
+            return;
         }
+
+        if (!game.isLegalMove(x, y, stone)) {
+            std::cerr << "? illegal move" << std::endl;
+            return;
+        }
+
+        game.placeStone(x, y, stone);
+        std::cout << "=" << std::endl;
     }
 
     void handleGenmoveCommand(std::istringstream& iss) {
         std::string color;
         iss >> color;
-        Stone stone = (color == "black") ? Stone::BLACK : Stone::WHITE;
+        Stone stone;
+        try {
+            stone = parseStone(color);
+        } catch (const std::invalid_argument& e) {
+            std::cerr << "? invalid color" << std::endl;
+            return;
+        }
 
         // Simple bot's move (random for now)
         int x, y;
@@ -239,6 +280,20 @@ private:
     void handleUndoCommand() {
         // Implement undo command handling (optional for simplicity)
         std::cout << "= " << std::endl;
+    }
+
+    Stone parseStone(const std::string& color) const {
+        if (color == "black") {
+            return Stone::BLACK;
+        } else if (color == "white") {
+            return Stone::WHITE;
+        } else {
+            throw std::invalid_argument("Invalid stone color");
+        }
+    }
+
+    bool boardCoordinatesValid(int x, int y) const {
+        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
     }
 };
 
