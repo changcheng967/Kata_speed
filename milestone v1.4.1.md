@@ -1,13 +1,28 @@
-*milestone for v1.4.1*
+### Milestones for Version 1.4.1
 
-bot stronger
+- **Enhanced Bot Capabilities**
+  - Strengthened the bot's functionality to improve performance and reliability.
 
-pre-built kata benchmark for people don't know c++
+- **Pre-built Kata Benchmark for C++ Novices**
+  - Introduced a pre-built benchmark suite tailored for users unfamiliar with C++.
 
-Maybe make the installtion process on a Windows wizard or in cmd
+- **Enhanced Installation Process**
+  - Simplified installation on Windows through a wizard or command-line interface (CLI) enhancements.
 
-add b30 models(v1.3.2 rc-2)
+- **Added B30 Models (v1.3.2 RC-2)**
+  - Integrated new B30 models to enhance functionality and expand feature set.
 
-add support to MacOS, Lynux(v1.3.3 rc-1)
+- **Expanded Platform Support**
+  - Added support for MacOS and Linux in version v1.3.3 RC-1 to broaden accessibility.
 
-fix support for TensorRT 8.5.2(origin kata 1.4.1 release)
+- **Compatibility Enhancements**
+  - Resolved issues with TensorRT 8.5.2 compatibility in the original Kata 1.4.1 release.
+
+- **Fixed High CUDA Version Support**
+  - Addressed compatibility issues with CUDA versions 12.1 and older.
+
+- **Fixed High cuDNN Version Support**
+  - Resolved compatibility issues with cuDNN versions 8.9.8 and older.
+
+- **Fixed High TensorRT Version Support**
+  - Fixed compatibility issues with TensorRT versions 8.7.0 and older to ensure seamless integration.
