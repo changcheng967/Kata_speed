@@ -11,3 +11,6 @@ add b30 models(v1.3.2 rc-2)
 add support to MacOS, Lynux(v1.3.3 rc-1)
 
 fix support for TensorRT 8.5.2(origin kata 1.4.1 release)
+
+Fix high Cuda version support 12.1 and older
+Fix high Cudnn version support 8.9.8 and older
