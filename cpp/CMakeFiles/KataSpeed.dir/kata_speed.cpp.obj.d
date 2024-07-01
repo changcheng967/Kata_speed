@@ -163,4 +163,23 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/codecvt.h \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/x86_64-pc-cygwin/bits/basic_file.h \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/x86_64-pc-cygwin/bits/c++io.h \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/fstream.tcc
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/fstream.tcc \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/algorithm \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_algo.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/algorithmfwd.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_heap.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_tempbuf.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uniform_int_dist.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/glue_algorithm_defs.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/functional \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_function.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/unordered_map \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/aligned_buffer.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable_policy.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/enable_special_members.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/node_handle.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/unordered_map.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/erase_if.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/execution_defs.h \
+ /usr/include/unistd.h /usr/include/sys/unistd.h /usr/include/getopt.h

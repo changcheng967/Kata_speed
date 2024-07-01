@@ -9,7 +9,10 @@
 #include <chrono>
 #include <thread>
 #include <fstream>
-#include <cstdio>    // For std::FILE, std::popen, std::pclose
+#include <cstdio>    // For std::FILE
+#include <algorithm> // For std::remove
+#include <unistd.h>  // For POSIX compatibility
+#include <sys/types.h>
 
 const int BOARD_SIZE = 9;
 
@@ -306,7 +309,7 @@ private:
 
     std::string executeKataGoCommand(const std::string& kataGoCommand) const {
         // Open pipe to execute KataGo command
-        FILE* pipe = std::popen(kataGoCommand.c_str(), "r");
+        std::FILE* pipe = ::popen(kataGoCommand.c_str(), "r");
         if (!pipe) {
             throw std::runtime_error("popen() failed!");
         }
@@ -314,12 +317,12 @@ private:
         // Read KataGo's response
         char buffer[128];
         std::string result;
-        while (fgets(buffer, 128, pipe) != NULL) {
+        while (std::fgets(buffer, 128, pipe) != NULL) {
             result += buffer;
         }
 
         // Close pipe
-        std::pclose(pipe);
+        ::pclose(pipe);
 
         // Remove newline characters from result (if any)
         result.erase(std::remove(result.begin(), result.end(), '\n'), result.end());
