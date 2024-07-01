@@ -4,11 +4,11 @@
 #include <ctime>
 #include <sstream>
 #include <string>
-#include <stdexcept> // For std::invalid_argument
-#include <cmath>     // For std::abs
-#include <chrono>    // For std::chrono
-#include <thread>    // For std::this_thread
-#include <fstream>   // For file operations
+#include <stdexcept>
+#include <cmath>
+#include <chrono>
+#include <thread>
+#include <fstream>
 #include <cstdio>    // For std::FILE, std::popen, std::pclose
 
 const int BOARD_SIZE = 9;
@@ -276,8 +276,8 @@ private:
     }
 
     void handleTimeLeftCommand(std::istringstream& iss) {
-        // Implement time left reporting (optional for simplicity)
-        std::cout << "= " << std::endl;
+        // Implement time left handling (optional for simplicity)
+        std::cout << "=" << std::endl;
     }
 
     void handleFinalScoreCommand() {
@@ -287,7 +287,11 @@ private:
 
     void handleUndoCommand() {
         // Implement undo command handling (optional for simplicity)
-        std::cout << "= " << std::endl;
+        std::cout << "=" << std::endl;
+    }
+
+    bool boardCoordinatesValid(int x, int y) const {
+        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
     }
 
     Stone parseStone(const std::string& color) const {
@@ -300,41 +304,36 @@ private:
         }
     }
 
-    bool boardCoordinatesValid(int x, int y) const {
-        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
-    }
-
-    std::string executeKataGoCommand(const std::string& command) const {
-        std::string kataGoOutput;
-        std::string kataGoCommand = "katago ";
-        kataGoCommand += command;
-
-        // Open a pipe to execute the KataGo command
-        std::FILE* pipe = std::popen(kataGoCommand.c_str(), "r");
+    std::string executeKataGoCommand(const std::string& kataGoCommand) const {
+        // Open pipe to execute KataGo command
+        FILE* pipe = std::popen(kataGoCommand.c_str(), "r");
         if (!pipe) {
-            throw std::runtime_error("Failed to execute KataGo command");
+            throw std::runtime_error("popen() failed!");
         }
 
-        // Read output from KataGo command
+        // Read KataGo's response
         char buffer[128];
-        while (std::fgets(buffer, 128, pipe) != nullptr) {
-            kataGoOutput += buffer;
+        std::string result;
+        while (fgets(buffer, 128, pipe) != NULL) {
+            result += buffer;
         }
 
+        // Close pipe
         std::pclose(pipe);
-        return kataGoOutput;
+
+        // Remove newline characters from result (if any)
+        result.erase(std::remove(result.begin(), result.end(), '\n'), result.end());
+        return result;
     }
 };
 
 int main() {
-    srand(static_cast<unsigned int>(std::time(nullptr))); // Seed for random number generation
-
     Game game;
-    GTPHandler gtp(game);
+    GTPHandler handler(game);
 
     std::string command;
     while (std::getline(std::cin, command)) {
-        gtp.handleCommand(command);
+        handler.handleCommand(command);
     }
 
     return 0;
