@@ -4,7 +4,12 @@
 #include <ctime>
 #include <sstream>
 #include <string>
-#include <stdexcept> // For std::invalid_argument
+#include <stdexcept>
+#include <cmath>
+#include <chrono>
+#include <thread>
+#include <fstream>
+#include <cstdio>    // For std::FILE, std::popen, std::pclose
 
 const int BOARD_SIZE = 9;
 
@@ -56,19 +61,17 @@ public:
     Game() : currentPlayer(Stone::BLACK) {}
 
     void placeStone(int x, int y, Stone stone) {
-        if (!isLegalMove(x, y, stone)) {
-            throw std::runtime_error("Illegal move");
-        }
-
         board.setStone(x, y, stone);
         currentPlayer = (currentPlayer == Stone::BLACK) ? Stone::WHITE : Stone::BLACK;
     }
 
     bool isLegalMove(int x, int y, Stone stone) const {
+        // Check if the position is within bounds and empty
         return board.isOnBoard(x, y) && board.isEmpty(x, y);
     }
 
     bool isGameOver() const {
+        // Game over if the board is full or other end-game conditions are met
         return boardIsFull();
     }
 
@@ -98,37 +101,45 @@ private:
 class GTPHandler {
 private:
     Game& game;
-    std::unordered_map<std::string, std::function<void(std::istringstream&)>> commandHandlers;
 
 public:
-    GTPHandler(Game& g) : game(g) {
-        commandHandlers = {
-            {"protocol_version", [this](std::istringstream& iss){ handleProtocolVersion(); }},
-            {"name", [this](std::istringstream& iss){ handleName(); }},
-            {"version", [this](std::istringstream& iss){ handleVersion(); }},
-            {"list_commands", [this](std::istringstream& iss){ handleListCommands(); }},
-            {"boardsize", [this](std::istringstream& iss){ handleBoardSizeCommand(iss); }},
-            {"clear_board", [this](std::istringstream& iss){ handleClearBoardCommand(); }},
-            {"play", [this](std::istringstream& iss){ handlePlayCommand(iss); }},
-            {"genmove", [this](std::istringstream& iss){ handleGenmoveCommand(iss); }},
-            {"quit", [this](std::istringstream& iss){ handleQuitCommand(); }},
-            {"known_command", [this](std::istringstream& iss){ handleKnownCommand(iss); }},
-            {"board_status", [this](std::istringstream& iss){ handleBoardStatusCommand(); }},
-            {"time_settings", [this](std::istringstream& iss){ handleTimeSettingsCommand(iss); }},
-            {"time_left", [this](std::istringstream& iss){ handleTimeLeftCommand(iss); }},
-            {"final_score", [this](std::istringstream& iss){ handleFinalScoreCommand(); }},
-            {"undo", [this](std::istringstream& iss){ handleUndoCommand(); }}
-        };
-    }
+    GTPHandler(Game& g) : game(g) {}
 
     void handleCommand(const std::string& command) {
         std::istringstream iss(command);
         std::string cmd;
         iss >> cmd;
 
-        auto it = commandHandlers.find(cmd);
-        if (it != commandHandlers.end()) {
-            it->second(iss);
+        if (cmd == "protocol_version") {
+            handleProtocolVersion();
+        } else if (cmd == "name") {
+            handleName();
+        } else if (cmd == "version") {
+            handleVersion();
+        } else if (cmd == "list_commands") {
+            handleListCommands();
+        } else if (cmd == "boardsize") {
+            handleBoardSizeCommand(iss);
+        } else if (cmd == "clear_board") {
+            handleClearBoardCommand();
+        } else if (cmd == "play") {
+            handlePlayCommand(iss);
+        } else if (cmd == "genmove") {
+            handleGenmoveCommand();
+        } else if (cmd == "quit") {
+            handleQuitCommand();
+        } else if (cmd == "known_command") {
+            handleKnownCommand(iss);
+        } else if (cmd == "board_status") {
+            handleBoardStatusCommand();
+        } else if (cmd == "time_settings") {
+            handleTimeSettingsCommand(iss);
+        } else if (cmd == "time_left") {
+            handleTimeLeftCommand(iss);
+        } else if (cmd == "final_score") {
+            handleFinalScoreCommand();
+        } else if (cmd == "undo") {
+            handleUndoCommand();
         } else {
             std::cerr << "? unknown command" << std::endl;
         }
@@ -183,11 +194,7 @@ private:
 
     void handlePlayCommand(std::istringstream& iss) {
         std::string color, move;
-        if (!(iss >> color >> move)) {
-            std::cerr << "? syntax error" << std::endl;
-            return;
-        }
-
+        iss >> color >> move;
         Stone stone;
         try {
             stone = parseStone(color);
@@ -213,34 +220,30 @@ private:
         std::cout << "=" << std::endl;
     }
 
-    void handleGenmoveCommand(std::istringstream& iss) {
-        std::string color;
-        iss >> color;
-        Stone stone;
-        try {
-            stone = parseStone(color);
-        } catch (const std::invalid_argument& e) {
-            std::cerr << "? invalid color" << std::endl;
+    void handleGenmoveCommand() {
+        // Command KataGo for a move
+        std::string command = "genmove ";
+        command += (game.getCurrentPlayer() == Stone::BLACK) ? "black" : "white";
+
+        // Execute KataGo command
+        std::string kataGoMove = executeKataGoCommand(command);
+
+        // Parse KataGo's response and make the move
+        int x = kataGoMove[0] - 'a';
+        int y = BOARD_SIZE - (kataGoMove[1] - '0');
+
+        if (!boardCoordinatesValid(x, y)) {
+            std::cerr << "? KataGo returned an invalid move" << std::endl;
             return;
         }
 
-        // Limit maximum thinking time to 1 second
-        auto start = std::chrono::high_resolution_clock::now();
-        int x, y;
-        do {
-            x = rand() % BOARD_SIZE;
-            y = rand() % BOARD_SIZE;
+        if (!game.isLegalMove(x, y, game.getCurrentPlayer())) {
+            std::cerr << "? KataGo returned an illegal move" << std::endl;
+            return;
+        }
 
-            auto now = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> elapsed = now - start;
-            if (elapsed.count() > 1.0) {
-                std::cerr << "? max thinking time exceeded" << std::endl;
-                return;
-            }
-        } while (!game.isLegalMove(x, y, stone));
-
-        game.placeStone(x, y, stone);
-        std::cout << "= " << static_cast<char>('a' + x) << BOARD_SIZE - y << std::endl;
+        game.placeStone(x, y, game.getCurrentPlayer());
+        std::cout << "= " << kataGoMove << std::endl;
     }
 
     void handleQuitCommand() {
@@ -273,8 +276,8 @@ private:
     }
 
     void handleTimeLeftCommand(std::istringstream& iss) {
-        // Implement time left reporting (optional for simplicity)
-        std::cout << "= " << std::endl;
+        // Implement time left handling (optional for simplicity)
+        std::cout << "=" << std::endl;
     }
 
     void handleFinalScoreCommand() {
@@ -284,33 +287,53 @@ private:
 
     void handleUndoCommand() {
         // Implement undo command handling (optional for simplicity)
-        std::cout << "= " << std::endl;
-    }
-
-    Stone parseStone(const std::string& color) const {
-        if (color == "b") {
-            return Stone::BLACK;
-        } else if (color == "w") {
-            return Stone::WHITE;
-        } else {
-            throw std::invalid_argument("Invalid color");
-        }
+        std::cout << "=" << std::endl;
     }
 
     bool boardCoordinatesValid(int x, int y) const {
         return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
     }
+
+    Stone parseStone(const std::string& color) const {
+        if (color == "black") {
+            return Stone::BLACK;
+        } else if (color == "white") {
+            return Stone::WHITE;
+        } else {
+            throw std::invalid_argument("Invalid stone color");
+        }
+    }
+
+    std::string executeKataGoCommand(const std::string& kataGoCommand) const {
+        // Open pipe to execute KataGo command
+        FILE* pipe = std::popen(kataGoCommand.c_str(), "r");
+        if (!pipe) {
+            throw std::runtime_error("popen() failed!");
+        }
+
+        // Read KataGo's response
+        char buffer[128];
+        std::string result;
+        while (fgets(buffer, 128, pipe) != NULL) {
+            result += buffer;
+        }
+
+        // Close pipe
+        std::pclose(pipe);
+
+        // Remove newline characters from result (if any)
+        result.erase(std::remove(result.begin(), result.end(), '\n'), result.end());
+        return result;
+    }
 };
 
 int main() {
-    srand(static_cast<unsigned>(time(nullptr))); // Seed for random number generation
-
     Game game;
     GTPHandler handler(game);
 
-    std::string input;
-    while (std::getline(std::cin, input)) {
-        handler.handleCommand(input);
+    std::string command;
+    while (std::getline(std::cin, command)) {
+        handler.handleCommand(command);
     }
 
     return 0;

@@ -144,4 +144,23 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/modified_bessel_func.tcc \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_hermite.tcc \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_laguerre.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/riemann_zeta.tcc
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/riemann_zeta.tcc \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/chrono \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ratio \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/parse_numbers.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/thread \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_thread.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tuple \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/utility \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_relops.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/array \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uses_allocator.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/invoke.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/refwrap.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/unique_ptr.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/this_thread_sleep.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/fstream \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/codecvt.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/x86_64-pc-cygwin/bits/basic_file.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/x86_64-pc-cygwin/bits/c++io.h \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/fstream.tcc
