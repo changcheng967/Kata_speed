@@ -6,6 +6,8 @@
 #include <string>
 #include <stdexcept> // For std::invalid_argument
 #include <cmath>     // For std::abs
+#include <chrono>    // For std::chrono
+#include <thread>    // For std::this_thread
 
 const int BOARD_SIZE = 9;
 
@@ -227,11 +229,19 @@ private:
             return;
         }
 
-        // Simple bot's move (random for now)
+        // Limit maximum thinking time to 1 second
+        auto start = std::chrono::high_resolution_clock::now();
         int x, y;
         do {
             x = rand() % BOARD_SIZE;
             y = rand() % BOARD_SIZE;
+
+            auto now = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = now - start;
+            if (elapsed.count() > 1.0) {
+                std::cerr << "? max thinking time exceeded" << std::endl;
+                return;
+            }
         } while (!game.isLegalMove(x, y, stone));
 
         game.placeStone(x, y, stone);
