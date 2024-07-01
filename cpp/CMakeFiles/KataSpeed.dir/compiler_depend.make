@@ -59,8 +59,10 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/algorithm \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/array \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/backward/binders.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/algorithmfwd.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/alloc_traits.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/allocator.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/basic_ios.h \
@@ -74,6 +76,8 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/cpp_type_traits.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/cxxabi_forced.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/cxxabi_init_exception.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/enable_special_members.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/erase_if.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/exception.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/exception_defines.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/exception_ptr.h \
@@ -81,6 +85,8 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/functexcept.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/functional_hash.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hash_bytes.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable_policy.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/invoke.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/ios_base.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/istream.tcc \
@@ -92,6 +98,7 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/memoryfwd.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/move.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/nested_exception.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/node_handle.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/ostream.tcc \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/ostream_insert.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/parse_numbers.h \
@@ -103,16 +110,20 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/specfun.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/sstream.tcc \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_abs.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_function.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_thread.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_algo.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_algobase.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_bvector.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_construct.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_function.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_heap.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_iterator.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_iterator_base_funcs.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_iterator_base_types.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_pair.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_relops.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_tempbuf.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_uninitialized.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_vector.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/streambuf.tcc \
@@ -120,7 +131,9 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/string_view.tcc \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stringfwd.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/this_thread_sleep.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uniform_int_dist.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/unique_ptr.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/unordered_map.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uses_allocator.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/vector.tcc \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cctype \
@@ -137,6 +150,7 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/debug/assertions.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/debug/debug.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/exception \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/aligned_buffer.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/alloc_traits.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/atomicity.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/new_allocator.h \
@@ -144,6 +158,7 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/string_conversions.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/type_traits.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/fstream \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/functional \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/initializer_list \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ios \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/iosfwd \
@@ -152,6 +167,8 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/limits \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/new \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ostream \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/execution_defs.h \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/glue_algorithm_defs.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/pstl_config.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ratio \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/sstream \
@@ -176,6 +193,7 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tuple \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/type_traits \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/typeinfo \
+  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/unordered_map \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/utility \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/vector \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/x86_64-pc-cygwin/bits/atomic_word.h \
@@ -224,10 +242,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/bits/wordsize.h:
 
-/usr/include/alloca.h:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/basic_ios.tcc:
-
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/bessel_function.tcc:
 
 /usr/include/sys/config.h:
@@ -235,6 +249,10 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/include/sys/_intsup.h:
 
 /usr/include/errno.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/basic_ios.tcc:
+
+/usr/include/alloca.h:
 
 /usr/include/bits/byteswap.h:
 
@@ -257,6 +275,8 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/include/sys/_pthreadtypes.h:
 
 /usr/include/machine/_default_types.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/algorithmfwd.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uses_allocator.h:
 
@@ -285,6 +305,8 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/include/sys/cdefs.h:
 
 /usr/include/sched.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/unordered_map:
 
 /usr/include/sys/timespec.h:
 
@@ -324,7 +346,13 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/sys/lock.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uniform_int_dist.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/enable_special_members.h:
+
 /usr/include/sys/features.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/algorithm:
 
 /usr/include/sys/reent.h:
 
@@ -378,6 +406,10 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/cxxabi_init_exception.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cmath:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/erase_if.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/exception_defines.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/exception_ptr.h:
@@ -396,6 +428,10 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hash_bytes.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable_policy.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/ell_integral.tcc:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/streambuf.tcc:
@@ -413,6 +449,8 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/move.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/nested_exception.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/node_handle.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/ostream.tcc:
 
@@ -438,13 +476,21 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_abs.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_function.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/sstream:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_thread.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_algo.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_algobase.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_bvector.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ratio:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_heap.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_iterator.h:
 
@@ -456,6 +502,10 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_relops.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/typeinfo:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_tempbuf.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_uninitialized.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_vector.h:
@@ -466,6 +516,8 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/this_thread_sleep.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/unordered_map.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/vector.tcc:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cctype:
@@ -475,8 +527,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/chrono:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/clocale:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cmath:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cstdio:
 
@@ -494,6 +544,8 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/exception:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/aligned_buffer.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/atomicity.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/new_allocator.h:
@@ -510,6 +562,8 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/fstream:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/functional:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/initializer_list:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ios:
@@ -524,9 +578,11 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ostream:
 
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/pstl_config.h:
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/execution_defs.h:
 
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ratio:
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/glue_algorithm_defs.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/pstl/pstl_config.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/stdexcept:
 
@@ -553,8 +609,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/special_function_util.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/type_traits:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/typeinfo:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/x86_64-pc-cygwin/bits/basic_file.h:
 
