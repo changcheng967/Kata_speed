@@ -8,6 +8,8 @@
 #include <cmath>     // For std::abs
 #include <chrono>    // For std::chrono
 #include <thread>    // For std::this_thread
+#include <fstream>   // For file operations
+#include <cstdio>    // For std::FILE, std::popen, std::pclose
 
 const int BOARD_SIZE = 9;
 
@@ -123,7 +125,7 @@ public:
         } else if (cmd == "play") {
             handlePlayCommand(iss);
         } else if (cmd == "genmove") {
-            handleGenmoveCommand(iss);
+            handleGenmoveCommand();
         } else if (cmd == "quit") {
             handleQuitCommand();
         } else if (cmd == "known_command") {
@@ -203,7 +205,7 @@ private:
 
         int x = move[0] - 'a';
         int y = BOARD_SIZE - (move[1] - '0');
-        
+
         if (!boardCoordinatesValid(x, y)) {
             std::cerr << "? out of board bounds" << std::endl;
             return;
@@ -218,34 +220,30 @@ private:
         std::cout << "=" << std::endl;
     }
 
-    void handleGenmoveCommand(std::istringstream& iss) {
-        std::string color;
-        iss >> color;
-        Stone stone;
-        try {
-            stone = parseStone(color);
-        } catch (const std::invalid_argument& e) {
-            std::cerr << "? invalid color" << std::endl;
+    void handleGenmoveCommand() {
+        // Command KataGo for a move
+        std::string command = "genmove ";
+        command += (game.getCurrentPlayer() == Stone::BLACK) ? "black" : "white";
+
+        // Execute KataGo command
+        std::string kataGoMove = executeKataGoCommand(command);
+
+        // Parse KataGo's response and make the move
+        int x = kataGoMove[0] - 'a';
+        int y = BOARD_SIZE - (kataGoMove[1] - '0');
+
+        if (!boardCoordinatesValid(x, y)) {
+            std::cerr << "? KataGo returned an invalid move" << std::endl;
             return;
         }
 
-        // Limit maximum thinking time to 1 second
-        auto start = std::chrono::high_resolution_clock::now();
-        int x, y;
-        do {
-            x = rand() % BOARD_SIZE;
-            y = rand() % BOARD_SIZE;
+        if (!game.isLegalMove(x, y, game.getCurrentPlayer())) {
+            std::cerr << "? KataGo returned an illegal move" << std::endl;
+            return;
+        }
 
-            auto now = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> elapsed = now - start;
-            if (elapsed.count() > 1.0) {
-                std::cerr << "? max thinking time exceeded" << std::endl;
-                return;
-            }
-        } while (!game.isLegalMove(x, y, stone));
-
-        game.placeStone(x, y, stone);
-        std::cout << "= " << static_cast<char>('a' + x) << BOARD_SIZE - y << std::endl;
+        game.placeStone(x, y, game.getCurrentPlayer());
+        std::cout << "= " << kataGoMove << std::endl;
     }
 
     void handleQuitCommand() {
@@ -305,10 +303,31 @@ private:
     bool boardCoordinatesValid(int x, int y) const {
         return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
     }
+
+    std::string executeKataGoCommand(const std::string& command) const {
+        std::string kataGoOutput;
+        std::string kataGoCommand = "katago ";
+        kataGoCommand += command;
+
+        // Open a pipe to execute the KataGo command
+        std::FILE* pipe = std::popen(kataGoCommand.c_str(), "r");
+        if (!pipe) {
+            throw std::runtime_error("Failed to execute KataGo command");
+        }
+
+        // Read output from KataGo command
+        char buffer[128];
+        while (std::fgets(buffer, 128, pipe) != nullptr) {
+            kataGoOutput += buffer;
+        }
+
+        std::pclose(pipe);
+        return kataGoOutput;
+    }
 };
 
 int main() {
-    srand(static_cast<unsigned int>(time(nullptr))); // Seed for random number generation
+    srand(static_cast<unsigned int>(std::time(nullptr))); // Seed for random number generation
 
     Game game;
     GTPHandler gtp(game);
