@@ -1,0 +1,97 @@
+Delivered-To: changcheng6541@gmail.com
+Received: by 2002:a98:8432:0:b0:204:974a:8147 with SMTP id f18csp256610eif;
+        Fri, 28 Jun 2024 15:21:36 -0700 (PDT)
+X-Received: by 2002:a17:906:48cf:b0:a72:4562:bf3a with SMTP id a640c23a62f3a-a7245c64933mr1098500766b.70.1719613296359;
+        Fri, 28 Jun 2024 15:21:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1719613296; cv=none;
+        d=google.com; s=arc-20160816;
+        b=JzaVDnYAb69fVf3E12rGnFutZi+QYMQgecJ/EbLTNAl+F5DkjD+OKTX4wUE/5ejj7Q
+         4tzRkacMHWJIEyww3v7orzmwxuouv0WsSeDan2XTrqQSunK0ZMBdyf1RyavmpK9/2yRm
+         hwvleNmQl3Gb9ivPmSQ3pRlZO/esSs01mHA7LoQKTEDP8foCeEEOpK4dboQPwmuuGpDc
+         qoUdUQYnvh+cYY5M8NLtkwHOHU3BSjUY5prLZqDKWTcuKeEWA9tb73ZgsxseS0n7Nmeq
+         joEZRDXcH0m0m4WyjIQtIIY/BfHkxiT87axQdBhrJOZPcXd+jMuVdTXUEhds2pXCFlMo
+         SgAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=Zv+pcCWem6kDMsPE7vY3DGRtg9PtG8Eo9hOA6Wv9z+c=;
+        fh=RiA6t5YFLvpulyzXh0YB8EaBL0pL1GhbEzLeWX5gR7w=;
+        b=O3Ei+XD1FzfDfo8OEAAfenDY+EzCv4PzVxNNK1dgvKWhXx7NMPk/W1VR5PbE2sRj6m
+         v6P9iMUZLXjhCrJDMBCLd+/Xv0oZp6TOTX+P7oLqUyJQ0iLTRGlevGGYHKrWhEdcdCTY
+         1FbOtohr4jxTJ9nKnCIi089+ZDqwxQCPDLi2FnEWlZoac9Nt/1wO0wLKQU07ffqJPyXe
+         w23k0MowRiVwewmKOkTtB6kdJl0Lzq03PonuCKhsx8dTSivnQnZoelezuCoN9rvOb53i
+         3+arFKUAgAxam9yKjQ/X4PfPtnnpjTneAgW7TrT600PkH6NHiqZDHQsqWELG+1ltpBfN
+         uhRg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=hM289LFS;
+       spf=pass (google.com: domain of changchengdouletmedia@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=changchengdouletmedia@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <changchengdouletmedia@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-a72ab1d4bbesor79034166b.9.2024.06.28.15.21.36
+        for <changcheng6541@gmail.com>
+        (Google Transport Security);
+        Fri, 28 Jun 2024 15:21:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of changchengdouletmedia@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=hM289LFS;
+       spf=pass (google.com: domain of changchengdouletmedia@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=changchengdouletmedia@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1719613295; x=1720218095; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Zv+pcCWem6kDMsPE7vY3DGRtg9PtG8Eo9hOA6Wv9z+c=;
+        b=hM289LFS7Xbq4bTOTgzHFvKFfkM2Kcbs7mVH2wOAfHROR4pwSPlPtcoKLFtqWb8Tis
+         gmqobHiYiBRpzc21VDEDdM/w+Q//FkYIOp3Dqg8HOVZ1bD4860jQh/kIelMCCeScAdST
+         2mVW0t1AUYQ3dIAOgdnXgBGxCJb0lN/+DiQH+et12SoI/dFdNy1xHXC0v6HDcwFuR3OZ
+         mmi8MTRVKavk8xaWwCN2nWE8gm+bw+qIgPknUvlnGjO0nV+iifLhTgW7h6jkqnWm7c5C
+         K+jXBO5SWf5nfRfNUxVn6bVqnE40MFPF2vSGVIpM6fSsySqMTQ6IQEQ3F4CF/EqK/pKQ
+         MY/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719613295; x=1720218095;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Zv+pcCWem6kDMsPE7vY3DGRtg9PtG8Eo9hOA6Wv9z+c=;
+        b=YKXhe/n675Laa+TuTV4XdfrKk1yL5HHylisS2ofZ/tpPLi3hYYKJrwT0u2n6bTEiO0
+         3svTfTZwAmq7jq/5QUC9GDAsyToyf5IDbJfdC0GsWg4K8GsQXSEjv7S5kXllx/DAydMf
+         aCHM4K5dIb1hUi/k66OGmHodVtVHQw1mNSp6Eusc4jQUR7RbTI8QkhMkoF907sWTBmMy
+         jLhVlLkjBkrt+KgA4rJvpU6h+KTzij3atsd1xRw8+LJyPp+CMKo7Jn0aw/yZ92sGtxL7
+         7R88Qd/7Ju1XJs0J4/5iJxYL4tetExs6GiihSLMkyx84Q6J8OhSR+RKOKPdetIxtAycB
+         vUIQ==
+X-Gm-Message-State: AOJu0YytZe4IRZxPhuLrz79kZ+kAdIhz28jtQ/P9ZYH+rGL8tHMDOk0v
+	0l+k+IjLTzCVUCGIGdP6ol53M7lx8nq9rvj3G62/Q+crl/YR8Ea6+oOKoOc2RgVz50ACiaWb4Ak
+	bxDXUCuZB6Bg5ZCbYAU5zw3eQwTp7GjV/
+X-Google-Smtp-Source: AGHT+IGKDac6DJdP/ePrtqKkrxMnLvkTkdPzAe9yDRrbHJ5TohsLkTnyFEkbEsrSaCkbaY3PbVInVvPBGI4hAd9SNAo=
+X-Received: by 2002:a17:907:c5c4:b0:a70:7a10:de0b with SMTP id
+ a640c23a62f3a-a727f79b78bmr850930166b.21.1719613295333; Fri, 28 Jun 2024
+ 15:21:35 -0700 (PDT)
+MIME-Version: 1.0
+From: Chang Chang <changchengdouletmedia@gmail.com>
+Date: Fri, 28 Jun 2024 18:21:22 -0400
+Message-ID: <CAHe=zURbwYfvEJ+KurHjXay6n6j_gARNySLBgRgqDMKPUh9wFg@mail.gmail.com>
+Subject: Security report
+To: "changcheng6541@gmail.com" <changcheng6541@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000009e9989061bfaab53"
+
+--0000000000009e9989061bfaab53
+Content-Type: text/plain; charset="UTF-8"
+
+Emergency report, @changchengdouletmedia just uploaded a file called
+crasher.bat
+
+https://github.com/changcheng967/Kata_speed/commit/c3917fc843f9ec6395be01fe5508b92a584ebc1d
+
+--0000000000009e9989061bfaab53
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Emergency report,=C2=A0@changchengdouletmedia just uploade=
+d a file called crasher.bat<br><br><a href=3D"https://github.com/changcheng=
+967/Kata_speed/commit/c3917fc843f9ec6395be01fe5508b92a584ebc1d">https://git=
+hub.com/changcheng967/Kata_speed/commit/c3917fc843f9ec6395be01fe5508b92a584=
+ebc1d</a><br></div>
+
+--0000000000009e9989061bfaab53--
