@@ -16,6 +16,7 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/include/cygwin/wait.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
+  /usr/include/getopt.h \
   /usr/include/locale.h \
   /usr/include/machine/_default_types.h \
   /usr/include/machine/_endian.h \
@@ -56,7 +57,9 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/include/sys/timespec.h \
   /usr/include/sys/types.h \
   /usr/include/sys/ucontext.h \
+  /usr/include/sys/unistd.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/algorithm \
@@ -272,11 +275,13 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/cygwin/wait.h:
 
+/usr/include/sys/_timeval.h:
+
+/usr/include/getopt.h:
+
 /usr/include/sys/_pthreadtypes.h:
 
 /usr/include/machine/_default_types.h:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/algorithmfwd.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uses_allocator.h:
 
@@ -332,8 +337,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/sys/_timespec.h:
 
-/usr/include/sys/_timeval.h:
-
 /usr/include/sys/_types.h:
 
 /usr/include/sys/cpuset.h:
@@ -356,7 +359,7 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/sys/reent.h:
 
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/alloc_traits.h:
+/usr/include/sys/unistd.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/stl_construct.h:
 
@@ -373,6 +376,14 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/include/sys/ucontext.h:
 
 /usr/include/time.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/thread:
+
+/usr/include/unistd.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/algorithmfwd.h:
+
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/alloc_traits.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/locale_facets.tcc:
 
@@ -591,8 +602,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/string:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/system_error:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/thread:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/exp_integral.tcc:
 
