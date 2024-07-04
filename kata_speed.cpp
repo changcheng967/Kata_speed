@@ -224,7 +224,7 @@ private:
 
     void handleGenmoveCommand() {
         // Command KataGo for a move
-        std::string command = "genmove ";
+        std::string command = "kataspeed gtp -config C:\\Users\\chang\\Downloads\\katago-v1.14.1-opencl-windows-x64\\golaxy_9d.cfg -model C:\\Users\\chang\\Downloads\\kata1-b28c512nbt-s7168446720-d4316919285.bin.gz genmove ";
         command += (game.getCurrentPlayer() == Stone::BLACK) ? "black" : "white";
 
         // Execute KataGo command
@@ -274,69 +274,4 @@ private:
 
     void handleTimeSettingsCommand(std::istringstream& iss) {
         // Implement time settings handling (optional for simplicity)
-        std::cout << "=" << std::endl;
-    }
-
-    void handleTimeLeftCommand(std::istringstream& iss) {
-        // Implement time left handling (optional for simplicity)
-        std::cout << "=" << std::endl;
-    }
-
-    void handleFinalScoreCommand() {
-        // Implement final score reporting (optional for simplicity)
-        std::cout << "= " << std::endl;
-    }
-
-    void handleUndoCommand() {
-        // Implement undo command handling (optional for simplicity)
-        std::cout << "=" << std::endl;
-    }
-
-    bool boardCoordinatesValid(int x, int y) const {
-        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
-    }
-
-    Stone parseStone(const std::string& color) const {
-        if (color == "black") {
-            return Stone::BLACK;
-        } else if (color == "white") {
-            return Stone::WHITE;
-        } else {
-            throw std::invalid_argument("Invalid stone color");
-        }
-    }
-
-    std::string executeKataGoCommand(const std::string& kataGoCommand) const {
-        // Open pipe to execute KataGo command
-        std::FILE* pipe = ::popen(kataGoCommand.c_str(), "r");
-        if (!pipe) {
-            throw std::runtime_error("popen() failed!");
-        }
-
-        // Read KataGo's response
-        char buffer[128];
-        std::string result;
-        while (std::fgets(buffer, 128, pipe) != NULL) {
-            result += buffer;
-        }
-
-        // Close pipe
-        ::pclose(pipe);
-
-        // Remove newline characters from result (if any)
-        result.erase(std::remove(result.begin(), result.end(), '\n'), result.end());
-        return result;
-    }
-};
-
-int main() {
-    Game game;
-    GTPHandler handler(game);
-
-    std::string command;
-    while (std::getline(std::cin, command)) {
-        handler.handleCommand(command);
-    }
-
-    return 0;
-}
+        std::
