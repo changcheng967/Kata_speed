@@ -5,7 +5,6 @@
 #include <sstream>
 #include <string>
 #include <stdexcept>
-#include <cmath>
 #include <chrono>
 #include <thread>
 #include <fstream>
