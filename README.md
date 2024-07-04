@@ -11,43 +11,67 @@ Kata_speed is a Go AI engine that is designed to be fast, strong, and easy to ru
 
 ## Installation
 
-To install Kata_speed, visit the [release page](https://github.com/changcheng967/Kata_speed/releases) and download the latest release that suits your system.
+### Cloning the Repository
 
-## Solving Unsupported CUDA v12.4 Issue
+To download Kata_speed by cloning the repository, follow these steps:
 
-If you are experiencing issues with CUDA v12.4 not being supported, you can use the provided batch script [`solve_cuda_issue.bat`](https://github.com/changcheng967/Kata_speed/blob/main/solve_cuda_issue.bat) to resolve the issue. This script will uninstall CUDA v12.4 and install CUDA v11.4, then rebuild Kata_speed. The script is also available on the release page.
+1. Open a terminal (cmd) and navigate to the directory where you want to clone the repository.
+2. Run the following command to clone the repository:
+   ```sh
+   git clone https://github.com/changcheng967/Kata_speed.git
+   ```
+Downloading and Installing CMake GUI
+If you don't have CMake GUI installed, download and install it from the CMake website.
 
-### Instructions:
+Configuring with CMake GUI
+Open CMake GUI.
+Set the source code to the cpp folder in your cloned repository. For example:
 
-1. **Customize Paths**:
-   - Replace `\path\to\Kata_speed` with the actual path to your Kata_speed repository.
+```C:\Users\<your_username>\Kata_speed\cpp```
+Set the binary directory to the folder where you want to save the executable file.
+Click Configure and select your generator (e.g., Visual Studio, MinGW Makefiles, etc.).
+Click Generate.
+Building the Executable
+Open a terminal (cmd).
+Navigate to the binary directory you set in CMake GUI.
+Run the following command to build the executable:
+```sh
+make
+```
+Setting Up gtp2ogs
+Download gtp2ogs.
+Configure gtp2ogs with the following command:
 
-2. **Save the Script**:
-   - Save the above script as `solve_cuda_issue.bat`.
+```gtp2ogs --apikey <bots_api_key> --config <path_to_your_config.json5> -- <path_to_your_executable\kataspeed.exe>```
+Replace <bots_api_key> with your bot's API key.
+Create a JSON5 config file following the guide in the gtp2ogs repository.
+Replace <path_to_your_executable\kataspeed.exe> with the path to your kataspeed.exe file.
+Solving Unsupported CUDA v12.4 Issue
+If you are experiencing issues with CUDA v12.4 not being supported, you can use the provided batch script solve_cuda_issue.bat to resolve the issue. This script will uninstall CUDA v12.4 and install CUDA v11.4, then rebuild Kata_speed. The script is also available on the release page.
 
-3. **Run the Script**:
-   - Right-click on `solve_cuda_issue.bat` and select "Run as administrator".
+Instructions:
+Customize Paths:
+Replace \path\to\Kata_speed with the actual path to your Kata_speed repository.
 
+Save the Script:
+Save the above script as solve_cuda_issue.bat.
+
+Run the Script:
+Right-click on solve_cuda_issue.bat and select "Run as administrator".
 This script automates the process of resolving the unsupported CUDA issue.
 
-## Network Sharing Site
+Network Sharing Site
+Visit our network sharing site to download pre-trained networks and share your own.
 
-Visit our [network sharing site](https://katagui40b.free.nf/) to download pre-trained networks and share your own.
+Contributing
+We welcome contributions from the community. If you would like to contribute, please contact changcheng6541@gmail.com with your GitHub username and email.
 
-## Contributing
+Please see our Code of Conduct before contributing.
 
-We welcome contributions from the community. If you would like to contribute, please contact [changcheng6541@gmail.com](mailto:changcheng6541@gmail.com) with your GitHub username and email.
+License
+Kata_speed is licensed under the MIT License.
 
-Please see our [Code of Conduct](https://github.com/changcheng967/Kata_speed/blob/main/CODE_OF_CONDUCT.md) before contributing.
-
-## License
-
-Kata_speed is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-If you have any questions or need assistance, feel free to reach out to [changcheng6541@gmail.com](mailto:changcheng6541@gmail.com).
-
----
+Contact
+If you have any questions or need assistance, feel free to reach out to changcheng6541@gmail.com.
 
 Thank you for using Kata_speed and helping us improve our software!
