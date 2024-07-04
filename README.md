@@ -42,7 +42,9 @@ Setting Up gtp2ogs
 Download gtp2ogs.
 Configure gtp2ogs with the following command:
 
-```gtp2ogs --apikey <bots_api_key> --config <path_to_your_config.json5> -- <path_to_your_executable\kataspeed.exe>```
+```sh
+gtp2ogs --apikey <bots_api_key> --config <path_to_your_config.json5> -- <path_to_your_executable\kataspeed.exe>
+```
 Replace <bots_api_key> with your bot's API key.
 Create a JSON5 config file following the guide in the gtp2ogs repository.
 Replace <path_to_your_executable\kataspeed.exe> with the path to your kataspeed.exe file.
