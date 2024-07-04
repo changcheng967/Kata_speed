@@ -27,7 +27,9 @@ Configuring with CMake GUI
 Open CMake GUI.
 Set the source code to the cpp folder in your cloned repository. For example:
 
-```C:\Users\<your_username>\Kata_speed\cpp```
+```txt
+C:\Users\<your_username>\Kata_speed\cpp
+```
 Set the binary directory to the folder where you want to save the executable file.
 Click Configure and select your generator (e.g., Visual Studio, MinGW Makefiles, etc.).
 Click Generate.
