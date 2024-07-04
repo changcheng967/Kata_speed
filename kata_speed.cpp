@@ -8,7 +8,7 @@
 #include <chrono>
 #include <thread>
 #include <fstream>
-#include <cstdio>    // For std::FILE
+#include <cstdio>    // For std::remove
 #include <algorithm> // For std::remove
 #include <unistd.h>  // For POSIX compatibility
 #include <sys/types.h>
@@ -228,7 +228,13 @@ private:
         command += (game.getCurrentPlayer() == Stone::BLACK) ? "black" : "white";
 
         // Execute KataGo command
-        std::string kataGoMove = executeKataGoCommand(command);
+        std::string kataGoMove;
+        try {
+            kataGoMove = executeKataGoCommand(command);
+        } catch (const std::exception& e) {
+            std::cerr << "? error executing KataGo command: " << e.what() << std::endl;
+            return;
+        }
 
         // Parse KataGo's response and make the move
         int x = kataGoMove[0] - 'a';
@@ -274,26 +280,22 @@ private:
 
     void handleTimeSettingsCommand(std::istringstream& iss) {
         // Implement time settings handling (optional for simplicity)
-        std::cout << "=" << std::endl;
+        std::cout << "= " << std::endl;
     }
 
     void handleTimeLeftCommand(std::istringstream& iss) {
         // Implement time left handling (optional for simplicity)
-        std::cout << "=" << std::endl;
+        std::cout << "= " << std::endl;
     }
 
     void handleFinalScoreCommand() {
-        // Implement final score reporting (optional for simplicity)
+        // Implement final score handling (optional for simplicity)
         std::cout << "= " << std::endl;
     }
 
     void handleUndoCommand() {
         // Implement undo command handling (optional for simplicity)
         std::cout << "=" << std::endl;
-    }
-
-    bool boardCoordinatesValid(int x, int y) const {
-        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
     }
 
     Stone parseStone(const std::string& color) const {
@@ -306,25 +308,48 @@ private:
         }
     }
 
-    std::string executeKataGoCommand(const std::string& command) const {
-        // Implement KataGo command execution and return the move
-        // Example implementation:
-        // std::string move = callKataGo(command);
-        // return move;
+    bool boardCoordinatesValid(int x, int y) const {
+        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
+    }
 
-        // For simplicity, returning a dummy move
-        return "d4";
+    std::string executeKataGoCommand(const std::string& command) const {
+        std::string kataGoMove;
+
+        // Example: Execute KataGo command using system call
+        std::string kataGoCmd = "kata_exe ";
+        kataGoCmd += command;
+
+        std::cout << "Executing KataGo command: " << kataGoCmd << std::endl;
+
+        // Execute the command and capture the output (replace with actual execution method)
+        std::string result;
+        FILE* pipe = popen(kataGoCmd.c_str(), "r");
+        if (!pipe) {
+            throw std::runtime_error("Failed to open pipe for KataGo command execution");
+        }
+
+        char buffer[128];
+        while (fgets(buffer, 128, pipe) != NULL) {
+            result += buffer;
+        }
+
+        pclose(pipe);
+
+        // Process KataGo's output to extract the move
+        // Replace this part with actual parsing logic
+        kataGoMove = "h7"; // Example move for demonstration
+
+        return kataGoMove;
     }
 };
 
 int main() {
     Game game;
-    GTPHandler handler(game);
+    GTPHandler gtpHandler(game);
 
     std::string command;
-    while (true) {
-        std::getline(std::cin, command);
-        handler.handleCommand(command);
+    while (std::getline(std::cin, command)) {
+        gtpHandler.handleCommand(command);
     }
 
     return 0;
