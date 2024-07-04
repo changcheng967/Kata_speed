@@ -224,7 +224,7 @@ private:
 
     void handleGenmoveCommand() {
         // Command KataGo for a move
-        std::string command = "kataspeed gtp -config C:\\Users\\chang\\Downloads\\katago-v1.14.1-opencl-windows-x64\\golaxy_9d.cfg -model C:\\Users\\chang\\Downloads\\kata1-b28c512nbt-s7168446720-d4316919285.bin.gz genmove ";
+        std::string command = "genmove ";
         command += (game.getCurrentPlayer() == Stone::BLACK) ? "black" : "white";
 
         // Execute KataGo command
@@ -274,4 +274,58 @@ private:
 
     void handleTimeSettingsCommand(std::istringstream& iss) {
         // Implement time settings handling (optional for simplicity)
-        std::
+        std::cout << "=" << std::endl;
+    }
+
+    void handleTimeLeftCommand(std::istringstream& iss) {
+        // Implement time left handling (optional for simplicity)
+        std::cout << "=" << std::endl;
+    }
+
+    void handleFinalScoreCommand() {
+        // Implement final score reporting (optional for simplicity)
+        std::cout << "= " << std::endl;
+    }
+
+    void handleUndoCommand() {
+        // Implement undo command handling (optional for simplicity)
+        std::cout << "=" << std::endl;
+    }
+
+    bool boardCoordinatesValid(int x, int y) const {
+        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
+    }
+
+    Stone parseStone(const std::string& color) const {
+        if (color == "black") {
+            return Stone::BLACK;
+        } else if (color == "white") {
+            return Stone::WHITE;
+        } else {
+            throw std::invalid_argument("Invalid color");
+        }
+    }
+
+    std::string executeKataGoCommand(const std::string& command) const {
+        // Implement KataGo command execution and return the move
+        // Example implementation:
+        // std::string move = callKataGo(command);
+        // return move;
+
+        // For simplicity, returning a dummy move
+        return "d4";
+    }
+};
+
+int main() {
+    Game game;
+    GTPHandler handler(game);
+
+    std::string command;
+    while (true) {
+        std::getline(std::cin, command);
+        handler.handleCommand(command);
+    }
+
+    return 0;
+}
