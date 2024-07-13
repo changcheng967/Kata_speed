@@ -1,0 +1,198 @@
+2024-06-20 17:44:40-0400: Running with following config:
+allowResignation = true
+lagBuffer = 1.0
+logAllGTPCommunication = true
+logDir = gtp_logs
+logSearchInfo = true
+logSearchInfoForChosenMove = false
+logToStderr = false
+maxTime = 1.0
+maxTimePondering = 120.0
+numSearchThreads = 32
+ogsChatToStderr = true
+ponderingEnabled = true
+resignConsecTurns = 3
+resignThreshold = -0.90
+rules = tromp-taylor
+searchFactorAfterOnePass = 0.50
+searchFactorAfterTwoPass = 0.25
+searchFactorWhenWinning = 0.40
+searchFactorWhenWinningThreshold = 0.95
+
+2024-06-20 17:44:40-0400: GTP Engine starting...
+2024-06-20 17:44:40-0400: KataGo v1.14.1
+2024-06-20 17:44:40-0400: Using TrompTaylor rules initially, unless GTP/GUI overrides this
+2024-06-20 17:44:40-0400: Using 32 CPU thread(s) for search
+2024-06-20 17:44:40-0400: nnRandSeed0 = 17321684232881983528
+2024-06-20 17:44:40-0400: After dedups: nnModelFile0 = C:/Users/chang/Downloads/kata1-b18c384nbt-s9937771520-d4300882049.bin.gz useFP16 auto useNHWC auto
+2024-06-20 17:44:40-0400: Initializing neural net buffer to be size 19 * 19 exactly
+2024-06-20 17:44:44-0400: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.5.51)
+2024-06-20 17:44:44-0400: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator
+2024-06-20 17:44:44-0400: Found OpenCL Platform 1: Intel(R) OpenCL Graphics (Intel(R) Corporation) (OpenCL 3.0 )
+2024-06-20 17:44:44-0400: Found 1 device(s) on platform 1 with type CPU or GPU or Accelerator
+2024-06-20 17:44:44-0400: Found OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) (score 11000300)
+2024-06-20 17:44:44-0400: Found OpenCL Device 1: Intel(R) UHD Graphics (Intel(R) Corporation) (score 6000300)
+2024-06-20 17:44:44-0400: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.5.51)
+2024-06-20 17:44:45-0400: Using OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) OpenCL 3.0 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32)
+2024-06-20 17:44:45-0400: Loaded tuning parameters from: C:\Users\chang\Downloads\katago-v1.14.1-opencl-windows-x64/KataGoData/opencltuning/tune11_gpuNVIDIAGeForceRTX4060LaptopGPU_x19_y19_c384_mv14.txt
+2024-06-20 17:44:46-0400: OpenCL backend thread 0: Model version 14
+2024-06-20 17:44:46-0400: OpenCL backend thread 0: Model name: kata1-b18c384nbt-s9937771520-d4300882049
+2024-06-20 17:44:47-0400: OpenCL backend thread 0: FP16Storage true FP16Compute false FP16TensorCores true FP16TensorCoresFor1x1 false
+2024-06-20 17:44:47-0400: Loaded neural net with nnXLen 19 nnYLen 19
+2024-06-20 17:44:47-0400: Initializing board with boardXSize 19 boardYSize 19
+2024-06-20 17:44:47-0400: Loaded config C:\Users\chang\Downloads\katago-v1.14.1-cuda12.1-cudnn8.9.7-windows-x64/default_gtp.cfg
+2024-06-20 17:44:47-0400: Loaded model C:/Users/chang/Downloads/kata1-b18c384nbt-s9937771520-d4300882049.bin.gz
+2024-06-20 17:44:47-0400: Model name: kata1-b18c384nbt-s9937771520-d4300882049
+2024-06-20 17:44:47-0400: GTP ready, beginning main protocol loop
+2024-06-20 17:44:47-0400: Controller: list_commands
+2024-06-20 17:44:47-0400: = protocol_version
+name
+version
+known_command
+list_commands
+quit
+boardsize
+rectangular_boardsize
+clear_board
+set_position
+komi
+get_komi
+play
+undo
+kata-get-rules
+kata-set-rule
+kata-set-rules
+kata-get-param
+kata-set-param
+kata-list-params
+kgs-rules
+genmove
+genmove_debug
+search_debug
+clear_cache
+showboard
+fixed_handicap
+place_free_handicap
+set_free_handicap
+time_settings
+kgs-time_settings
+time_left
+kata-list_time_settings
+kata-time_settings
+final_score
+final_status_list
+loadsgf
+printsgf
+lz-genmove_analyze
+kata-genmove_analyze
+lz-analyze
+kata-analyze
+kata-raw-nn
+cputime
+gomill-cpu_time
+kata-benchmark
+kata-debug-print-tc
+debug_moves
+stop
+2024-06-20 17:44:47-0400: Controller: boardsize 9
+2024-06-20 17:44:47-0400: GPU -1 finishing, processed 0 rows 0 batches
+2024-06-20 17:44:47-0400: Cleaned up old neural net and bot
+2024-06-20 17:44:47-0400: nnRandSeed0 = 12436665045181217720
+2024-06-20 17:44:47-0400: After dedups: nnModelFile0 = C:/Users/chang/Downloads/kata1-b18c384nbt-s9937771520-d4300882049.bin.gz useFP16 auto useNHWC auto
+2024-06-20 17:44:47-0400: Initializing neural net buffer to be size 9 * 9 exactly
+2024-06-20 17:44:50-0400: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.5.51)
+2024-06-20 17:44:50-0400: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator
+2024-06-20 17:44:50-0400: Found OpenCL Platform 1: Intel(R) OpenCL Graphics (Intel(R) Corporation) (OpenCL 3.0 )
+2024-06-20 17:44:50-0400: Found 1 device(s) on platform 1 with type CPU or GPU or Accelerator
+2024-06-20 17:44:50-0400: Found OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) (score 11000300)
+2024-06-20 17:44:50-0400: Found OpenCL Device 1: Intel(R) UHD Graphics (Intel(R) Corporation) (score 6000300)
+2024-06-20 17:44:50-0400: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.5.51)
+2024-06-20 17:44:50-0400: Using OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) OpenCL 3.0 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32)
+2024-06-20 17:44:50-0400: Loaded tuning parameters from: C:\Users\chang\Downloads\katago-v1.14.1-opencl-windows-x64/KataGoData/opencltuning/tune11_gpuNVIDIAGeForceRTX4060LaptopGPU_x19_y19_c384_mv14.txt
+2024-06-20 17:44:50-0400: OpenCL backend thread 0: Model version 14
+2024-06-20 17:44:50-0400: OpenCL backend thread 0: Model name: kata1-b18c384nbt-s9937771520-d4300882049
+2024-06-20 17:44:53-0400: OpenCL backend thread 0: FP16Storage true FP16Compute false FP16TensorCores true FP16TensorCoresFor1x1 false
+2024-06-20 17:44:53-0400: Loaded neural net with nnXLen 9 nnYLen 9
+2024-06-20 17:44:53-0400: Initializing board with boardXSize 9 boardYSize 9
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: clear_board
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: komi 7.5
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black f5
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white d5
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black c7
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white d7
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black d8
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white e7
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black e8
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white f7
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black c6
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white e5
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black f3
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white d3
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black c4
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white e3
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black g4
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white c5
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play black b5
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: play white g6
+2024-06-20 17:44:53-0400: = 
+2024-06-20 17:44:53-0400: Controller: genmove black
+2024-06-20 17:44:54-0400: MoveNum: 18 HASH: 7A02967626EFCEA5AA01AACED2B47BF8
+   A B C D E F G H J
+ 9 . . . . . . . . .
+ 8 . . . X X . . . .
+ 7 . . X O O O . . .
+ 6 . . X . . . O3. .
+ 5 . X2O1O O X . @ .
+ 4 . . X . . . X . .
+ 3 . . . O O X . . .
+ 2 . . . . . . . . .
+ 1 . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1
+Root visits: 2771
+New playouts: 2771
+NN rows: 1356
+NN batches: 59
+NN avg batch size: 22.9831
+PV: H5 H6 E2 B8 C8 B6 B4 B7 B9 D2 F2 H3 J6 H2 J7 H8 H1 C9 D9
+Tree:
+: T  81.70c W  81.82c S   1.65c ( +2.6 L  +2.8) N    2771  --  H5 H6 E2 B8 C8 B6 B4
+---Black(^)---
+H5  : T  82.25c W  82.33c S   1.69c ( +2.6 L  +2.8) LCB   79.35c P 91.56% WF 2337.9 PSV    2333 N    2697  --  H5 H6 E2 B8 C8 B6 B4 B7
+E2  : T -11.45c W  -3.17c S  -3.90c ( +0.1 L  +0.5) LCB  -92.84c P  7.47% WF   3.6 PSV       5 N       9  --  E2 H5 H4 D2 F8
+F2  : T -56.08c W -49.77c S  -5.68c ( -0.8 L  -0.4) LCB -205.77c P  0.48% WF   0.8 PSV       0 N       2  --  F2 H5
+H4  : T -36.01c W -32.91c S  -5.34c ( -0.8 L  +0.1) LCB -193.99c P  0.09% WF   0.6 PSV       0 N       2  --  H4 B8
+G2  : T -67.34c W -60.99c S  -6.36c ( -0.9 L  -0.4) LCB -417.34c P  0.26% WF   0.5 PSV       0 N       1  --  G2
+H3  : T -65.31c W -58.78c S  -6.52c ( -1.0 L  -0.5) LCB -415.31c P  0.03% WF   0.4 PSV       0 N       1  --  H3
+H6  : T -83.98c W -76.19c S  -7.80c ( -1.5 L  -2.6) LCB -433.98c P  0.03% WF   0.5 PSV       0 N       1  --  H6
+B3  : T -93.29c W -82.50c S -10.79c ( -3.5 L  -3.4) LCB -443.29c P  0.02% WF   0.5 PSV       0 N       1  --  B3
+H7  : T -90.59c W -82.38c S  -8.21c ( -1.7 L  -1.5) LCB -440.59c P  0.01% WF   0.3 PSV       0 N       1  --  H7
+G5  : T -89.90c W -82.01c S  -7.89c ( -1.5 L  -0.6) LCB -439.90c P  0.01% WF   0.2 PSV       0 N       1  --  G5
+
+2024-06-20 17:44:54-0400: = H5
+2024-06-20 17:54:54-0400: Controller: quit
+2024-06-20 17:54:54-0400: Quit requested by controller
+2024-06-20 17:54:54-0400: = 
+2024-06-20 17:54:55-0400: GPU -1 finishing, processed 142985 rows 5828 batches
+2024-06-20 17:54:55-0400: All cleaned up, quitting
