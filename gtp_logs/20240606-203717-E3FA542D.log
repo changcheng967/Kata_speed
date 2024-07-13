@@ -1,0 +1,1497 @@
+2024-06-06 20:37:17-0400: Running with following config:
+allowResignation = true
+lagBuffer = 1.0
+logAllGTPCommunication = true
+logDir = gtp_logs
+logSearchInfo = true
+logSearchInfoForChosenMove = false
+logToStderr = false
+maxTimePondering = 120.0
+maxVisits = 30000
+numSearchThreads = 16
+ogsChatToStderr = true
+ponderingEnabled = true
+resignConsecTurns = 3
+resignThreshold = -0.90
+rules = tromp-taylor
+searchFactorAfterOnePass = 0.50
+searchFactorAfterTwoPass = 0.25
+searchFactorWhenWinning = 0.40
+searchFactorWhenWinningThreshold = 0.95
+
+2024-06-06 20:37:17-0400: GTP Engine starting...
+2024-06-06 20:37:17-0400: KataGo v1.14.1
+2024-06-06 20:37:17-0400: Using TrompTaylor rules initially, unless GTP/GUI overrides this
+2024-06-06 20:37:17-0400: Using 16 CPU thread(s) for search
+2024-06-06 20:37:17-0400: nnRandSeed0 = 9359198820527415203
+2024-06-06 20:37:17-0400: After dedups: nnModelFile0 = C:\Users\chang\Downloads/kata1-b60c320-s9482697216-d3873382264.bin.gz useFP16 auto useNHWC auto
+2024-06-06 20:37:17-0400: Initializing neural net buffer to be size 19 * 19 exactly
+2024-06-06 20:37:25-0400: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.4.89)
+2024-06-06 20:37:25-0400: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator
+2024-06-06 20:37:25-0400: Found OpenCL Platform 1: Intel(R) OpenCL Graphics (Intel(R) Corporation) (OpenCL 3.0 )
+2024-06-06 20:37:25-0400: Found 1 device(s) on platform 1 with type CPU or GPU or Accelerator
+2024-06-06 20:37:25-0400: Found OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) (score 11000300)
+2024-06-06 20:37:25-0400: Found OpenCL Device 1: Intel(R) UHD Graphics (Intel(R) Corporation) (score 6000300)
+2024-06-06 20:37:25-0400: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.4.89)
+2024-06-06 20:37:25-0400: Using OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) OpenCL 3.0 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32)
+2024-06-06 20:37:25-0400: Loaded tuning parameters from: C:\Users\chang\Downloads\katago-v1.14.1-opencl-windows-x64/KataGoData/opencltuning/tune11_gpuNVIDIAGeForceRTX4060LaptopGPU_x19_y19_c320_mv10.txt
+2024-06-06 20:37:25-0400: OpenCL backend thread 0: Model version 10
+2024-06-06 20:37:25-0400: OpenCL backend thread 0: Model name: kata1-b60c320-s9482697216-d3873382264
+2024-06-06 20:37:32-0400: OpenCL backend thread 0: FP16Storage true FP16Compute false FP16TensorCores true FP16TensorCoresFor1x1 false
+2024-06-06 20:37:32-0400: Loaded neural net with nnXLen 19 nnYLen 19
+2024-06-06 20:37:32-0400: Initializing board with boardXSize 19 boardYSize 19
+2024-06-06 20:37:32-0400: Loaded config C:\Users\chang\Downloads\katago-v1.14.1-opencl-windows-x64\default_gtp.cfg
+2024-06-06 20:37:32-0400: Loaded model C:\Users\chang\Downloads/kata1-b60c320-s9482697216-d3873382264.bin.gz
+2024-06-06 20:37:32-0400: Model name: kata1-b60c320-s9482697216-d3873382264
+2024-06-06 20:37:32-0400: GTP ready, beginning main protocol loop
+2024-06-06 20:37:32-0400: Controller: name
+2024-06-06 20:37:32-0400: = KataGo
+2024-06-06 20:37:32-0400: Controller: version
+2024-06-06 20:37:32-0400: = 1.14.1
+2024-06-06 20:37:32-0400: Controller: list_commands
+2024-06-06 20:37:32-0400: = protocol_version
+name
+version
+known_command
+list_commands
+quit
+boardsize
+rectangular_boardsize
+clear_board
+set_position
+komi
+get_komi
+play
+undo
+kata-get-rules
+kata-set-rule
+kata-set-rules
+kata-get-param
+kata-set-param
+kata-list-params
+kgs-rules
+genmove
+genmove_debug
+search_debug
+clear_cache
+showboard
+fixed_handicap
+place_free_handicap
+set_free_handicap
+time_settings
+kgs-time_settings
+time_left
+kata-list_time_settings
+kata-time_settings
+final_score
+final_status_list
+loadsgf
+printsgf
+lz-genmove_analyze
+kata-genmove_analyze
+lz-analyze
+kata-analyze
+kata-raw-nn
+cputime
+gomill-cpu_time
+kata-benchmark
+kata-debug-print-tc
+debug_moves
+stop
+2024-06-06 20:37:32-0400: Controller: komi 6.5
+2024-06-06 20:37:32-0400: = 
+2024-06-06 20:37:32-0400: Controller: boardsize 19
+2024-06-06 20:37:32-0400: = 
+2024-06-06 20:37:32-0400: Controller: name
+2024-06-06 20:37:32-0400: = KataGo
+2024-06-06 20:37:32-0400: Controller: clear_board
+2024-06-06 20:37:32-0400: = 
+2024-06-06 20:37:32-0400: Controller: kata-get-param playoutDoublingAdvantage
+2024-06-06 20:37:32-0400: = 0
+2024-06-06 20:37:32-0400: Controller: kata-get-param analysisWideRootNoise
+2024-06-06 20:37:32-0400: = 0.04
+2024-06-06 20:37:32-0400: Controller: kata-get-rules
+2024-06-06 20:37:32-0400: = {"friendlyPassOk":false,"hasButton":false,"ko":"POSITIONAL","scoring":"AREA","suicide":true,"tax":"NONE","whiteHandicapBonus":"0"}
+2024-06-06 20:37:33-0400: Controller: kata-set-param analysisWideRootNoise 0
+2024-06-06 20:37:33-0400: = 
+2024-06-06 20:37:33-0400: Controller: clear_cache
+2024-06-06 20:37:33-0400: = 
+2024-06-06 20:37:33-0400: Controller: kata-analyze B 10
+2024-06-06 20:37:33-0400: = 
+2024-06-06 20:37:34-0400: Controller: play B R16
+2024-06-06 20:37:34-0400: = 
+2024-06-06 20:37:34-0400: Controller: kata-analyze 10
+2024-06-06 20:37:34-0400: = 
+2024-06-06 20:37:35-0400: Controller: play W Q4
+2024-06-06 20:37:35-0400: = 
+2024-06-06 20:37:35-0400: Controller: kata-analyze 10
+2024-06-06 20:37:35-0400: = 
+2024-06-06 20:37:36-0400: Controller: play B D16
+2024-06-06 20:37:36-0400: = 
+2024-06-06 20:37:36-0400: Controller: kata-analyze 10
+2024-06-06 20:37:36-0400: = 
+2024-06-06 20:37:37-0400: Controller: play W D4
+2024-06-06 20:37:37-0400: = 
+2024-06-06 20:37:37-0400: Controller: kata-analyze 10
+2024-06-06 20:37:37-0400: = 
+2024-06-06 20:37:38-0400: Controller: play B C3
+2024-06-06 20:37:38-0400: = 
+2024-06-06 20:37:38-0400: Controller: kata-analyze 10
+2024-06-06 20:37:38-0400: = 
+2024-06-06 20:37:39-0400: Controller: play W C4
+2024-06-06 20:37:39-0400: = 
+2024-06-06 20:37:39-0400: Controller: kata-analyze 10
+2024-06-06 20:37:39-0400: = 
+2024-06-06 20:37:40-0400: Controller: play B D3
+2024-06-06 20:37:40-0400: = 
+2024-06-06 20:37:40-0400: Controller: kata-analyze 10
+2024-06-06 20:37:40-0400: = 
+2024-06-06 20:37:41-0400: Controller: play W E4
+2024-06-06 20:37:41-0400: = 
+2024-06-06 20:37:41-0400: Controller: kata-analyze 10
+2024-06-06 20:37:41-0400: = 
+2024-06-06 20:37:42-0400: Controller: play B F2
+2024-06-06 20:37:42-0400: = 
+2024-06-06 20:37:42-0400: Controller: kata-analyze 10
+2024-06-06 20:37:42-0400: = 
+2024-06-06 20:37:45-0400: Controller: play W P17
+2024-06-06 20:37:45-0400: = 
+2024-06-06 20:37:45-0400: Controller: kata-analyze 10
+2024-06-06 20:37:45-0400: = 
+2024-06-06 20:37:46-0400: Controller: play B Q15
+2024-06-06 20:37:46-0400: = 
+2024-06-06 20:37:46-0400: Controller: kata-analyze 10
+2024-06-06 20:37:46-0400: = 
+2024-06-06 20:37:47-0400: Controller: play W C17
+2024-06-06 20:37:47-0400: = 
+2024-06-06 20:37:47-0400: Controller: kata-analyze 10
+2024-06-06 20:37:47-0400: = 
+2024-06-06 20:37:48-0400: Controller: play B D17
+2024-06-06 20:37:48-0400: = 
+2024-06-06 20:37:48-0400: Controller: kata-analyze 10
+2024-06-06 20:37:48-0400: = 
+2024-06-06 20:37:49-0400: Controller: play W C16
+2024-06-06 20:37:49-0400: = 
+2024-06-06 20:37:49-0400: Controller: kata-analyze 10
+2024-06-06 20:37:49-0400: = 
+2024-06-06 20:37:50-0400: Controller: play B D15
+2024-06-06 20:37:50-0400: = 
+2024-06-06 20:37:50-0400: Controller: kata-analyze 10
+2024-06-06 20:37:50-0400: = 
+2024-06-06 20:37:51-0400: Controller: play W C14
+2024-06-06 20:37:51-0400: = 
+2024-06-06 20:37:51-0400: Controller: kata-analyze 10
+2024-06-06 20:37:51-0400: = 
+2024-06-06 20:37:52-0400: Controller: play B E13
+2024-06-06 20:37:52-0400: = 
+2024-06-06 20:37:52-0400: Controller: kata-analyze 10
+2024-06-06 20:37:52-0400: = 
+2024-06-06 20:37:53-0400: Controller: play W M17
+2024-06-06 20:37:53-0400: = 
+2024-06-06 20:37:53-0400: Controller: kata-analyze 10
+2024-06-06 20:37:53-0400: = 
+2024-06-06 20:37:54-0400: Controller: play B C15
+2024-06-06 20:37:54-0400: = 
+2024-06-06 20:37:54-0400: Controller: kata-analyze 10
+2024-06-06 20:37:54-0400: = 
+2024-06-06 20:37:55-0400: Controller: play W B15
+2024-06-06 20:37:55-0400: = 
+2024-06-06 20:37:55-0400: Controller: kata-analyze 10
+2024-06-06 20:37:55-0400: = 
+2024-06-06 20:37:56-0400: Controller: play B B16
+2024-06-06 20:37:56-0400: = 
+2024-06-06 20:37:56-0400: Controller: kata-analyze 10
+2024-06-06 20:37:57-0400: = 
+2024-06-06 20:37:58-0400: Controller: play W B17
+2024-06-06 20:37:58-0400: = 
+2024-06-06 20:37:58-0400: Controller: kata-analyze 10
+2024-06-06 20:37:58-0400: = 
+2024-06-06 20:37:59-0400: Controller: play B B14
+2024-06-06 20:37:59-0400: = 
+2024-06-06 20:37:59-0400: Controller: kata-analyze 10
+2024-06-06 20:37:59-0400: = 
+2024-06-06 20:38:00-0400: Controller: play W A16
+2024-06-06 20:38:00-0400: = 
+2024-06-06 20:38:00-0400: Controller: kata-analyze 10
+2024-06-06 20:38:00-0400: = 
+2024-06-06 20:38:01-0400: Controller: play B C13
+2024-06-06 20:38:01-0400: = 
+2024-06-06 20:38:01-0400: Controller: kata-analyze 10
+2024-06-06 20:38:01-0400: = 
+2024-06-06 20:38:02-0400: Controller: play W R11
+2024-06-06 20:38:02-0400: = 
+2024-06-06 20:38:02-0400: Controller: kata-analyze 10
+2024-06-06 20:38:02-0400: = 
+2024-06-06 20:38:03-0400: Controller: play B D8
+2024-06-06 20:38:03-0400: = 
+2024-06-06 20:38:03-0400: Controller: kata-analyze 10
+2024-06-06 20:38:03-0400: = 
+2024-06-06 20:38:04-0400: Controller: play W D7
+2024-06-06 20:38:04-0400: = 
+2024-06-06 20:38:04-0400: Controller: kata-analyze 10
+2024-06-06 20:38:04-0400: = 
+2024-06-06 20:38:05-0400: Controller: play B O3
+2024-06-06 20:38:05-0400: = 
+2024-06-06 20:38:05-0400: Controller: kata-analyze 10
+2024-06-06 20:38:05-0400: = 
+2024-06-06 20:38:06-0400: Controller: play W O4
+2024-06-06 20:38:06-0400: = 
+2024-06-06 20:38:06-0400: Controller: kata-analyze 10
+2024-06-06 20:38:06-0400: = 
+2024-06-06 20:38:07-0400: Controller: play B N4
+2024-06-06 20:38:07-0400: = 
+2024-06-06 20:38:07-0400: Controller: kata-analyze 10
+2024-06-06 20:38:07-0400: = 
+2024-06-06 20:38:08-0400: Controller: play W O5
+2024-06-06 20:38:08-0400: = 
+2024-06-06 20:38:08-0400: Controller: kata-analyze 10
+2024-06-06 20:38:08-0400: = 
+2024-06-06 20:38:09-0400: Controller: play B P2
+2024-06-06 20:38:09-0400: = 
+2024-06-06 20:38:09-0400: Controller: kata-analyze 10
+2024-06-06 20:38:09-0400: = 
+2024-06-06 20:38:10-0400: Controller: play W R3
+2024-06-06 20:38:10-0400: = 
+2024-06-06 20:38:10-0400: Controller: kata-analyze 10
+2024-06-06 20:38:10-0400: = 
+2024-06-06 20:38:11-0400: Controller: play B N5
+2024-06-06 20:38:11-0400: = 
+2024-06-06 20:38:11-0400: Controller: kata-analyze 10
+2024-06-06 20:38:11-0400: = 
+2024-06-06 20:38:13-0400: Controller: play W O6
+2024-06-06 20:38:13-0400: = 
+2024-06-06 20:38:13-0400: Controller: kata-analyze 10
+2024-06-06 20:38:13-0400: = 
+2024-06-06 20:38:14-0400: Controller: play B C7
+2024-06-06 20:38:14-0400: = 
+2024-06-06 20:38:14-0400: Controller: kata-analyze 10
+2024-06-06 20:38:14-0400: = 
+2024-06-06 20:38:15-0400: Controller: play W C8
+2024-06-06 20:38:15-0400: = 
+2024-06-06 20:38:15-0400: Controller: kata-analyze 10
+2024-06-06 20:38:15-0400: = 
+2024-06-06 20:38:16-0400: Controller: play B C9
+2024-06-06 20:38:16-0400: = 
+2024-06-06 20:38:16-0400: Controller: kata-analyze 10
+2024-06-06 20:38:16-0400: = 
+2024-06-06 20:38:17-0400: Controller: play W B8
+2024-06-06 20:38:17-0400: = 
+2024-06-06 20:38:17-0400: Controller: kata-analyze 10
+2024-06-06 20:38:17-0400: = 
+2024-06-06 20:38:18-0400: Controller: play B D9
+2024-06-06 20:38:18-0400: = 
+2024-06-06 20:38:18-0400: Controller: kata-analyze 10
+2024-06-06 20:38:18-0400: = 
+2024-06-06 20:38:19-0400: Controller: play W E7
+2024-06-06 20:38:19-0400: = 
+2024-06-06 20:38:19-0400: Controller: kata-analyze 10
+2024-06-06 20:38:19-0400: = 
+2024-06-06 20:38:20-0400: Controller: play B Q17
+2024-06-06 20:38:20-0400: = 
+2024-06-06 20:38:20-0400: Controller: kata-analyze 10
+2024-06-06 20:38:20-0400: = 
+2024-06-06 20:38:21-0400: Controller: play W P18
+2024-06-06 20:38:21-0400: = 
+2024-06-06 20:38:21-0400: Controller: kata-analyze 10
+2024-06-06 20:38:21-0400: = 
+2024-06-06 20:38:22-0400: Controller: play B N6
+2024-06-06 20:38:22-0400: = 
+2024-06-06 20:38:22-0400: Controller: kata-analyze 10
+2024-06-06 20:38:22-0400: = 
+2024-06-06 20:38:23-0400: Controller: play W N7
+2024-06-06 20:38:23-0400: = 
+2024-06-06 20:38:23-0400: Controller: kata-analyze 10
+2024-06-06 20:38:23-0400: = 
+2024-06-06 20:38:24-0400: Controller: play B Q3
+2024-06-06 20:38:24-0400: = 
+2024-06-06 20:38:24-0400: Controller: kata-analyze 10
+2024-06-06 20:38:24-0400: = 
+2024-06-06 20:38:25-0400: Controller: play W Q2
+2024-06-06 20:38:25-0400: = 
+2024-06-06 20:38:25-0400: Controller: kata-analyze 10
+2024-06-06 20:38:25-0400: = 
+2024-06-06 20:38:27-0400: Controller: play B P3
+2024-06-06 20:38:27-0400: = 
+2024-06-06 20:38:27-0400: Controller: kata-analyze 10
+2024-06-06 20:38:27-0400: = 
+2024-06-06 20:38:28-0400: Controller: play W R2
+2024-06-06 20:38:28-0400: = 
+2024-06-06 20:38:28-0400: Controller: kata-analyze 10
+2024-06-06 20:38:28-0400: = 
+2024-06-06 20:38:29-0400: Controller: play B Q10
+2024-06-06 20:38:29-0400: = 
+2024-06-06 20:38:29-0400: Controller: kata-analyze 10
+2024-06-06 20:38:29-0400: = 
+2024-06-06 20:38:30-0400: Controller: play W Q11
+2024-06-06 20:38:30-0400: = 
+2024-06-06 20:38:30-0400: Controller: kata-analyze 10
+2024-06-06 20:38:30-0400: = 
+2024-06-06 20:38:31-0400: Controller: play B O7
+2024-06-06 20:38:31-0400: = 
+2024-06-06 20:38:31-0400: Controller: kata-analyze 10
+2024-06-06 20:38:31-0400: = 
+2024-06-06 20:38:32-0400: Controller: play W O8
+2024-06-06 20:38:32-0400: = 
+2024-06-06 20:38:32-0400: Controller: kata-analyze 10
+2024-06-06 20:38:32-0400: = 
+2024-06-06 20:38:33-0400: Controller: play B P7
+2024-06-06 20:38:33-0400: = 
+2024-06-06 20:38:33-0400: Controller: kata-analyze 10
+2024-06-06 20:38:33-0400: = 
+2024-06-06 20:38:34-0400: Controller: play W P4
+2024-06-06 20:38:34-0400: = 
+2024-06-06 20:38:34-0400: Controller: kata-analyze 10
+2024-06-06 20:38:34-0400: = 
+2024-06-06 20:38:35-0400: Controller: play B P11
+2024-06-06 20:38:35-0400: = 
+2024-06-06 20:38:35-0400: Controller: kata-analyze 10
+2024-06-06 20:38:35-0400: = 
+2024-06-06 20:38:36-0400: Controller: play W P12
+2024-06-06 20:38:36-0400: = 
+2024-06-06 20:38:36-0400: Controller: kata-analyze 10
+2024-06-06 20:38:36-0400: = 
+2024-06-06 20:38:37-0400: Controller: play B R10
+2024-06-06 20:38:37-0400: = 
+2024-06-06 20:38:37-0400: Controller: kata-analyze 10
+2024-06-06 20:38:37-0400: = 
+2024-06-06 20:38:38-0400: Controller: play W N3
+2024-06-06 20:38:38-0400: = 
+2024-06-06 20:38:38-0400: Controller: kata-analyze 10
+2024-06-06 20:38:38-0400: = 
+2024-06-06 20:38:39-0400: Controller: play B M3
+2024-06-06 20:38:39-0400: = 
+2024-06-06 20:38:39-0400: Controller: kata-analyze 10
+2024-06-06 20:38:39-0400: = 
+2024-06-06 20:38:41-0400: Controller: play W N2
+2024-06-06 20:38:41-0400: = 
+2024-06-06 20:38:41-0400: Controller: kata-analyze 10
+2024-06-06 20:38:41-0400: = 
+2024-06-06 20:38:42-0400: Controller: play B M2
+2024-06-06 20:38:42-0400: = 
+2024-06-06 20:38:42-0400: Controller: kata-analyze 10
+2024-06-06 20:38:42-0400: = 
+2024-06-06 20:38:43-0400: Controller: play W P1
+2024-06-06 20:38:43-0400: = 
+2024-06-06 20:38:43-0400: Controller: kata-analyze 10
+2024-06-06 20:38:43-0400: = 
+2024-06-06 20:38:44-0400: Controller: play B Q12
+2024-06-06 20:38:44-0400: = 
+2024-06-06 20:38:44-0400: Controller: kata-analyze 10
+2024-06-06 20:38:44-0400: = 
+2024-06-06 20:38:45-0400: Controller: play W S10
+2024-06-06 20:38:45-0400: = 
+2024-06-06 20:38:45-0400: Controller: kata-analyze 10
+2024-06-06 20:38:45-0400: = 
+2024-06-06 20:38:46-0400: Controller: play B S11
+2024-06-06 20:38:46-0400: = 
+2024-06-06 20:38:46-0400: Controller: kata-analyze 10
+2024-06-06 20:38:46-0400: = 
+2024-06-06 20:38:47-0400: Controller: play W R12
+2024-06-06 20:38:47-0400: = 
+2024-06-06 20:38:47-0400: Controller: kata-analyze 10
+2024-06-06 20:38:47-0400: = 
+2024-06-06 20:38:48-0400: Controller: play B S12
+2024-06-06 20:38:48-0400: = 
+2024-06-06 20:38:48-0400: Controller: kata-analyze 10
+2024-06-06 20:38:48-0400: = 
+2024-06-06 20:38:49-0400: Controller: play W R13
+2024-06-06 20:38:49-0400: = 
+2024-06-06 20:38:49-0400: Controller: kata-analyze 10
+2024-06-06 20:38:49-0400: = 
+2024-06-06 20:38:50-0400: Controller: play B S9
+2024-06-06 20:38:50-0400: = 
+2024-06-06 20:38:50-0400: Controller: kata-analyze 10
+2024-06-06 20:38:50-0400: = 
+2024-06-06 20:38:51-0400: Controller: play W M7
+2024-06-06 20:38:51-0400: = 
+2024-06-06 20:38:51-0400: Controller: kata-analyze 10
+2024-06-06 20:38:51-0400: = 
+2024-06-06 20:38:52-0400: Controller: play B P10
+2024-06-06 20:38:52-0400: = 
+2024-06-06 20:38:52-0400: Controller: kata-analyze 10
+2024-06-06 20:38:52-0400: = 
+2024-06-06 20:38:53-0400: Controller: play W L5
+2024-06-06 20:38:53-0400: = 
+2024-06-06 20:38:53-0400: Controller: kata-analyze 10
+2024-06-06 20:38:53-0400: = 
+2024-06-06 20:38:54-0400: Controller: play B J3
+2024-06-06 20:38:54-0400: = 
+2024-06-06 20:38:54-0400: Controller: kata-analyze 10
+2024-06-06 20:38:54-0400: = 
+2024-06-06 20:38:56-0400: Controller: play W O12
+2024-06-06 20:38:56-0400: = 
+2024-06-06 20:38:56-0400: Controller: kata-analyze 10
+2024-06-06 20:38:56-0400: = 
+2024-06-06 20:38:56-0400: Controller: play B P14
+2024-06-06 20:38:56-0400: = 
+2024-06-06 20:38:56-0400: Controller: kata-analyze 10
+2024-06-06 20:38:56-0400: = 
+2024-06-06 20:38:58-0400: Controller: play W F3
+2024-06-06 20:38:58-0400: = 
+2024-06-06 20:38:58-0400: Controller: kata-analyze 10
+2024-06-06 20:38:58-0400: = 
+2024-06-06 20:38:59-0400: Controller: play B G3
+2024-06-06 20:38:59-0400: = 
+2024-06-06 20:38:59-0400: Controller: kata-analyze 10
+2024-06-06 20:38:59-0400: = 
+2024-06-06 20:39:00-0400: Controller: play W P13
+2024-06-06 20:39:00-0400: = 
+2024-06-06 20:39:00-0400: Controller: kata-analyze 10
+2024-06-06 20:39:00-0400: = 
+2024-06-06 20:39:01-0400: Controller: play B C6
+2024-06-06 20:39:01-0400: = 
+2024-06-06 20:39:01-0400: Controller: kata-analyze 10
+2024-06-06 20:39:01-0400: = 
+2024-06-06 20:39:02-0400: Controller: play W S13
+2024-06-06 20:39:02-0400: = 
+2024-06-06 20:39:02-0400: Controller: kata-analyze 10
+2024-06-06 20:39:02-0400: = 
+2024-06-06 20:39:03-0400: Controller: play B Q18
+2024-06-06 20:39:03-0400: = 
+2024-06-06 20:39:03-0400: Controller: kata-analyze 10
+2024-06-06 20:39:03-0400: = 
+2024-06-06 20:39:04-0400: Controller: play W E2
+2024-06-06 20:39:04-0400: = 
+2024-06-06 20:39:04-0400: Controller: kata-analyze 10
+2024-06-06 20:39:04-0400: = 
+2024-06-06 20:39:05-0400: Controller: play B E3
+2024-06-06 20:39:05-0400: = 
+2024-06-06 20:39:05-0400: Controller: kata-analyze 10
+2024-06-06 20:39:05-0400: = 
+2024-06-06 20:39:06-0400: Controller: play W F4
+2024-06-06 20:39:06-0400: = 
+2024-06-06 20:39:06-0400: Controller: kata-analyze 10
+2024-06-06 20:39:06-0400: = 
+2024-06-06 20:39:07-0400: Controller: play B G2
+2024-06-06 20:39:07-0400: = 
+2024-06-06 20:39:07-0400: Controller: kata-analyze 10
+2024-06-06 20:39:07-0400: = 
+2024-06-06 20:39:08-0400: Controller: play W B3
+2024-06-06 20:39:08-0400: = 
+2024-06-06 20:39:08-0400: Controller: kata-analyze 10
+2024-06-06 20:39:08-0400: = 
+2024-06-06 20:39:09-0400: Controller: play B D2
+2024-06-06 20:39:09-0400: = 
+2024-06-06 20:39:09-0400: Controller: kata-analyze 10
+2024-06-06 20:39:09-0400: = 
+2024-06-06 20:39:10-0400: Controller: play W J17
+2024-06-06 20:39:10-0400: = 
+2024-06-06 20:39:10-0400: Controller: kata-analyze 10
+2024-06-06 20:39:10-0400: = 
+2024-06-06 20:39:12-0400: Controller: play B D6
+2024-06-06 20:39:12-0400: = 
+2024-06-06 20:39:12-0400: Controller: kata-analyze 10
+2024-06-06 20:39:12-0400: = 
+2024-06-06 20:39:13-0400: Controller: play W E6
+2024-06-06 20:39:13-0400: = 
+2024-06-06 20:39:13-0400: Controller: kata-analyze 10
+2024-06-06 20:39:13-0400: = 
+2024-06-06 20:39:14-0400: Controller: play B B5
+2024-06-06 20:39:14-0400: = 
+2024-06-06 20:39:14-0400: Controller: kata-analyze 10
+2024-06-06 20:39:14-0400: = 
+2024-06-06 20:39:15-0400: Controller: play W B4
+2024-06-06 20:39:15-0400: = 
+2024-06-06 20:39:15-0400: Controller: kata-analyze 10
+2024-06-06 20:39:15-0400: = 
+2024-06-06 20:39:16-0400: Controller: play B R6
+2024-06-06 20:39:16-0400: = 
+2024-06-06 20:39:16-0400: Controller: kata-analyze 10
+2024-06-06 20:39:16-0400: = 
+2024-06-06 20:39:17-0400: Controller: play W R7
+2024-06-06 20:39:17-0400: = 
+2024-06-06 20:39:17-0400: Controller: kata-analyze 10
+2024-06-06 20:39:17-0400: = 
+2024-06-06 20:39:18-0400: Controller: play B Q7
+2024-06-06 20:39:18-0400: = 
+2024-06-06 20:39:18-0400: Controller: kata-analyze 10
+2024-06-06 20:39:18-0400: = 
+2024-06-06 20:39:19-0400: Controller: play W S6
+2024-06-06 20:39:19-0400: = 
+2024-06-06 20:39:19-0400: Controller: kata-analyze 10
+2024-06-06 20:39:19-0400: = 
+2024-06-06 20:39:20-0400: Controller: play B R5
+2024-06-06 20:39:20-0400: = 
+2024-06-06 20:39:20-0400: Controller: kata-analyze 10
+2024-06-06 20:39:20-0400: = 
+2024-06-06 20:39:21-0400: Controller: play W S5
+2024-06-06 20:39:21-0400: = 
+2024-06-06 20:39:21-0400: Controller: kata-analyze 10
+2024-06-06 20:39:21-0400: = 
+2024-06-06 20:39:22-0400: Controller: play B S7
+2024-06-06 20:39:22-0400: = 
+2024-06-06 20:39:22-0400: Controller: kata-analyze 10
+2024-06-06 20:39:22-0400: = 
+2024-06-06 20:39:23-0400: Controller: play W B9
+2024-06-06 20:39:23-0400: = 
+2024-06-06 20:39:23-0400: Controller: kata-analyze 10
+2024-06-06 20:39:23-0400: = 
+2024-06-06 20:39:24-0400: Controller: play B B10
+2024-06-06 20:39:24-0400: = 
+2024-06-06 20:39:24-0400: Controller: kata-analyze 10
+2024-06-06 20:39:24-0400: = 
+2024-06-06 20:39:26-0400: Controller: play W R8
+2024-06-06 20:39:26-0400: = 
+2024-06-06 20:39:26-0400: Controller: kata-analyze 10
+2024-06-06 20:39:26-0400: = 
+2024-06-06 20:39:27-0400: Controller: play B S8
+2024-06-06 20:39:27-0400: = 
+2024-06-06 20:39:27-0400: Controller: kata-analyze 10
+2024-06-06 20:39:27-0400: = 
+2024-06-06 20:39:28-0400: Controller: play W Q6
+2024-06-06 20:39:28-0400: = 
+2024-06-06 20:39:28-0400: Controller: kata-analyze 10
+2024-06-06 20:39:28-0400: = 
+2024-06-06 20:39:29-0400: Controller: play B Q8
+2024-06-06 20:39:29-0400: = 
+2024-06-06 20:39:29-0400: Controller: kata-analyze 10
+2024-06-06 20:39:29-0400: = 
+2024-06-06 20:39:30-0400: Controller: play W E8
+2024-06-06 20:39:30-0400: = 
+2024-06-06 20:39:30-0400: Controller: kata-analyze 10
+2024-06-06 20:39:30-0400: = 
+2024-06-06 20:39:31-0400: Controller: play B F10
+2024-06-06 20:39:31-0400: = 
+2024-06-06 20:39:31-0400: Controller: kata-analyze 10
+2024-06-06 20:39:31-0400: = 
+2024-06-06 20:39:32-0400: Controller: play W E10
+2024-06-06 20:39:32-0400: = 
+2024-06-06 20:39:32-0400: Controller: kata-analyze 10
+2024-06-06 20:39:32-0400: = 
+2024-06-06 20:39:33-0400: Controller: play B C10
+2024-06-06 20:39:33-0400: = 
+2024-06-06 20:39:33-0400: Controller: kata-analyze 10
+2024-06-06 20:39:33-0400: = 
+2024-06-06 20:39:34-0400: Controller: play W E9
+2024-06-06 20:39:34-0400: = 
+2024-06-06 20:39:34-0400: Controller: kata-analyze 10
+2024-06-06 20:39:34-0400: = 
+2024-06-06 20:39:35-0400: Controller: play B M4
+2024-06-06 20:39:35-0400: = 
+2024-06-06 20:39:35-0400: Controller: kata-analyze 10
+2024-06-06 20:39:35-0400: = 
+2024-06-06 20:39:36-0400: Controller: play W N10
+2024-06-06 20:39:36-0400: = 
+2024-06-06 20:39:36-0400: Controller: kata-analyze 10
+2024-06-06 20:39:36-0400: = 
+2024-06-06 20:39:37-0400: Controller: play B H6
+2024-06-06 20:39:37-0400: = 
+2024-06-06 20:39:37-0400: Controller: kata-analyze 10
+2024-06-06 20:39:37-0400: = 
+2024-06-06 20:39:39-0400: Controller: play W F11
+2024-06-06 20:39:39-0400: = 
+2024-06-06 20:39:39-0400: Controller: kata-analyze 10
+2024-06-06 20:39:39-0400: = 
+2024-06-06 20:39:40-0400: Controller: play B L9
+2024-06-06 20:39:40-0400: = 
+2024-06-06 20:39:40-0400: Controller: kata-analyze 10
+2024-06-06 20:39:40-0400: = 
+2024-06-06 20:39:41-0400: Controller: play W L10
+2024-06-06 20:39:41-0400: = 
+2024-06-06 20:39:41-0400: Controller: kata-analyze 10
+2024-06-06 20:39:41-0400: = 
+2024-06-06 20:39:42-0400: Controller: play B M10
+2024-06-06 20:39:42-0400: = 
+2024-06-06 20:39:42-0400: Controller: kata-analyze 10
+2024-06-06 20:39:42-0400: = 
+2024-06-06 20:39:43-0400: Controller: play W M11
+2024-06-06 20:39:43-0400: = 
+2024-06-06 20:39:43-0400: Controller: kata-analyze 10
+2024-06-06 20:39:43-0400: = 
+2024-06-06 20:39:44-0400: Controller: play B M9
+2024-06-06 20:39:44-0400: = 
+2024-06-06 20:39:44-0400: Controller: kata-analyze 10
+2024-06-06 20:39:44-0400: = 
+2024-06-06 20:39:45-0400: Controller: play W N9
+2024-06-06 20:39:45-0400: = 
+2024-06-06 20:39:45-0400: Controller: kata-analyze 10
+2024-06-06 20:39:45-0400: = 
+2024-06-06 20:39:46-0400: Controller: play B L11
+2024-06-06 20:39:46-0400: = 
+2024-06-06 20:39:46-0400: Controller: kata-analyze 10
+2024-06-06 20:39:46-0400: = 
+2024-06-06 20:39:47-0400: Controller: play W M12
+2024-06-06 20:39:47-0400: = 
+2024-06-06 20:39:47-0400: Controller: kata-analyze 10
+2024-06-06 20:39:47-0400: = 
+2024-06-06 20:39:48-0400: Controller: play B K10
+2024-06-06 20:39:48-0400: = 
+2024-06-06 20:39:48-0400: Controller: kata-analyze 10
+2024-06-06 20:39:48-0400: = 
+2024-06-06 20:39:49-0400: Controller: play W B13
+2024-06-06 20:39:49-0400: = 
+2024-06-06 20:39:49-0400: Controller: kata-analyze 10
+2024-06-06 20:39:49-0400: = 
+2024-06-06 20:39:50-0400: Controller: play B D14
+2024-06-06 20:39:50-0400: = 
+2024-06-06 20:39:50-0400: Controller: kata-analyze 10
+2024-06-06 20:39:50-0400: = 
+2024-06-06 20:39:51-0400: Controller: play W B12
+2024-06-06 20:39:51-0400: = 
+2024-06-06 20:39:51-0400: Controller: kata-analyze 10
+2024-06-06 20:39:51-0400: = 
+2024-06-06 20:39:53-0400: Controller: play B B7
+2024-06-06 20:39:53-0400: = 
+2024-06-06 20:39:53-0400: Controller: kata-analyze 10
+2024-06-06 20:39:53-0400: = 
+2024-06-06 20:39:54-0400: Controller: play W A14
+2024-06-06 20:39:54-0400: = 
+2024-06-06 20:39:54-0400: Controller: kata-analyze 10
+2024-06-06 20:39:54-0400: = 
+2024-06-06 20:39:55-0400: Controller: play B N13
+2024-06-06 20:39:55-0400: = 
+2024-06-06 20:39:55-0400: Controller: kata-analyze 10
+2024-06-06 20:39:55-0400: = 
+2024-06-06 20:39:56-0400: Controller: play W N12
+2024-06-06 20:39:56-0400: = 
+2024-06-06 20:39:56-0400: Controller: kata-analyze 10
+2024-06-06 20:39:56-0400: = 
+2024-06-06 20:39:57-0400: Controller: play B K13
+2024-06-06 20:39:57-0400: = 
+2024-06-06 20:39:57-0400: Controller: kata-analyze 10
+2024-06-06 20:39:57-0400: = 
+2024-06-06 20:39:58-0400: Controller: play W K8
+2024-06-06 20:39:58-0400: = 
+2024-06-06 20:39:58-0400: Controller: kata-analyze 10
+2024-06-06 20:39:58-0400: = 
+2024-06-06 20:39:59-0400: Controller: play B H10
+2024-06-06 20:39:59-0400: = 
+2024-06-06 20:39:59-0400: Controller: kata-analyze 10
+2024-06-06 20:39:59-0400: = 
+2024-06-06 20:40:00-0400: Controller: play W J7
+2024-06-06 20:40:00-0400: = 
+2024-06-06 20:40:00-0400: Controller: kata-analyze 10
+2024-06-06 20:40:00-0400: = 
+2024-06-06 20:40:01-0400: Controller: play B J6
+2024-06-06 20:40:01-0400: = 
+2024-06-06 20:40:01-0400: Controller: kata-analyze 10
+2024-06-06 20:40:01-0400: = 
+2024-06-06 20:40:02-0400: Controller: play W K6
+2024-06-06 20:40:02-0400: = 
+2024-06-06 20:40:02-0400: Controller: kata-analyze 10
+2024-06-06 20:40:02-0400: = 
+2024-06-06 20:40:03-0400: Controller: play B G11
+2024-06-06 20:40:03-0400: = 
+2024-06-06 20:40:03-0400: Controller: kata-analyze 10
+2024-06-06 20:40:03-0400: = 
+2024-06-06 20:40:04-0400: Controller: play W K3
+2024-06-06 20:40:04-0400: = 
+2024-06-06 20:40:04-0400: Controller: kata-analyze 10
+2024-06-06 20:40:04-0400: = 
+2024-06-06 20:40:06-0400: Controller: play B K2
+2024-06-06 20:40:06-0400: = 
+2024-06-06 20:40:06-0400: Controller: kata-analyze 10
+2024-06-06 20:40:06-0400: = 
+2024-06-06 20:40:07-0400: Controller: play W J4
+2024-06-06 20:40:07-0400: = 
+2024-06-06 20:40:07-0400: Controller: kata-analyze 10
+2024-06-06 20:40:07-0400: = 
+2024-06-06 20:40:08-0400: Controller: play B K4
+2024-06-06 20:40:08-0400: = 
+2024-06-06 20:40:08-0400: Controller: kata-analyze 10
+2024-06-06 20:40:08-0400: = 
+2024-06-06 20:40:09-0400: Controller: play W K5
+2024-06-06 20:40:09-0400: = 
+2024-06-06 20:40:09-0400: Controller: kata-analyze 10
+2024-06-06 20:40:09-0400: = 
+2024-06-06 20:40:10-0400: Controller: play B L3
+2024-06-06 20:40:10-0400: = 
+2024-06-06 20:40:10-0400: Controller: kata-analyze 10
+2024-06-06 20:40:10-0400: = 
+2024-06-06 20:40:11-0400: Controller: play W F12
+2024-06-06 20:40:11-0400: = 
+2024-06-06 20:40:11-0400: Controller: kata-analyze 10
+2024-06-06 20:40:11-0400: = 
+2024-06-06 20:40:12-0400: Controller: play B E11
+2024-06-06 20:40:12-0400: = 
+2024-06-06 20:40:12-0400: Controller: kata-analyze 10
+2024-06-06 20:40:12-0400: = 
+2024-06-06 20:40:13-0400: Controller: play W P16
+2024-06-06 20:40:13-0400: = 
+2024-06-06 20:40:13-0400: Controller: kata-analyze 10
+2024-06-06 20:40:13-0400: = 
+2024-06-06 20:40:14-0400: Controller: play B S15
+2024-06-06 20:40:14-0400: = 
+2024-06-06 20:40:14-0400: Controller: kata-analyze 10
+2024-06-06 20:40:14-0400: = 
+2024-06-06 20:40:15-0400: Controller: play W G9
+2024-06-06 20:40:15-0400: = 
+2024-06-06 20:40:15-0400: Controller: kata-analyze 10
+2024-06-06 20:40:15-0400: = 
+2024-06-06 20:40:16-0400: Controller: play B G10
+2024-06-06 20:40:16-0400: = 
+2024-06-06 20:40:16-0400: Controller: kata-analyze 10
+2024-06-06 20:40:16-0400: = 
+2024-06-06 20:40:17-0400: Controller: play W J14
+2024-06-06 20:40:17-0400: = 
+2024-06-06 20:40:17-0400: Controller: kata-analyze 10
+2024-06-06 20:40:17-0400: = 
+2024-06-06 20:40:18-0400: Controller: play B G5
+2024-06-06 20:40:18-0400: = 
+2024-06-06 20:40:18-0400: Controller: kata-analyze 10
+2024-06-06 20:40:18-0400: = 
+2024-06-06 20:40:19-0400: Controller: play W J9
+2024-06-06 20:40:19-0400: = 
+2024-06-06 20:40:19-0400: Controller: kata-analyze 10
+2024-06-06 20:40:20-0400: = 
+2024-06-06 20:40:21-0400: Controller: play B K14
+2024-06-06 20:40:21-0400: = 
+2024-06-06 20:40:21-0400: Controller: kata-analyze 10
+2024-06-06 20:40:21-0400: = 
+2024-06-06 20:40:22-0400: Controller: play W K15
+2024-06-06 20:40:22-0400: = 
+2024-06-06 20:40:22-0400: Controller: kata-analyze 10
+2024-06-06 20:40:22-0400: = 
+2024-06-06 20:40:23-0400: Controller: play B L15
+2024-06-06 20:40:23-0400: = 
+2024-06-06 20:40:23-0400: Controller: kata-analyze 10
+2024-06-06 20:40:23-0400: = 
+2024-06-06 20:40:24-0400: Controller: play W J15
+2024-06-06 20:40:24-0400: = 
+2024-06-06 20:40:24-0400: Controller: kata-analyze 10
+2024-06-06 20:40:24-0400: = 
+2024-06-06 20:40:25-0400: Controller: play B G13
+2024-06-06 20:40:25-0400: = 
+2024-06-06 20:40:25-0400: Controller: kata-analyze 10
+2024-06-06 20:40:25-0400: = 
+2024-06-06 20:40:26-0400: Controller: play W Q19
+2024-06-06 20:40:26-0400: = 
+2024-06-06 20:40:26-0400: Controller: kata-analyze 10
+2024-06-06 20:40:26-0400: = 
+2024-06-06 20:40:27-0400: Controller: play B L17
+2024-06-06 20:40:27-0400: = 
+2024-06-06 20:40:27-0400: Controller: kata-analyze 10
+2024-06-06 20:40:27-0400: = 
+2024-06-06 20:40:28-0400: Controller: play W L18
+2024-06-06 20:40:28-0400: = 
+2024-06-06 20:40:28-0400: Controller: kata-analyze 10
+2024-06-06 20:40:28-0400: = 
+2024-06-06 20:40:29-0400: Controller: play B L16
+2024-06-06 20:40:29-0400: = 
+2024-06-06 20:40:29-0400: Controller: kata-analyze 10
+2024-06-06 20:40:29-0400: = 
+2024-06-06 20:40:30-0400: Controller: play W N18
+2024-06-06 20:40:30-0400: = 
+2024-06-06 20:40:30-0400: Controller: kata-analyze 10
+2024-06-06 20:40:30-0400: = 
+2024-06-06 20:40:31-0400: Controller: play B J16
+2024-06-06 20:40:31-0400: = 
+2024-06-06 20:40:31-0400: Controller: kata-analyze 10
+2024-06-06 20:40:31-0400: = 
+2024-06-06 20:40:32-0400: Controller: play W H16
+2024-06-06 20:40:32-0400: = 
+2024-06-06 20:40:32-0400: Controller: kata-analyze 10
+2024-06-06 20:40:32-0400: = 
+2024-06-06 20:40:34-0400: Controller: play B K16
+2024-06-06 20:40:34-0400: = 
+2024-06-06 20:40:34-0400: Controller: kata-analyze 10
+2024-06-06 20:40:34-0400: = 
+2024-06-06 20:40:35-0400: Controller: play W L14
+2024-06-06 20:40:35-0400: = 
+2024-06-06 20:40:35-0400: Controller: kata-analyze 10
+2024-06-06 20:40:35-0400: = 
+2024-06-06 20:40:36-0400: Controller: play B H17
+2024-06-06 20:40:36-0400: = 
+2024-06-06 20:40:36-0400: Controller: kata-analyze 10
+2024-06-06 20:40:36-0400: = 
+2024-06-06 20:40:37-0400: Controller: play W M14
+2024-06-06 20:40:37-0400: = 
+2024-06-06 20:40:37-0400: Controller: kata-analyze 10
+2024-06-06 20:40:37-0400: = 
+2024-06-06 20:40:38-0400: Controller: play B H15
+2024-06-06 20:40:38-0400: = 
+2024-06-06 20:40:38-0400: Controller: kata-analyze 10
+2024-06-06 20:40:38-0400: = 
+2024-06-06 20:40:39-0400: Controller: play W R18
+2024-06-06 20:40:39-0400: = 
+2024-06-06 20:40:39-0400: Controller: kata-analyze 10
+2024-06-06 20:40:39-0400: = 
+2024-06-06 20:40:40-0400: Controller: play B S18
+2024-06-06 20:40:40-0400: = 
+2024-06-06 20:40:40-0400: Controller: kata-analyze 10
+2024-06-06 20:40:40-0400: = 
+2024-06-06 20:40:41-0400: Controller: play W S19
+2024-06-06 20:40:41-0400: = 
+2024-06-06 20:40:41-0400: Controller: kata-analyze 10
+2024-06-06 20:40:41-0400: = 
+2024-06-06 20:40:42-0400: Controller: play B R17
+2024-06-06 20:40:42-0400: = 
+2024-06-06 20:40:42-0400: Controller: kata-analyze 10
+2024-06-06 20:40:42-0400: = 
+2024-06-06 20:40:43-0400: Controller: play W J13
+2024-06-06 20:40:43-0400: = 
+2024-06-06 20:40:43-0400: Controller: kata-analyze 10
+2024-06-06 20:40:43-0400: = 
+2024-06-06 20:40:44-0400: Controller: play B K12
+2024-06-06 20:40:44-0400: = 
+2024-06-06 20:40:44-0400: Controller: kata-analyze 10
+2024-06-06 20:40:44-0400: = 
+2024-06-06 20:40:45-0400: Controller: play W G16
+2024-06-06 20:40:45-0400: = 
+2024-06-06 20:40:45-0400: Controller: kata-analyze 10
+2024-06-06 20:40:45-0400: = 
+2024-06-06 20:40:46-0400: Controller: play B G17
+2024-06-06 20:40:46-0400: = 
+2024-06-06 20:40:46-0400: Controller: kata-analyze 10
+2024-06-06 20:40:47-0400: = 
+2024-06-06 20:40:48-0400: Controller: play W S17
+2024-06-06 20:40:48-0400: = 
+2024-06-06 20:40:48-0400: Controller: kata-analyze 10
+2024-06-06 20:40:48-0400: = 
+2024-06-06 20:40:49-0400: Controller: play B R19
+2024-06-06 20:40:49-0400: = 
+2024-06-06 20:40:49-0400: Controller: kata-analyze 10
+2024-06-06 20:40:49-0400: = 
+2024-06-06 20:40:50-0400: Controller: play W K17
+2024-06-06 20:40:50-0400: = 
+2024-06-06 20:40:50-0400: Controller: kata-analyze 10
+2024-06-06 20:40:50-0400: = 
+2024-06-06 20:40:51-0400: Controller: play B F16
+2024-06-06 20:40:51-0400: = 
+2024-06-06 20:40:51-0400: Controller: kata-analyze 10
+2024-06-06 20:40:51-0400: = 
+2024-06-06 20:40:52-0400: Controller: play W R18
+2024-06-06 20:40:52-0400: = 
+2024-06-06 20:40:52-0400: Controller: kata-analyze 10
+2024-06-06 20:40:52-0400: = 
+2024-06-06 20:40:53-0400: Controller: play B F9
+2024-06-06 20:40:53-0400: = 
+2024-06-06 20:40:53-0400: Controller: kata-analyze 10
+2024-06-06 20:40:53-0400: = 
+2024-06-06 20:40:54-0400: Controller: play W G7
+2024-06-06 20:40:54-0400: = 
+2024-06-06 20:40:54-0400: Controller: kata-analyze 10
+2024-06-06 20:40:54-0400: = 
+2024-06-06 20:40:55-0400: Controller: play B R19
+2024-06-06 20:40:55-0400: = 
+2024-06-06 20:40:55-0400: Controller: kata-analyze 10
+2024-06-06 20:40:55-0400: = 
+2024-06-06 20:40:56-0400: Controller: play W G15
+2024-06-06 20:40:56-0400: = 
+2024-06-06 20:40:56-0400: Controller: kata-analyze 10
+2024-06-06 20:40:56-0400: = 
+2024-06-06 20:40:57-0400: Controller: play B G14
+2024-06-06 20:40:57-0400: = 
+2024-06-06 20:40:57-0400: Controller: kata-analyze 10
+2024-06-06 20:40:57-0400: = 
+2024-06-06 20:40:58-0400: Controller: play W R18
+2024-06-06 20:40:58-0400: = 
+2024-06-06 20:40:58-0400: Controller: kata-analyze 10
+2024-06-06 20:40:58-0400: = 
+2024-06-06 20:40:59-0400: Controller: play B T18
+2024-06-06 20:40:59-0400: = 
+2024-06-06 20:40:59-0400: Controller: kata-analyze 10
+2024-06-06 20:41:00-0400: = 
+2024-06-06 20:41:01-0400: Controller: play W S14
+2024-06-06 20:41:01-0400: = 
+2024-06-06 20:41:01-0400: Controller: kata-analyze 10
+2024-06-06 20:41:01-0400: = 
+2024-06-06 20:41:02-0400: Controller: play B R19
+2024-06-06 20:41:02-0400: = 
+2024-06-06 20:41:02-0400: Controller: kata-analyze 10
+2024-06-06 20:41:02-0400: = 
+2024-06-06 20:41:03-0400: Controller: play W F15
+2024-06-06 20:41:03-0400: = 
+2024-06-06 20:41:03-0400: Controller: kata-analyze 10
+2024-06-06 20:41:03-0400: = 
+2024-06-06 20:41:04-0400: Controller: play B E15
+2024-06-06 20:41:04-0400: = 
+2024-06-06 20:41:04-0400: Controller: kata-analyze 10
+2024-06-06 20:41:04-0400: = 
+2024-06-06 20:41:05-0400: Controller: play W R18
+2024-06-06 20:41:05-0400: = 
+2024-06-06 20:41:05-0400: Controller: kata-analyze 10
+2024-06-06 20:41:05-0400: = 
+2024-06-06 20:41:06-0400: Controller: play B H7
+2024-06-06 20:41:06-0400: = 
+2024-06-06 20:41:06-0400: Controller: kata-analyze 10
+2024-06-06 20:41:06-0400: = 
+2024-06-06 20:41:07-0400: Controller: play W G8
+2024-06-06 20:41:07-0400: = 
+2024-06-06 20:41:07-0400: Controller: kata-analyze 10
+2024-06-06 20:41:07-0400: = 
+2024-06-06 20:41:08-0400: Controller: play B R19
+2024-06-06 20:41:08-0400: = 
+2024-06-06 20:41:08-0400: Controller: kata-analyze 10
+2024-06-06 20:41:08-0400: = 
+2024-06-06 20:41:09-0400: Controller: play W H14
+2024-06-06 20:41:09-0400: = 
+2024-06-06 20:41:09-0400: Controller: kata-analyze 10
+2024-06-06 20:41:09-0400: = 
+2024-06-06 20:41:10-0400: Controller: play B F14
+2024-06-06 20:41:10-0400: = 
+2024-06-06 20:41:10-0400: Controller: kata-analyze 10
+2024-06-06 20:41:10-0400: = 
+2024-06-06 20:41:11-0400: Controller: play W R18
+2024-06-06 20:41:11-0400: = 
+2024-06-06 20:41:11-0400: Controller: kata-analyze 10
+2024-06-06 20:41:11-0400: = 
+2024-06-06 20:41:13-0400: Controller: play B F5
+2024-06-06 20:41:13-0400: = 
+2024-06-06 20:41:13-0400: Controller: kata-analyze 10
+2024-06-06 20:41:13-0400: = 
+2024-06-06 20:41:14-0400: Controller: stop
+2024-06-06 20:41:14-0400: = 
+2024-06-06 20:44:20-0400: Controller: boardsize 19
+2024-06-06 20:44:20-0400: = 
+2024-06-06 20:44:20-0400: Controller: komi 6.5
+2024-06-06 20:44:20-0400: = 
+2024-06-06 20:44:20-0400: Controller: stop
+2024-06-06 20:44:20-0400: = 
+2024-06-06 20:44:20-0400: Controller: clear_board
+2024-06-06 20:44:20-0400: = 
+2024-06-06 20:44:31-0400: Controller: kata-set-param analysisWideRootNoise 0
+2024-06-06 20:44:31-0400: = 
+2024-06-06 20:44:31-0400: Controller: clear_cache
+2024-06-06 20:44:31-0400: = 
+2024-06-06 20:44:31-0400: Controller: kata-analyze B 10
+2024-06-06 20:44:31-0400: = 
+2024-06-06 20:44:32-0400: Controller: play B Q16
+2024-06-06 20:44:32-0400: = 
+2024-06-06 20:44:32-0400: Controller: kata-analyze 10
+2024-06-06 20:44:32-0400: = 
+2024-06-06 20:44:33-0400: Controller: play W D4
+2024-06-06 20:44:33-0400: = 
+2024-06-06 20:44:33-0400: Controller: kata-analyze 10
+2024-06-06 20:44:33-0400: = 
+2024-06-06 20:44:34-0400: Controller: play B Q4
+2024-06-06 20:44:34-0400: = 
+2024-06-06 20:44:34-0400: Controller: kata-analyze 10
+2024-06-06 20:44:34-0400: = 
+2024-06-06 20:44:35-0400: Controller: play W D16
+2024-06-06 20:44:35-0400: = 
+2024-06-06 20:44:35-0400: Controller: kata-analyze 10
+2024-06-06 20:44:35-0400: = 
+2024-06-06 20:44:36-0400: Controller: play B C17
+2024-06-06 20:44:36-0400: = 
+2024-06-06 20:44:36-0400: Controller: kata-analyze 10
+2024-06-06 20:44:36-0400: = 
+2024-06-06 20:44:37-0400: Controller: play W D17
+2024-06-06 20:44:37-0400: = 
+2024-06-06 20:44:37-0400: Controller: kata-analyze 10
+2024-06-06 20:44:37-0400: = 
+2024-06-06 20:44:38-0400: Controller: play B C16
+2024-06-06 20:44:38-0400: = 
+2024-06-06 20:44:38-0400: Controller: kata-analyze 10
+2024-06-06 20:44:38-0400: = 
+2024-06-06 20:44:39-0400: Controller: play W D15
+2024-06-06 20:44:39-0400: = 
+2024-06-06 20:44:39-0400: Controller: kata-analyze 10
+2024-06-06 20:44:39-0400: = 
+2024-06-06 20:44:40-0400: Controller: play B B14
+2024-06-06 20:44:40-0400: = 
+2024-06-06 20:44:40-0400: Controller: kata-analyze 10
+2024-06-06 20:44:40-0400: = 
+2024-06-06 20:44:41-0400: Controller: play W R3
+2024-06-06 20:44:41-0400: = 
+2024-06-06 20:44:41-0400: Controller: kata-analyze 10
+2024-06-06 20:44:41-0400: = 
+2024-06-06 20:44:42-0400: Controller: play B R4
+2024-06-06 20:44:42-0400: = 
+2024-06-06 20:44:42-0400: Controller: kata-analyze 10
+2024-06-06 20:44:42-0400: = 
+2024-06-06 20:44:44-0400: Controller: play W Q3
+2024-06-06 20:44:44-0400: = 
+2024-06-06 20:44:44-0400: Controller: kata-analyze 10
+2024-06-06 20:44:44-0400: = 
+2024-06-06 20:44:45-0400: Controller: play B O3
+2024-06-06 20:44:45-0400: = 
+2024-06-06 20:44:45-0400: Controller: kata-analyze 10
+2024-06-06 20:44:45-0400: = 
+2024-06-06 20:44:47-0400: Controller: play W P3
+2024-06-06 20:44:47-0400: = 
+2024-06-06 20:44:47-0400: Controller: kata-analyze 10
+2024-06-06 20:44:47-0400: = 
+2024-06-06 20:44:48-0400: Controller: play B P4
+2024-06-06 20:44:48-0400: = 
+2024-06-06 20:44:48-0400: Controller: kata-analyze 10
+2024-06-06 20:44:48-0400: = 
+2024-06-06 20:44:49-0400: Controller: play W O2
+2024-06-06 20:44:49-0400: = 
+2024-06-06 20:44:49-0400: Controller: kata-analyze 10
+2024-06-06 20:44:49-0400: = 
+2024-06-06 20:44:50-0400: Controller: play B C3
+2024-06-06 20:44:50-0400: = 
+2024-06-06 20:44:50-0400: Controller: kata-analyze 10
+2024-06-06 20:44:50-0400: = 
+2024-06-06 20:44:51-0400: Controller: play W D3
+2024-06-06 20:44:51-0400: = 
+2024-06-06 20:44:51-0400: Controller: kata-analyze 10
+2024-06-06 20:44:51-0400: = 
+2024-06-06 20:44:52-0400: Controller: play B C4
+2024-06-06 20:44:52-0400: = 
+2024-06-06 20:44:52-0400: Controller: kata-analyze 10
+2024-06-06 20:44:52-0400: = 
+2024-06-06 20:44:53-0400: Controller: play W N3
+2024-06-06 20:44:53-0400: = 
+2024-06-06 20:44:53-0400: Controller: kata-analyze 10
+2024-06-06 20:44:53-0400: = 
+2024-06-06 20:44:54-0400: Controller: play B O4
+2024-06-06 20:44:54-0400: = 
+2024-06-06 20:44:54-0400: Controller: kata-analyze 10
+2024-06-06 20:44:54-0400: = 
+2024-06-06 20:44:55-0400: Controller: play W D5
+2024-06-06 20:44:55-0400: = 
+2024-06-06 20:44:55-0400: Controller: kata-analyze 10
+2024-06-06 20:44:55-0400: = 
+2024-06-06 20:44:56-0400: Controller: play B C5
+2024-06-06 20:44:56-0400: = 
+2024-06-06 20:44:56-0400: Controller: kata-analyze 10
+2024-06-06 20:44:56-0400: = 
+2024-06-06 20:44:57-0400: Controller: play W D6
+2024-06-06 20:44:57-0400: = 
+2024-06-06 20:44:57-0400: Controller: kata-analyze 10
+2024-06-06 20:44:57-0400: = 
+2024-06-06 20:44:58-0400: Controller: play B C6
+2024-06-06 20:44:58-0400: = 
+2024-06-06 20:44:58-0400: Controller: kata-analyze 10
+2024-06-06 20:44:58-0400: = 
+2024-06-06 20:44:59-0400: Controller: play W N4
+2024-06-06 20:44:59-0400: = 
+2024-06-06 20:44:59-0400: Controller: kata-analyze 10
+2024-06-06 20:44:59-0400: = 
+2024-06-06 20:45:00-0400: Controller: play B S3
+2024-06-06 20:45:00-0400: = 
+2024-06-06 20:45:00-0400: Controller: kata-analyze 10
+2024-06-06 20:45:00-0400: = 
+2024-06-06 20:45:01-0400: Controller: play W M2
+2024-06-06 20:45:01-0400: = 
+2024-06-06 20:45:01-0400: Controller: kata-analyze 10
+2024-06-06 20:45:02-0400: = 
+2024-06-06 20:45:03-0400: Controller: play B R14
+2024-06-06 20:45:03-0400: = 
+2024-06-06 20:45:03-0400: Controller: kata-analyze 10
+2024-06-06 20:45:03-0400: = 
+2024-06-06 20:45:04-0400: Controller: play W D8
+2024-06-06 20:45:04-0400: = 
+2024-06-06 20:45:04-0400: Controller: kata-analyze 10
+2024-06-06 20:45:04-0400: = 
+2024-06-06 20:45:05-0400: Controller: play B Q8
+2024-06-06 20:45:05-0400: = 
+2024-06-06 20:45:05-0400: Controller: kata-analyze 10
+2024-06-06 20:45:05-0400: = 
+2024-06-06 20:45:06-0400: Controller: play W L17
+2024-06-06 20:45:06-0400: = 
+2024-06-06 20:45:06-0400: Controller: kata-analyze 10
+2024-06-06 20:45:06-0400: = 
+2024-06-06 20:45:07-0400: Controller: play B C7
+2024-06-06 20:45:07-0400: = 
+2024-06-06 20:45:07-0400: Controller: kata-analyze 10
+2024-06-06 20:45:07-0400: = 
+2024-06-06 20:45:08-0400: Controller: play W N6
+2024-06-06 20:45:08-0400: = 
+2024-06-06 20:45:08-0400: Controller: kata-analyze 10
+2024-06-06 20:45:08-0400: = 
+2024-06-06 20:45:09-0400: Controller: play B H8
+2024-06-06 20:45:09-0400: = 
+2024-06-06 20:45:09-0400: Controller: kata-analyze 10
+2024-06-06 20:45:09-0400: = 
+2024-06-06 20:45:10-0400: Controller: play W D7
+2024-06-06 20:45:10-0400: = 
+2024-06-06 20:45:10-0400: Controller: kata-analyze 10
+2024-06-06 20:45:10-0400: = 
+2024-06-06 20:45:11-0400: Controller: play B R2
+2024-06-06 20:45:11-0400: = 
+2024-06-06 20:45:11-0400: Controller: kata-analyze 10
+2024-06-06 20:45:11-0400: = 
+2024-06-06 20:45:12-0400: Controller: play W Q2
+2024-06-06 20:45:12-0400: = 
+2024-06-06 20:45:12-0400: Controller: kata-analyze 10
+2024-06-06 20:45:12-0400: = 
+2024-06-06 20:45:13-0400: Controller: play B Q1
+2024-06-06 20:45:13-0400: = 
+2024-06-06 20:45:13-0400: Controller: kata-analyze 10
+2024-06-06 20:45:13-0400: = 
+2024-06-06 20:45:14-0400: Controller: play W P2
+2024-06-06 20:45:14-0400: = 
+2024-06-06 20:45:14-0400: Controller: kata-analyze 10
+2024-06-06 20:45:14-0400: = 
+2024-06-06 20:45:15-0400: Controller: play B O17
+2024-06-06 20:45:15-0400: = 
+2024-06-06 20:45:15-0400: Controller: kata-analyze 10
+2024-06-06 20:45:15-0400: = 
+2024-06-06 20:45:16-0400: Controller: play W R10
+2024-06-06 20:45:16-0400: = 
+2024-06-06 20:45:16-0400: Controller: kata-analyze 10
+2024-06-06 20:45:16-0400: = 
+2024-06-06 20:45:17-0400: Controller: play B R9
+2024-06-06 20:45:17-0400: = 
+2024-06-06 20:45:17-0400: Controller: kata-analyze 10
+2024-06-06 20:45:17-0400: = 
+2024-06-06 20:45:19-0400: Controller: play W Q10
+2024-06-06 20:45:19-0400: = 
+2024-06-06 20:45:19-0400: Controller: kata-analyze 10
+2024-06-06 20:45:19-0400: = 
+2024-06-06 20:45:20-0400: Controller: play B O8
+2024-06-06 20:45:20-0400: = 
+2024-06-06 20:45:20-0400: Controller: kata-analyze 10
+2024-06-06 20:45:20-0400: = 
+2024-06-06 20:45:21-0400: Controller: play W Q13
+2024-06-06 20:45:21-0400: = 
+2024-06-06 20:45:21-0400: Controller: kata-analyze 10
+2024-06-06 20:45:21-0400: = 
+2024-06-06 20:45:22-0400: Controller: play B K7
+2024-06-06 20:45:22-0400: = 
+2024-06-06 20:45:22-0400: Controller: kata-analyze 10
+2024-06-06 20:45:22-0400: = 
+2024-06-06 20:45:23-0400: Controller: play W Q14
+2024-06-06 20:45:23-0400: = 
+2024-06-06 20:45:23-0400: Controller: kata-analyze 10
+2024-06-06 20:45:23-0400: = 
+2024-06-06 20:45:24-0400: Controller: play B R15
+2024-06-06 20:45:24-0400: = 
+2024-06-06 20:45:24-0400: Controller: kata-analyze 10
+2024-06-06 20:45:24-0400: = 
+2024-06-06 20:45:25-0400: Controller: play W H6
+2024-06-06 20:45:25-0400: = 
+2024-06-06 20:45:25-0400: Controller: kata-analyze 10
+2024-06-06 20:45:25-0400: = 
+2024-06-06 20:45:26-0400: Controller: play B M7
+2024-06-06 20:45:26-0400: = 
+2024-06-06 20:45:26-0400: Controller: kata-analyze 10
+2024-06-06 20:45:26-0400: = 
+2024-06-06 20:45:27-0400: Controller: play W M9
+2024-06-06 20:45:27-0400: = 
+2024-06-06 20:45:27-0400: Controller: kata-analyze 10
+2024-06-06 20:45:27-0400: = 
+2024-06-06 20:45:28-0400: Controller: play B J6
+2024-06-06 20:45:28-0400: = 
+2024-06-06 20:45:28-0400: Controller: kata-analyze 10
+2024-06-06 20:45:28-0400: = 
+2024-06-06 20:45:29-0400: Controller: play W H7
+2024-06-06 20:45:29-0400: = 
+2024-06-06 20:45:29-0400: Controller: kata-analyze 10
+2024-06-06 20:45:29-0400: = 
+2024-06-06 20:45:30-0400: Controller: play B J7
+2024-06-06 20:45:30-0400: = 
+2024-06-06 20:45:30-0400: Controller: kata-analyze 10
+2024-06-06 20:45:30-0400: = 
+2024-06-06 20:45:31-0400: Controller: play W G8
+2024-06-06 20:45:31-0400: = 
+2024-06-06 20:45:31-0400: Controller: kata-analyze 10
+2024-06-06 20:45:31-0400: = 
+2024-06-06 20:45:32-0400: Controller: play B G9
+2024-06-06 20:45:32-0400: = 
+2024-06-06 20:45:32-0400: Controller: kata-analyze 10
+2024-06-06 20:45:33-0400: = 
+2024-06-06 20:45:34-0400: Controller: play W H9
+2024-06-06 20:45:34-0400: = 
+2024-06-06 20:45:34-0400: Controller: kata-analyze 10
+2024-06-06 20:45:34-0400: = 
+2024-06-06 20:45:35-0400: Controller: play B J8
+2024-06-06 20:45:35-0400: = 
+2024-06-06 20:45:35-0400: Controller: kata-analyze 10
+2024-06-06 20:45:35-0400: = 
+2024-06-06 20:45:36-0400: Controller: play W G10
+2024-06-06 20:45:36-0400: = 
+2024-06-06 20:45:36-0400: Controller: kata-analyze 10
+2024-06-06 20:45:36-0400: = 
+2024-06-06 20:45:37-0400: Controller: play B F9
+2024-06-06 20:45:37-0400: = 
+2024-06-06 20:45:37-0400: Controller: kata-analyze 10
+2024-06-06 20:45:37-0400: = 
+2024-06-06 20:45:38-0400: Controller: play W H10
+2024-06-06 20:45:38-0400: = 
+2024-06-06 20:45:38-0400: Controller: kata-analyze 10
+2024-06-06 20:45:38-0400: = 
+2024-06-06 20:45:39-0400: Controller: play B K10
+2024-06-06 20:45:39-0400: = 
+2024-06-06 20:45:39-0400: Controller: kata-analyze 10
+2024-06-06 20:45:39-0400: = 
+2024-06-06 20:45:40-0400: Controller: play W L11
+2024-06-06 20:45:40-0400: = 
+2024-06-06 20:45:40-0400: Controller: kata-analyze 10
+2024-06-06 20:45:40-0400: = 
+2024-06-06 20:45:41-0400: Controller: play B S2
+2024-06-06 20:45:41-0400: = 
+2024-06-06 20:45:41-0400: Controller: kata-analyze 10
+2024-06-06 20:45:41-0400: = 
+2024-06-06 20:45:42-0400: Controller: play W J4
+2024-06-06 20:45:42-0400: = 
+2024-06-06 20:45:42-0400: Controller: kata-analyze 10
+2024-06-06 20:45:42-0400: = 
+2024-06-06 20:45:43-0400: Controller: play B H5
+2024-06-06 20:45:43-0400: = 
+2024-06-06 20:45:43-0400: Controller: kata-analyze 10
+2024-06-06 20:45:43-0400: = 
+2024-06-06 20:45:44-0400: Controller: play W F7
+2024-06-06 20:45:44-0400: = 
+2024-06-06 20:45:44-0400: Controller: kata-analyze 10
+2024-06-06 20:45:44-0400: = 
+2024-06-06 20:45:45-0400: Controller: play B G6
+2024-06-06 20:45:45-0400: = 
+2024-06-06 20:45:45-0400: Controller: kata-analyze 10
+2024-06-06 20:45:45-0400: = 
+2024-06-06 20:45:46-0400: Controller: play W G7
+2024-06-06 20:45:46-0400: = 
+2024-06-06 20:45:46-0400: Controller: kata-analyze 10
+2024-06-06 20:45:46-0400: = 
+2024-06-06 20:45:47-0400: Controller: play B J5
+2024-06-06 20:45:47-0400: = 
+2024-06-06 20:45:47-0400: Controller: kata-analyze 10
+2024-06-06 20:45:47-0400: = 
+2024-06-06 20:45:48-0400: Controller: play W K11
+2024-06-06 20:45:48-0400: = 
+2024-06-06 20:45:48-0400: Controller: kata-analyze 10
+2024-06-06 20:45:48-0400: = 
+2024-06-06 20:45:49-0400: Controller: play B K4
+2024-06-06 20:45:49-0400: = 
+2024-06-06 20:45:49-0400: Controller: kata-analyze 10
+2024-06-06 20:45:49-0400: = 
+2024-06-06 20:45:50-0400: Controller: play W J3
+2024-06-06 20:45:50-0400: = 
+2024-06-06 20:45:50-0400: Controller: kata-analyze 10
+2024-06-06 20:45:51-0400: = 
+2024-06-06 20:45:52-0400: Controller: play B K3
+2024-06-06 20:45:52-0400: = 
+2024-06-06 20:45:52-0400: Controller: kata-analyze 10
+2024-06-06 20:45:52-0400: = 
+2024-06-06 20:45:53-0400: Controller: play W K2
+2024-06-06 20:45:53-0400: = 
+2024-06-06 20:45:53-0400: Controller: kata-analyze 10
+2024-06-06 20:45:53-0400: = 
+2024-06-06 20:45:54-0400: Controller: play B L2
+2024-06-06 20:45:54-0400: = 
+2024-06-06 20:45:54-0400: Controller: kata-analyze 10
+2024-06-06 20:45:54-0400: = 
+2024-06-06 20:45:55-0400: Controller: play W L3
+2024-06-06 20:45:55-0400: = 
+2024-06-06 20:45:55-0400: Controller: kata-analyze 10
+2024-06-06 20:45:55-0400: = 
+2024-06-06 20:45:56-0400: Controller: play B J2
+2024-06-06 20:45:56-0400: = 
+2024-06-06 20:45:56-0400: Controller: kata-analyze 10
+2024-06-06 20:45:56-0400: = 
+2024-06-06 20:45:57-0400: Controller: play W L1
+2024-06-06 20:45:57-0400: = 
+2024-06-06 20:45:57-0400: Controller: kata-analyze 10
+2024-06-06 20:45:57-0400: = 
+2024-06-06 20:45:58-0400: Controller: play B H3
+2024-06-06 20:45:58-0400: = 
+2024-06-06 20:45:58-0400: Controller: kata-analyze 10
+2024-06-06 20:45:58-0400: = 
+2024-06-06 20:45:59-0400: Controller: play W C13
+2024-06-06 20:45:59-0400: = 
+2024-06-06 20:45:59-0400: Controller: kata-analyze 10
+2024-06-06 20:45:59-0400: = 
+2024-06-06 20:46:00-0400: Controller: play B D18
+2024-06-06 20:46:00-0400: = 
+2024-06-06 20:46:00-0400: Controller: kata-analyze 10
+2024-06-06 20:46:00-0400: = 
+2024-06-06 20:46:01-0400: Controller: play W E18
+2024-06-06 20:46:01-0400: = 
+2024-06-06 20:46:01-0400: Controller: kata-analyze 10
+2024-06-06 20:46:01-0400: = 
+2024-06-06 20:46:02-0400: Controller: play B F6
+2024-06-06 20:46:02-0400: = 
+2024-06-06 20:46:02-0400: Controller: kata-analyze 10
+2024-06-06 20:46:02-0400: = 
+2024-06-06 20:46:03-0400: Controller: play W F8
+2024-06-06 20:46:03-0400: = 
+2024-06-06 20:46:03-0400: Controller: kata-analyze 10
+2024-06-06 20:46:04-0400: = 
+2024-06-06 20:46:05-0400: Controller: play B C18
+2024-06-06 20:46:05-0400: = 
+2024-06-06 20:46:05-0400: Controller: kata-analyze 10
+2024-06-06 20:46:05-0400: = 
+2024-06-06 20:46:06-0400: Controller: play W F17
+2024-06-06 20:46:06-0400: = 
+2024-06-06 20:46:06-0400: Controller: kata-analyze 10
+2024-06-06 20:46:06-0400: = 
+2024-06-06 20:46:07-0400: Controller: play B C14
+2024-06-06 20:46:07-0400: = 
+2024-06-06 20:46:07-0400: Controller: kata-analyze 10
+2024-06-06 20:46:07-0400: = 
+2024-06-06 20:46:08-0400: Controller: play W D14
+2024-06-06 20:46:08-0400: = 
+2024-06-06 20:46:08-0400: Controller: kata-analyze 10
+2024-06-06 20:46:08-0400: = 
+2024-06-06 20:46:09-0400: Controller: play B N14
+2024-06-06 20:46:09-0400: = 
+2024-06-06 20:46:09-0400: Controller: kata-analyze 10
+2024-06-06 20:46:09-0400: = 
+2024-06-06 20:46:10-0400: Controller: play W L15
+2024-06-06 20:46:10-0400: = 
+2024-06-06 20:46:10-0400: Controller: kata-analyze 10
+2024-06-06 20:46:10-0400: = 
+2024-06-06 20:46:11-0400: Controller: play B M16
+2024-06-06 20:46:11-0400: = 
+2024-06-06 20:46:11-0400: Controller: kata-analyze 10
+2024-06-06 20:46:11-0400: = 
+2024-06-06 20:46:12-0400: Controller: play W L16
+2024-06-06 20:46:12-0400: = 
+2024-06-06 20:46:12-0400: Controller: kata-analyze 10
+2024-06-06 20:46:12-0400: = 
+2024-06-06 20:46:13-0400: Controller: play B C12
+2024-06-06 20:46:13-0400: = 
+2024-06-06 20:46:13-0400: Controller: kata-analyze 10
+2024-06-06 20:46:13-0400: = 
+2024-06-06 20:46:14-0400: Controller: play W D13
+2024-06-06 20:46:14-0400: = 
+2024-06-06 20:46:14-0400: Controller: kata-analyze 10
+2024-06-06 20:46:14-0400: = 
+2024-06-06 20:46:15-0400: Controller: play B B13
+2024-06-06 20:46:15-0400: = 
+2024-06-06 20:46:15-0400: Controller: kata-analyze 10
+2024-06-06 20:46:15-0400: = 
+2024-06-06 20:46:16-0400: Controller: play W O16
+2024-06-06 20:46:16-0400: = 
+2024-06-06 20:46:16-0400: Controller: kata-analyze 10
+2024-06-06 20:46:16-0400: = 
+2024-06-06 20:46:17-0400: Controller: play B N17
+2024-06-06 20:46:17-0400: = 
+2024-06-06 20:46:17-0400: Controller: kata-analyze 10
+2024-06-06 20:46:17-0400: = 
+2024-06-06 20:46:18-0400: Controller: play W D11
+2024-06-06 20:46:18-0400: = 
+2024-06-06 20:46:18-0400: Controller: kata-analyze 10
+2024-06-06 20:46:18-0400: = 
+2024-06-06 20:46:20-0400: Controller: play B M13
+2024-06-06 20:46:20-0400: = 
+2024-06-06 20:46:20-0400: Controller: kata-analyze 10
+2024-06-06 20:46:20-0400: = 
+2024-06-06 20:46:21-0400: Controller: play W P16
+2024-06-06 20:46:21-0400: = 
+2024-06-06 20:46:21-0400: Controller: kata-analyze 10
+2024-06-06 20:46:21-0400: = 
+2024-06-06 20:46:22-0400: Controller: play B P17
+2024-06-06 20:46:22-0400: = 
+2024-06-06 20:46:22-0400: Controller: kata-analyze 10
+2024-06-06 20:46:22-0400: = 
+2024-06-06 20:46:23-0400: Controller: play W Q15
+2024-06-06 20:46:23-0400: = 
+2024-06-06 20:46:23-0400: Controller: kata-analyze 10
+2024-06-06 20:46:23-0400: = 
+2024-06-06 20:46:24-0400: Controller: play B R16
+2024-06-06 20:46:24-0400: = 
+2024-06-06 20:46:24-0400: Controller: kata-analyze 10
+2024-06-06 20:46:24-0400: = 
+2024-06-06 20:46:25-0400: Controller: play W M15
+2024-06-06 20:46:25-0400: = 
+2024-06-06 20:46:25-0400: Controller: kata-analyze 10
+2024-06-06 20:46:25-0400: = 
+2024-06-06 20:46:26-0400: Controller: play B M11
+2024-06-06 20:46:26-0400: = 
+2024-06-06 20:46:26-0400: Controller: kata-analyze 10
+2024-06-06 20:46:26-0400: = 
+2024-06-06 20:46:27-0400: Controller: play W O10
+2024-06-06 20:46:27-0400: = 
+2024-06-06 20:46:27-0400: Controller: kata-analyze 10
+2024-06-06 20:46:27-0400: = 
+2024-06-06 20:46:28-0400: Controller: play B P11
+2024-06-06 20:46:28-0400: = 
+2024-06-06 20:46:28-0400: Controller: kata-analyze 10
+2024-06-06 20:46:28-0400: = 
+2024-06-06 20:46:29-0400: Controller: play W P10
+2024-06-06 20:46:29-0400: = 
+2024-06-06 20:46:29-0400: Controller: kata-analyze 10
+2024-06-06 20:46:29-0400: = 
+2024-06-06 20:46:30-0400: Controller: play B L10
+2024-06-06 20:46:30-0400: = 
+2024-06-06 20:46:30-0400: Controller: kata-analyze 10
+2024-06-06 20:46:30-0400: = 
+2024-06-06 20:46:31-0400: Controller: play W M10
+2024-06-06 20:46:31-0400: = 
+2024-06-06 20:46:31-0400: Controller: kata-analyze 10
+2024-06-06 20:46:31-0400: = 
+2024-06-06 20:46:32-0400: Controller: play B N15
+2024-06-06 20:46:32-0400: = 
+2024-06-06 20:46:32-0400: Controller: kata-analyze 10
+2024-06-06 20:46:32-0400: = 
+2024-06-06 20:46:33-0400: Controller: play W N16
+2024-06-06 20:46:33-0400: = 
+2024-06-06 20:46:33-0400: Controller: kata-analyze 10
+2024-06-06 20:46:33-0400: = 
+2024-06-06 20:46:34-0400: Controller: play B N11
+2024-06-06 20:46:34-0400: = 
+2024-06-06 20:46:34-0400: Controller: kata-analyze 10
+2024-06-06 20:46:34-0400: = 
+2024-06-06 20:46:35-0400: Controller: play W N10
+2024-06-06 20:46:35-0400: = 
+2024-06-06 20:46:35-0400: Controller: kata-analyze 10
+2024-06-06 20:46:35-0400: = 
+2024-06-06 20:46:36-0400: Controller: play B J11
+2024-06-06 20:46:36-0400: = 
+2024-06-06 20:46:36-0400: Controller: kata-analyze 10
+2024-06-06 20:46:36-0400: = 
+2024-06-06 20:46:38-0400: Controller: play W K13
+2024-06-06 20:46:38-0400: = 
+2024-06-06 20:46:38-0400: Controller: kata-analyze 10
+2024-06-06 20:46:38-0400: = 
+2024-06-06 20:46:39-0400: Controller: play B P15
+2024-06-06 20:46:39-0400: = 
+2024-06-06 20:46:39-0400: Controller: kata-analyze 10
+2024-06-06 20:46:39-0400: = 
+2024-06-06 20:46:40-0400: Controller: play W M17
+2024-06-06 20:46:40-0400: = 
+2024-06-06 20:46:40-0400: Controller: kata-analyze 10
+2024-06-06 20:46:40-0400: = 
+2024-06-06 20:46:41-0400: Controller: play B O15
+2024-06-06 20:46:41-0400: = 
+2024-06-06 20:46:41-0400: Controller: kata-analyze 10
+2024-06-06 20:46:41-0400: = 
+2024-06-06 20:46:42-0400: Controller: play W L13
+2024-06-06 20:46:42-0400: = 
+2024-06-06 20:46:42-0400: Controller: kata-analyze 10
+2024-06-06 20:46:42-0400: = 
+2024-06-06 20:46:43-0400: Controller: play B Q12
+2024-06-06 20:46:43-0400: = 
+2024-06-06 20:46:43-0400: Controller: kata-analyze 10
+2024-06-06 20:46:43-0400: = 
+2024-06-06 20:46:44-0400: Controller: play W R12
+2024-06-06 20:46:44-0400: = 
+2024-06-06 20:46:44-0400: Controller: kata-analyze 10
+2024-06-06 20:46:44-0400: = 
+2024-06-06 20:46:45-0400: Controller: play B R13
+2024-06-06 20:46:45-0400: = 
+2024-06-06 20:46:45-0400: Controller: kata-analyze 10
+2024-06-06 20:46:45-0400: = 
+2024-06-06 20:46:46-0400: Controller: play W K9
+2024-06-06 20:46:46-0400: = 
+2024-06-06 20:46:46-0400: Controller: kata-analyze 10
+2024-06-06 20:46:46-0400: = 
+2024-06-06 20:46:47-0400: Controller: play B S12
+2024-06-06 20:46:47-0400: = 
+2024-06-06 20:46:47-0400: Controller: kata-analyze 10
+2024-06-06 20:46:47-0400: = 
+2024-06-06 20:46:48-0400: Controller: play W B9
+2024-06-06 20:46:48-0400: = 
+2024-06-06 20:46:48-0400: Controller: kata-analyze 10
+2024-06-06 20:46:48-0400: = 
+2024-06-06 20:46:49-0400: Controller: play B C11
+2024-06-06 20:46:49-0400: = 
+2024-06-06 20:46:49-0400: Controller: kata-analyze 10
+2024-06-06 20:46:49-0400: = 
+2024-06-06 20:46:50-0400: Controller: play W C10
+2024-06-06 20:46:50-0400: = 
+2024-06-06 20:46:50-0400: Controller: kata-analyze 10
+2024-06-06 20:46:50-0400: = 
+2024-06-06 20:46:51-0400: Controller: play B S10
+2024-06-06 20:46:51-0400: = 
+2024-06-06 20:46:51-0400: Controller: kata-analyze 10
+2024-06-06 20:46:51-0400: = 
+2024-06-06 20:46:53-0400: Controller: play W R11
+2024-06-06 20:46:53-0400: = 
+2024-06-06 20:46:53-0400: Controller: kata-analyze 10
+2024-06-06 20:46:53-0400: = 
+2024-06-06 20:46:54-0400: Controller: play B O11
+2024-06-06 20:46:54-0400: = 
+2024-06-06 20:46:54-0400: Controller: kata-analyze 10
+2024-06-06 20:46:54-0400: = 
+2024-06-06 20:46:55-0400: Controller: play W S11
+2024-06-06 20:46:55-0400: = 
+2024-06-06 20:46:55-0400: Controller: kata-analyze 10
+2024-06-06 20:46:55-0400: = 
+2024-06-06 20:46:56-0400: Controller: stop
+2024-06-06 20:46:56-0400: = 
+2024-06-06 20:46:56-0400: Controller: stop
+2024-06-06 20:46:56-0400: = 
+2024-06-06 20:46:56-0400: Controller: stop
+2024-06-06 20:46:56-0400: = 
+2024-06-06 20:46:56-0400: Controller: kata-set-param analysisWideRootNoise 0.04
+2024-06-06 20:46:56-0400: = 
+2024-06-06 20:49:23-0400: Controller: quit
+2024-06-06 20:49:23-0400: Quit requested by controller
+2024-06-06 20:49:23-0400: = 
+2024-06-06 20:49:24-0400: GPU -1 finishing, processed 50586 rows 5545 batches
+2024-06-06 20:49:24-0400: All cleaned up, quitting
