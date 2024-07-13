@@ -1,0 +1,215 @@
+2024-07-09 20:51:11-0400: Running with following config:
+allowResignation = true
+lagBuffer = 1.0
+logAllGTPCommunication = true
+logDir = gtp_logs
+logSearchInfo = true
+logSearchInfoForChosenMove = false
+logToStderr = true
+maxTime = 0.5
+maxTimePondering = 60.0
+numSearchThreads = 16
+ogsChatToStderr = true
+ponderingEnabled = true
+resignConsecTurns = 3
+resignThreshold = -0.90
+rules = tromp-taylor
+searchFactorAfterOnePass = 0.50
+searchFactorAfterTwoPass = 0.25
+searchFactorWhenWinning = 0.40
+searchFactorWhenWinningThreshold = 0.95
+
+2024-07-09 20:51:11-0400: GTP Engine starting...
+2024-07-09 20:51:11-0400: KataGo v1.14.1
+2024-07-09 20:51:11-0400: Using TrompTaylor rules initially, unless GTP/GUI overrides this
+2024-07-09 20:51:11-0400: Using 16 CPU thread(s) for search
+2024-07-09 20:51:11-0400: nnRandSeed0 = 1656665754310043807
+2024-07-09 20:51:11-0400: After dedups: nnModelFile0 = C:\\Users\\chang\\Downloads\\kata1-b18c384nbt-s9937771520-d4300882049.bin.gz useFP16 auto useNHWC auto
+2024-07-09 20:51:11-0400: Initializing neural net buffer to be size 19 * 19 exactly
+2024-07-09 20:51:13-0400: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.5.51)
+2024-07-09 20:51:13-0400: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator
+2024-07-09 20:51:13-0400: Found OpenCL Platform 1: Intel(R) OpenCL Graphics (Intel(R) Corporation) (OpenCL 3.0 )
+2024-07-09 20:51:13-0400: Found 1 device(s) on platform 1 with type CPU or GPU or Accelerator
+2024-07-09 20:51:13-0400: Found OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) (score 11000300)
+2024-07-09 20:51:13-0400: Found OpenCL Device 1: Intel(R) UHD Graphics (Intel(R) Corporation) (score 6000300)
+2024-07-09 20:51:13-0400: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.5.51)
+2024-07-09 20:51:13-0400: Using OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) OpenCL 3.0 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32)
+2024-07-09 20:51:13-0400: Loaded tuning parameters from: C:\Users\chang\Downloads\katago-v1.14.1-opencl-windows-x64/KataGoData/opencltuning/tune11_gpuNVIDIAGeForceRTX4060LaptopGPU_x19_y19_c384_mv14.txt
+2024-07-09 20:51:14-0400: OpenCL backend thread 0: Model version 14
+2024-07-09 20:51:14-0400: OpenCL backend thread 0: Model name: kata1-b18c384nbt-s9937771520-d4300882049
+2024-07-09 20:51:15-0400: OpenCL backend thread 0: FP16Storage true FP16Compute false FP16TensorCores true FP16TensorCoresFor1x1 false
+2024-07-09 20:51:15-0400: Loaded neural net with nnXLen 19 nnYLen 19
+2024-07-09 20:51:15-0400: Initializing board with boardXSize 19 boardYSize 19
+2024-07-09 20:51:15-0400: Loaded config C:\\Users\\chang\\Downloads\\katago-v1.14.1-opencl-windows-x64\\lizgoban.cfg
+2024-07-09 20:51:15-0400: Loaded model C:\\Users\\chang\\Downloads\\kata1-b18c384nbt-s9937771520-d4300882049.bin.gz
+2024-07-09 20:51:15-0400: Model name: kata1-b18c384nbt-s9937771520-d4300882049
+2024-07-09 20:51:15-0400: GTP ready, beginning main protocol loop
+2024-07-09 20:51:15-0400: Controller: protocol_version
+2024-07-09 20:51:15-0400: = 2
+2024-07-09 20:52:51-0400: Controller: clear_board
+2024-07-09 20:52:51-0400: = 
+2024-07-09 20:52:51-0400: Controller: boardsize 19
+2024-07-09 20:52:51-0400: = 
+2024-07-09 20:52:51-0400: Controller: play black q16
+2024-07-09 20:52:51-0400: = 
+2024-07-09 20:52:51-0400: Controller: play white pass
+2024-07-09 20:52:53-0400: = 
+2024-07-09 20:52:53-0400: Controller: play black d4
+2024-07-09 20:52:53-0400: = 
+2024-07-09 20:52:53-0400: Controller: play white pass
+2024-07-09 20:52:53-0400: = 
+2024-07-09 20:52:53-0400: Controller: play black d16
+2024-07-09 20:52:53-0400: = 
+2024-07-09 20:52:53-0400: Controller: play white pass
+2024-07-09 20:52:53-0400: = 
+2024-07-09 20:52:53-0400: Controller: known_command kgs-time_settings
+2024-07-09 20:52:53-0400: = true
+2024-07-09 20:52:53-0400: Controller: kgs-time_settings byoyomi 0 2 3
+2024-07-09 20:52:53-0400: = 
+2024-07-09 20:54:14-0400: Controller: play white r4
+2024-07-09 20:54:14-0400: = 
+2024-07-09 20:54:14-0400: Controller: genmove black
+2024-07-09 20:54:15-0400: MoveNum: 1 HASH: B70ADF05633796C0F8FC7B20060B63C9
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . . . . . . . . . . . . . . .
+18 . . . . . . . . . . . . . . . . . . .
+17 . . . . . . . . . . . . . . . . . . .
+16 . . . X . . . . . . . . . . . X . . .
+15 . . . . . . . . . . . . . . . . . . .
+14 . . . . . . . . . . . . . . . . . . .
+13 . . . . . . . . . . . . . . . . . . .
+12 . . . . . . . . . . . . . . . . . . .
+11 . . . . . . . . . . . . . . . . . . .
+10 . . . . . . . . . . . . . . . . . . .
+ 9 . . . . . . . . . . . . . . . . . . .
+ 8 . . . . . . . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . . . . . . . .
+ 4 . . . X . . . . . . . . . . @ . O1. .
+ 3 . . . . . . . . . . . . . . . . . . .
+ 2 . . . . . . . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.313
+Root visits: 101
+New playouts: 101
+NN rows: 102
+NN batches: 11
+NN avg batch size: 9.27273
+PlayoutDoublingAdvantage: -1.125
+PV: P4 P3 O3 Q3 N4
+Tree:
+: T 107.20c W  99.56c S   7.54c (+25.8 L +22.3) N     101  --  P4 P3 O3 Q3 N4
+---Black(^)---
+P4  : T 107.88c W  99.67c S   8.11c (+26.5 L +22.8) LCB   98.85c P 41.36% WF  36.8 PSV      37 N       9  --  P4 P3 O3 Q3 N4
+P3  : T 107.96c W  99.63c S   8.24c (+26.7 L +23.3) LCB   96.61c P 17.09% WF  37.7 PSV      15 N       8  --  P3 Q5 M3 R14
+O4  : T 107.60c W  99.59c S   7.90c (+26.2 L +22.7) LCB   92.92c P  0.45% WF  30.8 PSV       0 N       7  --  O4 Q6 R8 Q3
+Q4  : T 106.99c W  99.59c S   7.39c (+25.7 L +22.0) LCB   92.09c P  0.43% WF  27.5 PSV       0 N       7  --  Q4 Q3 P3 Q5
+O3  : T 107.22c W  99.56c S   7.75c (+26.0 L +22.6) LCB   92.47c P  0.40% WF  30.7 PSV       0 N       7  --  O3 Q6 R8
+C13 : T 107.19c W  99.57c S   7.44c (+25.8 L +22.3) LCB   92.30c P  0.36% WF  31.9 PSV       0 N       7  --  C13 O4 R13
+Q13 : T 106.87c W  99.55c S   7.27c (+25.5 L +21.9) LCB   86.62c P  0.36% WF  26.2 PSV       0 N       6  --  Q13 O3 G3
+R13 : T 106.94c W  99.53c S   7.41c (+25.7 L +22.0) LCB   86.76c P  0.36% WF  27.4 PSV       0 N       6  --  R13 O3 Q4
+G17 : T 107.16c W  99.58c S   7.43c (+25.7 L +22.3) LCB   87.28c P  0.35% WF  28.1 PSV       0 N       6  --  G17 O4 R13
+N17 : T 106.98c W  99.53c S   7.30c (+25.6 L +22.0) LCB   86.70c P  0.35% WF  27.4 PSV       0 N       6  --  N17 O4 M3
+
+2024-07-09 20:54:15-0400: = P4
+2024-07-09 20:54:24-0400: Controller: play white p3
+2024-07-09 20:54:24-0400: = 
+2024-07-09 20:54:24-0400: Controller: genmove black
+2024-07-09 20:54:24-0400: MoveNum: 3 HASH: 1276E26C052B9EF60C48DDB2D6682CBC
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . . . . . . . . . . . . . . .
+18 . . . . . . . . . . . . . . . . . . .
+17 . . . . . . . . . . . . . . . . . . .
+16 . . . X . . . . . . . . . . . X . . .
+15 . . . . . . . . . . . . . . . . . . .
+14 . . . . . . . . . . . . . . . . . . .
+13 . . . . . . . . . . . . . . . . . . .
+12 . . . . . . . . . . . . . . . . . . .
+11 . . . . . . . . . . . . . . . . . . .
+10 . . . . . . . . . . . . . . . . . . .
+ 9 . . . . . . . . . . . . . . . . . . .
+ 8 . . . . . . . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . . . . . . . .
+ 4 . . . X . . . . . . . . . . X2. O1. .
+ 3 . . . . . . . . . . . . . @ O3. . . .
+ 2 . . . . . . . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.531
+Root visits: 3762
+New playouts: 224
+NN rows: 215
+NN batches: 19
+NN avg batch size: 11.3158
+PlayoutDoublingAdvantage: -1.125
+PV: O3 Q3 N4 Q7 P7 P8 Q6 R6 R7 Q8 R5
+Tree:
+: T 106.99c W  99.58c S   7.44c (+25.7 L +22.3) N    3762  --  O3 Q3 N4 Q7 P7 P8 Q6
+---Black(^)---
+O3  : T 107.20c W  99.61c S   7.62c (+25.9 L +22.5) LCB  107.13c P 53.01% WF 11871.1 PSV   11849 N    2703  --  O3 Q3 N4 Q7 P7 P8 Q6 R6
+Q4  : T 107.15c W  99.52c S   7.59c (+25.9 L +22.4) LCB  106.78c P  7.80% WF 2612.3 PSV    1450 N     696  --  Q4 Q3 R5 O3 S4 R3 Q6 F3
+O4  : T 106.11c W  99.52c S   6.66c (+24.8 L +21.4) LCB  105.51c P  1.49% WF 205.0 PSV      65 N      52  --  O4 O3 N3 Q4 M4 N5 N4 Q7
+R6  : T 105.54c W  99.42c S   6.03c (+24.1 L +20.4) LCB  104.21c P  0.49% WF 113.3 PSV      14 N      33  --  R6 O4 Q3 Q4 P5 O3 R3 S3
+Q6  : T 105.09c W  99.33c S   5.63c (+23.7 L +20.0) LCB  103.46c P  0.51% WF  92.4 PSV      12 N      28  --  Q6 O4 Q4 Q3 R3 S4 R2 P6
+N4  : T 104.69c W  99.37c S   5.57c (+23.6 L +19.9) LCB  102.91c P  0.50% WF  81.9 PSV      10 N      24  --  N4 Q4 P5 O3 L5
+R13 : T 104.32c W  99.44c S   5.24c (+23.2 L +19.4) LCB  -45.16c P  0.39% WF   7.1 PSV       7 N       2  --  R13 O4
+G3  : T 104.49c W  99.46c S   5.23c (+23.2 L +19.5) LCB  -44.51c P  0.37% WF   7.5 PSV       7 N       2  --  G3 O4
+Q10 : T 104.57c W  99.37c S   5.30c (+23.3 L +19.6) LCB  102.85c P  0.33% WF  76.8 PSV       6 N      22  --  Q10 O4 P5 O5 Q3 Q4 P6 O3
+K16 : T 104.29c W  99.31c S   5.09c (+23.1 L +19.5) LCB  102.04c P  0.34% WF  64.5 PSV       6 N      19  --  K16 O4 P5 O5 Q3 Q4 P6
+
+2024-07-09 20:54:24-0400: = O3
+2024-07-09 20:54:31-0400: Controller: play white q3
+2024-07-09 20:54:31-0400: = 
+2024-07-09 20:54:31-0400: Controller: genmove black
+2024-07-09 20:54:31-0400: MoveNum: 5 HASH: 925802B95AC8F53C665AB959E71C22DF
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . . . . . . . . . . . . . . .
+18 . . . . . . . . . . . . . . . . . . .
+17 . . . . . . . . . . . . . . . . . . .
+16 . . . X . . . . . . . . . . . X . . .
+15 . . . . . . . . . . . . . . . . . . .
+14 . . . . . . . . . . . . . . . . . . .
+13 . . . . . . . . . . . . . . . . . . .
+12 . . . . . . . . . . . . . . . . . . .
+11 . . . . . . . . . . . . . . . . . . .
+10 . . . . . . . . . . . . . . . . . . .
+ 9 . . . . . . . . . . . . . . . . . . .
+ 8 . . . . . . . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . . . . . . . .
+ 4 . . . X . . . . . . . . @ . X . O . .
+ 3 . . . . . . . . . . . . . X2O1O3. . .
+ 2 . . . . . . . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.547
+Root visits: 5813
+New playouts: 212
+NN rows: 207
+NN batches: 18
+NN avg batch size: 11.5
+PlayoutDoublingAdvantage: -1.125
+PV: N4 Q7 G3 R14 R12 F17 H17 H4 G4
+Tree:
+: T 107.07c W  99.61c S   7.50c (+25.8 L +22.3) N    5813  --  N4 Q7 G3 R14 R12 F17 H17
+---Black(^)---
+N4  : T 107.28c W  99.61c S   7.69c (+26.0 L +22.6) LCB  107.20c P 27.45% WF 14817.4 PSV   56849 N    3451  --  N4 Q7 G3 R14 R12 F17 H17 H4
+O4  : T 106.91c W  99.61c S   7.34c (+25.6 L +22.2) LCB  106.85c P 38.07% WF 8849.8 PSV    5780 N    2006  --  O4 R6 C7 J3 G3 M4 O7 P6
+R13 : T 106.83c W  99.58c S   7.17c (+25.4 L +21.8) LCB  103.06c P  0.38% WF  59.0 PSV      49 N      14  --  R13 O4 N3 O5 L4 M5 L5
+C7  : T 106.56c W  99.56c S   7.02c (+25.2 L +21.6) LCB   99.29c P  0.36% WF  41.0 PSV      32 N      10  --  C7 O4 N3 O5 L4 J3
+R10 : T 106.63c W  99.59c S   7.05c (+25.2 L +21.7) LCB   97.78c P  0.29% WF  37.3 PSV      27 N       9  --  R10 O4 N3 O5 L4 J3
+G17 : T 106.33c W  99.55c S   6.71c (+24.8 L +21.3) LCB   95.19c P  0.37% WF  32.2 PSV      26 N       8  --  G17 O4 N3 O5 L4 J3
+C13 : T 106.30c W  99.59c S   6.65c (+24.8 L +21.2) LCB   91.88c P  0.37% WF  27.7 PSV      25 N       7  --  C13 O4 N3 O5 L4
+Q10 : T 106.46c W  99.55c S   6.87c (+25.0 L +21.5) LCB   95.24c P  0.30% WF  33.5 PSV      24 N       8  --  Q10 O4 N3 O5 L4 J3
+G3  : T 106.27c W  99.55c S   6.61c (+24.7 L +21.2) LCB   91.69c P  0.35% WF  28.1 PSV      23 N       7  --  G3 O4 N3 O5 M5
+Q11 : T 106.47c W  99.56c S   7.03c (+25.2 L +21.6) LCB   91.88c P  0.29% WF  30.0 PSV      23 N       7  --  Q11 O4 N3 O5
+
+2024-07-09 20:54:31-0400: = N4
