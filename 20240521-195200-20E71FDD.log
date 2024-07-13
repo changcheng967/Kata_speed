@@ -1,0 +1,969 @@
+2024-05-21 19:52:00+0800: Running with following config:
+allowResignation = true
+lagBuffer = 1.0
+logAllGTPCommunication = true
+logDir = gtp_logs
+logSearchInfo = true
+logSearchInfoForChosenMove = false
+logToStderr = false
+maxTime = 0.5
+maxTimePondering = 60.0
+numSearchThreads = 16
+ogsChatToStderr = true
+ponderingEnabled = true
+resignConsecTurns = 3
+resignThreshold = -0.90
+rules = tromp-taylor
+searchFactorAfterOnePass = 0.50
+searchFactorAfterTwoPass = 0.25
+searchFactorWhenWinning = 0.40
+searchFactorWhenWinningThreshold = 0.95
+
+2024-05-21 19:52:00+0800: GTP Engine starting...
+2024-05-21 19:52:00+0800: KataGo v1.14.1
+2024-05-21 19:52:00+0800: Using TrompTaylor rules initially, unless GTP/GUI overrides this
+2024-05-21 19:52:00+0800: Using 16 CPU thread(s) for search
+2024-05-21 19:52:00+0800: nnRandSeed0 = 8953838042962255902
+2024-05-21 19:52:00+0800: After dedups: nnModelFile0 = C:\Users\chang\Downloads\KaTrain\KaTrain\katrain\models/kata1-b18c384nbt-s6582191360-d3422816034.bin.gz useFP16 auto useNHWC auto
+2024-05-21 19:52:00+0800: Initializing neural net buffer to be size 19 * 19 exactly
+2024-05-21 19:52:01+0800: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.4.89)
+2024-05-21 19:52:01+0800: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator
+2024-05-21 19:52:01+0800: Found OpenCL Platform 1: Intel(R) OpenCL Graphics (Intel(R) Corporation) (OpenCL 3.0 )
+2024-05-21 19:52:01+0800: Found 1 device(s) on platform 1 with type CPU or GPU or Accelerator
+2024-05-21 19:52:01+0800: Found OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) (score 11000300)
+2024-05-21 19:52:01+0800: Found OpenCL Device 1: Intel(R) UHD Graphics (Intel(R) Corporation) (score 6000300)
+2024-05-21 19:52:01+0800: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.4.89)
+2024-05-21 19:52:01+0800: Using OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) OpenCL 3.0 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32)
+2024-05-21 19:52:01+0800: Loaded tuning parameters from: C:\Users\chang\Downloads\katago-v1.14.1-opencl-windows-x64/KataGoData/opencltuning/tune11_gpuNVIDIAGeForceRTX4060LaptopGPU_x19_y19_c384_mv14.txt
+2024-05-21 19:52:01+0800: OpenCL backend thread 0: Model version 14
+2024-05-21 19:52:01+0800: OpenCL backend thread 0: Model name: kata1-b18c384nbt-s6582191360-d3422816034
+2024-05-21 19:52:02+0800: OpenCL backend thread 0: FP16Storage true FP16Compute false FP16TensorCores true FP16TensorCoresFor1x1 false
+2024-05-21 19:52:02+0800: Loaded neural net with nnXLen 19 nnYLen 19
+2024-05-21 19:52:02+0800: Initializing board with boardXSize 19 boardYSize 19
+2024-05-21 19:52:02+0800: Loaded config C:/Users/chang/Downloads/katago-v1.14.1-opencl-windows-x64/lizgoban.cfg
+2024-05-21 19:52:02+0800: Loaded model C:\Users\chang\Downloads\KaTrain\KaTrain\katrain\models/kata1-b18c384nbt-s6582191360-d3422816034.bin.gz
+2024-05-21 19:52:02+0800: Model name: kata1-b18c384nbt-s6582191360-d3422816034
+2024-05-21 19:52:02+0800: GTP ready, beginning main protocol loop
+2024-05-21 19:52:02+0800: Controller: list_commands
+2024-05-21 19:52:02+0800: = protocol_version
+name
+version
+known_command
+list_commands
+quit
+boardsize
+rectangular_boardsize
+clear_board
+set_position
+komi
+get_komi
+play
+undo
+kata-get-rules
+kata-set-rule
+kata-set-rules
+kata-get-param
+kata-set-param
+kata-list-params
+kgs-rules
+genmove
+genmove_debug
+search_debug
+clear_cache
+showboard
+fixed_handicap
+place_free_handicap
+set_free_handicap
+time_settings
+kgs-time_settings
+time_left
+kata-list_time_settings
+kata-time_settings
+final_score
+final_status_list
+loadsgf
+printsgf
+lz-genmove_analyze
+kata-genmove_analyze
+lz-analyze
+kata-analyze
+kata-raw-nn
+cputime
+gomill-cpu_time
+kata-benchmark
+kata-debug-print-tc
+debug_moves
+stop
+2024-05-21 19:52:02+0800: Controller: boardsize 19
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: clear_board
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: komi 7.5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black q16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white d16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black q4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white d4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black f17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white r3
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black q3
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white r4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black q5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white r5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black r6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white s6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black c14
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white f16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black g16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white f15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black d17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white g17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black e17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white h16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black s7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white g15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black s5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white c16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black b18
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white c10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black d10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white c9
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black c11
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white d9
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black e16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white e15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black d15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white q2
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black p2
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white q6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black r7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white s4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black p6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white t5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white b11
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black c12
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white f3
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black r15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white p17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black q17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white o15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black o16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white p16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black p15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white p14
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black q15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white b13
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black c13
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white b12
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black b14
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white n15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black o17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white n16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white m17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black m18
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white l18
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black l17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white m16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n19
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white l16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black j4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white k6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black g4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white f4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black g6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white f5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black k17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white k18
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black k14
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white m9
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n9
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white n7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white o7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black p8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white l4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black k16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white f18
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black c17
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white k15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black j15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white l15
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black j16
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white j18
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black o14
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white l14
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black o13
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white k13
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black j7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white o12
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n12
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white n13
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black o11
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white h3
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black j6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white j3
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black d7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white e7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black e8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white p12
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black p13
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white f7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black d8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white e10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black f8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white g7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black b8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white m12
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n11
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white g10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black b4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white c8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black c6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white c7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black e6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white c5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black f6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white b6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black d6
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white b5
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black h9
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white n3
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black k4
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white l3
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black n14
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white m13
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black h10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white h11
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black j11
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white j10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black k10
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white g9
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black j9
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white g8
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black h12
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play white t7
+2024-05-21 19:52:02+0800: = 
+2024-05-21 19:52:02+0800: Controller: play black s8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white h14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black m6
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white m7
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black k3
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white k2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black l2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white j2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black m2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white n2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black n5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white l5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black l6
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white k7
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black k5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white n4
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black l7
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white h5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black h4
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white g5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black h6
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white k8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black j5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white o5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black l8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white o6
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black m8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white r2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black p3
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white m5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black n6
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white t8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black t9
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white t6
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black s9
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white o4
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black e18
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white g11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black j13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white j14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black g18
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white h18
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black f19
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white d11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black e13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white a14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white a12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white b15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black c15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white a16
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black p1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white n1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black b16
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white a17
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white o8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black o9
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white b15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black g3
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white g2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white p7
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black q7
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white b15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black e2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white d3
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white p5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black q6
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white b15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black d2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white b3
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white b10
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black b15
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white m14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black q14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white d12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black e12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white l19
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black p18
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white k12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black j12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white l11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black l10
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white m11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black m10
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white e11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black g12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white h19
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black q1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white r1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black e5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white e4
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black m19
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white g19
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black f18
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white d13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black g13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white m3
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black h8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white h7
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black e9
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white e14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black d14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white k11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black f9
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white f10
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white n18
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black o18
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white a14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black g14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white f14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white d10
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black a14
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white f11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black j8
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white d5
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black f13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white h13
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black j10
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white f12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black f2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white s12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black h1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white h2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black s11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white q11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black r11
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white o1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black p4
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white l1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black q12
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white c2
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black o19
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white d1
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play black pass
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:03+0800: Controller: play white p9
+2024-05-21 19:52:03+0800: = 
+2024-05-21 19:52:05+0800: Controller: genmove black
+2024-05-21 19:52:06+0800: MoveNum: 286 HASH: 77D4476DB4DCE5AC96103C183EBB5428
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . X O O . . O X X X . . . . .
+18 . X . . X X X O O O O X . X X . . . .
+17 O . X X X X O . . X X O X X . X . . .
+16 O X . . X O . O X X O O O X . X . . .
+15 X X X X O O O . X O O . O O X X X . .
+14 X X X X O O X O O . O O X X . X . . .
+13 X O X O X X X O X O . O O X X . . . .
+12 O O X O X O X X X O . O X O O X . O .
+11 . O X O O O O O X O O O X X . O X X .
+10 . O O O O O O X X X X X X . . . . . .
+ 9 . . O O X X O X X . . O X X O3. . X X
+ 8 . X O X X X O X X O X X X O X @ . X O
+ 7 . . O X O O O O X O X O O O O X X X O
+ 6 . O X X X X X X X O X X X O X X X O O
+ 5 . O O O X O O O X X O O X O O X O . O
+ 4 . X . O O O X X X X O . O O X X O O .
+ 3 . O . O . O X O O X O O O . X X O . .
+ 2 . . O X X X O O O O X X O . X O O . .
+ 1 . . . O1. . . X . . O . O O X X O . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.516
+Root visits: 1529
+New playouts: 1529
+NN rows: 296
+NN batches: 34
+NN avg batch size: 8.70588
+PV: Q8 B7 O2 O3 P14 H15
+Tree:
+: T 101.91c W  99.67c S   2.27c ( +3.9 L  +3.8) N    1529  --  Q8 B7 O2 O3 P14 H15
+---Black(^)---
+Q8  : T 102.03c W  99.91c S   2.12c ( +3.7 L  +3.7) LCB  101.96c P 68.44% WF 4533.6 PSV    4527 N     938  --  Q8 B7 O2 O3 P14 H15
+H17 : T 102.49c W  99.38c S   3.18c ( +4.6 L  +4.7) LCB  100.30c P  1.60% WF 546.0 PSV     313 N     144  --  H17 J17 Q8 pass O2 O3 T12 H15
+H15 : T 101.74c W  99.62c S   2.04c ( +3.7 L  +3.6) LCB  100.86c P  5.85% WF 326.0 PSV     183 N      79  --  H15 J17 Q8 pass P14 pass
+B7  : T 101.23c W  99.25c S   1.91c ( +3.6 L  +3.5) LCB  100.08c P  6.22% WF 241.3 PSV     159 N      62  --  B7 A7 Q8 J17 O2
+A9  : T 101.95c W  99.30c S   2.89c ( +4.4 L  +4.4) LCB   99.81c P  2.45% WF 365.3 PSV     118 N      96  --  A9 B7 Q8 H15 O3
+T4  : T 101.52c W  99.44c S   2.05c ( +3.7 L  +3.6) LCB   99.96c P  4.42% WF 167.1 PSV     108 N      43  --  T4 T3 Q8 pass O2
+B9  : T 100.69c W  98.21c S   2.84c ( +4.5 L  +4.5) LCB   91.38c P  4.33% WF 373.1 PSV      97 N      93  --  B9 B7 Q8 H15 O3
+T3  : T 101.50c W  99.35c S   1.99c ( +3.6 L  +3.5) LCB   99.78c P  3.90% WF 144.4 PSV      95 N      39  --  T3 T2 Q8 O2 O3 pass
+A10 : T 101.35c W  99.26c S   1.90c ( +3.6 L  +3.5) LCB   99.85c P  2.56% WF 128.9 PSV      78 N      34  --  A10 B7 Q8 O2 O3
+
+2024-05-21 19:52:06+0800: = Q8
+2024-05-21 19:52:31+0800: Controller: kata-list_time_settings
+2024-05-21 19:52:31+0800: = none absolute byoyomi canadian fischer fischer-capped
+2024-05-21 19:52:31+0800: Controller: play white r12
+2024-05-21 19:52:31+0800: = 
+2024-05-21 19:52:31+0800: Controller: genmove black
+2024-05-21 19:52:32+0800: MoveNum: 288 HASH: 680A880DF322F0C6972103756754ECE5
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . X O O . . O X X X . . . . .
+18 . X . . X X X O O O O X . X X . . . .
+17 O . X X X X O . . X X O X X . X . . .
+16 O X . . X O . O X X O O O X . X . . .
+15 X X X X O O O . X O O . O O X X X . .
+14 X X X X O O X O O . O O X X . X . . .
+13 X O X O X X X O X O . O O X X @ . . .
+12 O O X O X O X X X O . O X O O X O3O .
+11 . O X O O O O O X O O O X X . O X X .
+10 . O O O O O O X X X X X X . . . . . .
+ 9 . . O O X X O X X . . O X X O1. . X X
+ 8 . X O X X X O X X O X X X O X X2. X O
+ 7 . . O X O O O O X O X O O O O X X X O
+ 6 . O X X X X X X X O X X X O X X X O O
+ 5 . O O O X O O O X X O O X O O X O . O
+ 4 . X . O O O X X X X O . O O X X O O .
+ 3 . O . O . O X O O X O O O . X X O . .
+ 2 . . O X X X O O O O X X O . X O O . .
+ 1 . . . O . . . X . . O . O O X X O . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.532
+Root visits: 583
+New playouts: 334
+NN rows: 291
+NN batches: 35
+NN avg batch size: 8.31429
+PV: Q13 O2 O3 pass T12
+Tree:
+: T 101.43c W  99.78c S   1.64c ( +3.8 L  +3.8) N     583  --  Q13 O2 O3 pass T12
+---Black(^)---
+Q13 : T 101.64c W  99.91c S   1.75c ( +3.9 L  +3.8) LCB  101.39c P 16.68% WF 390.6 PSV     605 N      82  --  Q13 O2 O3 pass T12
+P11 : T 101.55c W  99.90c S   1.64c ( +3.8 L  +3.7) LCB  101.39c P 24.54% WF 563.0 PSV     563 N     119  --  P11 O2 O3 pass Q10
+Q10 : T 101.38c W  99.88c S   1.53c ( +3.7 L  +3.7) LCB  100.95c P  5.71% WF 211.7 PSV     108 N      44  --  Q10 O2 O3 pass
+Q9  : T 101.56c W  99.88c S   1.66c ( +3.8 L  +3.8) LCB  101.13c P  4.42% WF 216.2 PSV     102 N      45  --  Q9 B7 P11 O2
+P14 : T 101.60c W  99.88c S   1.71c ( +3.9 L  +3.9) LCB  101.13c P  4.07% WF 184.8 PSV      99 N      38  --  P14 Q13 Q10 O3
+T12 : T 101.63c W  99.84c S   1.71c ( +3.9 L  +3.9) LCB  100.99c P  3.26% WF 179.5 PSV      83 N      37  --  T12 O2 O3 B7
+P10 : T 101.49c W  99.88c S   1.60c ( +3.8 L  +3.8) LCB  100.85c P  3.87% WF 168.3 PSV      82 N      35  --  P10 O2 O3 B7
+O2  : T 101.21c W  99.53c S   1.62c ( +3.8 L  +3.9) LCB  100.58c P  4.37% WF 138.1 PSV      71 N      33  --  O2 Q13 P14 Q10 Q9 O3 R10
+O3  : T 101.00c W  99.38c S   1.59c ( +3.8 L  +3.9) LCB  100.15c P  3.93% WF 106.2 PSV      54 N      26  --  O3 Q13 P14 Q10 Q9 R10
+H17 : T 102.09c W  99.23c S   2.93c ( +4.8 L  +4.8) LCB   95.57c P  0.70% WF  47.2 PSV      47 N      13  --  H17 J17 P11 H15
+
+2024-05-21 19:52:32+0800: = Q13
+2024-05-21 19:52:50+0800: Controller: kata-list_time_settings
+2024-05-21 19:52:50+0800: = none absolute byoyomi canadian fischer fischer-capped
+2024-05-21 19:52:50+0800: Controller: play white q10
+2024-05-21 19:52:50+0800: = 
+2024-05-21 19:52:50+0800: Controller: genmove black
+2024-05-21 19:52:51+0800: MoveNum: 290 HASH: 98E536F87008FE83797AE841FF1F79F4
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . X O O . . O X X X . . . . .
+18 . X . . X X X O O O O X . X X . . . .
+17 O . X X X X O . . X X O X X . X . . .
+16 O X . . X O . O X X O O O X . X . . .
+15 X X X X O O O . X O O . O O X X X . .
+14 X X X X O O X O O . O O X X . X . . .
+13 X O X O X X X O X O . O O X X X2. . .
+12 O O X O X O X X X O . O X O O X O1O .
+11 . O X O O O O O X O O O X X . O X X .
+10 . O O O O O O X X X X X X . . O3. @ .
+ 9 . . O O X X O X X . . O X X O . . X X
+ 8 . X O X X X O X X O X X X O X X . X O
+ 7 . . O X O O O O X O X O O O O X X X O
+ 6 . O X X X X X X X O X X X O X X X O O
+ 5 . O O O X O O O X X O O X O O X O . O
+ 4 . X . O O O X X X X O . O O X X O O .
+ 3 . O . O . O X O O X O O O . X X O . .
+ 2 . . O X X X O O O O X X O . X O O . .
+ 1 . . . O . . . X . . O . O O X X O . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.516
+Root visits: 410
+New playouts: 313
+NN rows: 287
+NN batches: 34
+NN avg batch size: 8.44118
+PV: R10 O2 O3 M1
+Tree:
+: T 101.49c W  99.82c S   1.67c ( +3.8 L  +3.8) N     410  --  R10 O2 O3 M1
+---Black(^)---
+R10 : T 101.78c W  99.90c S   1.81c ( +3.9 L  +3.8) LCB  101.26c P  9.38% WF 199.7 PSV     324 N      42  --  R10 O2 O3 M1
+S10 : T 101.57c W  99.91c S   1.63c ( +3.8 L  +3.7) LCB  101.14c P 16.66% WF 219.6 PSV     219 N      47  --  S10 O2 O3 pass
+Q9  : T 101.63c W  99.92c S   1.72c ( +3.8 L  +3.8) LCB  100.89c P  5.88% WF 151.3 PSV      82 N      32  --  Q9 O2 O3 B7
+P10 : T 101.62c W  99.90c S   1.70c ( +3.8 L  +3.8) LCB  100.59c P  5.95% WF 128.8 PSV      82 N      27  --  P10 O2 O3 H15
+P11 : T 101.55c W  99.87c S   1.74c ( +3.8 L  +3.8) LCB  100.55c P  5.37% WF 126.1 PSV      70 N      28  --  P11 O2 O3 B7
+T12 : T 101.84c W  99.88c S   1.94c ( +4.0 L  +3.9) LCB  101.09c P  3.74% WF 150.9 PSV      64 N      32  --  T12 O2 O3 H15
+O2  : T 101.32c W  99.75c S   1.54c ( +3.7 L  +3.8) LCB  100.64c P  5.86% WF 147.5 PSV      63 N      33  --  O2 S10 R10 O3 T10
+O3  : T 101.23c W  99.71c S   1.51c ( +3.7 L  +3.8) LCB  100.28c P  5.33% WF 112.9 PSV      54 N      25  --  O3 O2 S10 pass
+R13 : T 101.60c W  99.89c S   1.65c ( +3.8 L  +3.7) LCB   99.38c P  2.48% WF  87.2 PSV      33 N      18  --  R13 O3 O2 pass
+S13 : T 101.50c W  99.88c S   1.60c ( +3.7 L  +3.7) LCB  100.01c P  2.56% WF 107.3 PSV      31 N      22  --  S13 H15 T12 J17
+
+2024-05-21 19:52:51+0800: = S10
+2024-05-21 19:53:07+0800: Controller: kata-list_time_settings
+2024-05-21 19:53:07+0800: = none absolute byoyomi canadian fischer fischer-capped
+2024-05-21 19:53:07+0800: Controller: play white pass
+2024-05-21 19:53:07+0800: = 
+2024-05-21 19:53:07+0800: Controller: genmove black
+2024-05-21 19:53:07+0800: MoveNum: 292 HASH: 559FBEF6DBB6DD06289DD0D4AA9E9D24
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . X O O . . O X X X . . . . .
+18 . X . . X X X O O O O X . X X . . . .
+17 O . X X X X O . . X X O X X . X . . .
+16 O X . . X O . O X X O O O X . X . . .
+15 X X X X O O O . X O O . O O X X X . .
+14 X X X X O O X O O . O O X X . X . . .
+13 X O X O X X X O X O . O O X X X . . .
+12 O O X O X O X X X O . O X O O X O O @
+11 . O X O O O O O X O O O X X . O X X .
+10 . O O O O O O X X X X X X . . O1. X2.
+ 9 . . O O X X O X X . . O X X O . . X X
+ 8 . X O X X X O X X O X X X O X X . X O
+ 7 . . O X O O O O X O X O O O O X X X O
+ 6 . O X X X X X X X O X X X O X X X O O
+ 5 . O O O X O O O X X O O X O O X O . O
+ 4 . X . O O O X X X X O . O O X X O O .
+ 3 . O . O . O X O O X O O O . X X O . .
+ 2 . . O X X X O O O O X X O . X O O . .
+ 1 . . . O . . . X . . O . O O X X O . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.141
+Root visits: 796
+New playouts: 796
+NN rows: 66
+NN batches: 10
+NN avg batch size: 6.6
+PV: T12 O2 O3 B7
+Tree:
+: T 101.88c W  99.90c S   1.99c ( +3.7 L  +3.7) N     796  --  T12 O2 O3 B7
+---Black(^)---
+T12 : T 102.01c W  99.91c S   2.07c ( +3.8 L  +3.7) LCB  101.73c P  4.83% WF 281.2 PSV     615 N      61  --  T12 O2 O3 B7
+P11 : T 101.86c W  99.90c S   1.97c ( +3.7 L  +3.6) LCB  101.47c P  5.65% WF 248.8 PSV     235 N      55  --  P11 O2 O3 B7
+C18 : T 102.05c W  99.88c S   2.16c ( +3.8 L  +3.7) LCB  101.68c P  3.19% WF 241.6 PSV     206 N      52  --  C18 O2 O3 B7
+A18 : T 101.97c W  99.90c S   2.08c ( +3.8 L  +3.7) LCB  101.53c P  3.93% WF 200.9 PSV     201 N      44  --  A18 O2 O3 H15
+O2  : T 101.65c W  99.95c S   1.71c ( +3.5 L  +3.6) LCB  101.27c P  6.47% WF 206.4 PSV     196 N      43  --  O2 O3 P11 M1
+P10 : T 101.92c W  99.88c S   2.04c ( +3.8 L  +3.7) LCB  101.54c P  4.08% WF 212.3 PSV     193 N      47  --  P10 O2 O3 B7
+D16 : T 101.99c W  99.90c S   2.07c ( +3.8 L  +3.7) LCB  101.50c P  2.96% WF 182.3 PSV     163 N      39  --  D16 O3 O2 H15
+O3  : T 101.63c W  99.95c S   1.71c ( +3.5 L  +3.6) LCB  101.10c P  5.51% WF 171.7 PSV     163 N      36  --  O3 O2 T12 B7
+R10 : T 102.00c W  99.89c S   2.12c ( +3.8 L  +3.7) LCB  101.50c P  2.80% WF 192.9 PSV     157 N      42  --  R10 O3 O2 B7
+K9  : T 101.87c W  99.90c S   1.97c ( +3.7 L  +3.6) LCB  101.22c P  3.48% WF 155.2 PSV     149 N      34  --  K9 O2 O3 pass
+
+2024-05-21 19:53:07+0800: = T12
+2024-05-21 19:53:18+0800: Controller: kata-list_time_settings
+2024-05-21 19:53:18+0800: = none absolute byoyomi canadian fischer fischer-capped
+2024-05-21 19:53:18+0800: Controller: play white pass
+2024-05-21 19:53:18+0800: = 
+2024-05-21 19:53:18+0800: Controller: genmove black
+2024-05-21 19:53:18+0800: MoveNum: 294 HASH: 8AD50371C5674D8864D034E19340D0DD
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . X O O . . O X X X . . . . .
+18 . X . . X X X O O O O X . X X . . . .
+17 O . X X X X O . . X X O X X . X . . .
+16 O X . . X O . O X X O O O X . X . . .
+15 X X X X O O O . X O O . O O X X X . .
+14 X X X X O O X O O . O O X X . X . . .
+13 X O X O X X X O X O . O O X X X . . .
+12 O O X O X O X X X O . O X O O X O O X2
+11 . O X O O O O O X O O O X X @ O X X .
+10 . O O O O O O X X X X X X . . O . X .
+ 9 . . O O X X O X X . . O X X O . . X X
+ 8 . X O X X X O X X O X X X O X X . X O
+ 7 . . O X O O O O X O X O O O O X X X O
+ 6 . O X X X X X X X O X X X O X X X O O
+ 5 . O O O X O O O X X O O X O O X O . O
+ 4 . X . O O O X X X X O . O O X X O O .
+ 3 . O . O . O X O O X O O O . X X O . .
+ 2 . . O X X X O O O O X X O . X O O . .
+ 1 . . . O . . . X . . O . O O X X O . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.094
+Root visits: 619
+New playouts: 619
+NN rows: 47
+NN batches: 7
+NN avg batch size: 6.71429
+PV: P11 O3 O2 M1
+Tree:
+: T 101.93c W  99.91c S   2.00c ( +3.7 L  +3.7) N     619  --  P11 O3 O2 M1
+---Black(^)---
+P11 : T 102.14c W  99.91c S   2.19c ( +3.9 L  +3.8) LCB  101.63c P  6.55% WF 242.1 PSV     316 N      52  --  P11 O3 O2 M1
+O2  : T 101.74c W  99.94c S   1.81c ( +3.6 L  +3.6) LCB  101.22c P  6.31% WF 172.5 PSV     132 N      36  --  O2 O3 P11 M1
+S13 : T 101.95c W  99.90c S   2.03c ( +3.8 L  +3.7) LCB  101.35c P  4.24% WF 164.6 PSV     114 N      36  --  S13 O2 O3 H15
+T11 : T 102.08c W  99.90c S   2.13c ( +3.8 L  +3.8) LCB  101.56c P  3.33% WF 181.5 PSV     110 N      39  --  T11 O2 O3 B7
+A18 : T 101.99c W  99.92c S   2.03c ( +3.8 L  +3.7) LCB  101.25c P  3.85% WF 148.6 PSV     110 N      32  --  A18 O3 O2 H15
+C18 : T 102.05c W  99.90c S   2.10c ( +3.8 L  +3.7) LCB  101.38c P  3.32% WF 159.4 PSV     104 N      34  --  C18 O2 O3 B7
+P10 : T 101.86c W  99.91c S   1.98c ( +3.7 L  +3.7) LCB  101.04c P  4.23% WF 138.2 PSV     101 N      30  --  P10 O2 O3 pass
+O3  : T 101.66c W  99.94c S   1.76c ( +3.6 L  +3.6) LCB  100.95c P  5.24% WF 131.8 PSV     101 N      28  --  O3 O2 L9 pass B7
+K9  : T 101.97c W  99.91c S   2.03c ( +3.8 L  +3.7) LCB  101.16c P  3.40% WF 137.0 PSV      94 N      31  --  K9 O2 O3 M1
+D16 : T 102.07c W  99.90c S   2.12c ( +3.8 L  +3.8) LCB  101.10c P  2.84% WF 126.2 PSV      92 N      27  --  D16 O2 O3 pass
+
+2024-05-21 19:53:18+0800: = P11
+2024-05-21 19:53:23+0800: Controller: kata-list_time_settings
+2024-05-21 19:53:23+0800: = none absolute byoyomi canadian fischer fischer-capped
+2024-05-21 19:53:23+0800: Controller: play white pass
+2024-05-21 19:53:23+0800: = 
+2024-05-21 19:53:23+0800: Controller: genmove black
+2024-05-21 19:53:23+0800: MoveNum: 296 HASH: A19F2C8FDFA4A203150D050EB248D74D
+   A B C D E F G H J K L M N O P Q R S T
+19 . . . . . X O O . . O X X X . . . . .
+18 . X . . X X X O O O O X . X X . . . .
+17 O . X X X X O . . X X O X X . X . . .
+16 O X . . X O . O X X O O O X . X . . .
+15 X X X X O O O . X O O . O O X X X . .
+14 X X X X O O X O O . O O X X . X . . .
+13 X O X O X X X O X O . O O X X X . . .
+12 O O X O X O X X X O . O X . . X O O X
+11 . O X O O O O O X O O O X X X2O X X .
+10 . O O O O O O X X X X X X . . O . X .
+ 9 . . O O X X O X X . . O X X O . . X X
+ 8 . X O X X X O X X O X X X O X X . X O
+ 7 . . O X O O O O X O X O O O O X X X O
+ 6 . O X X X X X X X O X X X O X X X O O
+ 5 . O O O X O O O X X O O X O O X O . O
+ 4 . X . O O O X X X X O . O O X X O O .
+ 3 . O . O . O X O O X O O O @ X X O . .
+ 2 . . O X X X O O O O X X O . X O O . .
+ 1 . . . O . . . X . . O . O O X X O . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.094
+Root visits: 69
+New playouts: 69
+NN rows: 50
+NN batches: 8
+NN avg batch size: 6.25
+PV: O3 O2 S13 M1
+Tree:
+: T 101.92c W  99.94c S   2.04c ( +3.7 L  +3.6) N      69  --  O3 O2 S13 M1
+---Black(^)---
+O3  : T 102.08c W  99.94c S   2.16c ( +3.8 L  +3.7) LCB   91.14c P  6.29% WF  37.5 PSV      54 N       8  --  O3 O2 S13 M1
+O2  : T 102.02c W  99.95c S   2.13c ( +3.7 L  +3.6) LCB   87.76c P  7.77% WF  32.9 PSV      33 N       7  --  O2 O3 S13 H15
+S13 : T 101.86c W  99.94c S   1.95c ( +3.6 L  +3.6) LCB   74.12c P  5.42% WF  25.0 PSV      26 N       5  --  S13 J17
+R13 : T 101.74c W  99.93c S   1.85c ( +3.6 L  +3.5) LCB   73.97c P  4.35% WF  24.7 PSV      20 N       5  --  R13 B7
+A18 : T 101.85c W  99.94c S   1.97c ( +3.6 L  +3.6) LCB   58.98c P  4.07% WF  20.1 PSV      20 N       4  --  A18 H15
+P10 : T 101.90c W  99.94c S   1.97c ( +3.6 L  +3.6) LCB   58.87c P  3.86% WF  20.0 PSV      20 N       4  --  P10 H15
+C16 : T 101.98c W  99.95c S   2.07c ( +3.7 L  +3.6) LCB   59.11c P  3.10% WF  20.0 PSV      17 N       4  --  C16 H15
+B17 : T 102.08c W  99.94c S   2.18c ( +3.8 L  +3.6) LCB   28.06c P  3.52% WF  15.5 PSV      16 N       3  --  B17 O3
+Q9  : T 102.11c W  99.94c S   2.22c ( +3.8 L  +3.7) LCB   28.10c P  3.40% WF  15.3 PSV      16 N       3  --  Q9 O2
+R10 : T 102.19c W  99.94c S   2.30c ( +3.9 L  +3.7) LCB   28.24c P  2.77% WF  15.4 PSV      16 N       3  --  R10 O2
+
+2024-05-21 19:53:23+0800: = O3
