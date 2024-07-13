@@ -1,0 +1,2544 @@
+2024-06-21 21:47:31-0400: Running with following config:
+allowResignation = true
+lagBuffer = 1.0
+logAllGTPCommunication = true
+logDir = gtp_logs
+logSearchInfo = true
+logSearchInfoForChosenMove = false
+logToStderr = false
+maxTime = 1.0
+maxTimePondering = 120.0
+numSearchThreads = 12
+ogsChatToStderr = true
+ponderingEnabled = true
+resignConsecTurns = 3
+resignThreshold = -0.90
+rules = tromp-taylor
+searchFactorAfterOnePass = 0.50
+searchFactorAfterTwoPass = 0.25
+searchFactorWhenWinning = 0.40
+searchFactorWhenWinningThreshold = 0.95
+
+2024-06-21 21:47:31-0400: GTP Engine starting...
+2024-06-21 21:47:31-0400: KataGo v1.14.1
+2024-06-21 21:47:31-0400: Using TrompTaylor rules initially, unless GTP/GUI overrides this
+2024-06-21 21:47:31-0400: Using 12 CPU thread(s) for search
+2024-06-21 21:47:31-0400: nnRandSeed0 = 15729706128982899203
+2024-06-21 21:47:31-0400: After dedups: nnModelFile0 = C:/Users/chang/Downloads/kata1-b60c320-s9482697216-d3873382264.bin.gz useFP16 auto useNHWC auto
+2024-06-21 21:47:31-0400: Initializing neural net buffer to be size 19 * 19 exactly
+2024-06-21 21:47:40-0400: Cuda backend thread 0: Found GPU NVIDIA GeForce RTX 4060 Laptop GPU memory 8585216000 compute capability major 8 minor 9
+2024-06-21 21:47:40-0400: Cuda backend thread 0: Model version 10 useFP16 = true useNHWC = true
+2024-06-21 21:47:40-0400: Cuda backend thread 0: Model name: kata1-b60c320-s9482697216-d3873382264
+2024-06-21 21:47:43-0400: Loaded neural net with nnXLen 19 nnYLen 19
+2024-06-21 21:47:43-0400: Initializing board with boardXSize 19 boardYSize 19
+2024-06-21 21:47:43-0400: Loaded config C:\Users\chang\Downloads\katago-v1.14.1-opencl-windows-x64/golaxy_9d.cfg
+2024-06-21 21:47:43-0400: Loaded model C:/Users/chang/Downloads/kata1-b60c320-s9482697216-d3873382264.bin.gz
+2024-06-21 21:47:43-0400: Model name: kata1-b60c320-s9482697216-d3873382264
+2024-06-21 21:47:43-0400: GTP ready, beginning main protocol loop
+2024-06-21 21:47:43-0400: Controller: list_commands
+2024-06-21 21:47:43-0400: = protocol_version
+name
+version
+known_command
+list_commands
+quit
+boardsize
+rectangular_boardsize
+clear_board
+set_position
+komi
+get_komi
+play
+undo
+kata-get-rules
+kata-set-rule
+kata-set-rules
+kata-get-param
+kata-set-param
+kata-list-params
+kgs-rules
+genmove
+genmove_debug
+search_debug
+clear_cache
+showboard
+fixed_handicap
+place_free_handicap
+set_free_handicap
+time_settings
+kgs-time_settings
+time_left
+kata-list_time_settings
+kata-time_settings
+final_score
+final_status_list
+loadsgf
+printsgf
+lz-genmove_analyze
+kata-genmove_analyze
+lz-analyze
+kata-analyze
+kata-raw-nn
+cputime
+gomill-cpu_time
+kata-benchmark
+kata-debug-print-tc
+debug_moves
+stop
+2024-06-21 21:47:43-0400: Controller: boardsize 13
+2024-06-21 21:47:43-0400: GPU -1 finishing, processed 0 rows 0 batches
+2024-06-21 21:47:43-0400: Cleaned up old neural net and bot
+2024-06-21 21:47:43-0400: nnRandSeed0 = 417425721034675090
+2024-06-21 21:47:43-0400: After dedups: nnModelFile0 = C:/Users/chang/Downloads/kata1-b60c320-s9482697216-d3873382264.bin.gz useFP16 auto useNHWC auto
+2024-06-21 21:47:43-0400: Initializing neural net buffer to be size 13 * 13 exactly
+2024-06-21 21:47:51-0400: Cuda backend thread 0: Found GPU NVIDIA GeForce RTX 4060 Laptop GPU memory 8585216000 compute capability major 8 minor 9
+2024-06-21 21:47:51-0400: Cuda backend thread 0: Model version 10 useFP16 = true useNHWC = true
+2024-06-21 21:47:51-0400: Cuda backend thread 0: Model name: kata1-b60c320-s9482697216-d3873382264
+2024-06-21 21:47:53-0400: Loaded neural net with nnXLen 13 nnYLen 13
+2024-06-21 21:47:53-0400: Initializing board with boardXSize 13 boardYSize 13
+2024-06-21 21:47:53-0400: = 
+2024-06-21 21:47:53-0400: Controller: clear_board
+2024-06-21 21:47:53-0400: = 
+2024-06-21 21:47:53-0400: Controller: komi 7.5
+2024-06-21 21:47:53-0400: = 
+2024-06-21 21:47:53-0400: Controller: play black k10
+2024-06-21 21:47:53-0400: = 
+2024-06-21 21:47:53-0400: Controller: genmove white
+2024-06-21 21:47:54-0400: MoveNum: 1 HASH: 48C82C867219252AAC25E04A62D884C1
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . . . . . . . . . .
+10 . . . . . . . . . X1. . .
+ 9 . . . . . . . . . . . . .
+ 8 . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . .
+ 4 . . . @ . . . . . . . . .
+ 3 . . . . . . . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.172
+Root visits: 389
+New playouts: 389
+NN rows: 365
+NN batches: 50
+NN avg batch size: 7.3
+PV: D4 L4 D11 H4 F3 B5 K4 K5 L3 K3
+Tree:
+: T  47.89c W  46.58c S   1.12c ( +1.5 L  +0.9) N     389  --  D4 L4 D11 H4 F3 B5 K4
+---White(^)---
+D4  : T  49.72c W  48.36c S   1.27c ( +1.6 L  +1.0) LCB   48.20c P 65.15% WF 399.5 PSV     395 N     203  --  D4 L4 D11 H4 F3 B5 K4 K5
+C10 : T  47.13c W  45.48c S   1.05c ( +1.5 L  +0.9) LCB   44.70c P  6.66% WF 106.2 PSV      16 N      57  --  C10 L4 D4 F3 F10 D10 D11 C11
+D10 : T  48.08c W  46.43c S   1.09c ( +1.5 L  +0.9) LCB   45.47c P  3.78% WF  78.0 PSV      12 N      39  --  D10 D4 K4 C11 C10 D11 F11 F12
+D11 : T  47.00c W  45.70c S   1.00c ( +1.5 L  +0.8) LCB   44.77c P  4.45% WF  81.0 PSV      10 N      46  --  D11 D3 D4 C3 K4 C9 E4
+C4  : T  40.68c W  40.77c S   0.68c ( +1.2 L  +0.7) LCB   33.74c P  0.91% WF  19.0 PSV       0 N      12  --  C4 D4 C3 D5 C5
+C3  : T  36.91c W  36.29c S   0.39c ( +1.0 L  +0.6) LCB   25.35c P  0.18% WF   8.2 PSV       0 N       8  --  C3 L4 D10 J4
+C11 : T  37.25c W  36.58c S   0.46c ( +1.1 L  +0.6) LCB   22.38c P  0.43% WF   9.5 PSV       0 N       7  --  C11 L4 D4 F3 K4
+L11 : T  24.02c W  32.32c S   0.11c ( +0.9 L  +0.5) LCB -128.83c P  0.41% WF   3.1 PSV       0 N       2  --  L11 K11
+E11 : T   8.28c W   9.71c S  -1.43c ( -0.2 L  -0.3) LCB -341.72c P  0.04% WF   0.7 PSV       0 N       1  --  E11
+C5  : T  20.73c W  21.47c S  -0.74c ( +0.3 L  +0.0) LCB -329.27c P  0.04% WF   0.8 PSV       0 N       1  --  C5
+
+2024-06-21 21:47:54-0400: = D4
+2024-06-21 21:47:55-0400: Controller: kata-list_time_settings
+2024-06-21 21:47:55-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:47:55-0400: Controller: play black k4
+2024-06-21 21:47:55-0400: = 
+2024-06-21 21:47:55-0400: Controller: genmove white
+2024-06-21 21:47:56-0400: MoveNum: 3 HASH: A4E01A6D6FE0C1722BC6F3340C9F85AB
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . . . . . . . . . .
+10 . . @ . . . . . . X1. . .
+ 9 . . . . . . . . . . . . .
+ 8 . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . .
+ 4 . . . O2. . . . . X3. . .
+ 3 . . . . . . . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 510
+New playouts: 497
+NN rows: 487
+NN batches: 52
+NN avg batch size: 9.36538
+PV: C10 F3 E10 F10 E11 C6 C5
+Tree:
+: T  52.10c W  51.04c S   0.92c ( +1.7 L  +1.1) N     510  --  C10 F3 E10 F10 E11 C6 C5
+---White(^)---
+C10 : T  53.96c W  52.77c S   1.05c ( +1.8 L  +1.1) LCB   52.35c P 47.84% WF 635.9 PSV     628 N     335  --  C10 F3 E10 F10 E11 C6 C5
+D11 : T  48.54c W  47.48c S   0.62c ( +1.5 L  +0.9) LCB   44.55c P 33.58% WF 100.1 PSV      75 N      58  --  D11 C4 C3 C5 D3 C9 C7 D5
+D10 : T  51.89c W  50.86c S   0.95c ( +1.8 L  +1.1) LCB   49.21c P 15.65% WF 165.1 PSV      72 N      89  --  D10 C4 C3 C5 D3 C8 B9 B8
+C11 : T  38.98c W  39.28c S   0.15c ( +1.2 L  +0.7) LCB   -4.03c P  0.78% WF   7.2 PSV       0 N       4  --  C11 G3 H11
+L11 : T  33.72c W  38.56c S  -0.13c ( +1.1 L  +0.6) LCB -116.33c P  0.67% WF   3.5 PSV       0 N       2  --  L11 L10
+C9  : T  35.24c W  35.38c S  -0.14c ( +1.0 L  +0.6) LCB -314.76c P  0.14% WF   1.8 PSV       0 N       1  --  C9
+L4  : T  35.61c W  35.68c S  -0.07c ( +1.1 L  +0.6) LCB -314.39c P  0.09% WF   1.6 PSV       0 N       1  --  L4
+L3  : T  37.25c W  37.24c S   0.00c ( +1.1 L  +0.6) LCB -312.75c P  0.09% WF   1.6 PSV       0 N       1  --  L3
+E11 : T  16.39c W  17.86c S  -1.47c ( +0.2 L  +0.0) LCB -333.61c P  0.08% WF   1.4 PSV       0 N       1  --  E11
+G3  : T  16.41c W  17.79c S  -1.38c ( +0.2 L  +0.0) LCB -333.59c P  0.08% WF   1.3 PSV       0 N       1  --  G3
+
+2024-06-21 21:47:56-0400: = C10
+2024-06-21 21:47:58-0400: Controller: kata-list_time_settings
+2024-06-21 21:47:58-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:47:58-0400: Controller: play black f3
+2024-06-21 21:47:58-0400: = 
+2024-06-21 21:47:58-0400: Controller: genmove white
+2024-06-21 21:47:59-0400: MoveNum: 5 HASH: 59B098D7AD3CB9ABF39DDEE4F3B42221
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . @ . . . . . . . .
+10 . . O2. . . . . . X . . .
+ 9 . . . . . . . . . . . . .
+ 8 . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . .
+ 4 . . . O . . . . . X1. . .
+ 3 . . . . . X3. . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 1250
+New playouts: 468
+NN rows: 460
+NN batches: 59
+NN avg batch size: 7.79661
+PV: E11 C6 B5 F10 E10 F8 L4 L3 L5 M3 M9 L9 M10
+Tree:
+: T  48.82c W  48.48c S   0.73c ( +1.6 L  +1.0) N    1250  --  E11 C6 B5 F10 E10 F8 L4
+---White(^)---
+E11 : T  50.01c W  48.98c S   0.83c ( +1.6 L  +1.0) LCB   47.68c P 14.05% WF 448.5 PSV    1851 N     258  --  E11 C6 B5 F10 E10 F8 L4 L3
+E10 : T  48.76c W  48.81c S   0.67c ( +1.5 L  +1.0) LCB   47.01c P 36.95% WF 1118.7 PSV    1120 N     662  --  E10 G11 D6 L4 H3 G4 H4 H5
+L3  : T  50.37c W  49.08c S   0.86c ( +1.7 L  +1.0) LCB   46.85c P 11.00% WF 249.2 PSV     247 N     144  --  L3 L4 K3 J3 J2 H3 H2 M4
+F11 : T  46.40c W  46.33c S   0.67c ( +1.5 L  +0.9) LCB   43.44c P 20.08% WF 183.7 PSV     165 N     108  --  F11 C6 L4 L5 L3 K5 J2 E5
+F10 : T  47.08c W  47.08c S   0.74c ( +1.6 L  +0.9) LCB   42.92c P  8.69% WF 105.6 PSV      90 N      61  --  F10 C6 F4 G4 F5 C3 C4 D3
+H11 : T  45.15c W  45.56c S   0.73c ( +1.6 L  +0.9) LCB -104.01c P  0.60% WF   4.1 PSV       3 N       2  --  H11 D10
+H3  : T  41.89c W  41.91c S   0.40c ( +1.4 L  +0.8) LCB   -1.90c P  0.78% WF   7.4 PSV       2 N       4  --  H3 E11 L11
+C6  : T  38.73c W  39.43c S   0.17c ( +1.2 L  +0.7) LCB -110.25c P  0.94% WF   3.7 PSV       2 N       2  --  C6 D10
+D8  : T  41.99c W  43.04c S   0.36c ( +1.3 L  +0.8) LCB -106.96c P  0.71% WF   3.9 PSV       2 N       2  --  D8 H11
+L11 : T  43.38c W  45.35c S   0.53c ( +1.4 L  +0.9) LCB -106.38c P  0.57% WF   3.9 PSV       2 N       2  --  L11 L10
+
+2024-06-21 21:47:59-0400: = E11
+2024-06-21 21:48:01-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:01-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:01-0400: Controller: play black f10
+2024-06-21 21:48:01-0400: = 
+2024-06-21 21:48:01-0400: Controller: genmove white
+2024-06-21 21:48:02-0400: MoveNum: 7 HASH: F594BC38BD36FCE3FF17059312A79F2E
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . O2. . . . . . . .
+10 . . O . @ X3. . . X . . .
+ 9 . . . . . . . . . . . . .
+ 8 . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . .
+ 4 . . . O . . . . . X . . .
+ 3 . . . . . X1. . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.062
+Root visits: 530
+New playouts: 515
+NN rows: 475
+NN batches: 57
+NN avg batch size: 8.33333
+PV: E10 F8 D6 L5 J3 K3 F4 G4
+Tree:
+: T  50.36c W  50.06c S   0.70c ( +1.7 L  +1.0) N     530  --  E10 F8 D6 L5 J3 K3 F4
+---White(^)---
+E10 : T  51.60c W  51.03c S   0.78c ( +1.7 L  +1.1) LCB   48.80c P 64.08% WF 456.6 PSV     452 N     275  --  E10 F8 D6 L5 J3 K3 F4 G4
+L4  : T  52.93c W  52.57c S   0.84c ( +1.8 L  +1.1) LCB   49.22c P  3.09% WF 163.5 PSV      58 N      91  --  L4 L3 L5 M3 M9 L10 M10 M11
+F11 : T  47.71c W  47.42c S   0.50c ( +1.5 L  +0.9) LCB   44.25c P 20.17% WF 120.7 PSV      50 N      72  --  F11 C6 B5 C9 D10 E5 D5 D6
+L3  : T  45.56c W  47.76c S   0.47c ( +1.5 L  +1.0) LCB   34.86c P  5.85% WF  26.7 PSV      10 N      16  --  L3 L4 K3 J3 J2 H3 H2 M4
+H3  : T  47.34c W  46.66c S   0.49c ( +1.5 L  +0.9) LCB   42.99c P  2.17% WF  34.8 PSV       5 N      20  --  H3 C3 D3 C4 D5 B6
+L10 : T  45.23c W  46.96c S   0.49c ( +1.5 L  +0.9) LCB   35.45c P  1.57% WF  25.3 PSV       2 N      15  --  L10 L9 L11 M9 K11 J10 J11 H10
+F4  : T  47.37c W  47.76c S   0.58c ( +1.6 L  +1.0) LCB   42.61c P  0.68% WF  34.0 PSV       1 N      24  --  F4 G4 F5 C3 E3 G3 D2 B5
+D6  : T  45.70c W  45.06c S   0.32c ( +1.4 L  +0.9) LCB   32.37c P  0.51% WF  13.9 PSV       0 N       9  --  D6 F11 E10 C11 F9
+L11 : T  40.08c W  40.85c S   0.16c ( +1.3 L  +0.8) LCB  -34.59c P  0.10% WF   3.4 PSV       0 N       3  --  L11 L10 K11
+C6  : T  37.67c W  37.81c S  -0.13c ( +1.1 L  +0.8) LCB -312.33c P  0.21% WF   1.8 PSV       0 N       1  --  C6
+
+2024-06-21 21:48:02-0400: = E10
+2024-06-21 21:48:04-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:04-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:04-0400: Controller: play black c9
+2024-06-21 21:48:04-0400: = 
+2024-06-21 21:48:04-0400: Controller: genmove white
+2024-06-21 21:48:05-0400: MoveNum: 9 HASH: A959C4E08177D154C9B8F35656129EDA
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . O . . . . . . . .
+10 . . O . O2X1. . . X . . .
+ 9 . . X3@ . . . . . . . . .
+ 8 . . . . . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . .
+ 4 . . . O . . . . . X . . .
+ 3 . . . . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 504
+New playouts: 470
+NN rows: 471
+NN batches: 58
+NN avg batch size: 8.12069
+PV: D9 C8 B10 B4 C3 C6 E5 D8 E8 E7 F8 B3 F7
+Tree:
+: T  56.78c W  55.64c S   1.03c ( +2.0 L  +1.3) N     504  --  D9 C8 B10 B4 C3 C6 E5
+---White(^)---
+D9  : T  58.33c W  57.08c S   1.13c ( +2.0 L  +1.3) LCB   55.71c P 64.57% WF 703.9 PSV     698 N     441  --  D9 C8 B10 B4 C3 C6 E5 D8
+C6  : T  49.62c W  48.80c S   0.55c ( +1.7 L  +1.0) LCB   40.94c P 21.70% WF  54.0 PSV      35 N      36  --  C6 B10 C11 C7 D6 E8 F9 D2
+C5  : T  44.24c W  45.05c S   0.35c ( +1.5 L  +1.0) LCB   29.94c P  6.17% WF  14.2 PSV       6 N       9  --  C5 B10 C11 B6 B5
+L3  : T  40.46c W  41.96c S   0.10c ( +1.4 L  +0.9) LCB -108.61c P  2.50% WF   3.3 PSV       2 N       2  --  L3 L4
+F9  : T  36.87c W  37.19c S  -0.31c ( +1.1 L  +0.7) LCB -313.13c P  2.02% WF   1.6 PSV       1 N       1  --  F9
+C7  : T  43.00c W  42.60c S   0.39c ( +1.5 L  +1.0) LCB -307.00c P  0.90% WF   1.6 PSV       0 N       1  --  C7
+B10 : T  28.54c W  29.43c S  -0.89c ( +0.7 L  +0.4) LCB -321.46c P  0.31% WF   1.6 PSV       0 N       1  --  B10
+D6  : T  36.87c W  37.13c S  -0.26c ( +1.1 L  +0.7) LCB -313.13c P  0.31% WF   1.5 PSV       0 N       1  --  D6
+L4  : T  26.54c W  27.52c S  -0.98c ( +0.6 L  +0.4) LCB -323.46c P  0.25% WF   1.5 PSV       0 N       1  --  L4
+B9  : T  37.14c W  37.58c S  -0.44c ( +1.0 L  +0.6) LCB -312.86c P  0.22% WF   1.6 PSV       0 N       1  --  B9
+
+2024-06-21 21:48:05-0400: = D9
+2024-06-21 21:48:06-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:06-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:06-0400: Controller: play black c8
+2024-06-21 21:48:06-0400: = 
+2024-06-21 21:48:06-0400: Controller: genmove white
+2024-06-21 21:48:07-0400: MoveNum: 11 HASH: CBBCC8CA5725A394A39B2E76719FC3FF
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . O . . . . . . . .
+10 . @ O . O X . . . X . . .
+ 9 . . X1O2. . . . . . . . .
+ 8 . . X3. . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . .
+ 4 . . . O . . . . . X . . .
+ 3 . . . . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.032
+Root visits: 1570
+New playouts: 435
+NN rows: 441
+NN batches: 61
+NN avg batch size: 7.22951
+PV: B10 B4 C3 C6 E5 E7 B3 F8 G11 L5 H10 C4 E3 E2
+Tree:
+: T  56.42c W  55.40c S   0.90c ( +2.0 L  +1.3) N    1570  --  B10 B4 C3 C6 E5 E7 B3
+---White(^)---
+B10 : T  56.95c W  55.83c S   0.94c ( +2.0 L  +1.3) LCB   55.16c P 65.94% WF 2163.0 PSV    2153 N    1489  --  B10 B4 C3 C6 E5 E7 B3 F8
+C6  : T  47.65c W  48.04c S   0.29c ( +1.6 L  +1.0) LCB   41.26c P 31.30% WF 114.4 PSV     112 N      77  --  C6 B10 C11 B11 L3 L4 K3 J3
+C5  : T  34.99c W  39.00c S  -0.24c ( +1.2 L  +0.8) LCB -115.37c P  1.58% WF   3.0 PSV       2 N       2  --  C5 B10
+B5  : T  21.34c W  22.78c S  -1.45c ( +0.4 L  +0.3) LCB -328.66c P  0.42% WF   1.4 PSV       0 N       1  --  B5
+
+2024-06-21 21:48:07-0400: = B10
+2024-06-21 21:48:08-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:08-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:08-0400: Controller: play black b4
+2024-06-21 21:48:08-0400: = 
+2024-06-21 21:48:09-0400: Controller: genmove white
+2024-06-21 21:48:10-0400: MoveNum: 13 HASH: A6C759B7F2ED5B634D09B1A839A104AC
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . O . . . . . . . .
+10 . O2O . O X . . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X1. . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . . . . . . . . . . . .
+ 5 . . . . . . . . . . . . .
+ 4 . X3. O . . . . . X . . .
+ 3 . . @ . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.062
+Root visits: 1926
+New playouts: 477
+NN rows: 452
+NN batches: 62
+NN avg batch size: 7.29032
+PV: C3 C6 E5 E7 B3 F8 G11 L5 J9 K9 J8 J11 H10 D8
+Tree:
+: T  54.19c W  53.46c S   0.84c ( +1.9 L  +1.2) N    1926  --  C3 C6 E5 E7 B3 F8 G11
+---White(^)---
+C3  : T  55.01c W  54.18c S   0.90c ( +1.9 L  +1.3) LCB   53.15c P 49.26% WF 2270.0 PSV    2255 N    1640  --  C3 C6 E5 E7 B3 F8 G11 L5
+L3  : T  52.58c W  51.50c S   0.66c ( +1.8 L  +1.1) LCB   46.98c P 11.00% WF 199.8 PSV     142 N     145  --  L3 L4 K3 J3 J2 H3 H2 G2
+C4  : T  47.95c W  48.70c S   0.51c ( +1.7 L  +1.1) LCB   40.97c P 15.82% WF  92.0 PSV      86 N      70  --  C4 B5 B3 D6 C6 C5 D5 B6
+H3  : T  49.85c W  49.85c S   0.49c ( +1.7 L  +1.0) LCB   41.41c P  4.98% WF  43.2 PSV      35 N      29  --  H3 D8 E8 E7 F8 F7 F4 G4
+F4  : T  34.84c W  37.62c S  -0.53c ( +1.0 L  +0.6) LCB   20.33c P 10.01% WF  20.7 PSV      20 N      16  --  F4 G4 F5 C3 E3 G3 F2 C6
+D6  : T  46.49c W  46.41c S  -0.16c ( +1.2 L  +0.8) LCB   28.77c P  1.98% WF  12.3 PSV       9 N       8  --  D6 D3 L3 L4 K3
+L4  : T  44.38c W  45.68c S   0.12c ( +1.4 L  +0.9) LCB   16.16c P  1.98% WF   7.9 PSV       7 N       5  --  L4 L3 L5 K3
+C6  : T  44.54c W  45.87c S  -0.09c ( +1.3 L  +0.8) LCB   -0.32c P  1.53% WF   5.8 PSV       5 N       4  --  C6 D3 L3
+E3  : T  41.51c W  42.78c S  -0.07c ( +1.3 L  +0.8) LCB   11.78c P  1.15% WF   7.1 PSV       3 N       5  --  E3 F4 C5 B5
+C5  : T  38.14c W  41.69c S  -0.21c ( +1.2 L  +0.8) LCB -111.62c P  0.67% WF   2.9 PSV       1 N       2  --  C5 B5
+
+2024-06-21 21:48:10-0400: = C3
+2024-06-21 21:48:11-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:11-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:11-0400: Controller: play black c6
+2024-06-21 21:48:11-0400: = 
+2024-06-21 21:48:11-0400: Controller: genmove white
+2024-06-21 21:48:12-0400: MoveNum: 15 HASH: ED1D6847810CBD0F654DA83AFDCDC107
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . O . . . . . . . .
+10 . O O . O X . . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . . . . . . . . .
+ 7 . . . . . . . . . . . . .
+ 6 . . X3. . . . . . . . . .
+ 5 . . . . @ . . . . . . . .
+ 4 . X1. O . . . . . X . . .
+ 3 . . O2. . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.062
+Root visits: 2635
+New playouts: 468
+NN rows: 463
+NN batches: 58
+NN avg batch size: 7.98276
+PV: E5 E7 B3 F8 G11 L5 G9 F9 G10 G5 H2 E2 B5 B6
+Tree:
+: T  52.46c W  52.11c S   0.83c ( +1.8 L  +1.2) N    2635  --  E5 E7 B3 F8 G11 L5 G9
+---White(^)---
+E5  : T  53.35c W  52.75c S   0.90c ( +1.9 L  +1.2) LCB   51.62c P 37.56% WF 2701.1 PSV    2679 N    1988  --  E5 E7 B3 F8 G11 L5 G9 F9
+E7  : T  52.93c W  53.03c S   0.70c ( +1.7 L  +1.1) LCB   49.19c P  5.70% WF 425.8 PSV     263 N     300  --  E7 B3 E5 F6 G4 E6 H3 J3
+F4  : T  47.83c W  49.33c S   0.99c ( +2.0 L  +1.4) LCB   38.14c P 15.68% WF 146.9 PSV     137 N     162  --  F4 G4 G3 G2 H3 E4 F5 E5
+B3  : T  46.13c W  46.75c S   0.28c ( +1.5 L  +0.9) LCB   41.07c P 19.48% WF 137.8 PSV     134 N     104  --  B3 E5 L4 L5 M5 K5 L3 M6
+E6  : T  46.30c W  46.06c S   0.23c ( +1.4 L  +0.8) LCB   39.54c P  6.92% WF  50.2 PSV      48 N      39  --  E6 B3 D6 C5 L3 L4 K3 H3
+D6  : T  27.80c W  32.21c S  -0.60c ( +0.9 L  +0.5) LCB   10.28c P  6.29% WF  11.2 PSV      13 N      10  --  D6 D7 F4 G4 G3 E3
+G4  : T  48.44c W  48.35c S   0.69c ( +1.8 L  +1.0) LCB   32.53c P  1.22% WF  13.1 PSV      11 N      10  --  G4 F4 D6 D7
+L4  : T  46.46c W  46.15c S   0.25c ( +1.5 L  +0.9) LCB    2.52c P  0.63% WF   6.1 PSV       4 N       4  --  L4 L3 L5
+H3  : T  35.80c W  36.55c S  -0.31c ( +1.1 L  +0.6) LCB  -38.25c P  1.53% WF   3.7 PSV       4 N       3  --  H3 E5 B3
+G3  : T  36.68c W  38.74c S  -0.11c ( +1.2 L  +0.7) LCB  -11.52c P  1.23% WF   5.0 PSV       3 N       4  --  G3 F4 D6
+
+2024-06-21 21:48:12-0400: = E5
+2024-06-21 21:48:13-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:13-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:13-0400: Controller: play black e7
+2024-06-21 21:48:13-0400: = 
+2024-06-21 21:48:13-0400: Controller: genmove white
+2024-06-21 21:48:14-0400: MoveNum: 17 HASH: F7BAFB1B320445AD3141BBCB0283DE7C
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . . . . . . .
+11 . . . . O . . . . . . . .
+10 . O O . O X . . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . . . . . . . . .
+ 7 . . . . X3. . . . . . . .
+ 6 . . X1. . . . . . . . . .
+ 5 . . . . O2. . . . . . . .
+ 4 . X . O . . . . . X . . .
+ 3 . @ O . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 2833
+New playouts: 496
+NN rows: 479
+NN batches: 56
+NN avg batch size: 8.55357
+PV: B3 F8 H12 G5 L4 C4 E2 E3 D3 F2 E1 L3 L5 M3 L9
+Tree:
+: T  53.40c W  52.78c S   0.92c ( +1.9 L  +1.2) N    2833  --  B3 F8 H12 G5 L4 C4 E2
+---White(^)---
+B3  : T  53.85c W  53.16c S   0.95c ( +1.9 L  +1.2) LCB   52.31c P 72.57% WF 3517.6 PSV    3508 N    2682  --  B3 F8 H12 G5 L4 C4 E2 E3
+G4  : T  50.83c W  50.89c S   0.66c ( +1.7 L  +1.1) LCB   44.89c P  6.26% WF 113.8 PSV      85 N      83  --  G4 G3 B3 F8 L6 L5 L10 L9
+F4  : T  37.51c W  38.59c S  -0.41c ( +1.0 L  +0.7) LCB   22.13c P  8.91% WF  28.4 PSV      29 N      22  --  F4 G3 B3 F8 E3
+G5  : T  44.58c W  46.12c S   0.23c ( +1.4 L  +0.9) LCB   27.31c P  2.75% WF  14.7 PSV      15 N      10  --  G5 H3 B3 F8 L6 L5
+L4  : T  44.62c W  45.31c S   0.32c ( +1.5 L  +0.9) LCB   32.07c P  1.48% WF  14.3 PSV       8 N      10  --  L4 L3 L5 K3
+H3  : T  42.68c W  42.70c S   0.22c ( +1.4 L  +0.9) LCB    8.02c P  1.41% WF   6.6 PSV       6 N       5  --  H3 H4 B3
+D7  : T  12.68c W  20.76c S  -0.97c ( +0.6 L  +0.2) LCB  -54.33c P  2.66% WF   4.3 PSV       3 N       5  --  D7 D8 E8 D6
+H4  : T  41.53c W  43.57c S   0.03c ( +1.3 L  +0.8) LCB   20.59c P  0.55% WF   8.1 PSV       2 N       6  --  H4 H3 G4 G3
+F6  : T  38.81c W  40.04c S  -0.16c ( +1.2 L  +0.8) LCB -110.21c P  0.50% WF   2.9 PSV       1 N       2  --  F6 B3
+F9  : T  28.02c W  28.67c S  -0.66c ( +0.8 L  +0.4) LCB -321.98c P  0.58% WF   1.2 PSV       1 N       1  --  F9
+
+2024-06-21 21:48:14-0400: = B3
+2024-06-21 21:48:16-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:16-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:16-0400: Controller: play black f8
+2024-06-21 21:48:16-0400: = 
+2024-06-21 21:48:16-0400: Controller: genmove white
+2024-06-21 21:48:17-0400: MoveNum: 19 HASH: 8329430BE03881E0ED9F0519FA1EB032
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . @ . . . . .
+11 . . . . O . . . . . . . .
+10 . O O . O X . . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X3. . . . . . .
+ 7 . . . . X1. . . . . . . .
+ 6 . . X . . . . . . . . . .
+ 5 . . . . O . . . . . . . .
+ 4 . X . O . . . . . X . . .
+ 3 . O2O . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 3826
+New playouts: 499
+NN rows: 458
+NN batches: 60
+NN avg batch size: 7.63333
+PV: H12 G5 L3 L4 K3 C4 H3 H4 D6 B7 E2 G3 M4 E3
+Tree:
+: T  53.15c W  52.47c S   0.87c ( +1.9 L  +1.2) N    3826  --  H12 G5 L3 L4 K3 C4 H3
+---White(^)---
+H12 : T  55.38c W  54.38c S   1.02c ( +2.0 L  +1.3) LCB   53.33c P  2.42% WF 2303.5 PSV    2244 N    1852  --  H12 G5 L3 L4 K3 C4 H3 H4
+L4  : T  50.93c W  50.67c S   0.97c ( +1.9 L  +1.3) LCB   47.34c P 28.73% WF 754.1 PSV     451 N     663  --  L4 L5 L3 M5 J3 H4 J4 J5
+G11 : T  53.47c W  52.44c S   0.77c ( +1.8 L  +1.2) LCB   51.13c P  9.30% WF 1123.2 PSV     333 N     827  --  G11 L5 H10 G5 H2 F2 B5 B6
+L10 : T  47.46c W  47.97c S   0.38c ( +1.5 L  +1.0) LCB   40.54c P 12.19% WF 124.5 PSV     108 N     101  --  L10 L9 M9 K9 L4 L3 M8 L11
+H3  : T  44.46c W  46.45c S   0.29c ( +1.5 L  +1.0) LCB   37.91c P 13.59% WF  91.7 PSV      87 N      76  --  H3 H4 L10 L9 M9 K9 M10 M8
+L6  : T  49.13c W  49.73c S   0.57c ( +1.7 L  +1.0) LCB   43.55c P  4.59% WF 125.8 PSV      51 N      90  --  L6 L5 L10 L11 K9 J10 M11 M10
+M9  : T  48.56c W  49.07c S   0.50c ( +1.6 L  +1.0) LCB   40.19c P  4.84% WF  63.7 PSV      49 N      45  --  M9 L8 M8 L10 L9 L6 L7 M6
+G4  : T  47.79c W  48.01c S   0.39c ( +1.5 L  +1.0) LCB   41.10c P  5.19% WF  54.4 PSV      48 N      40  --  G4 H3 L4 L5 K5 J4 L6 M5
+J4  : T  48.30c W  48.08c S   0.37c ( +1.5 L  +1.0) LCB   41.68c P  2.80% WF  34.5 PSV      27 N      26  --  J4 K3 G4 H2 K5 L5
+F6  : T  48.16c W  48.18c S   0.44c ( +1.6 L  +1.0) LCB   39.47c P  2.86% WF  33.0 PSV      27 N      22  --  F6 F11 L10 L9 M9 K9
+
+2024-06-21 21:48:17-0400: = H12
+2024-06-21 21:48:19-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:19-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:19-0400: Controller: play black h11
+2024-06-21 21:48:19-0400: = 
+2024-06-21 21:48:19-0400: Controller: genmove white
+2024-06-21 21:48:20-0400: MoveNum: 21 HASH: 72E7B8846028BFB9658958832C4C52EE
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . . . O2. . . . .
+11 . . . . O . @ X3. . . . .
+10 . O O . O X . . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X1. . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X . . . . . . . . . .
+ 5 . . . . O . . . . . . . .
+ 4 . X . O . . . . . X . . .
+ 3 . O O . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 632
+New playouts: 474
+NN rows: 456
+NN batches: 61
+NN avg batch size: 7.47541
+PV: G11 G10 J11 H10 K11 L11 L12 L10 F11 C4 E3 E2 F4
+Tree:
+: T  63.72c W  61.45c S   1.36c ( +2.3 L  +1.6) N     632  --  G11 G10 J11 H10 K11 L11 L12
+---White(^)---
+G11 : T  65.50c W  62.93c S   1.47c ( +2.3 L  +1.6) LCB   62.06c P 29.54% WF 776.1 PSV     769 N     577  --  G11 G10 J11 H10 K11 L11 L12 L10
+J11 : T  47.76c W  49.24c S   0.26c ( +1.5 L  +0.9) LCB   37.90c P 24.41% WF  30.7 PSV      28 N      25  --  J11 J10 H3 H4 L3 L4 K3
+L4  : T  44.02c W  44.24c S   0.13c ( +1.5 L  +0.8) LCB   28.71c P 11.39% WF  10.7 PSV      11 N       8  --  L4 L3 L5 K3 J11
+G9  : T  40.87c W  41.95c S  -0.12c ( +1.3 L  +0.7) LCB   11.84c P  6.63% WF   6.0 PSV       5 N       5  --  G9 F9 J11 H10
+H3  : T  45.30c W  47.49c S   0.32c ( +1.6 L  +1.0) LCB    2.07c P  4.68% WF   5.1 PSV       4 N       4  --  H3 H4 L4 L3
+L10 : T  37.21c W  39.40c S  -0.15c ( +1.3 L  +0.7) LCB -112.04c P  4.23% WF   2.6 PSV       3 N       2  --  L10 L9
+F6  : T  34.56c W  34.88c S  -0.32c ( +1.1 L  +0.7) LCB -315.44c P  3.06% WF   1.3 PSV       2 N       1  --  F6
+L6  : T  35.79c W  36.02c S  -0.24c ( +1.2 L  +0.8) LCB -314.21c P  3.03% WF   1.4 PSV       2 N       1  --  L6
+M9  : T  37.78c W  38.07c S  -0.28c ( +1.2 L  +0.8) LCB -312.22c P  2.92% WF   1.4 PSV       2 N       1  --  M9
+G4  : T  40.71c W  40.90c S  -0.19c ( +1.2 L  +0.8) LCB -309.29c P  2.48% WF   1.4 PSV       2 N       1  --  G4
+
+2024-06-21 21:48:20-0400: = G11
+2024-06-21 21:48:22-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:22-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:22-0400: Controller: play black f11
+2024-06-21 21:48:22-0400: = 
+2024-06-21 21:48:22-0400: Controller: genmove white
+2024-06-21 21:48:23-0400: MoveNum: 23 HASH: 299CD24A42B7B115B3D7955EB6F41C65
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . @ . O . . . . .
+11 . . . . O X3O2X1. . . . .
+10 . O O . O X . . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X . . . . . . . . . .
+ 5 . . . . O . . . . . . . .
+ 4 . X . O . . . . . X . . .
+ 3 . O O . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 1195
+New playouts: 446
+NN rows: 434
+NN batches: 60
+NN avg batch size: 7.23333
+PV: F12 G10 G12 H3 J11 C4 D6 C5 E2 E3 D3 F2 E1 L5 L3
+Tree:
+: T  67.19c W  65.38c S   1.20c ( +2.5 L  +1.7) N    1195  --  F12 G10 G12 H3 J11 C4 D6
+---White(^)---
+F12 : T  67.77c W  65.91c S   1.23c ( +2.5 L  +1.7) LCB   65.26c P 66.25% WF 1544.6 PSV    1540 N    1170  --  F12 G10 G12 H3 J11 C4 D6 C5
+J11 : T  23.86c W  27.58c S  -1.10c ( +0.9 L  +0.5) LCB   11.48c P 20.51% WF  12.1 PSV      15 N      14  --  J11 F12 J9 D12 E12 E13
+G10 : T   1.77c W   2.40c S  -2.53c ( -0.1 L  -0.7) LCB  -32.19c P  7.12% WF   2.3 PSV       3 N       5  --  G10 F12 F9 G9 E9
+H10 : T  17.11c W  20.80c S  -1.42c ( +0.6 L  +0.3) LCB  -68.76c P  3.58% WF   2.6 PSV       2 N       3  --  H10 F12 J11
+F9  : T  15.03c W  17.20c S  -2.17c ( +0.2 L  +0.0) LCB -334.97c P  1.39% WF   0.9 PSV       0 N       1  --  F9
+G9  : T  22.10c W  23.27c S  -1.17c ( +0.9 L  +0.3) LCB -327.90c P  0.11% WF   0.7 PSV       0 N       1  --  G9
+
+2024-06-21 21:48:23-0400: = F12
+2024-06-21 21:48:25-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:25-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:25-0400: Controller: play black g10
+2024-06-21 21:48:25-0400: = 
+2024-06-21 21:48:25-0400: Controller: genmove white
+2024-06-21 21:48:26-0400: MoveNum: 25 HASH: B59082DF22E99A4FC0393BBC6E91D048
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O2@ O . . . . .
+11 . . . . O X1O X . . . . .
+10 . O O . O X X3. . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X . . . . . . . . . .
+ 5 . . . . O . . . . . . . .
+ 4 . X . O . . . . . X . . .
+ 3 . O O . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.031
+Root visits: 2500
+New playouts: 571
+NN rows: 432
+NN batches: 57
+NN avg batch size: 7.57895
+PV: G12 H3 J11 C4 E2 E3 D3 F2 E1 L5 L3 K3 J9 L8 M5 M6 L6 K6
+Tree:
+: T  67.00c W  65.82c S   1.09c ( +2.4 L  +1.7) N    2500  --  G12 H3 J11 C4 E2 E3 D3
+---White(^)---
+G12 : T  67.00c W  65.83c S   1.09c ( +2.4 L  +1.7) LCB   65.21c P 99.60% WF 3185.7 PSV    3186 N    2499  --  G12 H3 J11 C4 E2 E3 D3 F2
+
+2024-06-21 21:48:26-0400: = G12
+2024-06-21 21:48:27-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:27-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:27-0400: Controller: play black g5
+2024-06-21 21:48:27-0400: = 
+2024-06-21 21:48:27-0400: Controller: genmove white
+2024-06-21 21:48:28-0400: MoveNum: 27 HASH: CB9E4DB188B66D1E33D913F9B2F87D63
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O2O . . . . .
+11 . . . . O X O X @ . . . .
+10 . O O . O X X1. . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X . . . . . . . . . .
+ 5 . . . . O . X3. . . . . .
+ 4 . X . O . . . . . X . . .
+ 3 . O O . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.015
+Root visits: 1269
+New playouts: 471
+NN rows: 456
+NN batches: 55
+NN avg batch size: 8.29091
+PV: J11 C4 D6 C5 E2 E3 D3 F2 E1 L5 J9 J10 H10 H9 L3 K3 M5 M6 H8 H11 L6 M7 H10 G9
+Tree:
+: T  64.06c W  63.69c S   1.01c ( +2.4 L  +1.6) N    1269  --  J11 C4 D6 C5 E2 E3 D3
+---White(^)---
+J11 : T  65.46c W  65.06c S   1.13c ( +2.4 L  +1.7) LCB   62.39c P 37.77% WF 1373.5 PSV    1358 N    1108  --  J11 C4 D6 C5 E2 E3 D3 F2
+F6  : T  56.91c W  56.74c S   0.35c ( +1.9 L  +1.2) LCB   50.00c P 39.07% WF 157.9 PSV     152 N     130  --  F6 C4 E2 E3 D3 F2 E1 L5
+L4  : T  49.46c W  48.01c S  -0.11c ( +1.6 L  +1.1) LCB   36.19c P  7.49% WF  16.5 PSV      16 N      14  --  L4 L3 L5 M3 L9 D2 B5
+H3  : T  48.80c W  47.37c S  -0.18c ( +1.6 L  +1.0) LCB   16.89c P  3.59% WF   7.6 PSV       7 N       6  --  H3 D2
+E3  : T  22.08c W  27.62c S  -1.62c ( +0.6 L  +0.4) LCB  -27.73c P  7.52% WF   5.0 PSV       6 N       5  --  E3 E2 D2
+E2  : T  16.05c W  18.25c S  -2.20c ( +0.1 L  +0.1) LCB -333.95c P  1.75% WF   1.1 PSV       1 N       1  --  E2
+L3  : T  37.33c W  38.29c S  -0.96c ( +1.1 L  +0.7) LCB -312.67c P  0.59% WF   1.2 PSV       0 N       1  --  L3
+G4  : T  22.45c W  24.20c S  -1.75c ( +0.5 L  +0.2) LCB -327.55c P  0.50% WF   1.0 PSV       0 N       1  --  G4
+F4  : T  11.71c W  13.82c S  -2.11c ( +0.3 L  -0.1) LCB -338.29c P  0.47% WF   0.8 PSV       0 N       1  --  F4
+B5  : T  21.23c W  23.28c S  -2.06c ( +0.3 L  +0.2) LCB -328.77c P  0.38% WF   1.2 PSV       0 N       1  --  B5
+
+2024-06-21 21:48:28-0400: = J11
+2024-06-21 21:48:29-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:29-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:29-0400: Controller: play black c4
+2024-06-21 21:48:29-0400: = 
+2024-06-21 21:48:29-0400: Controller: genmove white
+2024-06-21 21:48:30-0400: MoveNum: 29 HASH: 22DBFF370CF6D09DCD3C7C2EF9FC3636
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O2. . . .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X @ . . . . . . . . .
+ 5 . . . . O . X1. . . . . .
+ 4 . X X3O . . . . . X . . .
+ 3 . O O . . X . . . . . . .
+ 2 . . . . . . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 2271
+New playouts: 506
+NN rows: 457
+NN batches: 58
+NN avg batch size: 7.87931
+PV: D6 C5 E2 E3 D3 F2 E1 L5 J9 J10 H10 H9 L3 K3 M5 M4 H8 H11 L4 H10 M3 M6 N4 L6 K11
+Tree:
+: T  68.51c W  67.35c S   1.46c ( +2.6 L  +1.9) N    2271  --  D6 C5 E2 E3 D3 F2 E1
+---White(^)---
+D6  : T  69.88c W  68.58c S   1.58c ( +2.7 L  +2.0) LCB   67.47c P 35.39% WF 2369.3 PSV    2338 N    2019  --  D6 C5 E2 E3 D3 F2 E1 L5
+E2  : T  60.51c W  60.39c S   0.62c ( +2.1 L  +1.4) LCB   54.31c P 28.29% WF 221.9 PSV     157 N     192  --  E2 E3 D3 F2 E1 L5 J3 F5
+E3  : T  26.98c W  29.28c S  -1.33c ( +0.8 L  +0.5) LCB    4.03c P 28.64% WF  27.2 PSV      37 N      52  --  E3 E2 D6 C5 D7 D8 C7 B7
+F4  : T  -7.23c W  -4.58c S  -2.65c ( -0.2 L  -0.8) LCB -357.23c P  2.10% WF   0.5 PSV       1 N       1  --  F4
+C5  : T  18.46c W  20.14c S  -1.68c ( +0.6 L  +0.1) LCB -331.54c P  1.51% WF   0.7 PSV       1 N       1  --  C5
+F6  : T -10.70c W  -7.46c S  -3.24c ( -0.7 L  -1.0) LCB -360.70c P  1.02% WF   0.5 PSV       0 N       1  --  F6
+L4  : T -26.42c W -22.38c S  -4.04c ( -1.0 L  -1.4) LCB -376.42c P  0.92% WF   0.6 PSV       0 N       1  --  L4
+G4  : T -10.83c W  -7.48c S  -3.35c ( -0.6 L  -0.8) LCB -360.83c P  0.41% WF   0.6 PSV       0 N       1  --  G4
+B7  : T -40.54c W -35.54c S  -5.00c ( -1.5 L  -2.1) LCB -390.54c P  0.36% WF   0.5 PSV       0 N       1  --  B7
+B6  : T -20.54c W -16.46c S  -4.08c ( -0.9 L  -1.1) LCB -370.54c P  0.22% WF   0.5 PSV       0 N       1  --  B6
+
+2024-06-21 21:48:30-0400: = D6
+2024-06-21 21:48:32-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:32-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:32-0400: Controller: play black c5
+2024-06-21 21:48:32-0400: = 
+2024-06-21 21:48:32-0400: Controller: genmove white
+2024-06-21 21:48:33-0400: MoveNum: 31 HASH: B6A980ECE6C5EDD12A4361B4C481BF7C
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . . . .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O2. . . . . . . . .
+ 5 . . X3. O . X . . . . . .
+ 4 . X X1O . . . . . X . . .
+ 3 . O O . . X . . . . . . .
+ 2 . . . . @ . . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 2411
+New playouts: 458
+NN rows: 451
+NN batches: 57
+NN avg batch size: 7.91228
+PV: E2 E3 D3 F2 E1 J9 F6 L5 H2 F1 C2 G4 G8 H8 H7 G9
+Tree:
+: T  70.49c W  69.34c S   1.27c ( +2.6 L  +1.9) N    2411  --  E2 E3 D3 F2 E1 J9 F6
+---White(^)---
+E2  : T  71.47c W  70.17c S   1.33c ( +2.7 L  +1.9) LCB   69.60c P 35.09% WF 2792.6 PSV    2769 N    2288  --  E2 E3 D3 F2 E1 J9 F6 L5
+E3  : T  25.12c W  31.03c S  -1.27c ( +0.9 L  +0.5) LCB    5.67c P 42.08% WF  34.8 PSV      49 N      77  --  E3 E2 D7 D8 C7 B7 B6 A8
+D7  : T  26.69c W  33.08c S  -1.09c ( +1.1 L  +0.5) LCB  -10.08c P 18.52% WF  18.0 PSV      22 N      33  --  D7 D8 E3 E2 C7 B7 B6 A8
+F4  : T -23.44c W -10.29c S  -3.92c ( -0.9 L  -1.0) LCB  -64.84c P  3.07% WF   2.1 PSV       1 N       5  --  F4 E3 G4 D3
+C7  : T  52.28c W  48.77c S  -0.01c ( +1.8 L  +1.1) LCB   20.27c P  0.45% WF   3.7 PSV       1 N       5  --  C7 D7 B7
+D5  : T -50.03c W -45.98c S  -4.04c ( -0.9 L  -3.4) LCB -400.03c P  0.14% WF   0.3 PSV       0 N       1  --  D5
+F6  : T -37.59c W -33.51c S  -4.08c ( -1.1 L  -2.6) LCB -387.59c P  0.06% WF   0.4 PSV       0 N       1  --  F6
+
+2024-06-21 21:48:33-0400: = E2
+2024-06-21 21:48:34-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:34-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:34-0400: Controller: play black e3
+2024-06-21 21:48:34-0400: = 
+2024-06-21 21:48:34-0400: Controller: genmove white
+2024-06-21 21:48:35-0400: MoveNum: 33 HASH: E763D89027EE16E54A06DFCC422EB22E
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . . . .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . . . . . . . . .
+ 5 . . X1. O . X . . . . . .
+ 4 . X X O . . . . . X . . .
+ 3 . O O @ X3X . . . . . . .
+ 2 . . . . O2. . . . . . . .
+ 1 . . . . . . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 3400
+New playouts: 456
+NN rows: 437
+NN batches: 61
+NN avg batch size: 7.16393
+PV: D3 F2 E1 L5 J9 J10 H10 H9 L3 K3 H8 H11 M5 H10 L4 M4 L6 K5 M3 M6 N4 M7 K11 L11 L12
+Tree:
+: T  70.99c W  69.93c S   1.24c ( +2.7 L  +1.9) N    3400  --  D3 F2 E1 L5 J9 J10 H10
+---White(^)---
+D3  : T  71.44c W  70.38c S   1.28c ( +2.7 L  +1.9) LCB   69.89c P 47.63% WF 3957.1 PSV    3941 N    3356  --  D3 F2 E1 L5 J9 J10 H10 H9
+F2  : T -45.30c W -47.13c S  -7.58c ( -3.1 L  -2.6) LCB  -88.03c P 48.34% WF  12.8 PSV      28 N      36  --  F2 D3 D2 G3 A4 L9 D7 D8
+D7  : T  21.94c W  24.12c S  -2.40c ( +0.4 L  +0.1) LCB   -2.34c P  3.33% WF   4.2 PSV       4 N       6  --  D7 D3 D8 D2 L4
+L4  : T -54.08c W -48.66c S  -5.42c ( -1.8 L  -3.3) LCB -404.08c P  0.27% WF   0.5 PSV       0 N       1  --  L4
+
+2024-06-21 21:48:35-0400: = D3
+2024-06-21 21:48:36-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:36-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:36-0400: Controller: play black f2
+2024-06-21 21:48:36-0400: = 
+2024-06-21 21:48:36-0400: Controller: genmove white
+2024-06-21 21:48:37-0400: MoveNum: 35 HASH: DA9538599ED6A3BEACC98D946B6445C7
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . . . .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . . . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . . . . . . . . .
+ 5 . . X . O . X . . . . . .
+ 4 . X X O . . . . . X . . .
+ 3 . O O O2X1X . . . . . . .
+ 2 . . . . O X3. . . . . . .
+ 1 . . . . @ . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.016
+Root visits: 4240
+New playouts: 460
+NN rows: 445
+NN batches: 56
+NN avg batch size: 7.94643
+PV: E1 L5 J9 J10 H10 H9 L3 K3 H8 H11 M5 H10 L4 M4 M6 M3 L2 M2 K2 L6 J3 L7 M7 J4
+Tree:
+: T  73.51c W  72.03c S   1.52c ( +2.9 L  +2.2) N    4240  --  E1 L5 J9 J10 H10 H9 L3
+---White(^)---
+E1  : T  73.92c W  72.41c S   1.55c ( +2.9 L  +2.2) LCB   72.52c P 68.97% WF 4949.7 PSV    4937 N    4168  --  E1 L5 J9 J10 H10 H9 L3 K3
+F6  : T  48.11c W  48.55c S  -0.47c ( +1.6 L  +1.0) LCB   31.92c P 10.58% WF  25.8 PSV      30 N      29  --  F6 D2 G8 D5 E4 E6 G4 H5
+D7  : T  33.52c W  34.56c S  -1.43c ( +0.9 L  +0.6) LCB   18.22c P 13.05% WF  18.9 PSV      24 N      24  --  D7 D8 C7 B7 B6 A8 E1 L5
+G4  : T  39.90c W  37.20c S  -1.05c ( +1.1 L  +0.7) LCB   19.83c P  5.11% WF   8.9 PSV      11 N      11  --  G4 D2 F4 H3 H4 J4 H5
+C7  : T  17.82c W  22.66c S  -1.57c ( +0.8 L  +0.1) LCB -131.99c P  0.40% WF   1.1 PSV       0 N       2  --  C7 B7
+G6  : T  12.36c W  14.93c S  -2.57c ( +0.1 L  +0.0) LCB -337.64c P  0.59% WF   0.8 PSV       0 N       1  --  G6
+H7  : T -42.66c W -37.83c S  -4.83c ( -1.5 L  -2.9) LCB -392.66c P  0.27% WF   0.4 PSV       0 N       1  --  H7
+G7  : T  21.18c W  23.01c S  -1.82c ( +0.5 L  +0.4) LCB -328.82c P  0.23% WF   0.9 PSV       0 N       1  --  G7
+G8  : T  33.76c W  34.79c S  -1.03c ( +1.2 L  +0.6) LCB -316.24c P  0.21% WF   0.9 PSV       0 N       1  --  G8
+H5  : T -13.50c W  -9.75c S  -3.75c ( -0.7 L  -0.8) LCB -363.50c P  0.19% WF   0.6 PSV       0 N       1  --  H5
+
+2024-06-21 21:48:37-0400: = E1
+2024-06-21 21:48:38-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:38-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:38-0400: Controller: play black l5
+2024-06-21 21:48:38-0400: = 
+2024-06-21 21:48:38-0400: Controller: genmove white
+2024-06-21 21:48:39-0400: MoveNum: 37 HASH: 6AA2B20EE480AF004077C412DDDE07F3
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . . . .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . @ . . . .
+ 8 . . X . . X . . . . . . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . . . . . . . . .
+ 5 . . X . O . X . . . X3. .
+ 4 . X X O . . . . . X . . .
+ 3 . O O O X X . . . . . . .
+ 2 . . . . O X1. . . . . . .
+ 1 . . . . O2. . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.031
+Root visits: 3556
+New playouts: 486
+NN rows: 423
+NN batches: 57
+NN avg batch size: 7.42105
+PV: J9 L8 H8 B9 L11 M11 J3 H2 H5 H4 G4 J4 G6
+Tree:
+: T  73.45c W  72.45c S   1.40c ( +2.8 L  +2.2) N    3556  --  J9 L8 H8 B9 L11 M11 J3
+---White(^)---
+J9  : T  75.29c W  74.03c S   1.57c ( +2.9 L  +2.3) LCB   73.61c P 29.86% WF 3499.7 PSV    3438 N    3064  --  J9 L8 H8 B9 L11 M11 J3 H2
+G4  : T  61.32c W  62.24c S   0.18c ( +2.1 L  +1.3) LCB   55.08c P 31.99% WF 138.3 PSV     151 N     138  --  G4 F5 J9 J10 H10 H9 F6 F4
+J3  : T  63.88c W  64.27c S   0.80c ( +2.5 L  +1.7) LCB   54.77c P  6.93% WF  82.3 PSV      39 N      73  --  J3 H2 J2 K3 J9 L8 G4
+F6  : T  63.62c W  64.10c S   0.27c ( +2.1 L  +1.4) LCB   57.96c P  6.41% WF 186.6 PSV      35 N     168  --  F6 E6 F5 D5 G4 H3 E4 L11
+H2  : T  59.94c W  61.29c S   0.50c ( +2.3 L  +1.6) LCB   44.64c P  4.56% WF  46.7 PSV      19 N      43  --  H2 F1 C2 G4 L3 K3 L8 M9
+H9  : T  55.23c W  56.39c S   0.09c ( +2.0 L  +1.2) LCB   37.51c P  4.78% WF  14.6 PSV      15 N      13  --  H9 K11 J9 L8 K12
+H8  : T  66.19c W  64.34c S   0.76c ( +2.4 L  +1.5) LCB   56.30c P  2.10% WF  25.2 PSV      14 N      21  --  H8 J9 H9 J8 G4 F5 F4
+L3  : T  57.16c W  58.52c S   0.14c ( +2.0 L  +1.2) LCB   35.21c P  3.18% WF  10.7 PSV      11 N       9  --  L3 K3 G4 F5 F6
+H10 : T  47.61c W  49.48c S  -0.59c ( +1.5 L  +0.9) LCB   25.20c P  2.48% WF   8.1 PSV       6 N       7  --  H10 L11 G4 H3 H4
+D7  : T  36.20c W  40.69c S  -1.06c ( +1.2 L  +0.7) LCB  -15.94c P  1.86% WF   3.4 PSV       3 N       4  --  D7 D8 C7
+
+2024-06-21 21:48:39-0400: = J9
+2024-06-21 21:48:41-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:41-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:41-0400: Controller: play black l8
+2024-06-21 21:48:41-0400: = 
+2024-06-21 21:48:41-0400: Controller: genmove white
+2024-06-21 21:48:42-0400: MoveNum: 39 HASH: 52D517D7A4148759E468EE5C2D84EF64
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . . . .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . O2. . . .
+ 8 . . X . . X . @ . . X3. .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . . . . . . . . .
+ 5 . . X . O . X . . . X1. .
+ 4 . X X O . . . . . X . . .
+ 3 . O O O X X . . . . . . .
+ 2 . . . . O X . . . . . . .
+ 1 . . . . O . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 2259
+New playouts: 472
+NN rows: 446
+NN batches: 58
+NN avg batch size: 7.68966
+PV: H8 B9 L11 M11 J3 H2 J2 K3 G4 F4 H5 J4 F5 G6 G7 F6 H6 D8 H4
+Tree:
+: T  73.85c W  73.12c S   1.28c ( +2.5 L  +1.9) N    2259  --  H8 B9 L11 M11 J3 H2 J2
+---White(^)---
+H8  : T  75.47c W  74.75c S   1.40c ( +2.6 L  +1.9) LCB   73.81c P  3.68% WF 2256.2 PSV    2227 N    1904  --  H8 B9 L11 M11 J3 H2 J2 K3
+F6  : T  71.01c W  69.62c S   0.86c ( +2.3 L  +1.6) LCB   64.38c P 18.06% WF 129.1 PSV     134 N     110  --  F6 G6 F7 G7 E8 D8 E9 B9
+L11 : T  64.74c W  63.69c S   0.62c ( +2.1 L  +1.4) LCB   53.83c P 14.27% WF  60.9 PSV      59 N      61  --  L11 K11 K12 L10 G4 H3
+G4  : T  60.08c W  60.66c S   0.06c ( +1.8 L  +1.2) LCB   49.84c P 17.32% WF  50.7 PSV      50 N      52  --  G4 H3 K8 L9 H4 F4
+J3  : T  64.64c W  62.81c S   1.03c ( +2.4 L  +1.7) LCB   52.86c P  9.80% WF  41.5 PSV      40 N      39  --  J3 H2 J2 K3 G4 F4 F5
+H2  : T  54.36c W  54.02c S   0.04c ( +1.8 L  +1.2) LCB   31.34c P 11.31% WF  21.4 PSV      23 N      22  --  H2 F1 C2 G4 H8 J7 H7 F6
+J2  : T  69.46c W  66.43c S   1.12c ( +2.5 L  +1.7) LCB   46.28c P  1.98% WF  19.3 PSV      14 N      16  --  J2 F1 C2 H3 G6
+D7  : T  29.96c W  36.35c S  -1.30c ( +0.9 L  +0.5) LCB   10.77c P 13.09% WF   9.7 PSV      12 N      15  --  D7 D8 G4 F4 F5 G6
+K8  : T  56.75c W  57.02c S   0.04c ( +1.8 L  +1.1) LCB   42.58c P  2.68% WF  17.0 PSV       6 N      16  --  K8 L9 G4 F4
+K7  : T  61.58c W  60.68c S   0.63c ( +2.1 L  +1.2) LCB   37.85c P  1.43% WF  10.0 PSV       4 N       8  --  K7 J10 H10 H9
+
+2024-06-21 21:48:42-0400: = H8
+2024-06-21 21:48:44-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:44-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:44-0400: Controller: play black l11
+2024-06-21 21:48:44-0400: = 
+2024-06-21 21:48:44-0400: Controller: genmove white
+2024-06-21 21:48:45-0400: MoveNum: 41 HASH: 1AB8788B1F90AF8587288D39E7158543
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X3. .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . O . . . .
+ 8 . . X . . X . O2. . X1. .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . . . . . . . . .
+ 5 . . X . O . X . . . X . .
+ 4 . X X O . . . . . X . . .
+ 3 . O O O X X . . @ . . . .
+ 2 . . . . O X . . . . . . .
+ 1 . . . . O . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 673
+New playouts: 467
+NN rows: 457
+NN batches: 59
+NN avg batch size: 7.74576
+PV: J3 J4 H2 K3 H4 H5 F1 G4 D7 D8 C7 B7 B6 B9 A7 B8
+Tree:
+: T  73.08c W  72.97c S   1.37c ( +3.3 L  +2.7) N     673  --  J3 J4 H2 K3 H4 H5 F1
+---White(^)---
+J3  : T  75.73c W  75.37c S   1.61c ( +3.4 L  +2.9) LCB   71.64c P 25.96% WF 512.0 PSV     503 N     522  --  J3 J4 H2 K3 H4 H5 F1 G4
+G4  : T  59.77c W  61.48c S  -0.18c ( +2.2 L  +1.4) LCB   48.11c P 20.49% WF  27.4 PSV      23 N      34  --  G4 H3 H4 J3 D7 D8 E9 E8
+H2  : T  65.00c W  66.21c S   0.49c ( +2.7 L  +2.0) LCB   51.09c P 12.64% WF  29.4 PSV      20 N      33  --  H2 J3 D7 D8 E9 E8 C7
+J2  : T  69.21c W  67.63c S   1.45c ( +3.4 L  +2.6) LCB   54.52c P  6.17% WF  35.2 PSV      15 N      36  --  J2 F1 C2 H4 G6 B9 F5
+G6  : T  57.06c W  59.60c S   0.29c ( +2.5 L  +1.7) LCB   36.84c P 11.03% WF  13.7 PSV      10 N      16  --  G6 F5 F6 E6 D5 D7 H6 B9
+F6  : T  60.48c W  62.45c S   0.31c ( +2.6 L  +1.7) LCB   39.40c P  8.72% WF  13.0 PSV      10 N      13  --  F6 D5 E6 D7 E4
+D7  : T  60.32c W  64.29c S   0.38c ( +2.6 L  +1.5) LCB   41.67c P  5.80% WF   8.1 PSV       6 N       9  --  D7 D8 E9 E8 G4 H3
+K6  : T  63.93c W  62.85c S   0.12c ( +2.4 L  +1.4) LCB  -10.37c P  2.22% WF   3.8 PSV       3 N       3  --  K6 H6
+K8  : T  62.14c W  61.18c S   0.21c ( +2.5 L  +1.6) LCB  -87.15c P  1.70% WF   2.4 PSV       2 N       2  --  K8 K7
+C7  : T  53.03c W  51.67c S   1.36c ( +3.3 L  +1.8) LCB -296.97c P  1.61% WF   0.7 PSV       1 N       1  --  C7
+
+2024-06-21 21:48:45-0400: = J3
+2024-06-21 21:48:46-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:46-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:46-0400: Controller: play black h4
+2024-06-21 21:48:47-0400: = 
+2024-06-21 21:48:47-0400: Controller: genmove white
+2024-06-21 21:48:48-0400: MoveNum: 43 HASH: C7E4023B6AE68E25EF5F153145A337F2
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X1. .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . O . . . .
+ 8 . . X . . X . O . . X . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . @ . . . . . . .
+ 5 . . X . O . X . . . X . .
+ 4 . X X O . . . X3. X . . .
+ 3 . O O O X X . . O2. . . .
+ 2 . . . . O X . . . . . . .
+ 1 . . . . O . . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.016
+Root visits: 514
+New playouts: 498
+NN rows: 448
+NN batches: 55
+NN avg batch size: 8.14545
+PV: F6 F1 C2 D8 E9 B9 L3 M4 M3
+Tree:
+: T  76.18c W  75.75c S   1.52c ( +4.6 L  +3.9) N     514  --  F6 F1 C2 D8 E9 B9 L3
+---White(^)---
+F6  : T  80.86c W  78.87c S   1.38c ( +4.5 L  +3.8) LCB   74.80c P 10.48% WF 171.5 PSV     505 N     154  --  F6 F1 C2 D8 E9 B9 L3 M4
+L3  : T  77.09c W  76.90c S   2.04c ( +5.0 L  +4.3) LCB   72.55c P 50.43% WF 272.7 PSV     273 N     290  --  L3 F1 C2 M4 H3 G3 M3 J1
+D7  : T  65.75c W  69.64c S  -0.24c ( +3.3 L  +2.2) LCB   54.20c P  9.21% WF  13.8 PSV       9 N      15  --  D7 D8 E9 E8 L3 M4
+G6  : T  64.16c W  65.28c S   0.09c ( +3.5 L  +2.5) LCB   44.62c P  8.52% WF  15.0 PSV       8 N      17  --  G6 H6 F5 H3 H2
+H2  : T  55.99c W  61.62c S  -0.18c ( +3.3 L  +2.4) LCB   33.36c P  9.38% WF   6.0 PSV       5 N       8  --  H2 F1 C2 K3 K2
+C7  : T  62.72c W  63.05c S  -0.76c ( +3.0 L  +2.0) LCB   29.40c P  2.04% WF   6.3 PSV       1 N       8  --  C7 D7 B7 B8
+H3  : T  55.72c W  60.92c S  -0.58c ( +3.1 L  +2.2) LCB  -19.80c P  0.51% WF   2.6 PSV       0 N       3  --  H3 G3 L3
+L7  : T  53.68c W  59.89c S  -1.20c ( +2.7 L  +1.8) LCB -100.51c P  1.25% WF   2.2 PSV       0 N       2  --  L7 K8
+H6  : T  49.63c W  55.60c S  -0.96c ( +2.8 L  +1.7) LCB -105.69c P  1.11% WF   1.6 PSV       0 N       2  --  H6 J4
+J4  : T  46.25c W  55.98c S  -1.35c ( +2.6 L  +1.5) LCB -107.88c P  0.11% WF   1.1 PSV       0 N       2  --  J4 J5
+
+2024-06-21 21:48:48-0400: = F6
+2024-06-21 21:48:49-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:49-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:49-0400: Controller: play black f1
+2024-06-21 21:48:49-0400: = 
+2024-06-21 21:48:49-0400: Controller: genmove white
+2024-06-21 21:48:50-0400: MoveNum: 45 HASH: 58B3E0DCCA22581BE0CA4A69DD338AC9
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X . .
+10 . O O . O X X . . X . . .
+ 9 . . X O . . . . O . . . .
+ 8 . . X . . X . O . . X . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . O2. . . . . . .
+ 5 . . X . O . X . . . X . .
+ 4 . X X O . . . X1. X . . .
+ 3 . O O O X X . . O . . . .
+ 2 . . @ . O X . . . . . . .
+ 1 . . . . O X3. . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 1499
+New playouts: 506
+NN rows: 421
+NN batches: 62
+NN avg batch size: 6.79032
+PV: C2 D8 L3 M4 H3 G3 M3 J1 K3 K1 H2 H1 L4 K5 M5 M6 N4 M1
+Tree:
+: T  68.11c W  67.79c S   1.79c ( +4.6 L  +4.2) N    1499  --  C2 D8 L3 M4 H3 G3 M3
+---White(^)---
+C2  : T  69.59c W  68.82c S   2.00c ( +4.7 L  +4.3) LCB   65.67c P 35.87% WF 818.0 PSV     810 N     964  --  C2 D8 L3 M4 H3 G3 M3 J1
+D7  : T  68.92c W  69.21c S   1.74c ( +4.5 L  +4.4) LCB   60.97c P 16.99% WF 341.7 PSV     276 N     421  --  D7 D8 C7 B7 B6 B8 A6 G7
+C7  : T  62.31c W  60.89c S   1.58c ( +4.5 L  +4.3) LCB   46.80c P  7.00% WF  27.1 PSV      29 N      42  --  C7 D7 B7 B8 B6 A7 A4 B5
+A8  : T  51.47c W  50.62c S  -0.51c ( +2.8 L  +2.1) LCB   26.53c P  6.09% WF  11.0 PSV      11 N      17  --  A8 D5 E6 E4 C2 D7
+L3  : T  29.29c W  38.29c S  -1.88c ( +1.8 L  +1.4) LCB   -5.88c P 11.77% WF   8.9 PSV      10 N      16  --  L3 D2 C2 D1 G7 D5
+H6  : T  43.27c W  45.96c S  -1.40c ( +2.2 L  +1.5) LCB   13.48c P  6.69% WF   7.8 PSV       9 N      12  --  H6 D2 C2 D1 D7
+G6  : T  40.59c W  45.31c S  -1.13c ( +2.4 L  +1.7) LCB  -12.02c P  3.27% WF   3.9 PSV       4 N       5  --  G6 H6 C2
+B9  : T  42.48c W  44.49c S  -1.33c ( +2.2 L  +1.4) LCB    5.00c P  3.17% WF   3.4 PSV       4 N       5  --  B9 B8 D7
+F7  : T  21.84c W  31.28c S  -2.25c ( +1.5 L  +0.9) LCB  -27.26c P  2.84% WF   3.2 PSV       2 N       5  --  F7 D8 E9
+K3  : T  28.43c W  38.84c S  -1.67c ( +2.0 L  +1.6) LCB -124.37c P  1.40% WF   1.5 PSV       1 N       2  --  K3 L3
+
+2024-06-21 21:48:50-0400: = C2
+2024-06-21 21:48:52-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:52-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:52-0400: Controller: play black b9
+2024-06-21 21:48:52-0400: = 
+2024-06-21 21:48:52-0400: Controller: genmove white
+2024-06-21 21:48:53-0400: MoveNum: 47 HASH: 0F485054AFE41D8122860266965ADADF
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X . .
+10 . O O . O X X . . X . . .
+ 9 . X3X O . . . . O . . . .
+ 8 . . X . . X . O . . X . .
+ 7 . . . . X . . . . . . . .
+ 6 . . X O . O . . . . . . .
+ 5 . . X . O . X . . . X . .
+ 4 . X X O . . . X . X . . .
+ 3 . O O O X X . . O . @ . .
+ 2 . . O2. O X . . . . . . .
+ 1 . . . . O X1. . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.031
+Root visits: 1261
+New playouts: 882
+NN rows: 410
+NN batches: 61
+NN avg batch size: 6.72131
+PV: A9 A8 B7 C7 L3 M4 A4 A5 B6 E9 D8 D7 G8 D5 E6
+Tree:
+: T  75.44c W  72.87c S   2.91c ( +5.6 L  +5.2) N    1261  --  A9 A8 B7 C7 L3 M4 A4
+---White(^)---
+A9  : T  77.76c W  74.22c S   2.98c ( +5.7 L  +5.4) LCB   71.27c P  4.61% WF 211.3 PSV     511 N     257  --  A9 A8 B7 C7 L3 M4 A4 A5
+L3  : T  75.27c W  73.25c S   3.03c ( +5.7 L  +5.2) LCB   70.19c P 43.04% WF 375.5 PSV     378 N     459  --  L3 M4 A9 A8 B7 C7 A4 A5
+B7  : T  76.61c W  73.52c S   3.24c ( +5.9 L  +5.5) LCB   71.19c P 17.59% WF 356.8 PSV     257 N     437  --  B7 C7 A9 A8 L3 M4 A4 A5
+L7  : T  73.91c W  72.15c S   1.43c ( +4.5 L  +3.8) LCB   64.46c P  9.16% WF  53.0 PSV      54 N      61  --  L7 K8 L3 M4 H3 G3 M3 J1
+H3  : T  57.43c W  56.59c S   0.27c ( +3.6 L  +2.8) LCB   19.70c P  6.03% WF   8.7 PSV       8 N      12  --  H3 G3 L3 M5 M2
+L6  : T  58.79c W  56.53c S  -1.04c ( +2.7 L  +1.8) LCB   26.81c P  2.48% WF   5.2 PSV       3 N       6  --  L6 K6 M3
+G6  : T  41.92c W  45.74c S  -1.76c ( +2.1 L  +1.4) LCB    6.97c P  4.55% WF   3.4 PSV       3 N       5  --  G6 H6 B7
+H6  : T  66.95c W  67.38c S   2.33c ( +5.3 L  +4.5) LCB   42.68c P  0.87% WF   7.1 PSV       2 N      11  --  H6 J4 B7 C7 A9 A8 A4 A5
+D8  : T  39.77c W  48.95c S  -0.95c ( +2.7 L  +1.7) LCB -112.78c P  2.38% WF   1.3 PSV       1 N       2  --  D8 D7
+K6  : T  32.35c W  44.84c S  -2.11c ( +2.0 L  +1.1) LCB -125.32c P  2.02% WF   1.6 PSV       1 N       2  --  K6 J4
+
+2024-06-21 21:48:53-0400: = L3
+2024-06-21 21:48:55-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:55-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:55-0400: Controller: play black m4
+2024-06-21 21:48:55-0400: = 
+2024-06-21 21:48:55-0400: Controller: genmove white
+2024-06-21 21:48:56-0400: MoveNum: 49 HASH: F6D1F0A1F43782E413204CAFAF19671C
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X . .
+10 . O O . O X X . . X . . .
+ 9 . X1X O . . . . O . . . .
+ 8 . . X . . X . O . . X . .
+ 7 . @ . . X . . . . . . . .
+ 6 . . X O . O . . . . . . .
+ 5 . . X . O . X . . . X . .
+ 4 . X X O . . . X . X . X3.
+ 3 . O O O X X . . O . O2. .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.063
+Root visits: 2014
+New playouts: 644
+NN rows: 408
+NN batches: 62
+NN avg batch size: 6.58065
+PV: B7 C7 A9 A8 A4 A5 B6 A10 B11 G8 E8 D7 G6 H6
+Tree:
+: T  82.54c W  79.08c S   3.58c ( +7.4 L  +7.4) N    2014  --  B7 C7 A9 A8 A4 A5 B6
+---White(^)---
+B7  : T  85.66c W  80.35c S   4.75c ( +8.4 L  +8.5) LCB   81.46c P 12.85% WF 744.1 PSV    1330 N     867  --  B7 C7 A9 A8 A4 A5 B6 A10
+A9  : T  83.81c W  80.92c S   3.15c ( +7.0 L  +7.0) LCB   80.16c P  4.14% WF 811.5 PSV     829 N     927  --  A9 D8 B7 A8 C7 D7 B6 E9
+H3  : T  69.36c W  68.55c S   1.32c ( +5.6 L  +5.1) LCB   58.48c P 11.85% WF  36.5 PSV      35 N      55  --  H3 G3 M3 J1 K3 H2 L4 M5
+L7  : T  68.84c W  70.23c S  -0.06c ( +4.5 L  +3.8) LCB   59.04c P 12.09% WF  33.7 PSV      35 N      44  --  L7 K8 H3 G3 M3 J1 K3 K1
+M3  : T  54.69c W  61.72c S  -0.54c ( +4.2 L  +3.5) LCB   37.68c P 22.08% WF  27.1 PSV      33 N      49  --  M3 J2 L7 K8 H2 K2 K3 H3
+H2  : T  53.40c W  57.30c S  -1.49c ( +3.4 L  +2.8) LCB   23.66c P  6.43% WF   8.2 PSV       9 N      14  --  H2 M3 B7 C7 B6 A9
+K7  : T  51.92c W  56.91c S  -2.44c ( +2.8 L  +2.0) LCB   22.20c P  5.44% WF   6.0 PSV       7 N       9  --  K7 M6 H6 H5
+D7  : T  43.11c W  46.25c S  -2.80c ( +2.5 L  +1.9) LCB   21.12c P  5.78% WF   5.2 PSV       6 N       9  --  D7 D8 E9 A10 M3
+G6  : T  35.77c W  43.24c S  -3.28c ( +2.2 L  +1.7) LCB   13.23c P  5.69% WF   5.4 PSV       5 N       9  --  G6 H6 H7 D7 L7
+L4  : T  40.24c W  42.89c S  -2.86c ( +2.4 L  +1.4) LCB   -1.62c P  3.74% WF   2.8 PSV       3 N       5  --  L4 M3 K3 J4
+
+2024-06-21 21:48:56-0400: = B7
+2024-06-21 21:48:57-0400: Controller: kata-list_time_settings
+2024-06-21 21:48:57-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:48:57-0400: Controller: play black c7
+2024-06-21 21:48:57-0400: = 
+2024-06-21 21:48:57-0400: Controller: genmove white
+2024-06-21 21:48:58-0400: MoveNum: 51 HASH: 7D49C580E08467C23797C09BAA758F34
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X . .
+10 . O O . O X X . . X . . .
+ 9 @ X X O . . . . O . . . .
+ 8 . . X . . X . O . . X . .
+ 7 . O2X3. X . . . . . . . .
+ 6 . . X O . O . . . . . . .
+ 5 . . X . O . X . . . X . .
+ 4 . X X O . . . X . X . X1.
+ 3 . O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.031
+Root visits: 2081
+New playouts: 482
+NN rows: 434
+NN batches: 58
+NN avg batch size: 7.48276
+PV: A9 G7 G6 H6 E6 H7 E8 F7 D7
+Tree:
+: T  87.18c W  82.08c S   4.55c ( +8.8 L  +9.0) N    2081  --  A9 G7 G6 H6 E6 H7 E8
+---White(^)---
+A9  : T  89.55c W  83.74c S   5.00c ( +9.2 L  +9.5) LCB   86.62c P 18.00% WF 1659.7 PSV    1632 N    1846  --  A9 G7 G6 H6 E6 H7 E8 F7
+B6  : T  64.53c W  66.50c S  -1.23c ( +4.3 L  +3.5) LCB   46.92c P 18.86% WF  30.6 PSV      34 N      46  --  B6 A4 E8 A10 B11 G6 D7 A6
+M3  : T  47.10c W  56.59c S  -1.40c ( +4.2 L  +3.3) LCB   23.18c P 20.84% WF  17.7 PSV      22 N      35  --  M3 J2 L4 M5 H2 K2 K3 H3
+H3  : T  73.49c W  72.49c S   1.38c ( +6.3 L  +5.6) LCB   59.82c P  4.78% WF  28.1 PSV      13 N      41  --  H3 G3 M3 J1 K3 H2 L4 M5
+A4  : T  60.54c W  62.51c S  -0.65c ( +4.7 L  +3.8) LCB   37.92c P  6.44% WF  21.8 PSV      10 N      36  --  A4 A5 B6 A9 M3 J2 H2 K2
+G6  : T  53.97c W  59.25c S  -2.66c ( +3.3 L  +2.4) LCB   36.09c P  6.85% WF  15.9 PSV       8 N      27  --  G6 A10 B11 H6 M3 J2 H2 K2
+E8  : T  27.02c W  33.12c S  -5.19c ( +1.7 L  +1.4) LCB   -5.69c P 10.25% WF   5.1 PSV       7 N      10  --  E8 A10 M3 J2
+J4  : T  55.99c W  62.03c S   0.23c ( +5.4 L  +3.4) LCB   15.79c P  2.39% WF   2.9 PSV       3 N       5  --  J4 J5 H6 H5
+K8  : T  57.23c W  62.30c S  -1.23c ( +4.2 L  +2.7) LCB    2.45c P  2.10% WF   3.7 PSV       3 N       5  --  K8 L7 A9
+L7  : T  53.43c W  59.05c S  -2.57c ( +3.3 L  +2.4) LCB    7.07c P  3.08% WF   3.0 PSV       3 N       4  --  L7 K8 M3
+
+2024-06-21 21:48:58-0400: = A9
+2024-06-21 21:49:00-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:00-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:00-0400: Controller: play black a8
+2024-06-21 21:49:00-0400: = 
+2024-06-21 21:49:00-0400: Controller: genmove white
+2024-06-21 21:49:01-0400: MoveNum: 53 HASH: 00EA30F6276E8EF495020F70429545CE
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X . .
+10 . O O . O X X . . X . . .
+ 9 O2X X O . . . . O . . . .
+ 8 X3. X . . X . O . . X . .
+ 7 . O X1. X . . . . . . . .
+ 6 . . X O . O . . . . . . .
+ 5 . . X . O . X . . . X . .
+ 4 @ X X O . . . X . X . X .
+ 3 . O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.031
+Root visits: 1547
+New playouts: 603
+NN rows: 447
+NN batches: 57
+NN avg batch size: 7.84211
+PV: A4 A5 B6 A10 B11 G8 E8 D7 G6 G9 J10 E9 F9 J4
+Tree:
+: T  91.61c W  85.50c S   4.56c (+10.7 L +11.0) N    1547  --  A4 A5 B6 A10 B11 G8 E8
+---White(^)---
+A4  : T  93.65c W  86.81c S   5.18c (+11.2 L +11.6) LCB   90.43c P 37.90% WF 1241.8 PSV    1224 N    1318  --  A4 A5 B6 A10 B11 G8 E8 D7
+H6  : T  89.07c W  85.30c S   1.11c ( +7.8 L  +8.1) LCB   77.63c P  9.43% WF  44.1 PSV      46 N      52  --  H6 G6 J4 J5 H5 G7 G4 H3
+H2  : T  80.85c W  77.52c S   0.14c ( +7.0 L  +6.8) LCB   70.72c P  7.65% WF  43.9 PSV      20 N      64  --  H2 H3 A4 A5 B6 E9 D8 D7
+M3  : T  45.33c W  55.47c S  -3.66c ( +4.1 L  +3.1) LCB   21.52c P 20.38% WF  11.8 PSV      15 N      25  --  M3 J2 L4 M5 H2 K2 K3
+H3  : T  72.99c W  74.70c S  -0.92c ( +6.2 L  +5.5) LCB   62.83c P  8.36% WF  45.8 PSV      14 N      69  --  H3 G3 M3 J1 K3 H2 L4 M5
+J4  : T  42.85c W  54.70c S  -3.55c ( +4.1 L  +2.7) LCB   -4.47c P  4.14% WF   2.2 PSV       2 N       5  --  J4 J5 M3 J2
+K8  : T  49.34c W  49.88c S  -4.95c ( +3.0 L  +1.8) LCB  -29.21c P  3.29% WF   2.1 PSV       2 N       3  --  K8 J4
+B6  : T  38.59c W  42.83c S  -4.24c ( +3.3 L  +2.8) LCB -311.41c P  2.12% WF   0.6 PSV       1 N       1  --  B6
+G6  : T  35.19c W  42.59c S  -7.39c ( +1.9 L  +1.8) LCB -314.81c P  1.61% WF   0.6 PSV       1 N       1  --  G6
+G3  : T  63.38c W  65.55c S  -2.17c ( +5.2 L  +3.8) LCB -286.62c P  1.20% WF   0.7 PSV       1 N       1  --  G3
+
+2024-06-21 21:49:01-0400: = A4
+2024-06-21 21:49:02-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:02-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:02-0400: Controller: play black a5
+2024-06-21 21:49:02-0400: = 
+2024-06-21 21:49:02-0400: Controller: genmove white
+2024-06-21 21:49:03-0400: MoveNum: 55 HASH: F4A089279E64E1538F9FC51EB8F31C1B
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . . . . O X O X O . X . .
+10 . O O . O X X . . X . . .
+ 9 O X X O . . . . O . . . .
+ 8 X1. X . . X . O . . X . .
+ 7 . O X . X . . . . . . . .
+ 6 . @ X O . O . . . . . . .
+ 5 X3. X . O . X . . . X . .
+ 4 O2X X O . . . X . X . X .
+ 3 . O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.062
+Root visits: 1710
+New playouts: 567
+NN rows: 445
+NN batches: 59
+NN avg batch size: 7.54237
+PV: B6 G8 E8 D7 G6 A10 B11 G9 J10 E9 F9 D5 E6 E9
+Tree:
+: T  91.13c W  86.85c S   3.64c (+10.0 L +10.3) N    1710  --  B6 G8 E8 D7 G6 A10 B11
+---White(^)---
+B6  : T  92.40c W  87.76c S   4.04c (+10.3 L +10.6) LCB   89.65c P 56.10% WF 1465.7 PSV    1453 N    1510  --  B6 G8 E8 D7 G6 A10 B11 G9
+H6  : T  86.54c W  84.52c S   0.90c ( +7.8 L  +8.0) LCB   73.29c P  8.23% WF  62.8 PSV      43 N      76  --  H6 G6 J4 J5 H5 G7 G4 H3
+H2  : T  86.68c W  82.14c S  -0.22c ( +6.9 L  +6.8) LCB   76.52c P  6.72% WF  45.7 PSV      36 N      58  --  H2 H3 B6 A10 B11 G8 E8 D7
+H3  : T  72.04c W  72.93c S  -1.98c ( +5.5 L  +4.6) LCB   54.79c P  6.45% WF  10.6 PSV      11 N      15  --  H3 G3 M3 J1 K3 H2
+M3  : T  48.23c W  58.19c S  -3.69c ( +4.2 L  +3.1) LCB   27.39c P  9.68% WF  16.3 PSV       8 N      34  --  M3 J2 J4 J5 L4 M6 H3
+K8  : T  50.86c W  53.24c S  -5.14c ( +3.1 L  +2.0) LCB    1.55c P  4.43% WF   2.8 PSV       4 N       4  --  K8 G6
+J4  : T  47.89c W  58.91c S  -2.64c ( +4.9 L  +3.4) LCB   18.09c P  2.68% WF   3.7 PSV       2 N       7  --  J4 J5 H3 G3 M3
+K3  : T   8.45c W  15.38c S  -6.93c ( +1.2 L  +0.7) LCB -341.55c P  1.46% WF   0.5 PSV       0 N       1  --  K3
+G6  : T  30.53c W  38.53c S  -8.00c ( +1.6 L  +1.1) LCB -319.47c P  1.45% WF   0.6 PSV       0 N       1  --  G6
+L4  : T  47.42c W  51.01c S  -3.59c ( +4.0 L  +2.7) LCB -302.58c P  0.74% WF   0.5 PSV       0 N       1  --  L4
+
+2024-06-21 21:49:03-0400: = B6
+2024-06-21 21:49:04-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:04-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:04-0400: Controller: play black a10
+2024-06-21 21:49:04-0400: = 
+2024-06-21 21:49:04-0400: Controller: genmove white
+2024-06-21 21:49:05-0400: MoveNum: 57 HASH: BB57D02C30FE54F42BCE2970B67AE6AE
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . @ . . O X O X O . X . .
+10 X3O O . O X X . . X . . .
+ 9 . X X O . . . . O . . . .
+ 8 X . X . . X . O . . X . .
+ 7 . O X . X . . . . . . . .
+ 6 . O2X O . O . . . . . . .
+ 5 X1. X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 . O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 1257
+New playouts: 498
+NN rows: 440
+NN batches: 59
+NN avg batch size: 7.45763
+PV: B11 G8 G6 A3 A2 E9 D8 D7 H6 J10
+Tree:
+: T  91.95c W  87.53c S   3.91c (+10.1 L +10.3) N    1257  --  B11 G8 G6 A3 A2 E9 D8
+---White(^)---
+B11 : T  92.84c W  88.37c S   4.11c (+10.2 L +10.5) LCB   89.62c P 56.34% WF 1143.4 PSV    1139 N    1165  --  B11 G8 G6 A3 A2 E9 D8 D7
+B12 : T  89.72c W  84.02c S   1.70c ( +8.3 L  +8.1) LCB   80.06c P  3.95% WF  38.9 PSV      27 N      50  --  B12 G8 E8 D7 G6 H6 H7 D5
+D10 : T  76.33c W  71.52c S   0.93c ( +7.7 L  +7.4) LCB   61.40c P  7.32% WF  12.9 PSV      13 N      23  --  D10 B11 C12 G7 G6
+H6  : T  -8.36c W  -5.03c S  -9.95c ( -0.6 L  -0.8) LCB  -89.72c P  6.95% WF   1.0 PSV       2 N       3  --  H6 B11
+E8  : T -80.18c W -49.39c S -11.90c ( -2.6 L  -7.1) LCB -203.27c P  6.36% WF   0.8 PSV       1 N       3  --  E8 B11 C11
+J4  : T  20.87c W  38.21c S  -5.06c ( +2.5 L  +1.4) LCB  -67.33c P  3.81% WF   1.3 PSV       1 N       3  --  J4 J5 H3
+E9  : T -62.04c W -54.03c S  -8.01c ( -0.1 L  -8.1) LCB -412.04c P  4.21% WF   0.2 PSV       0 N       1  --  E9
+H3  : T  15.07c W  21.82c S  -6.76c ( +1.2 L  +0.8) LCB -334.93c P  2.15% WF   0.5 PSV       0 N       1  --  H3
+G6  : T  12.14c W  15.84c S  -3.70c ( +3.2 L  +0.0) LCB -337.86c P  1.61% WF   0.3 PSV       0 N       1  --  G6
+F7  : T -25.40c W -15.73c S  -9.66c ( -0.9 L  -1.3) LCB -375.40c P  1.48% WF   0.3 PSV       0 N       1  --  F7
+
+2024-06-21 21:49:05-0400: = B11
+2024-06-21 21:49:06-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:06-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:06-0400: Controller: play black e9
+2024-06-21 21:49:06-0400: = 
+2024-06-21 21:49:06-0400: Controller: genmove white
+2024-06-21 21:49:07-0400: MoveNum: 59 HASH: 46B6496784E72AC948D9857ACF29F0A2
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . O2. . O X O X O . X . .
+10 X1O O . O X X . . X . . .
+ 9 . X X O X3. . . O . . . .
+ 8 X . X . . X @ O . . X . .
+ 7 . O X . X . . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X . X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 . O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 747
+New playouts: 583
+NN rows: 447
+NN batches: 56
+NN avg batch size: 7.98214
+PV: G8 D8 F7 D10 D11 A3 A2 D7 D9 E6 D5 D10 J4 J5
+Tree:
+: T  94.26c W  91.49c S   3.07c (+11.6 L +12.0) N     747  --  G8 D8 F7 D10 D11 A3 A2
+---White(^)---
+G8  : T  95.66c W  92.69c S   2.04c (+10.7 L +11.1) LCB   90.89c P 14.94% WF 263.3 PSV     753 N     228  --  G8 D8 F7 D10 D11 A3 A2 D7
+D8  : T  95.18c W  92.11c S   3.92c (+12.3 L +12.8) LCB   89.64c P 37.33% WF 549.4 PSV     547 N     473  --  D8 D7 G8 G7 G6 H7 H6 J7
+H6  : T  84.63c W  86.66c S  -0.79c ( +8.5 L  +8.0) LCB   64.36c P  6.41% WF  17.4 PSV      13 N      18  --  H6 D8 J4 J5 K3
+G6  : T  50.90c W  53.03c S  -5.65c ( +4.3 L  +3.2) LCB    9.55c P 16.68% WF   6.5 PSV       9 N      14  --  G6 D8 D10 G8 G9
+J4  : T  31.97c W  47.97c S  -6.02c ( +3.7 L  +2.1) LCB   -6.14c P  8.75% WF   2.5 PSV       3 N       6  --  J4 J5 H3 G3 H6 H5
+H3  : T  22.41c W  33.57c S  -8.26c ( +2.0 L  +1.1) LCB  -65.69c P  7.42% WF   1.4 PSV       2 N       3  --  H3 G3 M3
+H2  : T  36.91c W  45.96c S  -9.05c ( +2.2 L  +1.3) LCB -313.09c P  3.20% WF   0.6 PSV       1 N       1  --  H2
+G9  : T   8.50c W  18.69c S -10.19c ( +0.7 L  +0.4) LCB -341.50c P  2.64% WF   0.5 PSV       0 N       1  --  G9
+M3  : T  46.88c W  55.25c S  -8.37c ( +2.8 L  +1.5) LCB -303.12c P  1.13% WF   0.6 PSV       0 N       1  --  M3
+L4  : T   9.00c W  18.04c S  -9.04c ( +1.1 L  +0.5) LCB -341.00c P  0.57% WF   0.5 PSV       0 N       1  --  L4
+
+2024-06-21 21:49:07-0400: = G8
+2024-06-21 21:49:09-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:09-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:09-0400: Controller: play black d8
+2024-06-21 21:49:09-0400: = 
+2024-06-21 21:49:09-0400: Controller: genmove white
+2024-06-21 21:49:10-0400: MoveNum: 61 HASH: 9C99E4F6B1EE2AABAA0D9E3313DF3914
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . O . . O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O X1. . . O . . . .
+ 8 X . X X3. X O2O . . X . .
+ 7 . O X . X @ . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X . X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 . O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.046
+Root visits: 1590
+New playouts: 594
+NN rows: 425
+NN batches: 60
+NN avg batch size: 7.08333
+PV: F7 D10 D11 A3 E6 B12 A11 C12 C11 D7 D9 E12 D12 D10 J4 J5
+Tree:
+: T  99.61c W  94.68c S   4.60c ( +9.3 L  +9.6) N    1590  --  F7 D10 D11 A3 E6 B12 A11
+---White(^)---
+F7  : T  99.74c W  94.79c S   4.61c ( +9.4 L  +9.7) LCB   98.25c P 81.72% WF 2170.5 PSV    2170 N    1582  --  F7 D10 D11 A3 E6 B12 A11 C12
+A3  : T -11.20c W  -3.49c S  -7.72c ( -0.6 L  -1.4) LCB -361.20c P  4.25% WF   0.3 PSV       1 N       1  --  A3
+H3  : T  -9.24c W  -1.53c S  -7.71c ( -0.3 L  -0.9) LCB -359.24c P  3.97% WF   0.3 PSV       1 N       1  --  H3
+H2  : T -37.74c W -28.14c S  -9.60c ( -1.3 L  -2.9) LCB -387.74c P  2.83% WF   0.3 PSV       0 N       1  --  H2
+H6  : T -29.24c W -20.14c S  -9.10c ( -0.5 L  -2.2) LCB -379.24c P  1.75% WF   0.3 PSV       0 N       1  --  H6
+D10 : T -90.70c W -25.86c S -10.02c ( -1.9 L  -1.5) LCB -440.70c P  1.57% WF   0.3 PSV       0 N       1  --  D10
+J4  : T  41.28c W  43.23c S  -1.95c ( +4.2 L  +1.0) LCB -308.72c P  1.56% WF   0.4 PSV       0 N       1  --  J4
+M3  : T  -7.20c W   0.50c S  -7.70c ( -0.3 L  -0.8) LCB -357.20c P  1.44% WF   0.4 PSV       0 N       1  --  M3
+
+2024-06-21 21:49:10-0400: = F7
+2024-06-21 21:49:11-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:11-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:11-0400: Controller: play black d10
+2024-06-21 21:49:11-0400: = 
+2024-06-21 21:49:11-0400: Controller: genmove white
+2024-06-21 21:49:12-0400: MoveNum: 63 HASH: 148ACEC843B3516335B5B10BD85F6216
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . O . @ O X O X O . X . .
+10 X O O X3O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X1. X O O . . X . .
+ 7 . O X . X O2. . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X . X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 . O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.062
+Root visits: 2274
+New playouts: 529
+NN rows: 442
+NN batches: 59
+NN avg batch size: 7.49153
+PV: D11 A3 E6 D7 D9 A2 H6 D10 G9 F9 D9 B1 B2 D10 J4 J5 D9
+Tree:
+: T  98.79c W  94.59c S   4.13c ( +9.1 L  +9.4) N    2274  --  D11 A3 E6 D7 D9 A2 H6
+---White(^)---
+D11 : T  98.79c W  94.59c S   4.13c ( +9.1 L  +9.4) LCB   97.33c P 99.91% WF 3127.9 PSV    3128 N    2273  --  D11 A3 E6 D7 D9 A2 H6 D10
+
+2024-06-21 21:49:12-0400: = D11
+2024-06-21 21:49:13-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:13-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:13-0400: Controller: play black d7
+2024-06-21 21:49:13-0400: = 
+2024-06-21 21:49:13-0400: Controller: genmove white
+2024-06-21 21:49:14-0400: MoveNum: 65 HASH: 34887265840BC086C62D81DFA9F396E9
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . . . . . O O O . . . . .
+11 . O . O2O X O X O . X . .
+10 X O O X1O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X3X O . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X . X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 @ O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.047
+Root visits: 1073
+New playouts: 596
+NN rows: 434
+NN batches: 59
+NN avg batch size: 7.35593
+PV: A3 B5 D9 D1 D2 D10 M3 E6 H2 J4 K3
+Tree:
+: T 101.21c W  97.26c S   4.13c ( +8.5 L  +8.7) N    1073  --  A3 B5 D9 D1 D2 D10 M3
+---White(^)---
+A3  : T 102.15c W  97.70c S   4.67c ( +8.8 L  +9.1) LCB  100.33c P 45.68% WF 1582.6 PSV    1568 N     818  --  A3 B5 D9 D1 D2 D10 M3 E6
+D9  : T  98.08c W  95.90c S   2.21c ( +7.2 L  +7.2) LCB   94.41c P 37.18% WF 332.5 PSV     213 N     213  --  D9 A3 A2 D10 M3 J4 H2 H1
+M3  : T  95.90c W  95.19c S   0.58c ( +6.2 L  +5.8) LCB   91.18c P  7.55% WF  38.2 PSV      29 N      27  --  M3 J2 A3 B5 D9 E6 D5 D10
+H3  : T  89.66c W  91.62c S  -0.84c ( +5.2 L  +4.8) LCB   45.61c P  2.16% WF   4.3 PSV       4 N       4  --  H3 G3 M3
+J4  : T  76.24c W  79.80c S  -2.51c ( +4.1 L  +2.7) LCB   41.16c P  3.43% WF   3.6 PSV       3 N       5  --  J4 J5 H3 G3 M3
+H2  : T  70.40c W  73.00c S  -2.61c ( +4.0 L  +2.5) LCB -279.60c P  1.49% WF   0.7 PSV       1 N       1  --  H2
+G9  : T  75.92c W  78.37c S  -2.45c ( +4.0 L  +2.9) LCB -274.08c P  0.89% WF   0.7 PSV       0 N       1  --  G9
+L4  : T  70.69c W  73.29c S  -2.60c ( +4.0 L  +2.7) LCB -279.31c P  0.45% WF   0.7 PSV       0 N       1  --  L4
+H6  : T  76.80c W  80.18c S  -3.38c ( +3.7 L  +2.7) LCB -273.20c P  0.42% WF   0.8 PSV       0 N       1  --  H6
+K3  : T  74.14c W  77.32c S  -3.19c ( +3.7 L  +2.7) LCB -275.86c P  0.41% WF   0.8 PSV       0 N       1  --  K3
+
+2024-06-21 21:49:14-0400: = A3
+2024-06-21 21:49:16-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:16-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:16-0400: Controller: play black b12
+2024-06-21 21:49:16-0400: = 
+2024-06-21 21:49:16-0400: Controller: genmove white
+2024-06-21 21:49:17-0400: MoveNum: 67 HASH: 44DAA534AC3CD917BC22C2E4FFB4349F
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X3. . . O O O . . . . .
+11 @ O . O O X O X O . X . .
+10 X O O X O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X1X O . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X . X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O2O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.015
+Root visits: 540
+New playouts: 501
+NN rows: 446
+NN batches: 55
+NN avg batch size: 8.10909
+PV: A11 B5 D9 E6 D5 D10 J4 J5 D9 H10 J10 D10
+Tree:
+: T 104.31c W  97.23c S   6.46c (+11.6 L +12.2) N     540  --  A11 B5 D9 E6 D5 D10 J4
+---White(^)---
+A11 : T 104.52c W  98.35c S   5.42c (+10.6 L +11.2) LCB  101.64c P 37.84% WF 469.5 PSV     563 N     231  --  A11 B5 D9 E6 D5 D10 J4 J5
+A12 : T 103.28c W  97.75c S   5.18c (+10.6 L +11.1) LCB   99.23c P 42.66% WF 273.3 PSV     277 N     152  --  A12 B5 D9 B1 C1 D10 J4 J5
+D9  : T 107.15c W  95.98c S  10.11c (+15.0 L +15.9) LCB  101.25c P 10.94% WF 222.3 PSV     218 N     142  --  D9 E12 D12 D10 A12 B5 D9 E6
+C12 : T  26.93c W  32.38c S  -5.45c ( +2.3 L  +1.7) LCB -323.07c P  5.72% WF   0.4 PSV       1 N       1  --  C12
+C11 : T  -4.99c W   4.37c S  -9.36c ( -0.0 L  -0.4) LCB -354.99c P  2.14% WF   0.4 PSV       0 N       1  --  C11
+J4  : T  39.78c W  44.88c S  -5.10c ( +3.0 L  +1.3) LCB -310.22c P  0.38% WF   0.4 PSV       0 N       1  --  J4
+H3  : T -12.10c W  -2.52c S  -9.58c ( -0.5 L  -0.7) LCB -362.10c P  0.05% WF   0.4 PSV       0 N       1  --  H3
+H6  : T  21.33c W  28.41c S  -7.08c ( +1.8 L  +0.3) LCB -328.67c P  0.05% WF   0.4 PSV       0 N       1  --  H6
+B5  : T   0.64c W   8.92c S  -8.28c ( +0.4 L  +0.3) LCB -349.36c P  0.04% WF   0.4 PSV       0 N       1  --  B5
+M3  : T -34.67c W -23.30c S -11.37c ( -1.2 L  -1.5) LCB -384.67c P  0.03% WF   0.4 PSV       0 N       1  --  M3
+
+2024-06-21 21:49:17-0400: = A11
+2024-06-21 21:49:18-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:18-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:18-0400: Controller: play black c12
+2024-06-21 21:49:18-0400: = 
+2024-06-21 21:49:18-0400: Controller: genmove white
+2024-06-21 21:49:19-0400: MoveNum: 69 HASH: 4099FBADBA4543C027ADD2C086056977
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X1X3. . O O O . . . . .
+11 O2O @ O O X O X O . X . .
+10 X O O X O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X . X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O O O O X X . . O . O . .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 1.031
+Root visits: 561
+New playouts: 526
+NN rows: 447
+NN batches: 57
+NN avg batch size: 7.84211
+PV: C11 B5 M3 E6 H2 H1 L4 M5
+Tree:
+: T 100.99c W  97.97c S   3.18c ( +9.7 L +10.0) N     561  --  C11 B5 M3 E6 H2 H1 L4
+---White(^)---
+C11 : T 101.06c W  98.77c S   2.44c ( +9.2 L  +9.4) LCB   99.49c P 72.31% WF 765.7 PSV     767 N     333  --  C11 B5 M3 E6 H2 H1 L4 M5
+D9  : T 102.00c W  97.40c S   4.70c (+10.8 L +11.3) LCB   97.78c P 27.13% WF 381.7 PSV     380 N     206  --  D9 E6 D5 D10 C11 B5 D9 E12
+M3  : T -53.24c W -42.21c S -11.03c ( -0.3 L  -4.5) LCB -403.24c P  0.13% WF   0.3 PSV       0 N       1  --  M3
+J4  : T  53.98c W  58.46c S  -4.47c ( +4.1 L  +2.8) LCB -296.02c P  0.11% WF   0.5 PSV       0 N       1  --  J4
+H3  : T  27.13c W  35.51c S  -8.38c ( +1.7 L  +1.3) LCB -322.87c P  0.07% WF   0.4 PSV       0 N       1  --  H3
+L4  : T -10.76c W  -0.77c S  -9.99c ( +0.5 L  -1.2) LCB -360.76c P  0.04% WF   0.3 PSV       0 N       1  --  L4
+F9  : T  -6.07c W   2.35c S  -8.42c ( +0.6 L  -1.0) LCB -356.07c P  0.04% WF   0.3 PSV       0 N       1  --  F9
+H2  : T   9.81c W  18.93c S  -9.12c ( +1.1 L  +0.2) LCB -340.19c P  0.03% WF   0.4 PSV       0 N       1  --  H2
+H6  : T -37.96c W -25.97c S -11.99c ( -0.8 L  -2.6) LCB -387.96c P  0.02% WF   0.3 PSV       0 N       1  --  H6
+G9  : T -26.55c W -15.00c S -11.55c ( -1.0 L  -1.2) LCB -376.55c P  0.02% WF   0.3 PSV       0 N       1  --  G9
+
+2024-06-21 21:49:19-0400: = C11
+2024-06-21 21:49:21-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:21-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:21-0400: Controller: play black b5
+2024-06-21 21:49:21-0400: = 
+2024-06-21 21:49:21-0400: Controller: genmove white
+2024-06-21 21:49:22-0400: MoveNum: 71 HASH: AACAFF2441FA4E287DB2DA02B925150C
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X1. . O O O . . . . .
+11 O O O2O O X O X O . X . .
+10 X O O X O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X X3X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O O O O X X . . O . O @ .
+ 2 . . O . O X . . . . . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.782
+Root visits: 1436
+New playouts: 405
+NN rows: 337
+NN batches: 42
+NN avg batch size: 8.02381
+PV: M3 E6 K3 H1 H2 J1 L4 M5 J4 J5
+Tree:
+: T 103.22c W  98.87c S   4.40c ( +8.5 L  +8.6) N    1436  --  M3 E6 K3 H1 H2 J1 L4
+---White(^)---
+M3  : T 103.88c W  99.20c S   4.64c ( +8.6 L  +8.7) LCB  103.28c P 29.63% WF 2136.8 PSV    3399 N     772  --  M3 E6 K3 H1 H2 J1 L4 M5
+D9  : T 102.52c W  98.61c S   4.17c ( +8.4 L  +8.5) LCB  101.28c P 51.91% WF 1225.6 PSV     870 N     542  --  D9 E6 D5 D10 M3 D9 H2 J4
+H3  : T 102.14c W  97.70c S   4.49c ( +8.7 L  +8.8) LCB   97.83c P  6.22% WF 104.8 PSV      86 N      56  --  H3 F5 J4 J5 M3 E6
+G9  : T  99.54c W  97.22c S   2.30c ( +7.3 L  +7.2) LCB   96.25c P  7.69% WF  73.3 PSV      48 N      44  --  G9 F9 D9 E6 D5 D10 M3 F5
+J4  : T  98.78c W  95.84c S   2.86c ( +7.7 L  +7.4) LCB   87.20c P  1.57% WF  15.7 PSV       8 N      11  --  J4 J5 H3 G3
+H2  : T  95.60c W  93.20c S   2.75c ( +7.7 L  +7.7) LCB   61.32c P  1.24% WF   5.4 PSV       4 N       5  --  H2 M3 D9 E12
+H6  : T  97.49c W  96.97c S   1.52c ( +6.9 L  +6.7) LCB   19.04c P  0.03% WF   3.7 PSV       0 N       3  --  H6 J4 D9
+F9  : T  88.96c W  86.50c S   2.46c ( +7.6 L  +6.7) LCB -261.04c P  0.40% WF   0.8 PSV       0 N       1  --  F9
+H10 : T   3.51c W  10.86c S  -7.35c ( +0.1 L  -0.8) LCB -346.49c P  0.27% WF   0.3 PSV       0 N       1  --  H10
+
+2024-06-21 21:49:22-0400: = M3
+2024-06-21 21:49:24-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:24-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:24-0400: Controller: play black j2
+2024-06-21 21:49:24-0400: = 
+2024-06-21 21:49:24-0400: Controller: genmove white
+2024-06-21 21:49:24-0400: MoveNum: 73 HASH: 22D2599E787E801B720CB09FD35AAAE5
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X X1X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O O O O X X . . O . O O2.
+ 2 . . O . O X . @ X3. . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.75
+Root visits: 529
+New playouts: 429
+NN rows: 335
+NN batches: 43
+NN avg batch size: 7.7907
+PV: H2 K2 D9 E6 D5 D10 K3 H3 D9 F5 H6 D10
+Tree:
+: T 103.87c W  98.60c S   4.92c (+11.1 L +11.4) N     529  --  H2 K2 D9 E6 D5 D10 K3
+---White(^)---
+H2  : T 104.93c W  98.63c S   5.66c (+11.7 L +12.0) LCB  102.59c P 30.51% WF 421.7 PSV     957 N     195  --  H2 K2 D9 E6 D5 D10 K3 H3
+D9  : T 103.76c W  98.98c S   4.69c (+10.9 L +11.1) LCB  101.94c P 43.85% WF 595.3 PSV     597 N     245  --  D9 E6 D5 D10 K3 D9 H3 F5
+K3  : T 103.79c W  98.00c S   5.34c (+11.6 L +12.2) LCB   98.89c P  5.94% WF  82.6 PSV      83 N      45  --  K3 H2 D9 E6 D5 D10 J4 J5
+L4  : T  98.56c W  95.45c S   2.23c ( +9.5 L  +9.5) LCB   93.38c P 10.80% WF  38.4 PSV      26 N      30  --  L4 M5 H2 K2 K3 H3 D9
+G9  : T  95.04c W  95.32c S  -0.18c ( +7.8 L  +7.7) LCB   72.06c P  2.66% WF   7.4 PSV       4 N       6  --  G9 F9 D9 E6
+J4  : T  92.70c W  93.73c S  -1.21c ( +7.2 L  +6.9) LCB   57.32c P  3.00% WF   5.8 PSV       3 N       5  --  J4 K3 L4
+L7  : T  91.60c W  94.19c S  -1.22c ( +7.1 L  +7.6) LCB  -66.58c P  2.22% WF   2.5 PSV       2 N       2  --  L7 K7
+
+2024-06-21 21:49:24-0400: = H2
+2024-06-21 21:49:26-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:26-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:26-0400: Controller: play black k2
+2024-06-21 21:49:26-0400: = 
+2024-06-21 21:49:26-0400: Controller: genmove white
+2024-06-21 21:49:27-0400: MoveNum: 75 HASH: F6F363EA2235BBA4E4842D8BD1DD6B3F
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X O X X . . X . . .
+ 9 . X X @ X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O . O . . . . . . .
+ 5 X X X . O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O O O O X X . . O . O O .
+ 2 . . O . O X . O2X1X3. . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.703
+Root visits: 676
+New playouts: 410
+NN rows: 284
+NN batches: 40
+NN avg batch size: 7.1
+PV: D9 E6 D5 D10 K3 H3 D9 F5 H6 D10 H1 L2 D9 J7
+Tree:
+: T 103.28c W  98.52c S   4.57c (+10.9 L +11.1) N     676  --  D9 E6 D5 D10 K3 H3 D9
+---White(^)---
+D9  : T 103.93c W  98.71c S   5.07c (+11.2 L +11.5) LCB  101.92c P 43.92% WF 891.3 PSV     886 N     396  --  D9 E6 D5 D10 K3 H3 D9 F5
+K3  : T 102.86c W  98.50c S   4.17c (+10.7 L +10.9) LCB  100.50c P 34.05% WF 484.9 PSV     328 N     229  --  K3 H3 D9 E6 D5 D10 H1 G2
+G9  : T  99.14c W  96.72c S   1.58c ( +9.0 L  +9.1) LCB   94.83c P 10.65% WF  50.1 PSV      36 N      35  --  G9 E6 K3 H3 D5 F9 D9
+L4  : T  97.62c W  97.61c S   0.66c ( +8.4 L  +8.5) LCB   89.71c P  5.33% WF  20.8 PSV      14 N      13  --  L4 M5 K3 H3 D9
+H6  : T  29.70c W  37.69c S  -7.99c ( +2.5 L  +1.3) LCB -320.30c P  3.00% WF   0.4 PSV       0 N       1  --  H6
+L7  : T  67.07c W  71.51c S  -4.44c ( +4.8 L  +4.5) LCB -282.93c P  1.60% WF   0.7 PSV       0 N       1  --  L7
+
+2024-06-21 21:49:27-0400: = D9
+2024-06-21 21:49:29-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:29-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:29-0400: Controller: play black d5
+2024-06-21 21:49:29-0400: = 
+2024-06-21 21:49:29-0400: Controller: genmove white
+2024-06-21 21:49:29-0400: MoveNum: 77 HASH: 6D46D770BEACC19B382FB64FF9A6332A
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O2X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O @ O . . . . . . .
+ 5 X X X X3O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O O O O X X . . O . O O .
+ 2 . . O . O X . O X X1. . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.641
+Root visits: 304
+New playouts: 272
+NN rows: 260
+NN batches: 38
+NN avg batch size: 6.84211
+PV: E6 D10 K3 H3 H1 L2 D9 E12 D12 D10 M2
+Tree:
+: T 101.66c W  98.09c S   3.79c (+11.1 L +11.3) N     304  --  E6 D10 K3 H3 H1 L2 D9
+---White(^)---
+E6  : T 102.94c W  98.81c S   4.35c (+11.5 L +11.7) LCB  100.37c P 86.59% WF 542.2 PSV     538 N     238  --  E6 D10 K3 H3 H1 L2 D9 E12
+K3  : T  97.07c W  96.05c S   1.33c ( +9.5 L  +9.7) LCB   80.89c P 10.92% WF  63.8 PSV      19 N      36  --  K3 H3 E6 D10 H1 L2 D9 E12
+L4  : T  95.92c W  97.77c S  -1.03c ( +8.0 L  +8.0) LCB   84.87c P  0.70% WF  15.0 PSV       1 N      11  --  L4 K3 M5 M6
+L7  : T  71.95c W  77.55c S  -5.61c ( +4.9 L  +4.6) LCB -278.05c P  0.99% WF   0.7 PSV       0 N       1  --  L7
+H3  : T  40.40c W  47.74c S  -7.34c ( +3.5 L  +1.6) LCB -309.60c P  0.13% WF   0.4 PSV       0 N       1  --  H3
+F4  : T -24.66c W -11.69c S -12.97c ( -0.0 L  -1.3) LCB -374.66c P  0.10% WF   0.3 PSV       0 N       1  --  F4
+G3  : T   3.32c W  16.04c S -12.72c ( +0.3 L  -0.0) LCB -346.68c P  0.09% WF   0.4 PSV       0 N       1  --  G3
+J4  : T  45.14c W  51.67c S  -6.53c ( +4.3 L  +2.3) LCB -304.86c P  0.07% WF   0.4 PSV       0 N       1  --  J4
+M6  : T  50.57c W  57.69c S  -7.11c ( +3.7 L  +2.9) LCB -299.43c P  0.06% WF   0.6 PSV       0 N       1  --  M6
+M5  : T  88.18c W  90.35c S  -2.17c ( +7.2 L  +6.2) LCB -261.82c P  0.05% WF   0.8 PSV       0 N       1  --  M5
+
+2024-06-21 21:49:29-0400: = E6
+2024-06-21 21:49:31-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:31-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:31-0400: Controller: play black d10
+2024-06-21 21:49:31-0400: = 
+2024-06-21 21:49:31-0400: Controller: genmove white
+2024-06-21 21:49:32-0400: MoveNum: 79 HASH: 09F89BAB98A43885D2AD648C3240ACA5
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X3O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O2O . . . . . . .
+ 5 X X X X1O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O O O O X X . . O @ O O .
+ 2 . . O . O X . O X X . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.687
+Root visits: 1294
+New playouts: 307
+NN rows: 282
+NN batches: 39
+NN avg batch size: 7.23077
+PV: K3 H3 D9 D1 D2 D10 H1 D9 L2 K12 K11 H10 J10 J12 L9 M9
+Tree:
+: T 105.18c W  99.03c S   6.14c (+12.2 L +12.4) N    1294  --  K3 H3 D9 D1 D2 D10 H1
+---White(^)---
+K3  : T 105.50c W  99.12c S   6.37c (+12.3 L +12.5) LCB  104.46c P 65.79% WF 2850.1 PSV    2844 N    1130  --  K3 H3 D9 D1 D2 D10 H1 D9
+G9  : T 104.25c W  98.35c S   5.63c (+12.0 L +12.3) LCB  100.16c P 13.12% WF 253.6 PSV     214 N     129  --  G9 F9 D9 D2 D1 D10 K3 H3
+L4  : T  94.65c W  97.92c S  -2.92c ( +6.7 L  +6.6) LCB   87.71c P 11.59% WF  33.7 PSV      32 N      18  --  L4 K3 D9 E4 H6 D10
+M5  : T  97.89c W  98.88c S  -0.45c ( +8.1 L  +8.3) LCB   66.73c P  2.31% WF  10.5 PSV       9 N       5  --  M5 K3 D9
+K9  : T  87.00c W  94.49c S  -7.71c ( +3.9 L  +3.6) LCB   10.68c P  2.97% WF   4.0 PSV       5 N       3  --  K9 D9 L9
+F9  : T  88.05c W  93.51c S   1.38c ( +9.2 L  +9.0) LCB   33.19c P  1.40% WF   4.1 PSV       2 N       4  --  F9 G9 D9 E12
+L9  : T  93.62c W  97.65c S  -2.80c ( +6.7 L  +6.5) LCB  -63.09c P  0.90% WF   3.7 PSV       2 N       2  --  L9 D9
+L7  : T  94.54c W  95.92c S  -1.15c ( +7.5 L  +6.8) LCB -255.46c P  0.45% WF   1.5 PSV       1 N       1  --  L7
+J4  : T  76.06c W  80.28c S  -4.22c ( +5.4 L  +4.6) LCB -273.94c P  0.51% WF   0.7 PSV       0 N       1  --  J4
+
+2024-06-21 21:49:32-0400: = K3
+2024-06-21 21:49:33-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:33-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:33-0400: Controller: play black h3
+2024-06-21 21:49:33-0400: = 
+2024-06-21 21:49:33-0400: Controller: genmove white
+2024-06-21 21:49:34-0400: MoveNum: 81 HASH: 8295FFC175A5017955E39D5089ADB18F
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X1O X X . . X . . .
+ 9 . X X @ X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O O . . . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O . . . X . X . X .
+ 3 O O O O X X . X3O O2O O .
+ 2 . . O . O X . O X X . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.672
+Root visits: 2095
+New playouts: 327
+NN rows: 287
+NN batches: 37
+NN avg batch size: 7.75676
+PV: D9 E4 H6 D10 H1 J4 L2 J7 H7 D9
+Tree:
+: T 105.05c W  99.09c S   6.05c (+12.3 L +12.5) N    2095  --  D9 E4 H6 D10 H1 J4 L2
+---White(^)---
+D9  : T 105.20c W  99.13c S   6.17c (+12.4 L +12.6) LCB  104.44c P 87.65% WF 4944.5 PSV    4939 N    1961  --  D9 E4 H6 D10 H1 J4 L2 J7
+H1  : T 104.04c W  98.88c S   5.02c (+11.6 L +11.9) LCB  100.51c P  3.16% WF 238.9 PSV      73 N     105  --  H1 D9 L2 K12 K11 H10 J10
+J4  : T  97.37c W  98.80c S  -1.25c ( +7.8 L  +7.9) LCB   86.24c P  3.60% WF  24.0 PSV      19 N      10  --  J4 D9 J5 L2
+L4  : T 100.43c W  99.58c S   1.17c ( +9.3 L  +9.2) LCB   78.14c P  1.66% WF  16.8 PSV      13 N       6  --  L4 D9 L2
+G9  : T  93.19c W  94.91c S  -1.27c ( +7.6 L  +7.6) LCB   51.37c P  1.27% WF   6.5 PSV       4 N       5  --  G9 F9 D9 E12
+L2  : T 102.75c W  98.90c S   4.48c (+11.3 L +11.4) LCB   65.46c P  0.17% WF  10.8 PSV       2 N       5  --  L2 H1 D9 E12
+K6  : T  90.82c W  92.72c S  -1.91c ( +7.4 L  +6.9) LCB -259.18c P  0.75% WF   1.4 PSV       2 N       1  --  K6
+H10 : T -112.88c W -92.65c S -20.24c ( -6.6 L  -9.9) LCB -462.88c P  0.92% WF   0.6 PSV       0 N       1  --  H10
+
+2024-06-21 21:49:34-0400: = D9
+2024-06-21 21:49:35-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:35-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:35-0400: Controller: play black e4
+2024-06-21 21:49:35-0400: = 
+2024-06-21 21:49:35-0400: Controller: genmove white
+2024-06-21 21:49:36-0400: MoveNum: 83 HASH: D185C6C110A2DB9BC94B68F898261164
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O2X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O O . @ . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X3. . X . X . X .
+ 3 O O O O X X . X1O O O O .
+ 2 . . O . O X . O X X . . .
+ 1 . . . . O X . . . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.672
+Root visits: 1193
+New playouts: 343
+NN rows: 285
+NN batches: 38
+NN avg batch size: 7.5
+PV: H6 D10 H1 J4 L2 J7 J6 K12 D9 K7 H7
+Tree:
+: T 104.75c W  99.13c S   5.81c (+12.2 L +12.4) N    1193  --  H6 D10 H1 J4 L2 J7 J6
+---White(^)---
+H6  : T 105.61c W  99.40c S   6.41c (+12.5 L +12.7) LCB  104.79c P 24.50% WF 1933.2 PSV    1917 N     752  --  H6 D10 H1 J4 L2 J7 J6 K12
+J4  : T 103.83c W  99.28c S   4.63c (+11.4 L +11.6) LCB  102.24c P 17.44% WF 370.7 PSV     221 N     158  --  J4 D10 H1 D9 L2 H6 G7 J5
+K7  : T 101.68c W  98.91c S   3.19c (+10.4 L +10.5) LCB   99.08c P 13.05% WF 128.1 PSV      82 N      58  --  K7 D10 H1 H6 G7 D9
+K6  : T 105.10c W  98.93c S   6.30c (+12.6 L +12.9) LCB  102.51c P  2.52% WF 268.6 PSV      79 N     121  --  K6 D10 L7 M7 D9 E12 D12 D10
+J6  : T  98.62c W  99.10c S  -0.06c ( +8.5 L  +8.5) LCB   95.09c P 11.94% WF  50.0 PSV      44 N      22  --  J6 D10 H1 G2 D9
+J5  : T 101.12c W  97.73c S   3.78c (+10.9 L +11.0) LCB   93.78c P  7.39% WF  56.7 PSV      41 N      29  --  J5 D10 J4 D9 H5 H1
+L4  : T  97.61c W  91.73c S   5.91c (+13.4 L +13.9) LCB   86.93c P  9.68% WF  34.3 PSV      31 N      32  --  L4 G7 G6 H7 H6 J7 J6 K7
+G9  : T  87.95c W  88.08c S   0.87c ( +9.0 L  +9.2) LCB   38.47c P  5.72% WF   8.2 PSV       8 N       9  --  G9 G7 G6 H7
+F9  : T  92.65c W  93.02c S   2.17c ( +9.9 L +10.0) LCB   13.23c P  1.79% WF   2.9 PSV       3 N       3  --  F9 G9 H6
+G6  : T 101.43c W  99.19c S   3.10c (+10.4 L +10.3) LCB  -48.43c P  0.53% WF   4.0 PSV       3 N       2  --  G6 D10
+
+2024-06-21 21:49:36-0400: = H6
+2024-06-21 21:49:38-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:38-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:38-0400: Controller: play black d10
+2024-06-21 21:49:38-0400: = 
+2024-06-21 21:49:38-0400: Controller: genmove white
+2024-06-21 21:49:38-0400: MoveNum: 85 HASH: CF8360B6C85877DC2B7DAFE5DB32DC4E
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X3O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O O . O2. . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X1. . X . X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X . O X X . . .
+ 1 . . . . O X . @ . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.594
+Root visits: 1831
+New playouts: 292
+NN rows: 239
+NN batches: 34
+NN avg batch size: 7.02941
+PV: H1 L2 D9 B1 C1 D10 M2 G2 D9 D2 D1 D10 L1 G1 D9 E12 D12 D10 G9
+Tree:
+: T 104.97c W  99.27c S   5.95c (+12.3 L +12.6) N    1831  --  H1 L2 D9 B1 C1 D10 M2
+---White(^)---
+H1  : T 105.45c W  99.30c S   6.35c (+12.5 L +12.9) LCB  104.74c P 49.77% WF 3333.0 PSV    3317 N    1364  --  H1 L2 D9 B1 C1 D10 M2 G2
+L7  : T 104.89c W  99.05c S   6.05c (+12.4 L +12.5) LCB  103.09c P  4.39% WF 380.9 PSV     144 N     167  --  L7 D9 M8 K7 K8 L9 M6 M5
+J4  : T  98.20c W  99.34c S  -0.71c ( +8.2 L  +8.1) LCB   95.79c P 28.69% WF 159.9 PSV     132 N      69  --  J4 D9 J5 L2 L7 M7
+L2  : T 105.29c W  99.32c S   6.33c (+12.7 L +13.0) LCB  103.74c P  1.47% WF 362.4 PSV      76 N     157  --  L2 H1 D9 J7 J6 K7 H7 D10
+G9  : T 102.02c W  99.04c S   3.44c (+10.7 L +10.9) LCB   97.43c P  4.68% WF  78.2 PSV      42 N      36  --  G9 F9 D9 B1 C1 D10 H1 G2
+L4  : T  99.03c W  99.33c S   0.63c ( +9.0 L  +9.1) LCB   94.14c P  6.88% WF  42.6 PSV      35 N      16  --  L4 D9 L2 H1 M5
+M6  : T 103.34c W  98.81c S   4.89c (+11.8 L +12.0) LCB   96.39c P  1.01% WF  26.2 PSV      13 N      13  --  M6 J4 D9 E12 D12
+F9  : T  98.39c W  96.95c S   0.83c ( +9.0 L  +9.4) LCB   19.01c P  0.92% WF   4.1 PSV       4 N       3  --  F9 G9 D9
+K6  : T  98.47c W  99.31c S  -0.87c ( +8.2 L  +7.9) LCB  -53.82c P  0.46% WF   5.5 PSV       2 N       2  --  K6 D9
+M5  : T 101.04c W  99.09c S   1.95c ( +9.8 L  +9.4) LCB -248.96c P  0.33% WF   2.6 PSV       2 N       1  --  M5
+
+2024-06-21 21:49:38-0400: = H1
+2024-06-21 21:49:40-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:40-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:40-0400: Controller: play black l2
+2024-06-21 21:49:40-0400: = 
+2024-06-21 21:49:40-0400: Controller: genmove white
+2024-06-21 21:49:41-0400: MoveNum: 87 HASH: 6BA99FF073FC26FB8E772FBA1A1B3F27
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X . . O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X1O X X . . X . . .
+ 9 . X X @ X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O O . O . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X . . X . X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X . O X X X3. .
+ 1 . . . . O X . O2. . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.594
+Root visits: 2031
+New playouts: 243
+NN rows: 237
+NN batches: 33
+NN avg batch size: 7.18182
+PV: D9 B1 C1 D10 M2 G2 D9 D2 D1 D10 L1 G1 D9 E12 D12 D10 L7 D9 M8 K7 L9 K8
+Tree:
+: T 104.49c W  98.89c S   5.85c (+12.2 L +12.6) N    2031  --  D9 B1 C1 D10 M2 G2 D9
+---White(^)---
+D9  : T 104.79c W  98.91c S   6.14c (+12.5 L +12.9) LCB  103.87c P 61.23% WF 3037.0 PSV    3026 N    1422  --  D9 B1 C1 D10 M2 G2 D9 D2
+M2  : T 103.99c W  98.91c S   5.27c (+11.8 L +12.1) LCB  102.53c P 33.05% WF 1244.2 PSV     829 N     589  --  M2 G2 D9 E12 D12 D10 L7 D9
+J4  : T  95.86c W  97.54c S  -1.24c ( +7.6 L  +7.6) LCB   86.57c P  4.37% WF  23.9 PSV      18 N      14  --  J4 M2 D9 B1 C1
+G9  : T  98.44c W  97.17c S   1.76c ( +9.5 L  +9.8) LCB   21.65c P  0.47% WF   4.3 PSV       2 N       3  --  G9 F9 D9
+H10 : T  -2.37c W   7.99c S -10.36c ( +0.1 L  -1.3) LCB -352.37c P  0.46% WF   0.3 PSV       0 N       1  --  H10
+L4  : T  69.55c W  75.61c S  -6.06c ( +4.5 L  +3.9) LCB -280.45c P  0.10% WF   0.7 PSV       0 N       1  --  L4
+
+2024-06-21 21:49:41-0400: = D9
+2024-06-21 21:49:43-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:43-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:43-0400: Controller: play black e12
+2024-06-21 21:49:43-0400: = 
+2024-06-21 21:49:43-0400: Controller: genmove white
+2024-06-21 21:49:43-0400: MoveNum: 89 HASH: 4022C5995791A4B48489CDBBBA5E04C0
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X @ X3O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O2X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O O . O . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X . . X . X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X . O X X X1. .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.578
+Root visits: 721
+New playouts: 409
+NN rows: 236
+NN batches: 33
+NN avg batch size: 7.15152
+PV: D12 D10 M2 G2 D9 D1 D2 D10 L7 D9 M8 K8
+Tree:
+: T 104.66c W  98.95c S   6.01c (+12.7 L +13.1) N     721  --  D12 D10 M2 G2 D9 D1 D2
+---White(^)---
+D12 : T 104.80c W  99.06c S   6.06c (+12.7 L +13.1) LCB  103.31c P 85.42% WF 1602.5 PSV    1602 N     708  --  D12 D10 M2 G2 D9 D1 D2 D10
+F9  : T  88.53c W  88.57c S  -1.67c ( +7.5 L  +7.6) LCB   49.02c P  3.96% WF   4.3 PSV       5 N       5  --  F9 G9 D12 D10 M2
+H10 : T  55.43c W  55.16c S  -6.74c ( +3.8 L  +4.4) LCB    8.11c P  6.24% WF   1.6 PSV       2 N       4  --  H10 D10 G9 F9
+G9  : T  49.36c W  63.16c S  -6.00c ( +4.4 L  +4.3) LCB  -47.62c P  4.33% WF   1.3 PSV       1 N       3  --  G9 F9 H10
+
+2024-06-21 21:49:43-0400: = D12
+2024-06-21 21:49:45-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:45-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:45-0400: Controller: play black d10
+2024-06-21 21:49:45-0400: = 
+2024-06-21 21:49:45-0400: Controller: genmove white
+2024-06-21 21:49:46-0400: MoveNum: 91 HASH: 432F480E458B9AD4921A996269C4D04E
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O2X1O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X3O X X . . X . . .
+ 9 . X X . X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O O . O . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X . . X . X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X . O X X X @ .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.578
+Root visits: 2172
+New playouts: 351
+NN rows: 244
+NN batches: 33
+NN avg batch size: 7.39394
+PV: M2 G2 D9 B1 C1 D10 L1 G1 D9 G6 G7 D10 G9 F9 D9 D2 D1 D10
+Tree:
+: T 103.64c W  98.70c S   5.42c (+11.3 L +11.5) N    2172  --  M2 G2 D9 B1 C1 D10 L1
+---White(^)---
+M2  : T 103.87c W  98.73c S   5.62c (+11.4 L +11.6) LCB  102.88c P 72.88% WF 3923.1 PSV    3915 N    1861  --  M2 G2 D9 B1 C1 D10 L1 G1
+G9  : T 104.25c W  98.95c S   5.56c (+11.3 L +11.7) LCB  102.51c P  5.44% WF 405.8 PSV     405 N     194  --  G9 F9 D9 B1 C1 D10 M2 G2
+J4  : T  97.09c W  97.72c S   0.00c ( +7.8 L  +8.0) LCB   89.07c P 15.21% WF 130.3 PSV      90 N      71  --  J4 M2 D9 B1 C1 D10 J5 D9
+L4  : T  92.38c W  95.68c S  -2.39c ( +6.4 L  +6.1) LCB   77.34c P  3.59% WF  12.1 PSV      13 N       9  --  L4 M2 D9 B1 C1
+L7  : T 103.04c W  98.71c S   4.99c (+11.0 L +11.1) LCB   98.63c P  0.32% WF  48.8 PSV       8 N      25  --  L7 D9 M2 G2 M8 K7 L9 K8
+F9  : T  92.84c W  93.37c S   0.02c ( +7.8 L  +7.8) LCB   81.09c P  0.67% WF   9.2 PSV       2 N       9  --  F9 G9 D9 B1 C1 D10
+K9  : T  92.11c W  95.70c S  -3.59c ( +5.8 L  +5.9) LCB -257.89c P  0.33% WF   1.5 PSV       1 N       1  --  K9
+H10 : T  34.37c W  44.56c S -10.19c ( +1.3 L  +1.2) LCB -315.63c P  0.62% WF   0.4 PSV       0 N       1  --  H10
+
+2024-06-21 21:49:46-0400: = M2
+2024-06-21 21:49:48-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:48-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:48-0400: Controller: play black g2
+2024-06-21 21:49:48-0400: = 
+2024-06-21 21:49:48-0400: Controller: genmove white
+2024-06-21 21:49:48-0400: MoveNum: 93 HASH: F8B9A635D61CA4BA5C3D8A5DA74A4598
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O X1O X X . . X . . .
+ 9 . X X @ X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . . . . . .
+ 6 . O X O O O . O . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X . . X . X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X3O X X X O2.
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.594
+Root visits: 2790
+New playouts: 287
+NN rows: 242
+NN batches: 33
+NN avg batch size: 7.33333
+PV: D9 B1 C1 D10 L9 D9 M8 K9 L7 K8 K7 M9 J4 M7 M6
+Tree:
+: T 103.39c W  98.68c S   5.28c (+10.8 L +11.0) N    2790  --  D9 B1 C1 D10 L9 D9 M8
+---White(^)---
+D9  : T 103.59c W  98.77c S   5.40c (+10.9 L +11.2) LCB  102.72c P 66.68% WF 3960.2 PSV    3952 N    1909  --  D9 B1 C1 D10 L9 D9 M8 K9
+L7  : T 103.75c W  98.17c S   6.10c (+11.4 L +11.4) LCB  101.67c P  4.96% WF 1155.6 PSV     361 N     583  --  L7 D9 M6 K7 K6 J4 L4 M5
+J4  : T 101.27c W  99.14c S   2.58c ( +9.1 L  +9.3) LCB   99.31c P 21.03% WF 403.4 PSV     338 N     189  --  J4 D9 J5 H5 L7 K7 M8 K8
+F4  : T 101.11c W  98.44c S   3.24c ( +9.5 L  +9.9) LCB   96.51c P  1.92% WF  38.8 PSV      29 N      22  --  F4 J1 D9 B1 C1 D10 J4 D9
+L1  : T 103.03c W  99.04c S   4.74c (+10.5 L +10.8) LCB   98.65c P  0.71% WF  53.1 PSV      25 N      26  --  L1 G1 D9 B1 C1 D10 J4 D9
+M6  : T 102.29c W  98.82c S   4.26c (+10.2 L +10.3) LCB   97.48c P  1.10% WF  43.0 PSV      25 N      23  --  M6 D9 J4 L6 L7
+G9  : T 101.31c W  98.74c S   2.94c ( +9.3 L  +9.5) LCB   95.81c P  1.39% WF  27.1 PSV      22 N      15  --  G9 F9 D9 E13 D13 D10
+L4  : T 100.79c W  99.13c S   1.90c ( +8.6 L  +8.8) LCB   95.45c P  0.38% WF  39.0 PSV       5 N      16  --  L4 B1 C1 D9 M5 M6 N4 K12
+F9  : T 100.26c W  96.30c S   4.53c (+10.6 L +10.8) LCB   67.75c P  0.40% WF   6.6 PSV       4 N       5  --  F9 G9 D9 E13
+K6  : T  94.17c W  94.48c S  -0.31c ( +7.3 L  +7.2) LCB -255.83c P  0.26% WF   1.6 PSV       1 N       1  --  K6
+
+2024-06-21 21:49:48-0400: = D9
+2024-06-21 21:49:50-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:50-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:50-0400: Controller: play black j7
+2024-06-21 21:49:50-0400: = 
+2024-06-21 21:49:50-0400: Controller: genmove white
+2024-06-21 21:49:51-0400: MoveNum: 95 HASH: 1412D8653F4B5AC6BAB36898182607C5
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O2X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O . . X3. . . .
+ 6 . O X O O O . O . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X . . X @ X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X1O X X X O .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.609
+Root visits: 342
+New playouts: 274
+NN rows: 257
+NN batches: 36
+NN avg batch size: 7.13889
+PV: J4 D10 J5 H5 G6 D9 F5 J1
+Tree:
+: T 107.22c W  99.19c S   8.09c (+16.4 L +17.2) N     342  --  J4 D10 J5 H5 G6 D9 F5
+---White(^)---
+J4  : T 109.44c W  99.42c S   9.76c (+17.7 L +18.6) LCB  107.65c P 33.92% WF 561.9 PSV     554 N     259  --  J4 D10 J5 H5 G6 D9 F5 J1
+J6  : T  97.78c W  99.16c S  -0.37c (+10.3 L +10.5) LCB   93.75c P 21.59% WF  44.3 PSV      21 N      24  --  J6 D10 F4 J1 D9
+G6  : T  95.69c W  98.82c S  -2.24c ( +9.2 L  +9.2) LCB   89.11c P 13.84% WF  22.4 PSV      11 N      12  --  G6 D10 F4 J1 D9
+H7  : T  93.47c W  98.81c S  -4.65c ( +7.8 L  +7.8) LCB   77.82c P 13.74% WF  13.7 PSV      10 N       7  --  H7 D10 J4 D9 J5
+K7  : T 100.64c W  99.12c S   2.25c (+12.0 L +12.4) LCB   94.89c P  3.50% WF  25.8 PSV       4 N      14  --  K7 J6 H7 D10 F4
+G7  : T  94.69c W  98.42c S  -2.34c ( +9.1 L  +9.4) LCB   19.37c P  3.71% WF   4.8 PSV       2 N       3  --  G7 D10 F4
+G9  : T  54.91c W  55.84c S   0.03c (+10.2 L +10.7) LCB  -94.09c P  6.52% WF   0.7 PSV       1 N       2  --  G9 G7
+J5  : T 101.66c W  95.88c S   5.99c (+15.0 L +15.5) LCB   87.40c P  0.46% WF  18.5 PSV       0 N      19  --  J5 D10 L1 J4 J1
+F4  : T  65.01c W  66.10c S  -1.10c ( +9.7 L  +7.8) LCB -284.99c P  0.54% WF   0.5 PSV       0 N       1  --  F4
+
+2024-06-21 21:49:51-0400: = J4
+2024-06-21 21:49:53-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:53-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:53-0400: Controller: play black g7
+2024-06-21 21:49:53-0400: = 
+2024-06-21 21:49:53-0400: Controller: genmove white
+2024-06-21 21:49:53-0400: MoveNum: 97 HASH: 752AF88931AC634819211CD1F8685C8F
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O X3. X1. . . .
+ 6 . O X O O O @ O . . . . .
+ 5 X X X X O . X . . . X . .
+ 4 O X X O X . . X O2X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.625
+Root visits: 300
+New playouts: 259
+NN rows: 231
+NN batches: 38
+NN avg batch size: 6.07895
+PV: G6 J5 J6 D10 H5 G4 D9 B1 C1 D10
+Tree:
+: T 107.87c W  98.89c S   9.01c (+25.1 L +26.3) N     300  --  G6 J5 J6 D10 H5 G4 D9
+---White(^)---
+G6  : T 108.47c W  99.38c S   9.15c (+25.2 L +26.4) LCB  105.90c P 98.94% WF 558.1 PSV     557 N     275  --  G6 J5 J6 D10 H5 G4 D9 B1
+F9  : T  59.32c W  67.48c S  -8.16c ( +9.8 L  +9.1) LCB -290.68c P  0.63% WF   0.5 PSV       0 N       1  --  F9
+H5  : T -32.30c W -11.34c S -20.96c ( -0.1 L  -0.7) LCB -382.30c P  0.22% WF   0.2 PSV       0 N       1  --  H5
+M6  : T -33.72c W -12.38c S -21.35c ( -0.8 L  -0.9) LCB -383.72c P  0.03% WF   0.2 PSV       0 N       1  --  M6
+H7  : T -110.21c W -87.26c S -22.95c ( -3.0 L  -5.6) LCB -460.21c P  0.02% WF   0.1 PSV       0 N       1  --  H7
+L6  : T -38.04c W -17.18c S -20.86c ( -0.5 L  -1.2) LCB -388.04c P  0.01% WF   0.1 PSV       0 N       1  --  L6
+L1  : T -57.87c W -36.26c S -21.60c ( -0.9 L  -1.4) LCB -407.87c P  0.01% WF   0.1 PSV       0 N       1  --  L1
+K7  : T -90.40c W -68.17c S -22.23c ( -2.0 L  -4.0) LCB -440.40c P  0.01% WF   0.1 PSV       0 N       1  --  K7
+L7  : T -63.62c W -42.45c S -21.17c ( -1.6 L  -2.3) LCB -413.62c P  0.01% WF   0.1 PSV       0 N       1  --  L7
+J1  : T -89.53c W -67.27c S -22.26c ( -1.7 L  -2.3) LCB -439.53c P  0.01% WF   0.1 PSV       0 N       1  --  J1
+
+2024-06-21 21:49:53-0400: = G6
+2024-06-21 21:49:55-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:55-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:55-0400: Controller: play black h7
+2024-06-21 21:49:55-0400: = 
+2024-06-21 21:49:55-0400: Controller: genmove white
+2024-06-21 21:49:55-0400: MoveNum: 99 HASH: 17B4136C2A485C4EE1C3789F41D474AA
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O X1X3X . . . .
+ 6 . O X O O O O2O . . . . .
+ 5 X X X X O . X . @ . X . .
+ 4 O X X O X . . X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.578
+Root visits: 320
+New playouts: 257
+NN rows: 240
+NN batches: 34
+NN avg batch size: 7.05882
+PV: J5 G4 G9 J6 H5 K5 A9 J8 H10
+Tree:
+: T 113.01c W  97.93c S  13.73c (+37.5 L +39.4) N     320  --  J5 G4 G9 J6 H5 K5 A9
+---White(^)---
+J5  : T 115.55c W  98.20c S  15.90c (+39.5 L +41.5) LCB  109.04c P 32.22% WF 485.2 PSV     476 N     232  --  J5 G4 G9 J6 H5 K5 A9 J8
+H5  : T  99.64c W  98.18c S   0.65c (+24.7 L +26.1) LCB   88.85c P 45.81% WF  48.1 PSV      49 N      34  --  H5 G4 K7 J6 J5 K6 G9 F9
+J6  : T 107.91c W  98.31c S   9.32c (+33.0 L +34.7) LCB   98.87c P 17.72% WF  66.6 PSV      36 N      46  --  J6 D10 K7 D9 G4 H5
+K7  : T -62.51c W -40.38c S -22.12c ( +1.1 L  -5.0) LCB -412.51c P  1.36% WF   0.2 PSV       0 N       1  --  K7
+G4  : T  73.07c W  78.16c S  -5.09c (+18.3 L +18.0) LCB -276.93c P  0.94% WF   0.4 PSV       0 N       1  --  G4
+F9  : T  74.27c W  77.09c S  -2.82c (+20.6 L +22.6) LCB -275.73c P  0.94% WF   0.5 PSV       0 N       1  --  F9
+K6  : T  30.40c W  42.18c S -11.78c (+11.3 L +10.7) LCB -319.60c P  0.68% WF   0.3 PSV       0 N       1  --  K6
+F4  : T -59.45c W -38.19c S -21.26c ( +1.3 L  -4.6) LCB -409.45c P  0.10% WF   0.2 PSV       0 N       1  --  F4
+L1  : T -97.40c W -73.37c S -24.04c ( -2.1 L  -5.2) LCB -447.40c P  0.09% WF   0.3 PSV       0 N       1  --  L1
+L4  : T -97.40c W -73.85c S -23.54c ( -1.5 L  -6.2) LCB -447.40c P  0.02% WF   0.2 PSV       0 N       1  --  L4
+
+2024-06-21 21:49:55-0400: = J5
+2024-06-21 21:49:57-0400: Controller: kata-list_time_settings
+2024-06-21 21:49:57-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:49:57-0400: Controller: play black j6
+2024-06-21 21:49:57-0400: = 
+2024-06-21 21:49:57-0400: Controller: genmove white
+2024-06-21 21:49:58-0400: MoveNum: 101 HASH: 0C611F1CFEB9B34CF5240CE855DCAE2D
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O X . . . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O X X1X . . . .
+ 6 . O X O O O O O X3. . . .
+ 5 X X X X O . X @ O2. X . .
+ 4 O X X O X . . X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.687
+Root visits: 642
+New playouts: 352
+NN rows: 283
+NN batches: 39
+NN avg batch size: 7.25641
+PV: H5 G4 G9 K5 F9 E8 A9 D2 D1 A10 K6 K7
+Tree:
+: T 116.86c W  98.92c S  16.41c (+42.9 L +44.3) N     642  --  H5 G4 G9 K5 F9 E8 A9
+---White(^)---
+H5  : T 117.04c W  99.04c S  16.51c (+43.0 L +44.4) LCB  115.16c P 97.79% WF 1633.9 PSV    1633 N     639  --  H5 G4 G9 K5 F9 E8 A9 D2
+F9  : T  47.73c W  60.85c S -13.12c (+13.1 L +13.2) LCB -302.27c P  0.77% WF   0.4 PSV       0 N       1  --  F9
+G4  : T -125.75c W -97.21c S -28.54c (-12.9 L -20.0) LCB -475.75c P  0.54% WF   0.9 PSV       0 N       1  --  G4
+
+2024-06-21 21:49:58-0400: = H5
+2024-06-21 21:50:00-0400: Controller: kata-list_time_settings
+2024-06-21 21:50:00-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:50:00-0400: Controller: play black g4
+2024-06-21 21:50:00-0400: = 
+2024-06-21 21:50:00-0400: Controller: genmove white
+2024-06-21 21:50:00-0400: MoveNum: 103 HASH: 67E9D283437B13E662C9EC6457B301D8
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 . X X O X . @ . O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O X X X . . . .
+ 6 . O X O O O O O X1. . . .
+ 5 X X X X O . X O2O . X . .
+ 4 O X X O X . X3X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.688
+Root visits: 1211
+New playouts: 387
+NN rows: 247
+NN batches: 42
+NN avg batch size: 5.88095
+PV: G9 K5 A9 J8 H10 A10 L1 G1 A9 B1 C1 A10 F9
+Tree:
+: T 116.88c W  99.10c S  16.64c (+43.9 L +45.1) N    1211  --  G9 K5 A9 J8 H10 A10 L1
+---White(^)---
+G9  : T 117.72c W  99.13c S  17.63c (+44.6 L +45.7) LCB  116.72c P 17.43% WF 3185.8 PSV    3167 N    1132  --  G9 K5 A9 J8 H10 A10 L1 G1
+K5  : T  90.33c W  99.50c S  -7.01c (+23.9 L +24.7) LCB   81.23c P 32.85% WF  37.6 PSV      42 N      18  --  K5 D10 L6 D9
+K6  : T  99.87c W  99.10c S   1.73c (+31.4 L +32.7) LCB   87.69c P 16.41% WF  29.8 PSV      32 N      18  --  K6 K7 G9 K5 A9 J8
+L4  : T  94.75c W  99.74c S  -3.69c (+26.4 L +27.2) LCB   76.22c P 15.02% WF  20.4 PSV      23 N       9  --  L4 M5 K5 D10
+L1  : T  98.34c W  97.80c S   0.81c (+30.3 L +32.2) LCB   78.84c P  8.05% WF  15.8 PSV      14 N      12  --  L1 G1 G9 K5 A9
+D10 : T 107.59c W  95.09c S  11.72c (+41.0 L +41.8) LCB   81.07c P  1.64% WF   9.2 PSV       5 N       8  --  D10 K5 A9 M1 G9 E8 F9
+L6  : T  94.53c W  98.21c S  -2.52c (+26.8 L +28.5) LCB   10.86c P  2.99% WF   3.5 PSV       4 N       3  --  L6 M6 K6
+L7  : T  98.49c W  97.80c S   1.34c (+30.8 L +33.8) LCB   22.03c P  0.76% WF   2.9 PSV       1 N       3  --  L7 M7 K6
+F9  : T  77.79c W  79.90c S  -2.11c (+26.5 L +29.0) LCB -272.21c P  1.34% WF   0.5 PSV       1 N       1  --  F9
+M5  : T  87.14c W  93.88c S  -6.74c (+21.3 L +23.1) LCB -262.86c P  0.68% WF   1.0 PSV       0 N       1  --  M5
+
+2024-06-21 21:50:00-0400: = G9
+2024-06-21 21:50:02-0400: Controller: kata-list_time_settings
+2024-06-21 21:50:02-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:50:02-0400: Controller: play black k5
+2024-06-21 21:50:02-0400: = 
+2024-06-21 21:50:02-0400: Controller: genmove white
+2024-06-21 21:50:03-0400: MoveNum: 105 HASH: 40A78B6CA2A2D5F74888C944324F8DC9
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 X O O . O X X . . X . . .
+ 9 @ X X O X . O2. O . . . .
+ 8 X . X X . X O O . . X . .
+ 7 . O X X X O X X X . . . .
+ 6 . O X O O O O O X . . . .
+ 5 X X X X O . X O O X3X . .
+ 4 O X X O X . X1X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.703
+Root visits: 2046
+New playouts: 397
+NN rows: 289
+NN batches: 41
+NN avg batch size: 7.04878
+PV: A9 B2 C1 A10 F9 E8 A9 D1 D2
+Tree:
+: T 117.42c W  99.19c S  17.21c (+44.5 L +45.6) N    2046  --  A9 B2 C1 A10 F9 E8 A9
+---White(^)---
+A9  : T 117.87c W  99.30c S  17.53c (+44.8 L +45.8) LCB  117.10c P 38.66% WF 4591.7 PSV    4568 N    1539  --  A9 B2 C1 A10 F9 E8 A9 D1
+F9  : T 116.43c W  99.14c S  16.59c (+43.9 L +44.7) LCB  115.09c P 33.51% WF 984.5 PSV     841 N     376  --  F9 E8 A9 D2 D1 A10 K6 K7
+L1  : T 114.85c W  98.41c S  15.41c (+43.5 L +44.6) LCB  109.09c P  8.08% WF 118.1 PSV     108 N      57  --  L1 G1 A9 J8 H10 A10 F9
+M1  : T 108.76c W  96.69c S  11.36c (+40.7 L +41.8) LCB   98.74c P  8.11% WF  38.7 PSV      39 N      28  --  M1 A9 F9 E8 A7 D10 B8
+B8  : T 108.77c W  94.59c S  10.77c (+40.3 L +41.4) LCB   93.55c P  6.64% WF  31.3 PSV      32 N      27  --  B8 A9 F9 E8 A7 D10 M1 N3
+K6  : T 114.07c W  97.93c S  15.77c (+43.9 L +45.3) LCB   97.51c P  1.02% WF  13.7 PSV      11 N       7  --  K6 K7 F9 E8 A9
+A7  : T 106.13c W  92.93c S   8.62c (+38.5 L +39.0) LCB   92.58c P  1.23% WF   5.2 PSV       4 N       6  --  A7 A9 F9 E8 B8 D10
+M6  : T 103.47c W  92.49c S  10.98c (+41.1 L +43.2) LCB -246.53c P  0.36% WF   1.0 PSV       1 N       1  --  M6
+D10 : T  52.65c W  59.00c S   4.54c (+35.2 L +34.2) LCB -132.02c P  1.04% WF   0.6 PSV       0 N       2  --  D10 A9
+N4  : T  68.12c W  64.60c S   3.53c (+33.8 L +35.6) LCB -281.88c P  0.54% WF   0.4 PSV       0 N       1  --  N4
+
+2024-06-21 21:50:03-0400: = A9
+2024-06-21 21:50:05-0400: Controller: kata-list_time_settings
+2024-06-21 21:50:05-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:50:05-0400: Controller: play black e8
+2024-06-21 21:50:05-0400: = 
+2024-06-21 21:50:05-0400: Controller: genmove white
+2024-06-21 21:50:05-0400: MoveNum: 107 HASH: D0FEA1BB3B5EA28865B6A27553D163A7
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 @ O O . O X X . . X . . .
+ 9 O2X X O X . O . O . . . .
+ 8 X . X X X3X O O . . X . .
+ 7 . O X X X O X X X . . . .
+ 6 . O X O O O O O X . . . .
+ 5 X X X X O . X O O X1X . .
+ 4 O X X O X . X X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . . .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.563
+Root visits: 459
+New playouts: 337
+NN rows: 226
+NN batches: 31
+NN avg batch size: 7.29032
+PV: A10 J8 H10 M1 B8 K9 K12
+Tree:
+: T 119.24c W  99.52c S  18.91c (+45.5 L +46.2) N     459  --  A10 J8 H10 M1 B8 K9 K12
+---White(^)---
+A10 : T 120.04c W  99.74c S  19.70c (+45.8 L +46.4) LCB  119.35c P 40.80% WF 1318.8 PSV    1312 N     338  --  A10 J8 H10 M1 B8 K9 K12
+K6  : T 118.98c W  99.06c S  18.26c (+46.0 L +47.3) LCB  113.33c P  4.65% WF  69.7 PSV      49 N      25  --  K6 K7 A10 B8 D10
+B8  : T 113.27c W  98.28c S  14.06c (+42.7 L +43.8) LCB  105.52c P 17.01% WF  46.1 PSV      39 N      26  --  B8 A10 K6 K7 A9 D2 D1
+F9  : T 113.24c W  98.02c S  14.34c (+43.0 L +44.1) LCB  106.54c P 14.20% WF  47.1 PSV      32 N      27  --  F9 A10 K6 K7 A9 B1
+M1  : T 112.47c W  97.29c S  13.72c (+43.3 L +45.1) LCB  104.47c P  9.64% WF  23.9 PSV      20 N      16  --  M1 A10 M6 L6 A9
+L1  : T 114.91c W  98.74c S  15.97c (+43.9 L +45.2) LCB  103.34c P  5.57% WF  33.8 PSV      16 N      15  --  L1 G1 A10 B8 D10 J8
+A7  : T 111.70c W  98.84c S  12.69c (+42.0 L +41.6) LCB   67.27c P  2.42% WF   6.9 PSV       4 N       4  --  A7 A10 L1
+D10 : T 110.04c W  95.68c S  13.19c (+43.0 L +43.9) LCB   73.25c P  1.85% WF   6.4 PSV       2 N       5  --  D10 A10 L1 G1
+F5  : T 104.39c W  94.21c S  10.18c (+40.4 L +41.8) LCB -245.61c P  1.18% WF   0.9 PSV       1 N       1  --  F5
+M6  : T  53.22c W  54.07c S  -0.86c (+28.6 L +33.5) LCB -296.78c P  0.95% WF   0.4 PSV       0 N       1  --  M6
+
+2024-06-21 21:50:05-0400: = A10
+2024-06-21 21:50:07-0400: Controller: kata-list_time_settings
+2024-06-21 21:50:07-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:50:07-0400: Controller: play black m1
+2024-06-21 21:50:07-0400: = 
+2024-06-21 21:50:07-0400: Controller: genmove white
+2024-06-21 21:50:08-0400: MoveNum: 109 HASH: 9093F34E92E672A13B16F900251904B5
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 O2O O . O X X . . X . . .
+ 9 O X X O X @ O . O . . . .
+ 8 X . X X X1X O O . . X . .
+ 7 . O X X X O X X X . . . .
+ 6 . O X O O O O O X . . . .
+ 5 X X X X O . X O O X X . .
+ 4 O X X O X . X X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . X3.
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.546
+Root visits: 677
+New playouts: 324
+NN rows: 241
+NN batches: 31
+NN avg batch size: 7.77419
+PV: F9 B8 A7 D10 K6 J8 H10 L6
+Tree:
+: T 119.03c W  99.74c S  18.77c (+45.9 L +46.1) N     677  --  F9 B8 A7 D10 K6 J8 H10
+---White(^)---
+F9  : T 119.33c W  99.83c S  19.16c (+46.0 L +46.1) LCB  118.66c P 31.85% WF 1169.5 PSV    1167 N     288  --  F9 B8 A7 D10 K6 J8 H10 L6
+B8  : T 119.52c W  99.81c S  19.20c (+46.0 L +46.2) LCB  118.48c P 23.82% WF 814.2 PSV     811 N     201  --  B8 J8 H10 A6 F9 D10 L1
+D10 : T 117.01c W  99.45c S  16.68c (+43.9 L +44.1) LCB  114.99c P 25.21% WF 176.8 PSV     181 N      55  --  D10 J8 H10 F5 F9
+K6  : T 119.60c W  99.65c S  19.02c (+47.2 L +47.7) LCB  116.83c P  1.21% WF 257.8 PSV      79 N      73  --  K6 K7 B8 A6 F9 A7 B7
+N2  : T 117.39c W  99.56c S  17.02c (+44.7 L +45.0) LCB  115.28c P  7.01% WF 106.9 PSV      61 N      35  --  N2 B8 D10 J8 H10
+L1  : T 111.57c W  98.77c S  15.30c (+44.5 L +45.3) LCB   89.18c P  3.58% WF  26.7 PSV       9 N      12  --  L1 K1 B8 J8
+F5  : T 111.96c W  97.77c S  17.26c (+49.5 L +50.8) LCB   70.80c P  2.35% WF  13.6 PSV       6 N       7  --  F5 F4 J1 L1
+J1  : T 114.12c W  99.27c S  15.40c (+43.7 L +43.2) LCB  -59.82c P  1.14% WF   4.9 PSV       4 N       2  --  J1 G1
+A6  : T 115.06c W  99.57c S  14.70c (+43.2 L +43.9) LCB  -34.60c P  1.09% WF   5.2 PSV       4 N       2  --  A6 B8
+A7  : T  97.16c W  91.45c S   5.71c (+36.8 L +37.0) LCB -252.84c P  1.12% WF   0.8 PSV       1 N       1  --  A7
+
+2024-06-21 21:50:08-0400: = F9
+2024-06-21 21:50:10-0400: Controller: kata-list_time_settings
+2024-06-21 21:50:10-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:50:10-0400: Controller: play black b8
+2024-06-21 21:50:10-0400: = 
+2024-06-21 21:50:10-0400: Controller: genmove white
+2024-06-21 21:50:10-0400: MoveNum: 111 HASH: 4AEF3365BBB098601635DCD8F1C6A2CE
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 O O O . O X X . . X . . .
+ 9 O X X O X O2O . O . . . .
+ 8 X X3X X X X O O . . X . .
+ 7 . O X X X O X X X . . . .
+ 6 @ O X O O O O O X . . . .
+ 5 X X X X O . X O O X X . .
+ 4 O X X O X . X X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . X1.
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.532
+Root visits: 1059
+New playouts: 258
+NN rows: 222
+NN batches: 30
+NN avg batch size: 7.4
+PV: A6 D10 L1 K1 D9 A7 B6 F5 A6
+Tree:
+: T 119.35c W  99.78c S  18.99c (+45.9 L +45.9) N    1059  --  A6 D10 L1 K1 D9 A7 B6
+---White(^)---
+A6  : T 119.90c W  99.82c S  19.43c (+46.3 L +46.5) LCB  119.10c P 26.78% WF 1266.5 PSV    1701 N     314  --  A6 D10 L1 K1 D9 A7 B6 F5
+A7  : T 119.76c W  99.81c S  19.38c (+46.3 L +46.4) LCB  118.95c P 24.22% WF 1292.6 PSV    1287 N     325  --  A7 D10 L1 K1 D9 A6 B7 D10
+D10 : T 118.59c W  99.80c S  18.59c (+44.7 L +44.4) LCB  117.63c P 25.57% WF 794.5 PSV     438 N     180  --  D10 N2 A7 A6 B7 N3 B6 F5
+N2  : T 119.22c W  99.77c S  18.78c (+45.9 L +46.0) LCB  118.16c P  6.71% WF 498.6 PSV     180 N     131  --  N2 J8 H10 D10 L1 G1
+L1  : T 117.83c W  99.33c S  17.63c (+45.3 L +45.7) LCB  112.44c P  7.05% WF 129.8 PSV      83 N      43  --  L1 K1 A7 D10 N2 J8
+K6  : T 118.25c W  99.75c S  18.21c (+45.3 L +45.6) LCB  116.59c P  2.85% WF 168.2 PSV      40 N      49  --  K6 K7 A7 D10 L1 K1
+F5  : T 114.07c W  98.32c S  14.75c (+46.2 L +47.2) LCB   88.46c P  2.69% WF  15.7 PSV      12 N       9  --  F5 F4 J1 L1 N1
+J1  : T 115.57c W  99.63c S  15.41c (+43.2 L +43.7) LCB   79.96c P  1.65% WF  13.4 PSV      10 N       5  --  J1 G1 D10
+J8  : T  82.16c W  78.30c S   3.86c (+35.0 L +35.8) LCB -267.84c P  0.43% WF   0.5 PSV       0 N       1  --  J8
+N4  : T 109.09c W  95.91c S  13.17c (+43.3 L +43.8) LCB -240.91c P  0.35% WF   1.4 PSV       0 N       1  --  N4
+
+2024-06-21 21:50:10-0400: = A6
+2024-06-21 21:50:13-0400: Controller: kata-list_time_settings
+2024-06-21 21:50:13-0400: = none absolute byoyomi canadian fischer fischer-capped
+2024-06-21 21:50:13-0400: Controller: play black d10
+2024-06-21 21:50:13-0400: = 
+2024-06-21 21:50:13-0400: Controller: genmove white
+2024-06-21 21:50:13-0400: MoveNum: 113 HASH: 4DB7D531243CE131C931E57ABF4099CE
+   A B C D E F G H J K L M N
+13 . . . . . . . . . . . . .
+12 . X X O X O O O . . . . .
+11 O O O O O X O X O . X . .
+10 O O O X3O X X . . X . . .
+ 9 O X X . X O O . O . . . .
+ 8 X X1X X X X O O . . X . .
+ 7 . O X X X O X X X . . . .
+ 6 O2O X O O O O O X @ . . .
+ 5 X X X X O . X O O X X . .
+ 4 O X X O X . X X O X . X .
+ 3 O O O O X X . X O O O O .
+ 2 . . O . O X X O X X X O .
+ 1 . . . . O X . O . . . X .
+
+koPOSITIONALscoreAREAtaxNONEsui1komi7.5
+Time taken: 0.5
+Root visits: 1455
+New playouts: 265
+NN rows: 208
+NN batches: 28
+NN avg batch size: 7.42857
+PV: K6 K7 D9 A7 B6 N3 A6 N2 B7
+Tree:
+: T 119.26c W  99.75c S  18.85c (+46.3 L +46.5) N    1455  --  K6 K7 D9 A7 B6 N3 A6
+---White(^)---
+K6  : T 119.57c W  99.85c S  19.10c (+46.4 L +46.7) LCB  118.78c P 26.42% WF 1819.5 PSV    2901 N     453  --  K6 K7 D9 A7 B6 N3 A6 N2
+L1  : T 119.68c W  99.71c S  19.24c (+46.7 L +46.9) LCB  118.69c P 21.05% WF 2537.5 PSV    2526 N     638  --  L1 K1 D9 A7 B6 F5 A6 D10
+N2  : T 118.75c W  99.80c S  18.46c (+45.7 L +45.8) LCB  117.85c P 18.77% WF 873.3 PSV     583 N     227  --  N2 F5 D9 A7 B6 D10 A6 K12
+J1  : T 117.06c W  99.75c S  16.64c (+44.3 L +44.6) LCB  115.21c P 15.09% WF 234.5 PSV     200 N      70  --  J1 G1 D9 A7 B6 D10 A6 J8
+K1  : T 117.17c W  99.74c S  16.61c (+44.6 L +45.0) LCB  113.36c P  3.11% WF  50.4 PSV      43 N      16  --  K1 G1 D9 A7 B6 K12
+K8  : T 116.62c W  99.74c S  16.78c (+44.8 L +45.1) LCB  107.25c P  2.27% WF  30.1 PSV      26 N       9  --  K8 J8 H10 K9
+N4  : T 116.51c W  99.25c S  16.47c (+44.8 L +45.2) LCB  106.82c P  2.14% WF  30.8 PSV      24 N      11  --  N4 N5 D9 A7 B6
+F5  : T 114.78c W  97.43c S  17.11c (+47.7 L +47.7) LCB   87.63c P  2.25% WF  19.2 PSV      16 N      10  --  F5 F4 D9 A7 B6 L4 A6
+M5  : T 111.27c W  98.49c S  13.20c (+42.9 L +43.9) LCB   87.01c P  2.64% WF  12.4 PSV      11 N       7  --  M5 J8 H10 L4 D9
+J8  : T 110.61c W  98.73c S  12.39c (+42.3 L +41.9) LCB   88.76c P  2.63% WF  10.4 PSV      11 N       6  --  J8 F5 D9
+
+2024-06-21 21:50:13-0400: = K6
+2024-06-21 21:50:16-0400: Controller: quit
+2024-06-21 21:50:16-0400: Quit requested by controller
+2024-06-21 21:50:16-0400: = 
+2024-06-21 21:50:16-0400: GPU -1 finishing, processed 61013 rows 7940 batches
+2024-06-21 21:50:16-0400: All cleaned up, quitting
