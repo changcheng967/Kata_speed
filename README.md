@@ -1,6 +1,6 @@
 # Kata_speed
 
-Kata_speed is a Go AI engine that is designed to be fast, strong, and easy to run. It supports most GPU and CPU configurations, making it accessible to a wide range of users.
+Kata_speed is a Go AI engine that is designed to be fast, strong, and easy to run. It supports most GPU and CPU configurations, making it accessible to a wide range of users. It uses a well-trained private b30 network and is inspired by KataGo.
 
 ## Key Features
 
@@ -8,6 +8,7 @@ Kata_speed is a Go AI engine that is designed to be fast, strong, and easy to ru
 - **High Speed**: Optimized for quick decision-making.
 - **Broad Compatibility**: Supports most GPU and CPU configurations.
 - **Ease of Use**: Simple setup and configuration.
+- **Well-Trained Private b30 Network**: Utilizes a powerful network for improved performance.
 
 ## Installation
 
