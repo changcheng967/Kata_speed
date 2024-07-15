@@ -26,7 +26,6 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/include/machine/stdlib.h \
   /usr/include/machine/time.h \
   /usr/include/machine/types.h \
-  /usr/include/math.h \
   /usr/include/newlib.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -110,7 +109,6 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/ptr_traits.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/range_access.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/refwrap.h \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/specfun.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/sstream.tcc \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_abs.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_function.h \
@@ -143,7 +141,6 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cerrno \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/chrono \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/clocale \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cmath \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cstdint \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cstdio \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cstdlib \
@@ -181,18 +178,6 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: C:/Users/chang/OneDrive/Documents/G
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/string_view \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/system_error \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/thread \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/bessel_function.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/beta_function.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/ell_integral.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/exp_integral.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/gamma.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/hypergeometric.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/legendre_function.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/modified_bessel_func.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_hermite.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_laguerre.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/riemann_zeta.tcc \
-  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/special_function_util.h \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tuple \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/type_traits \
   /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/typeinfo \
@@ -245,8 +230,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/bits/wordsize.h:
 
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/bessel_function.tcc:
-
 /usr/include/sys/config.h:
 
 /usr/include/sys/_intsup.h:
@@ -283,6 +266,8 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/machine/_default_types.h:
 
+/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/algorithmfwd.h:
+
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/uses_allocator.h:
 
 /usr/include/pthread.h:
@@ -302,8 +287,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/x86_64-pc-cygwin/bits/c++locale.h:
 
 /usr/include/machine/time.h:
-
-/usr/include/math.h:
 
 /usr/include/newlib.h:
 
@@ -381,8 +364,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/include/unistd.h:
 
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/algorithmfwd.h:
-
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/alloc_traits.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/locale_facets.tcc:
@@ -405,10 +386,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/concept_check.h:
 
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/modified_bessel_func.tcc:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/beta_function.tcc:
-
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/cpp_type_traits.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/locale_facets.h:
@@ -416,8 +393,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/cxxabi_forced.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/cxxabi_init_exception.h:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cmath:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/erase_if.h:
 
@@ -442,8 +417,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/hashtable_policy.h:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/ell_integral.tcc:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/streambuf.tcc:
 
@@ -480,8 +453,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/ptr_traits.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/refwrap.h:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/specfun.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/sstream.tcc:
 
@@ -563,8 +534,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/numeric_traits.h:
 
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/gamma.tcc:
-
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/string_view:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ext/string_conversions.h:
@@ -602,20 +571,6 @@ C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/kata_speed.cpp:
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/string:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/system_error:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/exp_integral.tcc:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/hypergeometric.tcc:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/legendre_function.tcc:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_hermite.tcc:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_laguerre.tcc:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/riemann_zeta.tcc:
-
-/usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/special_function_util.h:
 
 /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/type_traits:
 
