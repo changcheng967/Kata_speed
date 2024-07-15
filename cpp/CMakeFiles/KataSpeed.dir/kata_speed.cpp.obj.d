@@ -130,23 +130,9 @@ CMakeFiles/KataSpeed.dir/kata_speed.cpp.obj: \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ctime \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/sstream \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/sstream.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/cmath /usr/include/math.h \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/specfun.h \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/limits \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/gamma.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/special_function_util.h \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/bessel_function.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/beta_function.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/ell_integral.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/exp_integral.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/hypergeometric.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/legendre_function.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/modified_bessel_func.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_hermite.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/poly_laguerre.tcc \
- /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/tr1/riemann_zeta.tcc \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/chrono \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/ratio \
+ /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/limits \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/parse_numbers.h \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/thread \
  /usr/lib/gcc/x86_64-pc-cygwin/11/include/c++/bits/std_thread.h \
