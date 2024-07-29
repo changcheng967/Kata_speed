@@ -13805,3 +13805,98 @@ winLossUtilityFactor = 1.0
 2024-07-29 15:01:20-0400: Rejecting kata1-b28c512nbt-s6797380608-d4265362003.bin.gz automatically since older than best accepted model
 2024-07-29 15:01:20-0400: Moving C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\modelstobetested\kata1-b28c512nbt-s6797380608-d4265362003.bin.gz to C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/rejectedmodels/kata1-b28c512nbt-s6797380608-d4265362003.bin.gz
 2024-07-29 15:01:20-0400: All cleaned up, quitting
+2024-07-29 15:12:45-0400: Running with following config:
+allowRectangleProb = 0.10
+allowResignation = true
+bSizeRelProbs = 2,3,10,7,9,35, 2,4,6,8,10
+bSizes = 9,11,13,15,17,19,  10,12,14,16,18
+chosenMovePrune = 1
+chosenMoveSubtract = 0
+chosenMoveTemperature = 0.2
+chosenMoveTemperatureEarly = 0.5
+chosenMoveTemperatureHalflife = 19
+cpuctExploration = 1.1
+cpuctExplorationLog = 0.0
+cudaUseFP16 = auto
+cudaUseNHWC = auto
+drawEquivalentWinsForWhite = 0.5
+dynamicScoreCenterScale = 0.50
+dynamicScoreCenterZeroWeight = 0.25
+dynamicScoreUtilityFactor = 0.25
+fpuReductionMax = 0.2
+handicapCompensateKomiProb = 1.0
+handicapProb = 0.0
+hasButtons = false,false,true
+koRules = SIMPLE,POSITIONAL,SITUATIONAL
+komiAuto = True
+lcbStdevs = 5.0
+logGamesEvery = 10
+logMoves = false
+logSearchInfo = false
+logToStdout = true
+maxMovesPerGame = 1600
+maxVisits = 30
+minVisitPropForLCB = 0.15
+multiStoneSuicideLegals = false,true
+nnCacheSizePowerOfTwo = 21
+nnMaxBatchSize = 128
+nnMutexPoolSizePowerOfTwo = 15
+nnRandomize = true
+noResultUtilityForWhite = 0.0
+numGameThreads = 10
+numGamesPerGating = 200
+numNNServerThreadsPerModel = 1
+numSearchThreads = 1
+numVirtualLossesPerThread = 1
+policyOptimism = 1.0
+resignConsecTurns = 5
+resignThreshold = -0.90
+rootEndingBonusPoints = 0.5
+rootFpuReductionMax = 0.1
+rootPolicyOptimism = 0.0
+rootPruneUselessMoves = true
+scoringRules = AREA,TERRITORY
+staticScoreUtilityFactor = 0.00
+subtreeValueBiasFactor = 0.35
+subtreeValueBiasWeightExponent = 0.8
+taxRules = NONE,NONE,SEKI,SEKI,ALL
+uncertaintyCoeff = 0.25
+uncertaintyExponent = 1.0
+useGraphSearch = true
+useLcbForSelection = true
+useNonBuggyLcb = true
+useUncertainty = true
+valueWeightExponent = 0.5
+winLossUtilityFactor = 1.0
+
+2024-07-29 15:12:45-0400: Gatekeeper Engine starting...
+2024-07-29 15:12:45-0400: Git revision: 7939e2c3eb43df04e08de8c166889c6d5e937bfa
+2024-07-29 15:12:45-0400: Required candidate win prop: 0.5
+2024-07-29 15:12:45-0400: Loaded all config stuff, watching for new neural nets in C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/modelstobetested/
+2024-07-29 15:12:45-0400: Found new candidate neural net kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:12:45-0400: nnRandSeed0 = 2954021540325778328
+2024-07-29 15:12:45-0400: After dedups: nnModelFile0 = C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\modelstobetested\kata1-b28c512nbt-s7445253888-d4391103372.bin.gz useFP16 auto useNHWC auto
+2024-07-29 15:12:45-0400: Initializing neural net buffer to be size 19 * 19 allowing smaller boards
+2024-07-29 15:12:52-0400: Cuda backend thread 0: Found GPU NVIDIA GeForce RTX 4060 Laptop GPU memory 8585216000 compute capability major 8 minor 9
+2024-07-29 15:12:52-0400: Cuda backend thread 0: Model version 15 useFP16 = true useNHWC = true
+2024-07-29 15:12:52-0400: Cuda backend thread 0: Model name: kata1-b28c512nbt-s7445253888-d4391103372
+2024-07-29 15:13:00-0400: Loaded candidate neural net kata1-b28c512nbt-s7445253888-d4391103372.bin.gz from: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\modelstobetested\kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:00-0400: nnRandSeed0 = 7469589738563777652
+2024-07-29 15:13:00-0400: After dedups: nnModelFile0 = C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\models\kata1-b28c512nbt-s7168446720-d4316919285.bin.gz useFP16 auto useNHWC auto
+2024-07-29 15:13:00-0400: Initializing neural net buffer to be size 19 * 19 allowing smaller boards
+2024-07-29 15:13:08-0400: Cuda backend thread 0: Found GPU NVIDIA GeForce RTX 4060 Laptop GPU memory 8585216000 compute capability major 8 minor 9
+2024-07-29 15:13:08-0400: Cuda backend thread 0: Model version 15 useFP16 = true useNHWC = true
+2024-07-29 15:13:08-0400: Cuda backend thread 0: Model name: kata1-b28c512nbt-s7168446720-d4316919285
+2024-07-29 15:13:15-0400: Loaded accepted neural net kata1-b28c512nbt-s7168446720-d4316919285.bin.gz from: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\models\kata1-b28c512nbt-s7168446720-d4316919285.bin.gz
+2024-07-29 15:13:15-0400: Data write loop starting for neural net: kata1-b28c512nbt-s7168446720-d4316919285.bin.gz vs kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 0 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 1 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 5 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 4 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 6 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 3 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 2 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 7 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 8 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Game loop thread 9 starting game testing candidate: kata1-b28c512nbt-s7445253888-d4391103372.bin.gz
+2024-07-29 15:13:15-0400: Started 10 games
