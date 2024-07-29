@@ -23,6 +23,8 @@
 * [Contributors](#contributors)
 * [License](#license)
 
+## Notice 
+This reposotorie is using KataGo engine by lightvector and only using self-trained models
 ## Overview
 
 KataGo's public distributed training run is ongoing! See https://katagotraining.org/ for more details, to download the latest and strongest neural nets, or to learn how to contribute if you want to help KataGo improve further! Also check out the computer Go [discord channel](https://discord.gg/bqkZAz3)!
