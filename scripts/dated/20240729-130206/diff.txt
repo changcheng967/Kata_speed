@@ -1,0 +1,44 @@
+diff --git a/python/selfplay/synchronous_loop.sh b/python/selfplay/synchronous_loop.sh
+index 46cfbc3..a036812 100644
+--- a/python/selfplay/synchronous_loop.sh
++++ b/python/selfplay/synchronous_loop.sh
+@@ -54,7 +54,7 @@ mkdir -p "$BASEDIR"/gatekeepersgf
+ # you have strong hardware or are later into a run you may want to reduce the overhead by scaling
+ # these numbers up and doing more games and training per cycle, exporting models less frequently, etc.
+ 
+-NUM_GAMES_PER_CYCLE=500 # Every cycle, play this many games
++NUM_GAMES_PER_CYCLE=10 # Every cycle, play this many games
+ NUM_THREADS_FOR_SHUFFLING=8
+ NUM_TRAIN_SAMPLES_PER_EPOCH=100000  # Training will proceed in chunks of this many rows, subject to MAX_TRAIN_PER_DATA.
+ MAX_TRAIN_PER_DATA=8 # On average, train only this many times on each data row. Larger numbers may cause overfitting.
+@@ -70,13 +70,16 @@ SHUFFLE_KEEPROWS=600000 # Needs to be larger than MAX_TRAIN_SAMPLES_PER_CYCLE, s
+ SELFPLAY_CONFIG="$GITROOTDIR"/cpp/configs/training/selfplay1.cfg
+ GATING_CONFIG="$GITROOTDIR"/cpp/configs/training/gatekeeper1.cfg
+ 
++# Update the path to the katago executable
++KATAGO_PATH="C:/Users/chang/Downloads/katago-v1.15.1-cuda12.1-cudnn8.9.7-windows-x64/katago.exe"
++
+ # Copy all the relevant scripts and configs and the katago executable to a dated directory.
+ # For archival and logging purposes - you can look back and see exactly the python code on a particular date
+ DATE_FOR_FILENAME=$(date "+%Y%m%d-%H%M%S")
+ DATED_ARCHIVE="$BASEDIR"/scripts/dated/"$DATE_FOR_FILENAME"
+ mkdir -p "$DATED_ARCHIVE"
+ cp "$GITROOTDIR"/python/*.py "$GITROOTDIR"/python/selfplay/*.sh "$DATED_ARCHIVE"
+-cp "$GITROOTDIR"/cpp/katago "$DATED_ARCHIVE"
++cp "$KATAGO_PATH" "$DATED_ARCHIVE"
+ cp "$SELFPLAY_CONFIG" "$DATED_ARCHIVE"/selfplay.cfg
+ cp "$GATING_CONFIG" "$DATED_ARCHIVE"/gatekeeper.cfg
+ git show --no-patch --no-color > "$DATED_ARCHIVE"/version.txt
+@@ -91,10 +94,10 @@ set -x
+ while true
+ do
+     echo "Gatekeeper"
+-    time ./katago gatekeeper -rejected-models-dir "$BASEDIR"/rejectedmodels -accepted-models-dir "$BASEDIR"/models/ -sgf-output-dir "$BASEDIR"/gatekeepersgf/ -test-models-dir "$BASEDIR"/modelstobetested/ -config "$DATED_ARCHIVE"/gatekeeper.cfg -quit-if-no-nets-to-test | tee -a "$BASEDIR"/gatekeepersgf/stdout.txt
++    time "$KATAGO_PATH" gatekeeper -rejected-models-dir "$BASEDIR"/rejectedmodels -accepted-models-dir "$BASEDIR"/models/ -sgf-output-dir "$BASEDIR"/gatekeepersgf/ -test-models-dir "$BASEDIR"/modelstobetested/ -config "$DATED_ARCHIVE"/gatekeeper.cfg -quit-if-no-nets-to-test | tee -a "$BASEDIR"/gatekeepersgf/stdout.txt
+ 
+     echo "Selfplay"
+-    time ./katago selfplay -max-games-total "$NUM_GAMES_PER_CYCLE" -output-dir "$BASEDIR"/selfplay -models-dir "$BASEDIR"/models -config "$DATED_ARCHIVE"/selfplay.cfg | tee -a "$BASEDIR"/selfplay/stdout.txt
++    time "$KATAGO_PATH" selfplay -max-games-total "$NUM_GAMES_PER_CYCLE" -output-dir "$BASEDIR"/selfplay -models-dir "$BASEDIR"/models -config "$DATED_ARCHIVE"/selfplay.cfg | tee -a "$BASEDIR"/selfplay/stdout.txt
+ 
+     echo "Shuffle"
+     (

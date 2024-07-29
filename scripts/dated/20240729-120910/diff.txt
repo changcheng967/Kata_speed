@@ -1,0 +1,27 @@
+diff --git a/python/selfplay/synchronous_loop.sh b/python/selfplay/synchronous_loop.sh
+index 46cfbc3..134f591 100644
+--- a/python/selfplay/synchronous_loop.sh
++++ b/python/selfplay/synchronous_loop.sh
+@@ -15,7 +15,7 @@ then
+     echo "Assumes katago is already built in the 'cpp' directory of the KataGo repo and the executable is present at cpp/katago."
+     echo "NAMEPREFIX string prefix for this training run, try to pick something globally unique. Will be displayed to users when KataGo loads the model."
+     echo "BASEDIR containing selfplay data and models and related directories"
+-    echo "TRANINGNAME name to prefix models with, specific to this training daemon"
++    echo "TRAININGNAME name to prefix models with, specific to this training daemon"
+     echo "MODELKIND what size model to train, like 'b10c128', see ../modelconfigs.py"
+     echo "USEGATING = 1 to use gatekeeper, 0 to not use gatekeeper"
+     exit 0
+@@ -49,12 +49,7 @@ mkdir -p "$BASEDIR"/gatekeepersgf
+ # NOTE: You probably want to edit settings in cpp/configs/training/gatekeeper1.cfg
+ # Such as what board sizes and rules, you want to learn, number of visits to use, etc.
+ 
+-# Also, the parameters below are relatively small, and probably
+-# good for less powerful hardware and tighter turnaround during very early training, but if
+-# you have strong hardware or are later into a run you may want to reduce the overhead by scaling
+-# these numbers up and doing more games and training per cycle, exporting models less frequently, etc.
+-
+-NUM_GAMES_PER_CYCLE=500 # Every cycle, play this many games
++NUM_GAMES_PER_CYCLE=50 # Every cycle, play this many games
+ NUM_THREADS_FOR_SHUFFLING=8
+ NUM_TRAIN_SAMPLES_PER_EPOCH=100000  # Training will proceed in chunks of this many rows, subject to MAX_TRAIN_PER_DATA.
+ MAX_TRAIN_PER_DATA=8 # On average, train only this many times on each data row. Larger numbers may cause overfitting.

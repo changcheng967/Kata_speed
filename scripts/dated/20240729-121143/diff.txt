@@ -1,0 +1,24 @@
+diff --git a/python/selfplay/synchronous_loop.sh b/python/selfplay/synchronous_loop.sh
+index 46cfbc3..b11318d 100644
+--- a/python/selfplay/synchronous_loop.sh
++++ b/python/selfplay/synchronous_loop.sh
+@@ -2,6 +2,10 @@
+ set -o pipefail
+ {
+ 
++# Create a log file for the entire loop
++LOOP_LOG="$BASEDIR/logs/loop_output.txt"
++exec > >(tee -a "$LOOP_LOG") 2>&1
++
+ # Runs the entire self-play process synchronously in a loop, training a single size of neural net appropriately.
+ # Assumes you have the cpp directory compiled and the katago executable is there.
+ 
+@@ -54,7 +58,7 @@ mkdir -p "$BASEDIR"/gatekeepersgf
+ # you have strong hardware or are later into a run you may want to reduce the overhead by scaling
+ # these numbers up and doing more games and training per cycle, exporting models less frequently, etc.
+ 
+-NUM_GAMES_PER_CYCLE=500 # Every cycle, play this many games
++NUM_GAMES_PER_CYCLE=50 # Every cycle, play this many games
+ NUM_THREADS_FOR_SHUFFLING=8
+ NUM_TRAIN_SAMPLES_PER_EPOCH=100000  # Training will proceed in chunks of this many rows, subject to MAX_TRAIN_PER_DATA.
+ MAX_TRAIN_PER_DATA=8 # On average, train only this many times on each data row. Larger numbers may cause overfitting.
