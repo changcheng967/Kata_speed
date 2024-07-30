@@ -27,6 +27,12 @@ echo MODELKIND: %MODELKIND%
 echo BATCHSIZE: %BATCHSIZE%
 echo EXPORTMODE: %EXPORTMODE%
 
+:: Check if BASEDIR is a valid directory
+if not exist "%BASEDIR%" (
+    echo BASEDIR does not exist: %BASEDIR%
+    exit /b 1
+)
+
 :: Create the necessary directories
 if not exist "%BASEDIR%\train\%TRAININGNAME%" (
     mkdir "%BASEDIR%\train\%TRAININGNAME%"
@@ -50,6 +56,13 @@ if "%EXPORTMODE%"=="main" (
 :: Check if MODELKIND is correct
 if not "%MODELKIND%"=="b20c256" (
     echo Incorrect MODELKIND. Expected b20c256 but got %MODELKIND%.
+    exit /b 1
+)
+
+:: Verify Python command
+where python
+if errorlevel 1 (
+    echo Python not found in PATH.
     exit /b 1
 )
 
