@@ -1,1 +1,165 @@
 python: can't open file 'C:\\Users\\chang\\OneDrive\\Documents\\GitHub\\Kata_speed\\python\\selfplay\\train.py': [Errno 2] No such file or directory
+['./train.py', '-traindir', 'C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/train/train', '-datadir', 'C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/shuffleddata/current/', '-exportdir', 'C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/torchmodels_toexport', '-exportprefix', 'train', '-pos-len', '19', '-batch-size', '32', '-model-kind', 'b20c256']
+Using GPU device: NVIDIA GeForce RTX 4060 Laptop GPU
+Seeding torch with 40340249895736363
+No preexisting checkpoint found at: C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/train/train\checkpoint.ckpt
+Initializing new model!
+{'version': 14, 'norm_kind': 'fixup', 'bnorm_epsilon': 0.0001, 'bnorm_running_avg_momentum': 0.001, 'initial_conv_1x1': False, 'trunk_num_channels': 256, 'mid_num_channels': 256, 'gpool_num_channels': 64, 'use_attention_pool': False, 'num_attention_pool_heads': 4, 'block_kind': [['rconv1', 'regular'], ['rconv2', 'regular'], ['rconv3', 'regular'], ['rconv4', 'regular'], ['rconv5', 'regular'], ['rconv6', 'regular'], ['rconv7', 'regulargpool'], ['rconv8', 'regular'], ['rconv9', 'regular'], ['rconv10', 'regular'], ['rconv11', 'regular'], ['rconv12', 'regulargpool'], ['rconv13', 'regular'], ['rconv14', 'regular'], ['rconv15', 'regular'], ['rconv16', 'regular'], ['rconv17', 'regulargpool'], ['rconv18', 'regular'], ['rconv19', 'regular'], ['rconv20', 'regular']], 'p1_num_channels': 48, 'g1_num_channels': 48, 'v1_num_channels': 48, 'sbv2_num_channels': 96, 'num_scorebeliefs': 8, 'v2_size': 112}
+Model norm normal baseline computed: 596.6258544921875
+swa_period_samples 500000
+swa_scale 8
+lookahead_alpha 0.5
+lookahead_k 6
+soft_policy_weight_scale 8.0
+value_loss_scale 0.6
+td_value_loss_scales [0.6, 0.6, 0.6]
+main_loss_scale None
+intermediate_loss_scale None
+Parameters in model:
+conv_spatial.weight, [256, 22, 3, 3], 50688 params
+linear_global.weight, [256, 19], 4864 params
+blocks.0.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.0.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.0.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.0.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.0.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.1.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.1.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.1.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.1.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.1.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.2.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.2.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.2.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.2.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.2.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.3.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.3.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.3.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.3.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.3.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.4.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.4.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.4.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.4.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.4.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.5.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.5.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.5.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.5.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.5.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.6.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.6.normactconv1.convpool.conv1r.weight, [192, 256, 3, 3], 442368 params
+blocks.6.normactconv1.convpool.conv1g.weight, [64, 256, 3, 3], 147456 params
+blocks.6.normactconv1.convpool.normg.beta, [1, 64, 1, 1], 64 params
+blocks.6.normactconv1.convpool.linear_g.weight, [192, 192], 36864 params
+blocks.6.normactconv2.norm.beta, [1, 192, 1, 1], 192 params
+blocks.6.normactconv2.norm.gamma, [1, 192, 1, 1], 192 params
+blocks.6.normactconv2.conv.weight, [256, 192, 3, 3], 442368 params
+blocks.7.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.7.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.7.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.7.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.7.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.8.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.8.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.8.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.8.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.8.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.9.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.9.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.9.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.9.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.9.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.10.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.10.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.10.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.10.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.10.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.11.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.11.normactconv1.convpool.conv1r.weight, [192, 256, 3, 3], 442368 params
+blocks.11.normactconv1.convpool.conv1g.weight, [64, 256, 3, 3], 147456 params
+blocks.11.normactconv1.convpool.normg.beta, [1, 64, 1, 1], 64 params
+blocks.11.normactconv1.convpool.linear_g.weight, [192, 192], 36864 params
+blocks.11.normactconv2.norm.beta, [1, 192, 1, 1], 192 params
+blocks.11.normactconv2.norm.gamma, [1, 192, 1, 1], 192 params
+blocks.11.normactconv2.conv.weight, [256, 192, 3, 3], 442368 params
+blocks.12.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.12.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.12.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.12.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.12.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.13.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.13.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.13.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.13.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.13.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.14.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.14.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.14.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.14.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.14.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.15.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.15.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.15.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.15.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.15.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.16.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.16.normactconv1.convpool.conv1r.weight, [192, 256, 3, 3], 442368 params
+blocks.16.normactconv1.convpool.conv1g.weight, [64, 256, 3, 3], 147456 params
+blocks.16.normactconv1.convpool.normg.beta, [1, 64, 1, 1], 64 params
+blocks.16.normactconv1.convpool.linear_g.weight, [192, 192], 36864 params
+blocks.16.normactconv2.norm.beta, [1, 192, 1, 1], 192 params
+blocks.16.normactconv2.norm.gamma, [1, 192, 1, 1], 192 params
+blocks.16.normactconv2.conv.weight, [256, 192, 3, 3], 442368 params
+blocks.17.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.17.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.17.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.17.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.17.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.18.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.18.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.18.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.18.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.18.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.19.normactconv1.norm.beta, [1, 256, 1, 1], 256 params
+blocks.19.normactconv1.conv.weight, [256, 256, 3, 3], 589824 params
+blocks.19.normactconv2.norm.beta, [1, 256, 1, 1], 256 params
+blocks.19.normactconv2.norm.gamma, [1, 256, 1, 1], 256 params
+blocks.19.normactconv2.conv.weight, [256, 256, 3, 3], 589824 params
+norm_trunkfinal.beta, [1, 256, 1, 1], 256 params
+policy_head.conv1p.weight, [48, 256, 1, 1], 12288 params
+policy_head.conv1g.weight, [48, 256, 1, 1], 12288 params
+policy_head.biasg.beta, [1, 48, 1, 1], 48 params
+policy_head.linear_g.weight, [48, 144], 6912 params
+policy_head.linear_pass.weight, [6, 144], 864 params
+policy_head.bias2.beta, [1, 48, 1, 1], 48 params
+policy_head.conv2p.weight, [6, 48, 1, 1], 288 params
+value_head.conv1.weight, [48, 256, 1, 1], 12288 params
+value_head.bias1.beta, [1, 48, 1, 1], 48 params
+value_head.linear2.weight, [112, 144], 16128 params
+value_head.linear2.bias, [112], 112 params
+value_head.linear_valuehead.weight, [3, 112], 336 params
+value_head.linear_valuehead.bias, [3], 3 params
+value_head.linear_miscvaluehead.weight, [10, 112], 1120 params
+value_head.linear_miscvaluehead.bias, [10], 10 params
+value_head.linear_moremiscvaluehead.weight, [8, 112], 896 params
+value_head.linear_moremiscvaluehead.bias, [8], 8 params
+value_head.conv_ownership.weight, [1, 48, 1, 1], 48 params
+value_head.conv_scoring.weight, [1, 48, 1, 1], 48 params
+value_head.conv_futurepos.weight, [2, 256, 1, 1], 512 params
+value_head.conv_seki.weight, [4, 256, 1, 1], 1024 params
+value_head.linear_s2.weight, [96, 144], 13824 params
+value_head.linear_s2.bias, [96], 96 params
+value_head.linear_s2off.weight, [96, 1], 96 params
+value_head.linear_s2par.weight, [96, 1], 96 params
+value_head.linear_s3.weight, [8, 96], 768 params
+value_head.linear_s3.bias, [8], 8 params
+value_head.linear_smix.weight, [8, 144], 1152 params
+value_head.linear_smix.bias, [8], 8 params
+Total num params: 23413525
+Total trainable params: 23413525
+Using lookahead optimizer 0.5 6
+Training in FP32.
+Shuffled data train.json file does not exist, there seems to be no shuffled data yet, waiting and trying again later: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\shuffleddata\current\train.json
+Shuffled data train.json file does not exist, there seems to be no shuffled data yet, waiting and trying again later: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\shuffleddata\current\train.json
