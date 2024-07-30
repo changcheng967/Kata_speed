@@ -20,44 +20,6 @@ import multiprocessing
 
 import numpy as np
 
-#Specially added
-# Define the argument parser
-parser = argparse.ArgumentParser(description="Shuffle and process data.")
-# Define all required arguments
-parser.add_argument('input_dir', type=str, help='Input directory containing files')
-parser.add_argument('-expand-window-per-row', type=float, required=True)
-parser.add_argument('-taper-window-exponent', type=float, required=True)
-parser.add_argument('-out-dir', type=str, required=True)
-parser.add_argument('-out-tmp-dir', type=str, required=True)
-parser.add_argument('-num-processes', type=int, required=True)
-parser.add_argument('-batch-size', type=int, required=True)
-parser.add_argument('-output-npz', action='store_true')
-parser.add_argument('-keep-target-rows', type=int, required=True)
-parser.add_argument('-min-rows', type=int, required=True)
-parser.add_argument('-window-taper-offset', type=float, required=True)
-# Add any other arguments you need
-
-# Parse the arguments
-args = parser.parse_args()
-
-# Access the arguments
-input_dir = args.input_dir
-expand_window_per_row = args.expand_window_per_row
-taper_window_exponent = args.taper_window_exponent
-out_dir = args.out_dir
-out_tmp_dir = args.out_tmp_dir
-num_processes = args.num_processes
-batch_size = args.batch_size
-output_npz = args.output_npz
-keep_target_rows = args.keep_target_rows
-min_rows = args.min_rows
-window_taper_offset = args.window_taper_offset
-
-# Check the value of window_taper_offset
-if window_taper_offset <= 0:
-    raise ValueError("window_taper_offset must be greater than zero to avoid division by zero.")
-#above not in the script
-
 keys = [
     "binaryInputNCHWPacked",
     "globalInputNC",
