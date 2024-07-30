@@ -25,6 +25,9 @@
 
 ## Notice 
 This reposotorie is using KataGo engine by lightvector and only using self-trained models
+
+## Downloading pretrained models
+Go to [Download link](https://www.dropbox.com/scl/fo/699u8ol2z37az1ysgn0pe/APdMcSimIsM_tVIV7LTI6EM?rlkey=92v30dvrbxppo42d29ok12jo7&st=2tc2iepe&dl=0) to downlaod model
 ## Overview
 
 KataGo's public distributed training run is ongoing! See https://katagotraining.org/ for more details, to download the latest and strongest neural nets, or to learn how to contribute if you want to help KataGo improve further! Also check out the computer Go [discord channel](https://discord.gg/bqkZAz3)!
