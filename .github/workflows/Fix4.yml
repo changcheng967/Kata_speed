@@ -1,0 +1,23 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up build environment
+      run: sudo apt-get install -y autoconf automake
+
+    - name: Generate configure script
+      run: autoreconf -i
+
+    - name: Configure the project
+      run: ./configure
+
+    - name: Build the project
+      run: make
