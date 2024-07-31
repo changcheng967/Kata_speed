@@ -1,4 +1,3 @@
-# Makefile.am
 AUTOMAKE_OPTIONS = subdir-objects
 
 bin_PROGRAMS = your_program
