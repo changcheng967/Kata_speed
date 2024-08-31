@@ -7,6 +7,10 @@ Kata_speed is a Go AI engine that is designed to be fast, strong, and easy to ru
 This branch is half archived which means will only updated if it's start to getting better. Use the default branch instead!
 ## OGS auto-account creator
 https://github.com/changcheng967/Online-Go.com-Account-Generator
+## OGS Active Game Rank Updater(Leela Zero Strong)
+https://github.com/changcheng967/OGS-Active-Game-Rank-Updater
+
+Press [here](https://github.com/changcheng967/OGS-Active-Game-Rank-Updater/blob/main/README.md) for instructions of using
 ## Key Features
 
 - **Strong Performance**: Enhanced algorithms for better gameplay.
