@@ -1,11 +1,8 @@
 import time
 import requests
-import subprocess
 
 # Flag to ensure the command is run only once
 in_process = False
-process = None  # To keep track of the running process
-check_interval = 5  # Initial check interval in seconds
 
 def get_active_games(player_id):
     url = f"https://online-go.com/api/v1/players/{player_id}/full"
@@ -91,14 +88,26 @@ def rank_number_to_label(rating):
         return "18k"
     elif 800 <= rating < 850:
         return "19k"
-    
-    # All ratings below 800 are treated as 20k
-    elif rating < 800:
+    elif 750 <= rating < 800:
         return "20k"
+    elif 700 <= rating < 750:
+        return "21k"
+    elif 650 <= rating < 700:
+        return "22k"
+    elif 600 <= rating < 650:
+        return "23k"
+    elif 550 <= rating < 600:
+        return "24k"
+    elif 500 <= rating < 550:
+        return "25k"
+
+    # For ratings below the lowest rank
+    elif rating < 500:
+        return "25k"
     
     # Fallback case
     else:
-        return "20k"
+        return "25k"
 
 def update_config_file(config_file_path, rank_label):
     with open(config_file_path, 'r') as file:
@@ -110,29 +119,8 @@ def update_config_file(config_file_path, rank_label):
                 line = f"humanSLProfile = preaz_{rank_label}\n"
             file.write(line)
 
-def start_game_process():
-    global process
-    command = (
-        "pushd C:\\Program Files\\nodejs && node.exe C:\\Users\\chang\\node_modules\\gtp2ogs\\dist\\gtp2ogs.js "
-        "--apikey be945f3d4d5fbdbf89310bf7c6ef380cd75fec26 "
-        "-c C:\\Users\\chang\\OneDrive\\Desktop\\kata_speed.json5 "
-        "-- C:\\Users\\chang\\Downloads\\katago-v1.15.3-cuda12.5-cudnn8.9.7-windows-x64/katago.exe gtp "
-        "-config C:\\Users\\chang\\Downloads\\katago-v1.15.3-cuda12.5-cudnn8.9.7-windows-x64\\gtp_human5k_example.cfg "
-        "-model C:/Users/chang/Downloads/kata1-b18c384nbt-s9937771520-d4300882049.bin.gz "
-        "-human-model C:\\Users\\chang\\Downloads\\b18c384nbt-humanv0.bin.gz"
-    )
-    process = subprocess.Popen(command, shell=True)
-    print("Game process started.")
-
-def stop_game_process():
-    global process
-    if process:
-        process.terminate()
-        process = None
-        print("Game process stopped.")
-
 def main():
-    global in_process, check_interval
+    global in_process
 
     player_id = 1591164  # Only check for this player
     config_file_path = "C:\\Users\\chang\\Downloads\\katago-v1.15.3-cuda12.5-cudnn8.9.7-windows-x64\\gtp_human5k_example.cfg"
@@ -146,33 +134,21 @@ def main():
                     game = active_games[0]  # Assuming only one active game for simplicity
                     opponent_name, opponent_rating = extract_opponent_info(game, player_id)
                     rank_label = rank_number_to_label(opponent_rating)
-                    
-                    # Update the config file first
                     update_config_file(config_file_path, rank_label)
                     print(f"Updated config with rank: {rank_label} for opponent: {opponent_name}")
 
-                    # Then start the game process
-                    start_game_process()
-
                     # Update the process state
                     in_process = True
-
-                # Switch to 1 second check interval if new game detected
-                check_interval = 1
             else:
                 if in_process:
-                    stop_game_process()
+                    # Update the process state
                     in_process = False
-
-                # Switch back to 5 second check interval if no games
-                check_interval = 5
                 print(f"No active games found for player ID: {player_id}")
 
-            time.sleep(check_interval)
+            time.sleep(2)  # Check every 2 seconds
 
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(check_interval)  # Wait before retrying to avoid spamming in case of error
 
 if __name__ == "__main__":
     main()
