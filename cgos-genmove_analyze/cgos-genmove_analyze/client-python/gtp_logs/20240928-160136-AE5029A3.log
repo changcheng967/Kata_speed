@@ -1,0 +1,99 @@
+2024-09-28 16:01:36-0400: Running with following config:
+allowResignation = true
+friendlyPassOk = true
+hasButton = false
+koRule = POSITIONAL
+lagBuffer = 1.0
+logAllGTPCommunication = true
+logDir = gtp_logs
+logSearchInfo = true
+logSearchInfoForChosenMove = false
+logToStderr = true
+maxTime = 1.0
+maxTimePondering = 120.0
+multiStoneSuicideLegal = false
+numSearchThreads = 40
+ogsChatToStderr = true
+ponderingEnabled = true
+resignConsecTurns = 3
+resignThreshold = -0.90
+scoringRule = AREA
+searchFactorAfterOnePass = 0.50
+searchFactorAfterTwoPass = 0.25
+searchFactorWhenWinning = 0.40
+searchFactorWhenWinningThreshold = 0.95
+taxRule = NONE
+whiteHandicapBonus = 0
+
+2024-09-28 16:01:36-0400: GTP Engine starting...
+2024-09-28 16:01:36-0400: KataGo v1.15.3
+2024-09-28 16:01:36-0400: Using koPOSITIONALscoreAREAtaxNONEsui0fpok1 rules initially, unless GTP/GUI overrides this
+2024-09-28 16:01:36-0400: Using 40 CPU thread(s) for search
+2024-09-28 16:01:36-0400: nnRandSeed0 = 12981570630246531981
+2024-09-28 16:01:36-0400: After dedups: nnModelFile0 = C:\\Users\\chang\\Downloads\\kata9x9-b18c384nbt-20231025.bin.gz useFP16 auto useNHWC auto
+2024-09-28 16:01:36-0400: Initializing neural net buffer to be size 19 * 19 exactly
+2024-09-28 16:01:37-0400: Cuda backend thread 0: Found GPU NVIDIA GeForce RTX 4060 Laptop GPU memory 8585216000 compute capability major 8 minor 9
+2024-09-28 16:01:37-0400: Cuda backend thread 0: Model version 12 useFP16 = true useNHWC = true
+2024-09-28 16:01:37-0400: Cuda backend thread 0: Model name: kata9x9-b18c384nbt-s6603587840-d252232394
+2024-09-28 16:01:38-0400: Loaded neural net with nnXLen 19 nnYLen 19
+2024-09-28 16:01:38-0400: Initializing board with boardXSize 19 boardYSize 19
+2024-09-28 16:01:38-0400: Loaded config C:\\Users\\chang\\Downloads\\katago-v1.15.1-opencl-windows-x64\\Golaxy_9D.cfg
+2024-09-28 16:01:38-0400: Loaded model C:\\Users\\chang\\Downloads\\kata9x9-b18c384nbt-20231025.bin.gz
+2024-09-28 16:01:38-0400: Model name: kata9x9-b18c384nbt-s6603587840-d252232394
+2024-09-28 16:01:38-0400: GTP ready, beginning main protocol loop
+2024-09-28 16:01:38-0400: Controller: list_commands
+2024-09-28 16:01:38-0400: = protocol_version
+name
+version
+known_command
+list_commands
+quit
+boardsize
+rectangular_boardsize
+clear_board
+set_position
+komi
+get_komi
+play
+undo
+kata-get-rules
+kata-set-rule
+kata-set-rules
+kata-get-models
+kata-get-param
+kata-set-param
+kata-list-params
+kgs-rules
+genmove
+kata-search
+kata-search_cancellable
+genmove_debug
+kata-search_debug
+clear_cache
+showboard
+fixed_handicap
+place_free_handicap
+set_free_handicap
+time_settings
+kgs-time_settings
+time_left
+kata-list_time_settings
+kata-time_settings
+final_score
+final_status_list
+loadsgf
+printsgf
+lz-genmove_analyze
+kata-genmove_analyze
+kata-search_analyze
+kata-search_analyze_cancellable
+lz-analyze
+kata-analyze
+kata-raw-nn
+kata-raw-human-nn
+cputime
+gomill-cpu_time
+kata-benchmark
+kata-debug-print-tc
+debug_moves
+stop
