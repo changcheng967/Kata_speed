@@ -3,8 +3,7 @@
 Kata_speed is a Go AI engine that is designed to be fast, strong, and easy to run. It supports most GPU and CPU configurations, making it accessible to a wide range of users. It uses a well-trained private b20 network and is inspired by KataGo.
 
 
-## Notice
-This branch is half archived which means will only updated if it's start to getting better. Use the default branch instead!
+
 ## OGS auto-account creator
 https://github.com/changcheng967/Online-Go.com-Account-Generator
 ## OGS Active Game Rank Updater(Leela Zero Strong)
