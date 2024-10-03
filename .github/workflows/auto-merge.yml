@@ -2,7 +2,7 @@ name: Auto Merge
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/1 * * * *' # Run every minute
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
@@ -17,12 +17,25 @@ jobs:
         run: |
           for i in {1..4}; do
             echo "Running auto-merge check #$i"
-            gh api repos/${{ github.repository }}/pulls | jq -r '.[] | select(.state=="open") | .head.sha' | while read sha; do
+            
+            # Get open PRs targeting the 'main' branch
+            gh api repos/${{ github.repository }}/pulls | jq -r '.[] | select(.state=="open" and .base.ref=="main") | .number' | while read pr_number; do
+              
+              # Get the latest commit SHA for the PR
+              sha=$(gh api repos/${{ github.repository }}/pulls/$pr_number | jq -r '.head.sha')
+              
+              # Check if all checks for the PR have passed
               checks=$(gh api repos/${{ github.repository }}/commits/$sha/check-runs)
               allChecksPassed=$(echo $checks | jq -r '.check_runs | map(select(.conclusion == "success")) | length == (. | length)')
+              
               if [ "$allChecksPassed" = "true" ]; then
-                gh pr merge $sha --squash --admin
+                # Merge the pull request by PR number
+                gh pr merge $pr_number --squash --admin
+                echo "Merged PR #$pr_number successfully!"
+              else
+                echo "Checks not yet passed for PR #$pr_number."
               fi
+              
             done
             sleep 15
           done
