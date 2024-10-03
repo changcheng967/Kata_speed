@@ -24,16 +24,16 @@ jobs:
               # Get the latest commit SHA for the PR
               sha=$(gh api repos/${{ github.repository }}/pulls/$pr_number | jq -r '.head.sha')
               
-              # Check if all checks for the PR have passed
+              # Get check-runs for the commit and exclude the "auto-merge" check itself
               checks=$(gh api repos/${{ github.repository }}/commits/$sha/check-runs)
-              allChecksPassed=$(echo $checks | jq -r '.check_runs | map(select(.conclusion == "success")) | length == (. | length)')
+              allChecksPassed=$(echo $checks | jq -r '.check_runs | map(select(.name != "auto-merge" and .conclusion == "success")) | length == (. | length - 1)')
               
               if [ "$allChecksPassed" = "true" ]; then
                 # Merge the pull request by PR number
                 gh pr merge $pr_number --squash --admin
                 echo "Merged PR #$pr_number successfully!"
               else
-                echo "Checks not yet passed for PR #$pr_number."
+                echo "Checks not yet passed for PR #$pr_number, or waiting for auto-merge."
               fi
               
             done
