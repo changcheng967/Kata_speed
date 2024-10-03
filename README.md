@@ -1,4 +1,4 @@
-[![Codacy Security Scan](https://github.com/changcheng967/Kata_speed/actions/workflows/codacy.yml/badge.svg)](https://github.com/changcheng967/Kata_speed/actions/workflows/codacy.yml)
+
 
 # Kata_speed
 
