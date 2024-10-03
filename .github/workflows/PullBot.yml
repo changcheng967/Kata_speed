@@ -1,0 +1,31 @@
+name: Auto Pull Request
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Extract branch name
+      - name: Get branch name
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      # Step 3: Create a pull request to merge into main
+      - name: Create Pull Request
+        run: |
+          gh pr create \
+            --title "Pull Bot" \
+            --body "Pull Bot" \
+            --base main \
+            --head ${{ env.BRANCH_NAME }} \
+            --repo ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
