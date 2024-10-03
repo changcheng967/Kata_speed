@@ -68,25 +68,33 @@ Instructions:
 Customize Paths:
 Replace \path\to\Kata_speed with the actual path to your Kata_speed repository.
 
+
 Save the Script:
 Save the above script as solve_cuda_issue.bat.
+
 
 Run the Script:
 Right-click on solve_cuda_issue.bat and select "Run as administrator".
 This script automates the process of resolving the unsupported CUDA issue.
 
+
 Network Sharing Site
 Visit our network sharing site to download pre-trained networks and share your own.
+
 
 Contributing
 We welcome contributions from the community. If you would like to contribute, please contact changcheng6541@gmail.com with your GitHub username and email.
 
+
 Please see our Code of Conduct before contributing.
+
 
 License
 Kata_speed is licensed under the MIT License.
 
+
 Contact
 If you have any questions or need assistance, feel free to reach out to changcheng6541@gmail.com.
+
 
 Thank you for using Kata_speed and helping us improve our software!
