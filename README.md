@@ -1,3 +1,5 @@
+[![Codacy Security Scan](https://github.com/changcheng967/Kata_speed/actions/workflows/codacy.yml/badge.svg)](https://github.com/changcheng967/Kata_speed/actions/workflows/codacy.yml)
+
 # Kata_speed
 
 Kata_speed is a Go AI engine that is designed to be fast, strong, and easy to run. It supports most GPU and CPU configurations, making it accessible to a wide range of users. It uses a well-trained private b20 network and is inspired by KataGo.
