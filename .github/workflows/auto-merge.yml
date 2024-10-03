@@ -16,7 +16,7 @@ jobs:
         with:
           script: |
             const pr = context.payload.pull_request;
-            const checks = await github.checks.listForRef({
+            const checks = await github.rest.checks.listForRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: pr.head.sha
