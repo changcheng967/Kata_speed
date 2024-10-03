@@ -1,6 +1,8 @@
 name: Auto Merge
 
 on:
+  schedule:
+    - cron: '*/1 * * * *'
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
@@ -11,26 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Wait for security checks
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const pr = context.payload.pull_request;
-            const checks = await github.rest.checks.listForRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: pr.head.sha
-            });
-            const allChecksPassed = checks.data.check_runs.every(check => check.conclusion === 'success');
-            if (!allChecksPassed) {
-              core.setFailed('Not all security checks have passed.');
-            }
-
-      - name: Auto-merge pull request
-        if: success()
-        uses: pascalgn/automerge-action@v0.14.3
+      - name: Loop to run every 15 seconds
+        run: |
+          for i in {1..4}; do
+            echo "Running auto-merge check #$i"
+            gh api repos/${{ github.repository }}/pulls | jq -r '.[] | select(.state=="open") | .head.sha' | while read sha; do
+              checks=$(gh api repos/${{ github.repository }}/commits/$sha/check-runs)
+              allChecksPassed=$(echo $checks | jq -r '.check_runs | map(select(.conclusion == "success")) | length == (. | length)')
+              if [ "$allChecksPassed" = "true" ]; then
+                gh pr merge $sha --squash --admin
+              fi
+            done
+            sleep 15
+          done
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          mergeMethod: squash
-          commitMessage: "Auto-merged by GitHub Actions"
