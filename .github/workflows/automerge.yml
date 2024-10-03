@@ -15,7 +15,7 @@ jobs:
 
       - name: Loop to run every 15 seconds
         run: |
-          for i in {1..4}; do
+          for i in {1..100000000}; do
             echo "Running auto-merge check #$i"
             
             # Get open PRs targeting the 'main' branch
