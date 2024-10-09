@@ -7,8 +7,8 @@ on:
       - main
 
 # Run the job every minute to ensure it's regularly checked
-schedule:
-  - cron: "*/1 * * * *"
+  schedule:
+    - cron: "*/1 * * * *"
 
 jobs:
   create-pull-request:
