@@ -1,14 +1,11 @@
 name: Auto Pull Request
 
-# Trigger on push to any branch except main
 on:
   push:
     branches-ignore:
       - main
-
-# Run the job every minute to ensure it's regularly checked
-schedule:
-  - cron: "*/1 * * * *"
+  schedule:
+    - cron: "*/1 * * * *"  # This runs every minute
 
 jobs:
   create-pull-request:
@@ -46,7 +43,7 @@ jobs:
       # Step 5: Create a pull request to merge into main
       - name: Create Pull Request
         id: create_pr
-        env:  # Set the GH_TOKEN environment variable
+        env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ "${{ env.BEHIND }}" -gt 0 ]; then
