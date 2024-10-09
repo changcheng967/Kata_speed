@@ -1,9 +1,14 @@
 name: Auto Pull Request
 
+# Trigger on push to any branch except main
 on:
   push:
     branches-ignore:
       - main
+
+# Run the job every minute to ensure it's regularly checked
+  schedule:
+    - cron: "*/1 * * * *"
 
 jobs:
   create-pull-request:
@@ -12,24 +17,36 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Step 2: Extract branch name
       - name: Get branch name
         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
 
-      # Step 3: Get latest commit message
+      # Step 3: Fetch main branch and check if current branch is behind
+      - name: Check if branch is behind main
+        run: |
+          git fetch origin main
+          BEHIND=$(git rev-list --count HEAD..origin/main)
+          if [ "$BEHIND" -gt 0 ]; then
+            echo "Branch is behind main by $BEHIND commits"
+          else
+            echo "Branch is up to date with main"
+          fi
+        continue-on-error: true
+
+      # Step 4: Get latest commit message
       - name: Get latest commit message
         id: commit_message
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
           echo "commit-message=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
-      # Step 4: Create a pull request to merge into main
+      # Step 5: Create a pull request to merge into main
       - name: Create Pull Request
         run: |
           gh pr create \
-            --title "Auto Pull Bot" \
+            --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
             --body "${{ env.commit-message }}" \
             --base main \
             --head ${{ env.BRANCH_NAME }} \
