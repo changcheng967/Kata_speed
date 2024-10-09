@@ -1,6 +1,25 @@
 version: 2
 updates:
+  # JavaScript (npm)
+  - package-ecosystem: npm
+    directory: "/" # Update package.json and other JS dependencies in the root
+    schedule:
+      interval: "daily"
+
+  # Python (pip)
   - package-ecosystem: pip
-    directory: "/"
+    directory: "/" # Update requirements.txt or setup.py in the root directory
+    schedule:
+      interval: "daily"
+
+  # C/C++ (Make)
+  - package-ecosystem: gomod
+    directory: "/" # Go mod may be used in Make-based projects. Change if not relevant
+    schedule:
+      interval: "daily"
+
+  # Other (if applicable; choose appropriate ecosystems)
+  - package-ecosystem: github-actions
+    directory: "/" # Automatically update GitHub Action workflows
     schedule:
       interval: "daily"
