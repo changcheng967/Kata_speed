@@ -51,8 +51,8 @@ jobs:
               --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
               --body "${{ env.commit-message }}" \
               --base main \
-              --head ${{ env.BRANCH_NAME }} \
-              --repo ${{ github.repository }})
+              --head "${{ env.BRANCH_NAME }}" \
+              --repo "${{ github.repository }}")
             echo "PR_OUTPUT=$PR_OUTPUT" >> $GITHUB_ENV
             echo "PR_URL=$(echo "$PR_OUTPUT" | grep -o 'http.*$')" >> $GITHUB_ENV
           else
@@ -64,7 +64,7 @@ jobs:
         run: |
           if [ -n "${{ env.PR_URL }}" ]; then
             PR_NUMBER=$(echo "${{ env.PR_OUTPUT }}" | grep -o '[0-9]*')
-            gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
+            gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
           else
             echo "No pull request created."
           fi
