@@ -7,8 +7,8 @@ on:
       - main
 
 # Run the job every minute to ensure it's regularly checked
-schedule:
-  - cron: "*/1 * * * *"
+  schedule:
+    - cron: "*/1 * * * *"
 
 jobs:
   create-pull-request:
@@ -28,7 +28,6 @@ jobs:
         run: |
           git fetch origin main
           BEHIND=$(git rev-list --count HEAD..origin/main)
-          echo "BEHIND=$BEHIND" >> $GITHUB_ENV
           if [ "$BEHIND" -gt 0 ]; then
             echo "Branch is behind main by $BEHIND commits"
           else
@@ -46,27 +45,19 @@ jobs:
       # Step 5: Create a pull request to merge into main
       - name: Create Pull Request
         run: |
-          if [ "${{ env.BEHIND }}" -gt 0 ]; then
-            PR_URL=$(gh pr create \
-              --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
-              --body "${{ env.commit-message }}" \
-              --base main \
-              --head ${{ env.BRANCH_NAME }} \
-              --repo ${{ github.repository }} \
-              --json url -q .url)
-            echo "PR_URL=$PR_URL" >> $GITHUB_ENV
-          else
-            echo "No need to create a pull request as the branch is up to date with main."
-          fi
+          PR_URL=$(gh pr create \
+            --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
+            --body "${{ env.commit-message }}" \
+            --base main \
+            --head ${{ env.BRANCH_NAME }} \
+            --repo ${{ github.repository }} \
+            --json url -q .url)
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
 
       # Step 6: Add 'github_actions' and 'Auto Merge' labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' labels
         run: |
-          if [ -n "${{ env.PR_URL }}" ]; then
-            PR_NUMBER=$(gh pr view $PR_URL --json number -q .number)
-            gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
-          else
-            echo "No pull request created."
-          fi
+          PR_NUMBER=$(gh pr view $PR_URL --json number -q .number)
+          gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
