@@ -7,8 +7,8 @@ on:
       - main
 
 # Run the job every minute to ensure it's regularly checked
-  schedule:
-    - cron: "*/1 * * * *"
+schedule:
+  - cron: "*/1 * * * *"
 
 jobs:
   create-pull-request:
@@ -46,6 +46,8 @@ jobs:
       # Step 5: Create a pull request to merge into main
       - name: Create Pull Request
         id: create_pr
+        env:  # Set the GH_TOKEN environment variable
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ "${{ env.BEHIND }}" -gt 0 ]; then
             PR_OUTPUT=$(gh pr create \
@@ -70,4 +72,4 @@ jobs:
             echo "No pull request created."
           fi
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
