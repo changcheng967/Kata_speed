@@ -23,7 +23,7 @@ jobs:
       - name: Get branch name
         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
 
-      # Step 3: Fetch main branch and check if current branch is behind
+      # Step 3: Fetch main branch and check if the current branch is behind
       - name: Check if branch is behind main
         run: |
           git fetch origin main
@@ -50,14 +50,12 @@ jobs:
             --body "${{ env.commit-message }}" \
             --base main \
             --head ${{ env.BRANCH_NAME }} \
-            --repo ${{ github.repository }} \
-            --json url -q .url)
+            --label "github_actions" \
+            --label "Auto Merge")
           echo "PR_URL=$PR_URL" >> $GITHUB_ENV
 
-      # Step 6: Add 'github_actions' and 'Auto Merge' labels to the pull request
-      - name: Add 'github_actions' and 'Auto Merge' labels
-        run: |
-          PR_NUMBER=$(gh pr view $PR_URL --json number -q .number)
-          gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
+      # Step 6: Log Pull Request URL
+      - name: Log Pull Request URL
+        run: echo "Created PR: $PR_URL"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
