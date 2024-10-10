@@ -1,4 +1,4 @@
-
+[![Auto Pull Request](https://github.com/changcheng967/Kata_speed/actions/workflows/AutoPullBot.yml/badge.svg)](https://github.com/changcheng967/Kata_speed/actions/workflows/AutoPullBot.yml)
 
 # Kata_speed
 
