@@ -1,14 +1,11 @@
 name: Auto Pull Request
 
-# Trigger on push to any branch except main
 on:
   push:
     branches-ignore:
       - main
-
-# Run the job every minute to ensure it's regularly checked
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "*/1 * * * *"  # This runs every minute
 
 jobs:
   create-pull-request:
@@ -28,6 +25,7 @@ jobs:
         run: |
           git fetch origin main
           BEHIND=$(git rev-list --count HEAD..origin/main)
+          echo "BEHIND=$BEHIND" >> $GITHUB_ENV
           if [ "$BEHIND" -gt 0 ]; then
             echo "Branch is behind main by $BEHIND commits"
           else
@@ -44,12 +42,31 @@ jobs:
 
       # Step 5: Create a pull request to merge into main
       - name: Create Pull Request
-        run: |
-          gh pr create \
-            --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
-            --body "${{ env.commit-message }}" \
-            --base main \
-            --head ${{ env.BRANCH_NAME }} \
-            --repo ${{ github.repository }}
+        id: create_pr
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ env.BEHIND }}" -gt 0 ]; then
+            PR_OUTPUT=$(gh pr create \
+              --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
+              --body "${{ env.commit-message }}" \
+              --base main \
+              --head "${{ env.BRANCH_NAME }}" \
+              --repo "${{ github.repository }}")
+            echo "PR_OUTPUT=$PR_OUTPUT" >> $GITHUB_ENV
+            echo "PR_URL=$(echo "$PR_OUTPUT" | grep -o 'http.*$')" >> $GITHUB_ENV
+          else
+            echo "No need to create a pull request as the branch is up to date with main."
+          fi
+
+      # Step 6: Add 'github_actions' and 'Auto Merge' labels to the pull request
+      - name: Add 'github_actions' and 'Auto Merge' labels
+        run: |
+          if [ -n "${{ env.PR_URL }}" ]; then
+            PR_NUMBER=$(echo "${{ env.PR_OUTPUT }}" | grep -o '[0-9]*')
+            gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
+          else
+            echo "No pull request created."
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
