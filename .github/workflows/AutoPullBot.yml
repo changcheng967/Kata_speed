@@ -43,22 +43,30 @@ jobs:
             exit 0
           fi
 
-      # Step 5: Get latest commit message
-      - name: Get latest commit message
-        id: commit_message
+      # Step 5: Check if a pull request already exists
+      - name: Check if pull request exists
+        id: check_pr
         run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
-          echo "commit-message=$COMMIT_MESSAGE" >> $GITHUB_ENV
+          PR_EXIST=$(gh pr list --head "${{ env.BRANCH_NAME }}" --base main --json number --jq '.[0].number')
+          if [ -n "$PR_EXIST" ]; then
+            echo "A pull request for branch '${{ env.BRANCH_NAME }}' already exists: https://github.com/${{ github.repository }}/pull/$PR_EXIST"
+            echo "PR_EXIST=$PR_EXIST" >> $GITHUB_ENV
+          else
+            echo "No existing pull request found."
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
 
-      # Step 6: Create a pull request to merge into main
-      - name: Create Pull Request
+      # Step 6: Create a pull request only if none exists
+      - name: Create Pull Request (if none exists)
+        if: steps.check_pr.outputs.PR_EXIST == ''
         id: create_pr
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
         run: |
           PR_OUTPUT=$(gh pr create \
             --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
-            --body "${{ env.commit-message }}" \
+            --body "Auto-generated PR to merge '${{ env.BRANCH_NAME }}' into 'main'" \
             --base main \
             --head "${{ env.BRANCH_NAME }}" \
             --repo "${{ github.repository }}" \
@@ -67,14 +75,14 @@ jobs:
           PR_URL=$(echo "$PR_OUTPUT" | grep -o 'http.*$')
           echo "PR_URL=$PR_URL" >> $GITHUB_ENV
 
-      # Step 7: Add 'github_actions' and 'Auto Merge' labels to the pull request
+      # Step 7: Add labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' labels
         run: |
-          if [ -n "${{ env.PR_URL }}" ]; then
-            PR_NUMBER=$(echo "${{ env.PR_URL }}" | grep -o '[0-9]*$')
-            gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
+          if [ -n "${{ env.PR_EXIST }}" ]; then
+            PR_NUMBER=${{ env.PR_EXIST }}
           else
-            echo "No pull request found or created."
+            PR_NUMBER=$(echo "${{ env.PR_URL }}" | grep -o '[0-9]*$')
           fi
+          gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
