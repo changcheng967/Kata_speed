@@ -54,13 +54,15 @@ jobs:
           else
             echo "No existing pull request found."
           fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
 
       # Step 6: Create a pull request only if none exists
       - name: Create Pull Request (if none exists)
         if: steps.check_pr.outputs.PR_EXIST == ''
         id: create_pr
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
         run: |
           PR_OUTPUT=$(gh pr create \
             --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
@@ -83,5 +85,4 @@ jobs:
           fi
           gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
