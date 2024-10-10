@@ -5,7 +5,7 @@ on:
     branches-ignore:
       - main
   schedule:
-    - cron: "*/1 * * * *"  # This runs every minute
+    - cron: "*/1 * * * *"  # Runs every minute
 
 jobs:
   create-pull-request:
@@ -16,11 +16,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Extract branch name
+      # Step 2: Extract branch name and sanitize it (remove newlines)
       - name: Get branch name
-        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | tr -d '\n' | tr -d '\r')
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      # Step 3: Fetch main branch and check if current branch is behind
+      # Step 3: Ensure we're not on the main branch
+      - name: Ensure we're not on main
+        run: |
+          if [ "${{ env.BRANCH_NAME }}" == "main" ]; then
+            echo "We are on the main branch, no pull request will be created."
+            exit 0
+          fi
+
+      # Step 4: Fetch main branch and check if current branch is behind
       - name: Check if branch is behind main
         run: |
           git fetch origin main
@@ -30,43 +40,41 @@ jobs:
             echo "Branch is behind main by $BEHIND commits"
           else
             echo "Branch is up to date with main"
+            exit 0
           fi
-        continue-on-error: true
 
-      # Step 4: Get latest commit message
+      # Step 5: Get latest commit message
       - name: Get latest commit message
         id: commit_message
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
           echo "commit-message=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
-      # Step 5: Create a pull request to merge into main
+      # Step 6: Create a pull request to merge into main
       - name: Create Pull Request
         id: create_pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ "${{ env.BEHIND }}" -gt 0 ]; then
-            PR_OUTPUT=$(gh pr create \
-              --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
-              --body "${{ env.commit-message }}" \
-              --base main \
-              --head "${{ env.BRANCH_NAME }}" \
-              --repo "${{ github.repository }}")
-            echo "PR_OUTPUT=$PR_OUTPUT" >> $GITHUB_ENV
-            echo "PR_URL=$(echo "$PR_OUTPUT" | grep -o 'http.*$')" >> $GITHUB_ENV
-          else
-            echo "No need to create a pull request as the branch is up to date with main."
-          fi
+          PR_OUTPUT=$(gh pr create \
+            --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
+            --body "${{ env.commit-message }}" \
+            --base main \
+            --head "${{ env.BRANCH_NAME }}" \
+            --repo "${{ github.repository }}" \
+            || echo "Pull request creation failed")
+          echo "PR_OUTPUT=$PR_OUTPUT" >> $GITHUB_ENV
+          PR_URL=$(echo "$PR_OUTPUT" | grep -o 'http.*$')
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
 
-      # Step 6: Add 'github_actions' and 'Auto Merge' labels to the pull request
+      # Step 7: Add 'github_actions' and 'Auto Merge' labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' labels
         run: |
           if [ -n "${{ env.PR_URL }}" ]; then
-            PR_NUMBER=$(echo "${{ env.PR_OUTPUT }}" | grep -o '[0-9]*')
+            PR_NUMBER=$(echo "${{ env.PR_URL }}" | grep -o '[0-9]*$')
             gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
           else
-            echo "No pull request created."
+            echo "No pull request found or created."
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
