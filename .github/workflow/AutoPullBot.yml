@@ -1,0 +1,93 @@
+name: Auto Pull Request
+
+on:
+  push:
+    branches-ignore:
+      - main  # Exclude 'main' branch from triggering the workflow
+  workflow_dispatch:  # This allows you to manually trigger the workflow for testing
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Extract branch name and log it
+      - name: Get branch name
+        run: |
+          echo "GITHUB_REF is $GITHUB_REF"
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | tr -d '\n' | tr -d '\r')
+          echo "BRANCH_NAME=$BRANCH_NAME"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      # Step 3: Ensure we're not on main
+      - name: Ensure we're not on main
+        run: |
+          echo "Checking if on main branch..."
+          if [ "${{ env.BRANCH_NAME }}" == "main" ]; then
+            echo "We are on the main branch, no pull request will be created."
+            exit 0
+          fi
+          echo "Not on the main branch, proceeding."
+
+      # Step 4: Fetch main branch and check if current branch is behind
+      - name: Check if branch is behind main
+        run: |
+          echo "Fetching the main branch to compare..."
+          git fetch origin main
+          BEHIND=$(git rev-list --count HEAD..origin/main)
+          echo "Branch is behind main by $BEHIND commits"
+          echo "BEHIND=$BEHIND" >> $GITHUB_ENV
+          if [ "$BEHIND" -le 0 ]; then
+            echo "Branch is up to date with main. No pull request will be created."
+            exit 0
+          fi
+
+      # Step 5: Check if a pull request already exists
+      - name: Check if pull request exists
+        id: check_pr
+        run: |
+          PR_EXIST=$(gh pr list --head "${{ env.BRANCH_NAME }}" --base main --json number --jq '.[0].number')
+          if [ -n "$PR_EXIST" ]; then
+            echo "A pull request for branch '${{ env.BRANCH_NAME }}' already exists: https://github.com/${{ github.repository }}/pull/$PR_EXIST"
+            echo "PR_EXIST=$PR_EXIST" >> $GITHUB_ENV
+          else
+            echo "No existing pull request found."
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
+
+      # Step 6: Create a pull request only if none exists
+      - name: Create Pull Request (if none exists)
+        if: steps.check_pr.outputs.PR_EXIST == ''
+        id: create_pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
+        run: |
+          echo "Creating a new pull request..."
+          PR_OUTPUT=$(gh pr create \
+            --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
+            --body "Auto-generated PR to merge '${{ env.BRANCH_NAME }}' into 'main'" \
+            --base main \
+            --head "${{ env.BRANCH_NAME }}" \
+            --repo "${{ github.repository }}" \
+            || echo "Pull request creation failed")
+          echo "PR_OUTPUT=$PR_OUTPUT" >> $GITHUB_ENV
+          PR_URL=$(echo "$PR_OUTPUT" | grep -o 'http.*$')
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
+
+      # Step 7: Add labels to the pull request
+      - name: Add 'github_actions' and 'Auto Merge' labels
+        run: |
+          echo "Adding labels to the pull request..."
+          if [ -n "${{ env.PR_EXIST }}" ]; then
+            PR_NUMBER=${{ env.PR_EXIST }}
+          else
+            PR_NUMBER=$(echo "${{ env.PR_URL }}" | grep -o '[0-9]*$')
+          fi
+          gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
