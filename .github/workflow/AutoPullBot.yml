@@ -1,10 +1,7 @@
 name: Auto Pull Request
 
 on:
-  push:
-    branches-ignore:
-      - main  # Exclude 'main' branch from triggering the workflow
-  workflow_dispatch:  # This allows you to manually trigger the workflow for testing
+  push:  # Trigger on every push to any branch (except 'main')
 
 jobs:
   create-pull-request:
@@ -15,34 +12,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Extract branch name and log it
+      # Step 2: Extract branch name and sanitize it (remove newlines)
       - name: Get branch name
         run: |
-          echo "GITHUB_REF is $GITHUB_REF"
           BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | tr -d '\n' | tr -d '\r')
-          echo "BRANCH_NAME=$BRANCH_NAME"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      # Step 3: Ensure we're not on main
+      # Step 3: Ensure we're not on the main branch
       - name: Ensure we're not on main
         run: |
-          echo "Checking if on main branch..."
           if [ "${{ env.BRANCH_NAME }}" == "main" ]; then
             echo "We are on the main branch, no pull request will be created."
             exit 0
           fi
-          echo "Not on the main branch, proceeding."
 
       # Step 4: Fetch main branch and check if current branch is behind
       - name: Check if branch is behind main
         run: |
-          echo "Fetching the main branch to compare..."
           git fetch origin main
           BEHIND=$(git rev-list --count HEAD..origin/main)
-          echo "Branch is behind main by $BEHIND commits"
           echo "BEHIND=$BEHIND" >> $GITHUB_ENV
-          if [ "$BEHIND" -le 0 ]; then
-            echo "Branch is up to date with main. No pull request will be created."
+          if [ "$BEHIND" -gt 0 ]; then
+            echo "Branch is behind main by $BEHIND commits"
+          else
+            echo "Branch is up to date with main"
             exit 0
           fi
 
@@ -67,7 +60,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
         run: |
-          echo "Creating a new pull request..."
           PR_OUTPUT=$(gh pr create \
             --title "Auto Pull Request - ${{ env.BRANCH_NAME }}" \
             --body "Auto-generated PR to merge '${{ env.BRANCH_NAME }}' into 'main'" \
@@ -82,7 +74,6 @@ jobs:
       # Step 7: Add labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' labels
         run: |
-          echo "Adding labels to the pull request..."
           if [ -n "${{ env.PR_EXIST }}" ]; then
             PR_NUMBER=${{ env.PR_EXIST }}
           else
