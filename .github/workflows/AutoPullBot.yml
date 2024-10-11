@@ -3,9 +3,7 @@ name: Auto Pull Request
 on:
   push:
     branches-ignore:
-      - main
-  schedule:
-    - cron: "*/1 * * * *"  # Runs every minute
+      - main  # Exclude 'main' branch from triggering the workflow
 
 jobs:
   create-pull-request:
