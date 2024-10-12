@@ -1,10 +1,10 @@
-name: Auto Pull Request
+name: Auto Pull Bot
 
 on:
   push:
     branches-ignore:
       - main  # Exclude 'main' branch from triggering the workflow
-  workflow_dispatch:  # This allows you to manually trigger the workflow for testing
+  workflow_dispatch:  # This allows manual triggering of the workflow for testing
 
 jobs:
   create-pull-request:
@@ -12,18 +12,28 @@ jobs:
 
     steps:
       # Step 1: Checkout the repository
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Extract branch name and log it
-      - name: Get branch name
+      # Step 2: Extract branch name and log it (adapted for PowerShell and Bash)
+      - name: Get Branch Name
+        shell: bash
         run: |
           echo "GITHUB_REF is $GITHUB_REF"
-          BRANCH_NAME=${GITHUB_REF#refs/heads/}  # Extract branch name
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+        if: runner.os != 'Windows'
+
+      - name: Get Branch Name (PowerShell)
+        shell: pwsh
+        run: |
+          $GITHUB_REF = $env:GITHUB_REF
+          $BRANCH_NAME = $GITHUB_REF -replace 'refs/heads/', ''
+          echo "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
+        if: runner.os == 'Windows'
 
       # Step 3: Ensure we're not on main
-      - name: Ensure we're not on main
+      - name: Ensure We're Not on Main
         run: |
           if [ "${{ env.BRANCH_NAME }}" == "main" ]; then
             echo "We are on the main branch, no pull request will be created."
@@ -32,7 +42,7 @@ jobs:
           echo "Not on the main branch, proceeding."
 
       # Step 4: Fetch main branch and check if current branch is behind
-      - name: Check if branch is behind main
+      - name: Check if Branch is Behind Main
         run: |
           git fetch origin main
           BEHIND=$(git rev-list --count HEAD..origin/main)
@@ -44,7 +54,7 @@ jobs:
           fi
 
       # Step 5: Check if a pull request already exists
-      - name: Check if pull request exists
+      - name: Check if Pull Request Exists
         id: check_pr
         run: |
           PR_EXIST=$(gh pr list --head "${{ env.BRANCH_NAME }}" --base main --json number --jq '.[0].number')
@@ -75,7 +85,7 @@ jobs:
           echo "PR_URL=$PR_URL" >> $GITHUB_ENV
 
       # Step 7: Add labels to the pull request
-      - name: Add 'github_actions' and 'Auto Merge' labels
+      - name: Add 'github_actions' and 'Auto Merge' Labels
         run: |
           echo "Adding labels to the pull request..."
           if [ -n "${{ env.PR_EXIST }}" ]; then
@@ -85,4 +95,4 @@ jobs:
           fi
           gh pr edit "$PR_NUMBER" --add-label "github_actions" --add-label "Auto Merge"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
