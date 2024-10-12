@@ -61,7 +61,7 @@ jobs:
             Write-Host "Failed to check for existing pull requests: $_"
           }
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AutoPullBot }}  # Use your secret here
 
       # Step 6: Create a pull request only if none exists
       - name: Create Pull Request (if none exists)
@@ -100,4 +100,4 @@ jobs:
             Write-Host "Failed to add labels to the pull request: $_"
           }
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AutoPullBot }}  # Use your secret here
