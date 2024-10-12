@@ -59,10 +59,9 @@ jobs:
             }
           } catch {
             Write-Host "Failed to check for existing pull requests: $_"
-            exit 1
           }
         env:
-          GH_TOKEN: ${{ secrets.AutoPullBot }}  # Use your secret here
+          GH_TOKEN: ${{ secrets.AUTOPULLBOT }}  # Use your secret here
 
       # Step 6: Create a pull request only if none exists
       - name: Create Pull Request (if none exists)
@@ -78,30 +77,23 @@ jobs:
               --base main `
               --head "$env:BRANCH_NAME" `
               --repo "$env:GITHUB_REPOSITORY"
-            Write-Host "Pull request created successfully."
             echo "PR_OUTPUT=$PR_OUTPUT" | Out-File -FilePath $env:GITHUB_ENV -Append
-            if ($PR_OUTPUT -match 'http.*$') {
-              $PR_URL = $matches[0]
-              echo "PR_URL=$PR_URL" | Out-File -FilePath $env:GITHUB_ENV -Append
-            }
+            $PR_URL = $PR_OUTPUT -match 'http.*$' | Out-String
+            echo "PR_URL=$PR_URL" | Out-File -FilePath $env:GITHUB_ENV -Append
           } catch {
             Write-Host "Pull request creation failed: $_"
-            exit 1
           }
 
       # Step 7: Add labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' Labels
-        if: steps.create_pr.outputs.PR_OUTPUT != ''
         shell: powershell
         run: |
           try {
             Write-Host "Adding labels to the pull request..."
-            $PR_NUMBER = if ($env:PR_EXIST) { $env:PR_EXIST } else { $PR_URL -match '[0-9]+' | Out-String }
+            $PR_NUMBER = if ($env:PR_EXIST) { $env:PR_EXIST } else { $env:PR_URL -match '[0-9]+' | Out-String }
             gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
-            Write-Host "Labels added successfully."
           } catch {
             Write-Host "Failed to add labels to the pull request: $_"
-            exit 1
           }
         env:
-          GH_TOKEN: ${{ secrets.AutoPullBot }}  # Use your secret here
+          GH_TOKEN: ${{ secrets.AUTOPULLBOT }}  # Use your secret here
