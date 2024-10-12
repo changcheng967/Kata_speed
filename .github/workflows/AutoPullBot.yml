@@ -55,7 +55,7 @@ jobs:
             echo "No existing pull request found."
           fi
         env:
-          GH_TOKEN: ${{ secrets.AUTOPULLBOT }}  # Use your secret here
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
 
       # Step 6: Create a pull request only if none exists
       - name: Create Pull Request (if none exists)
@@ -72,6 +72,8 @@ jobs:
           echo "PR_OUTPUT=$PR_OUTPUT" >> $GITHUB_ENV
           PR_URL=$(echo $PR_OUTPUT | grep -o 'http.*$')
           echo "PR_URL=$PR_URL" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
 
       # Step 7: Add labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' Labels
@@ -80,4 +82,4 @@ jobs:
           PR_NUMBER=$(if [ -n "$PR_EXIST" ]; then echo "$PR_EXIST"; else echo "$PR_URL" | grep -o '[0-9]\+'; fi)
           gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
         env:
-          GH_TOKEN: ${{ secrets.AUTOPULLBOT }}  # Use your secret here
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
