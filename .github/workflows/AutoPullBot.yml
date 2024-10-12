@@ -47,13 +47,18 @@ jobs:
       # Step 5: Check if a pull request already exists
       - name: Check if Pull Request Exists
         id: check_pr
+        shell: powershell
         run: |
-          $PR_EXIST = gh pr list --head $env:BRANCH_NAME --base main --json number --jq '.[0].number'
-          if ($PR_EXIST) {
-            Write-Host "A pull request for branch '$env:BRANCH_NAME' already exists: https://github.com/$($env:GITHUB_REPOSITORY)/pull/$PR_EXIST"
-            echo "PR_EXIST=$PR_EXIST" | Out-File -FilePath $env:GITHUB_ENV -Append
-          } else {
-            Write-Host "No existing pull request found."
+          try {
+            $PR_EXIST = gh pr list --head $env:BRANCH_NAME --base main --json number --jq '.[0].number'
+            if ($PR_EXIST) {
+              Write-Host "A pull request for branch '$env:BRANCH_NAME' already exists: https://github.com/$($env:GITHUB_REPOSITORY)/pull/$PR_EXIST"
+              echo "PR_EXIST=$PR_EXIST" | Out-File -FilePath $env:GITHUB_ENV -Append
+            } else {
+              Write-Host "No existing pull request found."
+            }
+          } catch {
+            Write-Host "Failed to check for existing pull requests: $_"
           }
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,28 +67,37 @@ jobs:
       - name: Create Pull Request (if none exists)
         if: steps.check_pr.outputs.PR_EXIST == ''
         id: create_pr
+        shell: powershell
         run: |
-          Write-Host "Creating a new pull request..."
-          $PR_OUTPUT = gh pr create `
-            --title "Auto Pull Request - $env:BRANCH_NAME" `
-            --body "Auto-generated PR to merge '$env:BRANCH_NAME' into 'main'" `
-            --base main `
-            --head "$env:BRANCH_NAME" `
-            --repo "$env:GITHUB_REPOSITORY" `
-            || Write-Host "Pull request creation failed"
-          echo "PR_OUTPUT=$PR_OUTPUT" | Out-File -FilePath $env:GITHUB_ENV -Append
-          $PR_URL = $PR_OUTPUT -match 'http.*$' | Out-String
-          echo "PR_URL=$PR_URL" | Out-File -FilePath $env:GITHUB_ENV -Append
+          try {
+            Write-Host "Creating a new pull request..."
+            $PR_OUTPUT = gh pr create `
+              --title "Auto Pull Request - $env:BRANCH_NAME" `
+              --body "Auto-generated PR to merge '$env:BRANCH_NAME' into 'main'" `
+              --base main `
+              --head "$env:BRANCH_NAME" `
+              --repo "$env:GITHUB_REPOSITORY"
+            echo "PR_OUTPUT=$PR_OUTPUT" | Out-File -FilePath $env:GITHUB_ENV -Append
+            $PR_URL = $PR_OUTPUT -match 'http.*$' | Out-String
+            echo "PR_URL=$PR_URL" | Out-File -FilePath $env:GITHUB_ENV -Append
+          } catch {
+            Write-Host "Pull request creation failed: $_"
+          }
 
       # Step 7: Add labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' Labels
+        shell: powershell
         run: |
-          Write-Host "Adding labels to the pull request..."
-          if ($env:PR_EXIST) {
-            $PR_NUMBER = $env:PR_EXIST
-          } else {
-            $PR_NUMBER = $env:PR_URL -match '[0-9]+$' | Out-String
+          try {
+            Write-Host "Adding labels to the pull request..."
+            if ($env:PR_EXIST) {
+              $PR_NUMBER = $env:PR_EXIST
+            } else {
+              $PR_NUMBER = $env:PR_URL -match '[0-9]+$' | Out-String
+            }
+            gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
+          } catch {
+            Write-Host "Failed to add labels to the pull request: $_"
           }
-          gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
