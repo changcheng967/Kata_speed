@@ -4,11 +4,11 @@ on:
   push:
     branches-ignore:
       - main  # Exclude 'main' branch from triggering the workflow
-  workflow_dispatch:  # This allows manual triggering of the workflow for testing
+  workflow_dispatch:  # Allows manual triggering for testing
 
 jobs:
   create-pull-request:
-    runs-on: self-hosted  # Specify to use your self-hosted Windows runner
+    runs-on: self-hosted  # Use your self-hosted Windows runner
 
     steps:
       # Step 1: Checkout the repository
@@ -27,20 +27,20 @@ jobs:
       - name: Ensure We're Not on Main
         run: |
           if ($env:BRANCH_NAME -eq "main") {
-            Write-Host "We are on the main branch, no pull request will be created."
+            Write-Host "We are on the main branch; no pull request will be created."
             exit 0
           }
-          Write-Host "Not on the main branch, proceeding."
+          Write-Host "Not on the main branch; proceeding."
 
-      # Step 4: Fetch main branch and check if current branch is behind
+      # Step 4: Fetch main branch and check if the current branch is behind
       - name: Check if Branch is Behind Main
         run: |
           git fetch origin main
           $BEHIND = git rev-list --count HEAD..origin/main
-          Write-Host "Branch is behind main by $BEHIND commits"
+          Write-Host "Branch is behind main by $BEHIND commits."
           echo "BEHIND=$BEHIND" | Out-File -FilePath $env:GITHUB_ENV -Append
           if ($BEHIND -le 0) {
-            Write-Host "Branch is up to date with main. No pull request will be created."
+            Write-Host "Branch is up to date with main; no pull request will be created."
             exit 0
           }
 
@@ -90,11 +90,7 @@ jobs:
         run: |
           try {
             Write-Host "Adding labels to the pull request..."
-            if ($env:PR_EXIST) {
-              $PR_NUMBER = $env:PR_EXIST
-            } else {
-              $PR_NUMBER = $env:PR_URL -match '[0-9]+$' | Out-String
-            }
+            $PR_NUMBER = if ($env:PR_EXIST) { $env:PR_EXIST } else { $env:PR_URL -match '[0-9]+' | Out-String }
             gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
           } catch {
             Write-Host "Failed to add labels to the pull request: $_"
