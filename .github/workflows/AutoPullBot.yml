@@ -8,58 +8,52 @@ on:
 
 jobs:
   create-pull-request:
-    runs-on: self-hosted  # Use your self-hosted Windows runner
+    runs-on: ubuntu-latest  # Use GitHub-hosted Ubuntu runner
 
     steps:
       # Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Extract branch name and log it (PowerShell for Windows)
-      - name: Get Branch Name (PowerShell)
-        shell: powershell
+      # Step 2: Extract branch name and log it (Bash for Ubuntu)
+      - name: Get Branch Name
         run: |
-          $GITHUB_REF = $env:GITHUB_REF
-          $BRANCH_NAME = $GITHUB_REF -replace 'refs/heads/', ''
-          echo "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
+          GITHUB_REF=${{ github.ref }}
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       # Step 3: Ensure we're not on main
       - name: Ensure We're Not on Main
         run: |
-          if ($env:BRANCH_NAME -eq "main") {
-            Write-Host "We are on the main branch; no pull request will be created."
+          if [ "$BRANCH_NAME" = "main" ]; then
+            echo "We are on the main branch; no pull request will be created."
             exit 0
-          }
-          Write-Host "Not on the main branch; proceeding."
+          fi
+          echo "Not on the main branch; proceeding."
 
       # Step 4: Fetch main branch and check if the current branch is behind
       - name: Check if Branch is Behind Main
         run: |
           git fetch origin main
-          $BEHIND = git rev-list --count HEAD..origin/main
-          Write-Host "Branch is behind main by $BEHIND commits."
-          echo "BEHIND=$BEHIND" | Out-File -FilePath $env:GITHUB_ENV -Append
-          if ($BEHIND -le 0) {
-            Write-Host "Branch is up to date with main; no pull request will be created."
+          BEHIND=$(git rev-list --count HEAD..origin/main)
+          echo "Branch is behind main by $BEHIND commits."
+          echo "BEHIND=$BEHIND" >> $GITHUB_ENV
+          if [ "$BEHIND" -le 0 ]; then
+            echo "Branch is up to date with main; no pull request will be created."
             exit 0
-          }
+          fi
 
       # Step 5: Check if a pull request already exists
       - name: Check if Pull Request Exists
         id: check_pr
-        shell: powershell
         run: |
-          try {
-            $PR_EXIST = gh pr list --head $env:BRANCH_NAME --base main --json number --jq '.[0].number'
-            if ($PR_EXIST) {
-              Write-Host "A pull request for branch '$env:BRANCH_NAME' already exists: https://github.com/$($env:GITHUB_REPOSITORY)/pull/$PR_EXIST"
-              echo "PR_EXIST=$PR_EXIST" | Out-File -FilePath $env:GITHUB_ENV -Append
-            } else {
-              Write-Host "No existing pull request found."
-            }
-          } catch {
-            Write-Host "Failed to check for existing pull requests: $_"
-          }
+          PR_EXIST=$(gh pr list --head $BRANCH_NAME --base main --json number --jq '.[0].number')
+          if [ -n "$PR_EXIST" ]; then
+            echo "A pull request for branch '$BRANCH_NAME' already exists: https://github.com/${{ github.repository }}/pull/$PR_EXIST"
+            echo "PR_EXIST=$PR_EXIST" >> $GITHUB_ENV
+          else
+            echo "No existing pull request found."
+          fi
         env:
           GH_TOKEN: ${{ secrets.AUTOPULLBOT }}  # Use your secret here
 
@@ -67,33 +61,23 @@ jobs:
       - name: Create Pull Request (if none exists)
         if: steps.check_pr.outputs.PR_EXIST == ''
         id: create_pr
-        shell: powershell
         run: |
-          try {
-            Write-Host "Creating a new pull request..."
-            $PR_OUTPUT = gh pr create `
-              --title "Auto Pull Request - $env:BRANCH_NAME" `
-              --body "Auto-generated PR to merge '$env:BRANCH_NAME' into 'main'" `
-              --base main `
-              --head "$env:BRANCH_NAME" `
-              --repo "$env:GITHUB_REPOSITORY"
-            echo "PR_OUTPUT=$PR_OUTPUT" | Out-File -FilePath $env:GITHUB_ENV -Append
-            $PR_URL = $PR_OUTPUT -match 'http.*$' | Out-String
-            echo "PR_URL=$PR_URL" | Out-File -FilePath $env:GITHUB_ENV -Append
-          } catch {
-            Write-Host "Pull request creation failed: $_"
-          }
+          echo "Creating a new pull request..."
+          PR_OUTPUT=$(gh pr create \
+            --title "Auto Pull Request - $BRANCH_NAME" \
+            --body "Auto-generated PR to merge '$BRANCH_NAME' into 'main'" \
+            --base main \
+            --head "$BRANCH_NAME" \
+            --repo "${{ github.repository }}")
+          echo "PR_OUTPUT=$PR_OUTPUT" >> $GITHUB_ENV
+          PR_URL=$(echo $PR_OUTPUT | grep -o 'http.*$')
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
 
       # Step 7: Add labels to the pull request
       - name: Add 'github_actions' and 'Auto Merge' Labels
-        shell: powershell
         run: |
-          try {
-            Write-Host "Adding labels to the pull request..."
-            $PR_NUMBER = if ($env:PR_EXIST) { $env:PR_EXIST } else { $env:PR_URL -match '[0-9]+' | Out-String }
-            gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
-          } catch {
-            Write-Host "Failed to add labels to the pull request: $_"
-          }
+          echo "Adding labels to the pull request..."
+          PR_NUMBER=$(if [ -n "$PR_EXIST" ]; then echo "$PR_EXIST"; else echo "$PR_URL" | grep -o '[0-9]\+'; fi)
+          gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
         env:
           GH_TOKEN: ${{ secrets.AUTOPULLBOT }}  # Use your secret here
