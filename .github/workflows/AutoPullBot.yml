@@ -1,4 +1,4 @@
-name: Auto Pull Request Creator
+name: Auto Pull Bot
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Extract branch name and log it (adapted for PowerShell and Bash)
+      # Step 2: Extract branch name and log it (PowerShell for Windows, Bash for Linux/macOS)
       - name: Get Branch Name (Bash)
         shell: bash
         run: |
