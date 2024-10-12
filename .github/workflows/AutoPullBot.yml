@@ -75,11 +75,17 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
 
-      # Step 7: Add labels to the pull request
-      - name: Add 'github_actions' and 'Auto Merge' Labels
+      # Step 7: Add labels to the pull request (one at a time)
+      - name: Add 'github_actions' Label
         run: |
-          echo "Adding labels to the pull request..."
           PR_NUMBER=$(if [ -n "$PR_EXIST" ]; then echo "$PR_EXIST"; else echo "$PR_URL" | grep -o '[0-9]\+'; fi)
-          gh pr edit $PR_NUMBER --add-label "github_actions" --add-label "Auto Merge"
+          gh pr edit $PR_NUMBER --add-label "github_actions"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
+
+      - name: Add 'Auto Merge' Label
+        run: |
+          PR_NUMBER=$(if [ -n "$PR_EXIST" ]; then echo "$PR_EXIST"; else echo "$PR_URL" | grep -o '[0-9]\+'; fi)
+          gh pr edit $PR_NUMBER --add-label "Auto Merge"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
