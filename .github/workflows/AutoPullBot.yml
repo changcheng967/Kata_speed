@@ -1,4 +1,4 @@
-name: Auto Pull Bot
+name: Auto Pull Request Creator
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       # Step 2: Extract branch name and log it (adapted for PowerShell and Bash)
-      - name: Get Branch Name
+      - name: Get Branch Name (Bash)
         shell: bash
         run: |
           echo "GITHUB_REF is $GITHUB_REF"
@@ -25,7 +25,7 @@ jobs:
         if: runner.os != 'Windows'
 
       - name: Get Branch Name (PowerShell)
-        shell: pwsh
+        shell: powershell
         run: |
           $GITHUB_REF = $env:GITHUB_REF
           $BRANCH_NAME = $GITHUB_REF -replace 'refs/heads/', ''
