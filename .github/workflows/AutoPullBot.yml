@@ -97,13 +97,13 @@ jobs:
       # Step 8: Assign the milestone to the pull request
       - name: Assign Milestone to Pull Request
         run: |
-          echo "Assigning milestone 'V2.0' to the pull request..."
+          echo "Assigning milestone 'V1.6' to the pull request..."
           if [ -n "${{ env.PR_EXIST }}" ]; then
             PR_NUMBER=${{ env.PR_EXIST }}
           else
             PR_NUMBER=$(echo "${{ env.PR_URL }}" | grep -o '[0-9]*$')
           fi
-          gh pr edit "$PR_NUMBER" -m "v2.0"
+          gh pr edit "$PR_NUMBER" -m "v1.6"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set the GH_TOKEN
 
