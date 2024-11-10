@@ -1,0 +1,515 @@
+2024-11-09 20:19:55-0500: Running with following config:
+allowRectangleProb = 0.50
+allowResignation = true
+bSizeRelProbs = 1,1,8
+bSizes = 7,8,9
+chosenMovePrune = 1
+chosenMoveSubtract = 0
+chosenMoveTemperature = 0.2
+chosenMoveTemperatureEarly = 0.5
+chosenMoveTemperatureHalflife = 19
+cpuctExploration = 1.1
+cpuctExplorationLog = 0.0
+cudaUseFP16 = auto
+cudaUseNHWC = auto
+drawEquivalentWinsForWhite = 0.5
+dynamicScoreCenterScale = 0.50
+dynamicScoreCenterZeroWeight = 0.25
+dynamicScoreUtilityFactor = 0.25
+fpuReductionMax = 0.2
+handicapCompensateKomiProb = 1.0
+handicapProb = 0.0
+hasButtons = false,false,true
+koRules = SIMPLE,POSITIONAL,SITUATIONAL
+komiAuto = True
+lcbStdevs = 5.0
+logGamesEvery = 10
+logMoves = false
+logSearchInfo = false
+logToStdout = true
+maxMovesPerGame = 1600
+maxVisits = 150
+minVisitPropForLCB = 0.15
+multiStoneSuicideLegals = false,true
+nnCacheSizePowerOfTwo = 21
+nnMaxBatchSize = 128
+nnMutexPoolSizePowerOfTwo = 15
+nnRandomize = true
+noResultUtilityForWhite = 0.0
+numGameThreads = 128
+numGamesPerGating = 200
+numNNServerThreadsPerModel = 1
+numSearchThreads = 1
+numVirtualLossesPerThread = 1
+policyOptimism = 1.0
+resignConsecTurns = 5
+resignThreshold = -0.90
+rootEndingBonusPoints = 0.5
+rootFpuReductionMax = 0.1
+rootPolicyOptimism = 0.0
+rootPruneUselessMoves = true
+scoringRules = AREA,TERRITORY
+staticScoreUtilityFactor = 0.00
+subtreeValueBiasFactor = 0.35
+subtreeValueBiasWeightExponent = 0.8
+taxRules = NONE,NONE,SEKI,SEKI,ALL
+uncertaintyCoeff = 0.25
+uncertaintyExponent = 1.0
+useGraphSearch = true
+useLcbForSelection = true
+useNonBuggyLcb = true
+useUncertainty = true
+valueWeightExponent = 0.5
+winLossUtilityFactor = 1.0
+
+2024-11-09 20:19:55-0500: Gatekeeper Engine starting...
+2024-11-09 20:19:55-0500: Git revision: 7939e2c3eb43df04e08de8c166889c6d5e937bfa
+2024-11-09 20:19:55-0500: Required candidate win prop: 0.5
+2024-11-09 20:19:55-0500: Loaded all config stuff, watching for new neural nets in C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/modelstobetested/
+2024-11-09 20:19:55-0500: Found new candidate neural net kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:55-0500: nnRandSeed0 = 12675822190027775814
+2024-11-09 20:19:55-0500: After dedups: nnModelFile0 = C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\training\modelstobetested\kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz useFP16 auto useNHWC auto
+2024-11-09 20:19:55-0500: Initializing neural net buffer to be size 9 * 9 allowing smaller boards
+2024-11-09 20:19:56-0500: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.6.65)
+2024-11-09 20:19:56-0500: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator
+2024-11-09 20:19:56-0500: Found OpenCL Platform 1: Intel(R) OpenCL Graphics (Intel(R) Corporation) (OpenCL 3.0 )
+2024-11-09 20:19:56-0500: Found 1 device(s) on platform 1 with type CPU or GPU or Accelerator
+2024-11-09 20:19:56-0500: Found OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) (score 11000300)
+2024-11-09 20:19:56-0500: Found OpenCL Device 1: Intel(R) UHD Graphics (Intel(R) Corporation) (score 6000300)
+2024-11-09 20:19:56-0500: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 3.0 CUDA 12.6.65)
+2024-11-09 20:19:56-0500: Using OpenCL Device 0: NVIDIA GeForce RTX 4060 Laptop GPU (NVIDIA Corporation) OpenCL 3.0 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32)
+2024-11-09 20:19:56-0500: Loaded tuning parameters from: C:\Users\chang\Downloads\katago-v1.15.1-opencl-windows-x64/KataGoData/opencltuning/tune11_gpuNVIDIAGeForceRTX4060LaptopGPU_x19_y19_c384_mv14.txt
+2024-11-09 20:19:56-0500: OpenCL backend thread 0: Model version 14
+2024-11-09 20:19:56-0500: OpenCL backend thread 0: Model name: kata1-b18c384nbt-s9937771520-d4300882049
+2024-11-09 20:19:57-0500: OpenCL backend thread 0: FP16Storage true FP16Compute false FP16TensorCores true FP16TensorCoresFor1x1 false
+2024-11-09 20:19:57-0500: Loaded candidate neural net kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz from: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\training\modelstobetested\kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: nnRandSeed0 = 17664871603734118393
+2024-11-09 20:19:57-0500: After dedups: nnModelFile0 = /dev/null useFP16 auto useNHWC auto
+2024-11-09 20:19:57-0500: Initializing neural net buffer to be size 9 * 9 allowing smaller boards
+2024-11-09 20:19:57-0500: Loaded accepted neural net random from: /dev/null
+2024-11-09 20:19:57-0500: Data write loop starting for neural net: random vs kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 5 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 8 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 2 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 3 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 21 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 26 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 7 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 33 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 1 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 9 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 10 games
+2024-11-09 20:19:57-0500: Game loop thread 10 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 11 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 52 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 13 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 60 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 65 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 67 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 17 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 18 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 75 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 20 games
+2024-11-09 20:19:57-0500: Game loop thread 20 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 92 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 23 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 22 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 24 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 25 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 0 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 27 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 28 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 29 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 30 games
+2024-11-09 20:19:57-0500: Game loop thread 31 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 30 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 32 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 6 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 34 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 35 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 36 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 37 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 38 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 39 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 40 games
+2024-11-09 20:19:57-0500: Game loop thread 40 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 41 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 42 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 43 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 44 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 45 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 46 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 48 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 47 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 50 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 50 games
+2024-11-09 20:19:57-0500: Game loop thread 49 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 51 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 53 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 54 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 12 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 55 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 56 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 57 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 59 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 58 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 60 games
+2024-11-09 20:19:57-0500: Game loop thread 14 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 61 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 62 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 63 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 64 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 15 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 66 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 68 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 16 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 69 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 70 games
+2024-11-09 20:19:57-0500: Game loop thread 70 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 71 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 72 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 73 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 74 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 76 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 77 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 19 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 78 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 79 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 80 games
+2024-11-09 20:19:57-0500: Game loop thread 80 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 81 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 82 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 83 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 84 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 85 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 86 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 87 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 88 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 89 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 90 games
+2024-11-09 20:19:57-0500: Game loop thread 90 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 91 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 4 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 93 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 94 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 95 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 96 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 97 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 98 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 99 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 100 games
+2024-11-09 20:19:57-0500: Game loop thread 100 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 101 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 102 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 103 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 104 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 107 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 108 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 109 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 110 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 105 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 110 games
+2024-11-09 20:19:57-0500: Game loop thread 106 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 111 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 112 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 117 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 118 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 119 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 120 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 121 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 122 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 127 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Started 120 games
+2024-11-09 20:19:57-0500: Game loop thread 115 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 114 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 113 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 123 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 125 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 116 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 124 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:19:57-0500: Game loop thread 126 starting game testing candidate: kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:24:17-0500: Running with following config:
+allowRectangleProb = 0.50
+allowResignation = true
+bSizeRelProbs = 1,1,8
+bSizes = 7,8,9
+chosenMovePrune = 1
+chosenMoveSubtract = 0
+chosenMoveTemperature = 0.2
+chosenMoveTemperatureEarly = 0.5
+chosenMoveTemperatureHalflife = 19
+cpuctExploration = 1.1
+cpuctExplorationLog = 0.0
+cudaUseFP16 = auto
+cudaUseNHWC = auto
+drawEquivalentWinsForWhite = 0.5
+dynamicScoreCenterScale = 0.50
+dynamicScoreCenterZeroWeight = 0.25
+dynamicScoreUtilityFactor = 0.25
+fpuReductionMax = 0.2
+handicapCompensateKomiProb = 1.0
+handicapProb = 0.0
+hasButtons = false,false,true
+koRules = SIMPLE,POSITIONAL,SITUATIONAL
+komiAuto = True
+lcbStdevs = 5.0
+logGamesEvery = 10
+logMoves = false
+logSearchInfo = false
+logToStdout = true
+maxMovesPerGame = 1600
+maxVisits = 150
+minVisitPropForLCB = 0.15
+multiStoneSuicideLegals = false,true
+nnCacheSizePowerOfTwo = 21
+nnMaxBatchSize = 128
+nnMutexPoolSizePowerOfTwo = 15
+nnRandomize = true
+noResultUtilityForWhite = 0.0
+numGameThreads = 128
+numGamesPerGating = 200
+numNNServerThreadsPerModel = 1
+numSearchThreads = 1
+numVirtualLossesPerThread = 1
+policyOptimism = 1.0
+resignConsecTurns = 5
+resignThreshold = -0.90
+rootEndingBonusPoints = 0.5
+rootFpuReductionMax = 0.1
+rootPolicyOptimism = 0.0
+rootPruneUselessMoves = true
+scoringRules = AREA,TERRITORY
+staticScoreUtilityFactor = 0.00
+subtreeValueBiasFactor = 0.35
+subtreeValueBiasWeightExponent = 0.8
+taxRules = NONE,NONE,SEKI,SEKI,ALL
+uncertaintyCoeff = 0.25
+uncertaintyExponent = 1.0
+useGraphSearch = true
+useLcbForSelection = true
+useNonBuggyLcb = true
+useUncertainty = true
+valueWeightExponent = 0.5
+winLossUtilityFactor = 1.0
+
+2024-11-09 20:24:17-0500: Gatekeeper Engine starting...
+2024-11-09 20:24:17-0500: Git revision: 7939e2c3eb43df04e08de8c166889c6d5e937bfa
+2024-11-09 20:24:17-0500: Required candidate win prop: 0.5
+2024-11-09 20:24:17-0500: Loaded all config stuff, watching for new neural nets in C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/modelstobetested/
+2024-11-09 20:24:17-0500: Found new candidate neural net kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:24:17-0500: Rejecting kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz automatically since older than best accepted model
+2024-11-09 20:24:17-0500: Moving C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\training\modelstobetested\kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz to C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/rejectedmodels/kata1-b18c384nbt-s9937771520-d4300882049 (1).bin.gz
+2024-11-09 20:24:17-0500: All cleaned up, quitting
+2024-11-09 20:29:49-0500: Running with following config:
+allowRectangleProb = 0.50
+allowResignation = true
+bSizeRelProbs = 1,1,8
+bSizes = 7,8,9
+chosenMovePrune = 1
+chosenMoveSubtract = 0
+chosenMoveTemperature = 0.2
+chosenMoveTemperatureEarly = 0.5
+chosenMoveTemperatureHalflife = 19
+cpuctExploration = 1.1
+cpuctExplorationLog = 0.0
+cudaUseFP16 = auto
+cudaUseNHWC = auto
+drawEquivalentWinsForWhite = 0.5
+dynamicScoreCenterScale = 0.50
+dynamicScoreCenterZeroWeight = 0.25
+dynamicScoreUtilityFactor = 0.25
+fpuReductionMax = 0.2
+handicapCompensateKomiProb = 1.0
+handicapProb = 0.0
+hasButtons = false,false,true
+koRules = SIMPLE,POSITIONAL,SITUATIONAL
+komiAuto = True
+lcbStdevs = 5.0
+logGamesEvery = 10
+logMoves = false
+logSearchInfo = false
+logToStdout = true
+maxMovesPerGame = 1600
+maxVisits = 150
+minVisitPropForLCB = 0.15
+multiStoneSuicideLegals = false,true
+nnCacheSizePowerOfTwo = 21
+nnMaxBatchSize = 128
+nnMutexPoolSizePowerOfTwo = 15
+nnRandomize = true
+noResultUtilityForWhite = 0.0
+numGameThreads = 128
+numGamesPerGating = 200
+numNNServerThreadsPerModel = 1
+numSearchThreads = 1
+numVirtualLossesPerThread = 1
+policyOptimism = 1.0
+resignConsecTurns = 5
+resignThreshold = -0.90
+rootEndingBonusPoints = 0.5
+rootFpuReductionMax = 0.1
+rootPolicyOptimism = 0.0
+rootPruneUselessMoves = true
+scoringRules = AREA,TERRITORY
+staticScoreUtilityFactor = 0.00
+subtreeValueBiasFactor = 0.35
+subtreeValueBiasWeightExponent = 0.8
+taxRules = NONE,NONE,SEKI,SEKI,ALL
+uncertaintyCoeff = 0.25
+uncertaintyExponent = 1.0
+useGraphSearch = true
+useLcbForSelection = true
+useNonBuggyLcb = true
+useUncertainty = true
+valueWeightExponent = 0.5
+winLossUtilityFactor = 1.0
+
+2024-11-09 20:29:49-0500: Gatekeeper Engine starting...
+2024-11-09 20:29:49-0500: Git revision: 7939e2c3eb43df04e08de8c166889c6d5e937bfa
+2024-11-09 20:29:49-0500: Required candidate win prop: 0.5
+2024-11-09 20:29:49-0500: Loaded all config stuff, watching for new neural nets in C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/modelstobetested/
+2024-11-09 20:29:49-0500: Found new candidate neural net kata1-b18c384nbt-s9967423488-d4308703317.bin.gz
+2024-11-09 20:29:49-0500: Rejecting kata1-b18c384nbt-s9967423488-d4308703317.bin.gz automatically since older than best accepted model
+2024-11-09 20:29:49-0500: Moving C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\training\modelstobetested\kata1-b18c384nbt-s9967423488-d4308703317.bin.gz to C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/rejectedmodels/kata1-b18c384nbt-s9967423488-d4308703317.bin.gz
+2024-11-09 20:29:49-0500: All cleaned up, quitting
+2024-11-09 20:34:47-0500: Running with following config:
+allowRectangleProb = 0.50
+allowResignation = true
+bSizeRelProbs = 1,1,8
+bSizes = 7,8,9
+chosenMovePrune = 1
+chosenMoveSubtract = 0
+chosenMoveTemperature = 0.2
+chosenMoveTemperatureEarly = 0.5
+chosenMoveTemperatureHalflife = 19
+cpuctExploration = 1.1
+cpuctExplorationLog = 0.0
+cudaUseFP16 = auto
+cudaUseNHWC = auto
+drawEquivalentWinsForWhite = 0.5
+dynamicScoreCenterScale = 0.50
+dynamicScoreCenterZeroWeight = 0.25
+dynamicScoreUtilityFactor = 0.25
+fpuReductionMax = 0.2
+handicapCompensateKomiProb = 1.0
+handicapProb = 0.0
+hasButtons = false,false,true
+koRules = SIMPLE,POSITIONAL,SITUATIONAL
+komiAuto = True
+lcbStdevs = 5.0
+logGamesEvery = 10
+logMoves = false
+logSearchInfo = false
+logToStdout = true
+maxMovesPerGame = 1600
+maxVisits = 150
+minVisitPropForLCB = 0.15
+multiStoneSuicideLegals = false,true
+nnCacheSizePowerOfTwo = 21
+nnMaxBatchSize = 128
+nnMutexPoolSizePowerOfTwo = 15
+nnRandomize = true
+noResultUtilityForWhite = 0.0
+numGameThreads = 128
+numGamesPerGating = 200
+numNNServerThreadsPerModel = 1
+numSearchThreads = 1
+numVirtualLossesPerThread = 1
+policyOptimism = 1.0
+resignConsecTurns = 5
+resignThreshold = -0.90
+rootEndingBonusPoints = 0.5
+rootFpuReductionMax = 0.1
+rootPolicyOptimism = 0.0
+rootPruneUselessMoves = true
+scoringRules = AREA,TERRITORY
+staticScoreUtilityFactor = 0.00
+subtreeValueBiasFactor = 0.35
+subtreeValueBiasWeightExponent = 0.8
+taxRules = NONE,NONE,SEKI,SEKI,ALL
+uncertaintyCoeff = 0.25
+uncertaintyExponent = 1.0
+useGraphSearch = true
+useLcbForSelection = true
+useNonBuggyLcb = true
+useUncertainty = true
+valueWeightExponent = 0.5
+winLossUtilityFactor = 1.0
+
+2024-11-09 20:34:47-0500: Gatekeeper Engine starting...
+2024-11-09 20:34:47-0500: Git revision: 7939e2c3eb43df04e08de8c166889c6d5e937bfa
+2024-11-09 20:34:47-0500: Required candidate win prop: 0.5
+2024-11-09 20:34:47-0500: Loaded all config stuff, watching for new neural nets in C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/modelstobetested/
+2024-11-09 20:34:47-0500: Found new candidate neural net kata1-b18c384nbt-s9996604416-d4316597426.bin.gz
+2024-11-09 20:34:47-0500: Rejecting kata1-b18c384nbt-s9996604416-d4316597426.bin.gz automatically since older than best accepted model
+2024-11-09 20:34:47-0500: Moving C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\training\modelstobetested\kata1-b18c384nbt-s9996604416-d4316597426.bin.gz to C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/rejectedmodels/kata1-b18c384nbt-s9996604416-d4316597426.bin.gz
+2024-11-09 20:34:47-0500: All cleaned up, quitting
+2024-11-10 12:12:46-0500: Running with following config:
+allowRectangleProb = 0.50
+allowResignation = true
+bSizeRelProbs = 1,1,8
+bSizes = 7,8,9
+chosenMovePrune = 1
+chosenMoveSubtract = 0
+chosenMoveTemperature = 0.2
+chosenMoveTemperatureEarly = 0.5
+chosenMoveTemperatureHalflife = 19
+cpuctExploration = 1.1
+cpuctExplorationLog = 0.0
+cudaUseFP16 = auto
+cudaUseNHWC = auto
+drawEquivalentWinsForWhite = 0.5
+dynamicScoreCenterScale = 0.50
+dynamicScoreCenterZeroWeight = 0.25
+dynamicScoreUtilityFactor = 0.25
+fpuReductionMax = 0.2
+handicapCompensateKomiProb = 1.0
+handicapProb = 0.0
+hasButtons = false,false,true
+koRules = SIMPLE,POSITIONAL,SITUATIONAL
+komiAuto = True
+lcbStdevs = 5.0
+logGamesEvery = 10
+logMoves = false
+logSearchInfo = false
+logToStdout = true
+maxMovesPerGame = 1600
+maxVisits = 150
+minVisitPropForLCB = 0.15
+multiStoneSuicideLegals = false,true
+nnCacheSizePowerOfTwo = 21
+nnMaxBatchSize = 128
+nnMutexPoolSizePowerOfTwo = 15
+nnRandomize = true
+noResultUtilityForWhite = 0.0
+numGameThreads = 128
+numGamesPerGating = 200
+numNNServerThreadsPerModel = 1
+numSearchThreads = 1
+numVirtualLossesPerThread = 1
+policyOptimism = 1.0
+resignConsecTurns = 5
+resignThreshold = -0.90
+rootEndingBonusPoints = 0.5
+rootFpuReductionMax = 0.1
+rootPolicyOptimism = 0.0
+rootPruneUselessMoves = true
+scoringRules = AREA,TERRITORY
+staticScoreUtilityFactor = 0.00
+subtreeValueBiasFactor = 0.35
+subtreeValueBiasWeightExponent = 0.8
+taxRules = NONE,NONE,SEKI,SEKI,ALL
+uncertaintyCoeff = 0.25
+uncertaintyExponent = 1.0
+useGraphSearch = true
+useLcbForSelection = true
+useNonBuggyLcb = true
+useUncertainty = true
+valueWeightExponent = 0.5
+winLossUtilityFactor = 1.0
+
+2024-11-10 12:12:46-0500: Gatekeeper Engine starting...
+2024-11-10 12:12:46-0500: Git revision: 7939e2c3eb43df04e08de8c166889c6d5e937bfa
+2024-11-10 12:12:46-0500: Required candidate win prop: 0.5
+2024-11-10 12:12:46-0500: Loaded all config stuff, watching for new neural nets in C:/Users/chang/OneDrive/Documents/GitHub/Kata_speed/training/modelstobetested/
+2024-11-10 12:12:46-0500: All cleaned up, quitting
