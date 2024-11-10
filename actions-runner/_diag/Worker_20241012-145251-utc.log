@@ -1,0 +1,4038 @@
+[2024-10-12 14:52:51Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2024-10-12 14:52:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:51Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.credentials'
+[2024-10-12 14:52:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:51Z INFO HostContext] Well known config file 'Runner': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.runner'
+[2024-10-12 14:52:51Z INFO Worker] Version: 2.320.0
+[2024-10-12 14:52:51Z INFO Worker] Commit: 78f21670b4a58aff19b5189207f54eb2bee324d1
+[2024-10-12 14:52:51Z INFO Worker] Culture: zh-CN
+[2024-10-12 14:52:51Z INFO Worker] UI Culture: zh-CN
+[2024-10-12 14:52:51Z INFO Worker] Waiting to receive the job message from the channel.
+[2024-10-12 14:52:51Z INFO ProcessChannel] Receiving message of length 29218, with hash '6d07a5de154579864536f059453518ee534411418a066e9897df51f346ac2d58'
+[2024-10-12 14:52:51Z INFO Worker] Message received.
+[2024-10-12 14:52:52Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/AutoPullBot.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 15,
+        "col": 15,
+        "lit": "Checkout Repository"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "d74a7a1f-c898-5dec-74a5-550851f0147f",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 19,
+        "col": 15,
+        "lit": "Get Branch Name (PowerShell)"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 21,
+              "col": 14,
+              "lit": "$GITHUB_REF = $env:GITHUB_REF\n$BRANCH_NAME = $GITHUB_REF -replace 'refs/heads/', ''\necho \"BRANCH_NAME=$BRANCH_NAME\" | Out-File -FilePath $env:GITHUB_ENV -Append\n"
+            }
+          },
+          {
+            "key": "shell",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 20,
+              "col": 16,
+              "lit": "powershell"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "3b0117e0-d5de-5fff-2dc8-b1fd47d9785b",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 27,
+        "col": 15,
+        "lit": "Ensure We're Not on Main"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 14,
+              "lit": "if ($env:BRANCH_NAME -eq \"main\") {\n  Write-Host \"We are on the main branch, no pull request will be created.\"\n  exit 0\n}\nWrite-Host \"Not on the main branch, proceeding.\"\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "f4b01dee-6375-5521-d08b-201049ca392c",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 36,
+        "col": 15,
+        "lit": "Check if Branch is Behind Main"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 37,
+              "col": 14,
+              "lit": "git fetch origin main\n$BEHIND = git rev-list --count HEAD..origin/main\nWrite-Host \"Branch is behind main by $BEHIND commits\"\necho \"BEHIND=$BEHIND\" | Out-File -FilePath $env:GITHUB_ENV -Append\nif ($BEHIND -le 0) {\n  Write-Host \"Branch is up to date with main. No pull request will be created.\"\n  exit 0\n}\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "60aefe24-a769-54de-3498-937fda9388f2",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 48,
+        "col": 15,
+        "lit": "Check if Pull Request Exists"
+      },
+      "contextName": "check_pr",
+      "environment": {
+        "type": 2,
+        "file": 1,
+        "line": 64,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 64,
+              "col": 11,
+              "lit": "GH_TOKEN"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 64,
+              "col": 21,
+              "expr": "secrets.AutoPullBot"
+            }
+          }
+        ]
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 51,
+              "col": 14,
+              "lit": "try {\n  $PR_EXIST = gh pr list --head $env:BRANCH_NAME --base main --json number --jq '.[0].number'\n  if ($PR_EXIST) {\n    Write-Host \"A pull request for branch '$env:BRANCH_NAME' already exists: https://github.com/$($env:GITHUB_REPOSITORY)/pull/$PR_EXIST\"\n    echo \"PR_EXIST=$PR_EXIST\" | Out-File -FilePath $env:GITHUB_ENV -Append\n  } else {\n    Write-Host \"No existing pull request found.\"\n  }\n} catch {\n  Write-Host \"Failed to check for existing pull requests: $_\"\n}\n"
+            }
+          },
+          {
+            "key": "shell",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 50,
+              "col": 16,
+              "lit": "powershell"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "f37d0db9-c850-5e7d-e57a-e2de3c860f93",
+      "name": "check_pr"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 67,
+        "col": 15,
+        "lit": "Create Pull Request (if none exists)"
+      },
+      "contextName": "create_pr",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 71,
+              "col": 14,
+              "lit": "try {\n  Write-Host \"Creating a new pull request...\"\n  $PR_OUTPUT = gh pr create `\n    --title \"Auto Pull Request - $env:BRANCH_NAME\" `\n    --body \"Auto-generated PR to merge '$env:BRANCH_NAME' into 'main'\" `\n    --base main `\n    --head \"$env:BRANCH_NAME\" `\n    --repo \"$env:GITHUB_REPOSITORY\"\n  echo \"PR_OUTPUT=$PR_OUTPUT\" | Out-File -FilePath $env:GITHUB_ENV -Append\n  $PR_URL = $PR_OUTPUT -match 'http.*$' | Out-String\n  echo \"PR_URL=$PR_URL\" | Out-File -FilePath $env:GITHUB_ENV -Append\n} catch {\n  Write-Host \"Pull request creation failed: $_\"\n}\n"
+            }
+          },
+          {
+            "key": "shell",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 70,
+              "col": 16,
+              "lit": "powershell"
+            }
+          }
+        ]
+      },
+      "condition": "success() && (steps.check_pr.outputs.PR_EXIST == '')",
+      "id": "13497127-a4e3-5f77-f79f-b152535dffd8",
+      "name": "create_pr"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 88,
+        "col": 15,
+        "lit": "Add 'github_actions' and 'Auto Merge' Labels"
+      },
+      "contextName": "__run_4",
+      "environment": {
+        "type": 2,
+        "file": 1,
+        "line": 103,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 103,
+              "col": 11,
+              "lit": "GH_TOKEN"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 103,
+              "col": 21,
+              "expr": "secrets.AutoPullBot"
+            }
+          }
+        ]
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 90,
+              "col": 14,
+              "lit": "try {\n  Write-Host \"Adding labels to the pull request...\"\n  if ($env:PR_EXIST) {\n    $PR_NUMBER = $env:PR_EXIST\n  } else {\n    $PR_NUMBER = $env:PR_URL -match '[0-9]+$' | Out-String\n  }\n  gh pr edit $PR_NUMBER --add-label \"github_actions\" --add-label \"Auto Merge\"\n} catch {\n  Write-Host \"Failed to add labels to the pull request: $_\"\n}\n"
+            }
+          },
+          {
+            "key": "shell",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 89,
+              "col": 16,
+              "lit": "powershell"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "09de7a3b-9281-5f15-e1f5-90b6ca15a490",
+      "name": "__run_4"
+    }
+  ],
+  "variables": {
+    "AUTOPULLBOT": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": ""
+    },
+    "system.pipelineStartTime": {
+      "value": "2024-10-12 14:52:52+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "555"
+    },
+    "build.containerId": {
+      "value": "36623978"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/AutoPullBot.yml"
+    },
+    "system.phaseDisplayName": {
+      "value": "create-pull-request"
+    },
+    "system.phaseId": {
+      "value": "d73c2321-3f4e-5381-ec0b-ed0fa0b3016e"
+    },
+    "system.phaseName": {
+      "value": "create-pull-request"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "create-pull-request.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "create-pull-request"
+    },
+    "system.jobDisplayName": {
+      "value": "create-pull-request"
+    },
+    "system.jobId": {
+      "value": "7f4a51bc-628a-5f9c-de37-136b6655c5cc"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Actions\":\"write\",\"Attestations\":\"write\",\"Checks\":\"write\",\"Contents\":\"write\",\"Deployments\":\"write\",\"Discussions\":\"write\",\"Issues\":\"write\",\"Metadata\":\"read\",\"Packages\":\"write\",\"Pages\":\"write\",\"PullRequests\":\"write\",\"RepositoryProjects\":\"write\",\"SecurityEvents\":\"write\",\"Statuses\":\"write\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "True"
+    },
+    "system.testDotNet8Compatibility": {
+      "value": "true"
+    },
+    "system.dotNet8CompatibilityOutputLength": {
+      "value": "200"
+    },
+    "system.dotNet8CompatibilityOutputPattern": {
+      "value": "GLIBCXX"
+    },
+    "system.dotNet8CompatibilityWarning": {
+      "value": "The Actions runner will no longer support your OS version on November 1, 2024. Please upgrade to a supported version. For information, refer https://github.blog/changelog/2024-08-19-notice-of-upcoming-deprecations-and-breaking-changes-in-github-actions-runners/"
+    },
+    "system.orchestrationId": {
+      "value": "acdff0f3-c1c1-4cea-a3bb-701222c64b25.create-pull-request.__default"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 41,
+    "planId": "acdff0f3-c1c1-4cea-a3bb-701222c64b25",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/555",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "Kata_speed"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "changcheng967"
+    }
+  },
+  "timeline": {
+    "id": "acdff0f3-c1c1-4cea-a3bb-701222c64b25",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "7f4a51bc-628a-5f9c-de37-136b6655c5cc",
+  "jobDisplayName": "create-pull-request",
+  "jobName": "__default",
+  "requestId": 562,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "ee5ae967-f4f5-40f1-967f-6826eb154f85",
+          "ServerName": "4Y8sMvuRhb1AeoDhnKq5o1U2sE9xOreReFc2UzcuYceEQw975m",
+          "CacheServerUrl": "https://acghubeus2.actions.githubusercontent.com/4Y8sMvuRhb1AeoDhnKq5o1U2sE9xOreReFc2UzcuYceEQw975m/",
+          "FeedStreamUrl": "https://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "ConnectivityChecks": "[\"https://acghubeus0.actions.githubusercontent.com/_apis/health\",\"https://results-receiver.actions.githubusercontent.com/health\",\"https://actions-results-receiver-production.githubapp.com/health\",\"https://pipelinesghubeus4.actions.githubusercontent.com/_apis/health\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelinesghubeus4.actions.githubusercontent.com/4Y8sMvuRhb1AeoDhnKq5o1U2sE9xOreReFc2UzcuYceEQw975m/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/Developement"
+        },
+        {
+          "k": "sha",
+          "v": "fa430ba01c42651cf83e5a1d2a75fdc076a866ed"
+        },
+        {
+          "k": "repository",
+          "v": "changcheng967/Kata_speed"
+        },
+        {
+          "k": "repository_owner",
+          "v": "changcheng967"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "137231186"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/changcheng967/Kata_speed.git"
+        },
+        {
+          "k": "run_id",
+          "v": "11306547079"
+        },
+        {
+          "k": "run_number",
+          "v": "203"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "repo-self-hosted-runners-disabled",
+          "v": false
+        },
+        {
+          "k": "enterprise-managed-business-id",
+          "v": ""
+        },
+        {
+          "k": "repository_id",
+          "v": "796102306"
+        },
+        {
+          "k": "actor_id",
+          "v": "137231186"
+        },
+        {
+          "k": "actor",
+          "v": "changcheng967"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "changcheng967"
+        },
+        {
+          "k": "workflow",
+          "v": "Auto Pull Bot"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "fa430ba01c42651cf83e5a1d2a75fdc076a866ed"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "596a88b5a22b0cce6ceefd923ee7db414a11528c"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "440003227@gapps.yrdsb.ca"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Cheng Chang"
+                              },
+                              {
+                                "k": "username",
+                                "v": "changcheng967"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "noreply@github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "GitHub"
+                              },
+                              {
+                                "k": "username",
+                                "v": "web-flow"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "fa430ba01c42651cf83e5a1d2a75fdc076a866ed"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Update AutoPullBot.yml"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2024-10-12T10:52:49-04:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "94f87450762a1120c88447bf047d564b8b98aa20"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/changcheng967/Kata_speed/commit/fa430ba01c42651cf83e5a1d2a75fdc076a866ed"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/changcheng967/Kata_speed/compare/596a88b5a22b...fa430ba01c42"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "440003227@gapps.yrdsb.ca"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Cheng Chang"
+                          },
+                          {
+                            "k": "username",
+                            "v": "changcheng967"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "noreply@github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "GitHub"
+                          },
+                          {
+                            "k": "username",
+                            "v": "web-flow"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "fa430ba01c42651cf83e5a1d2a75fdc076a866ed"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Update AutoPullBot.yml"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2024-10-12T10:52:49-04:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "94f87450762a1120c88447bf047d564b8b98aa20"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/changcheng967/Kata_speed/commit/fa430ba01c42651cf83e5a1d2a75fdc076a866ed"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "changcheng967@outlook.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "changcheng967"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/Developement"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/changcheng967/Kata_speed.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1714866986.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "Open-source Go AI created by changcheng6541 and Doulet Media"
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "changcheng967/Kata_speed"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/changcheng967/Kata_speed.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": true
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": true
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": "https://kata-speed.free.nf/"
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/changcheng967/Kata_speed"
+                    },
+                    {
+                      "k": "id",
+                      "v": 796102306.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "C++"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "key",
+                            "v": "mit"
+                          },
+                          {
+                            "k": "name",
+                            "v": "MIT License"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDc6TGljZW5zZTEz"
+                          },
+                          {
+                            "k": "spdx_id",
+                            "v": "MIT"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/licenses/mit"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "Kata_speed"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOL3OOog"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 1.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 1.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/137231186?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "changcheng967@outlook.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/changcheng967/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/changcheng967/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/changcheng967/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/changcheng967/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/changcheng967"
+                          },
+                          {
+                            "k": "id",
+                            "v": 137231186.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "changcheng967"
+                          },
+                          {
+                            "k": "name",
+                            "v": "changcheng967"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDOCC37Ug"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/changcheng967/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/changcheng967/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/changcheng967/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/changcheng967/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/changcheng967/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/changcheng967"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1728744769.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 190348.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:changcheng967/Kata_speed.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 2.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 2.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/changcheng967/Kata_speed"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1,
+                        "a": [
+                          "ai",
+                          "go"
+                        ]
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/changcheng967/Kata_speed/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2024-10-11T20:43:06Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/changcheng967/Kata_speed"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 2.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 2.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/137231186?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/changcheng967/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/changcheng967/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/changcheng967/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/changcheng967/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/changcheng967"
+                    },
+                    {
+                      "k": "id",
+                      "v": 137231186.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "changcheng967"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDOCC37Ug"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/changcheng967/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/changcheng967/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/changcheng967/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/changcheng967/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/changcheng967/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/changcheng967"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "Developement"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "workflow_ref",
+          "v": "changcheng967/Kata_speed/.github/workflows/AutoPullBot.yml@refs/heads/Developement"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "fa430ba01c42651cf83e5a1d2a75fdc076a866ed"
+        }
+      ]
+    },
+    "run-feature-flags": {
+      "t": 2,
+      "d": [
+        {
+          "k": "actions_stream_logs_via_results_service",
+          "v": true
+        },
+        {
+          "k": "actions_use_results_service",
+          "v": true
+        },
+        {
+          "k": "larger_runners_custom_image_generation",
+          "v": false
+        }
+      ]
+    },
+    "partialrerun": false,
+    "needs": {
+      "t": 2
+    },
+    "vars": null,
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "EndpointsOverride": null
+  }
+}
+[2024-10-12 14:52:52Z INFO JobRunner] Job ID 7f4a51bc-628a-5f9c-de37-136b6655c5cc
+[2024-10-12 14:52:52Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin\Runner.Worker.dll
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO ConfigurationStore] binPath: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO ConfigurationStore] RootFolder: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known config file 'Runner': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.runner'
+[2024-10-12 14:52:52Z INFO ConfigurationStore] ConfigFilePath: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.runner
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.credentials'
+[2024-10-12 14:52:52Z INFO ConfigurationStore] CredFilePath: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.credentials
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.credentials_migrated'
+[2024-10-12 14:52:52Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.credentials_migrated
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known config file 'Service': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.service'
+[2024-10-12 14:52:52Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.service
+[2024-10-12 14:52:52Z INFO ConfigurationStore] Read setting file: 314 chars
+[2024-10-12 14:52:52Z INFO JobRunner] Creating job server with URL: https://pipelinesghubeus4.actions.githubusercontent.com/4Y8sMvuRhb1AeoDhnKq5o1U2sE9xOreReFc2UzcuYceEQw975m/
+[2024-10-12 14:52:52Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2024-10-12 14:52:52Z INFO Worker] Listening for cancel message from the channel.
+[2024-10-12 14:52:52Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2024-10-12 14:52:52Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2024-10-12 14:52:52Z INFO JobServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2024-10-12 14:52:52Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2024-10-12 14:52:52Z INFO JobServerQueue] Initializing results client
+[2024-10-12 14:52:52Z INFO JobServerQueue] Start process web console line queue.
+[2024-10-12 14:52:52Z INFO JobServerQueue] Start process file upload queue.
+[2024-10-12 14:52:52Z INFO JobServerQueue] Start results file upload queue.
+[2024-10-12 14:52:52Z INFO JobServerQueue] Starting results-based upload queue...
+[2024-10-12 14:52:52Z INFO JobServerQueue] Start process timeline update queue.
+[2024-10-12 14:52:52Z INFO ExecutionContext] Initialize GitHub context
+[2024-10-12 14:52:52Z INFO ExecutionContext] Initialize Env context
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:52Z INFO JobRunner] Starting the job execution context.
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO JobRunner] Validating directory permissions for: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Tools': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_tool'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:52Z INFO JobRunner] Getting job extension.
+[2024-10-12 14:52:52Z INFO JobRunner] Initialize job. Getting all job steps.
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.credentials'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known config file 'SetupInfo': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.setup_info'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin\testDotNet8Compatibility\TestDotNet8Compatibility.exe'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Arguments: ''
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper] Process started with process id 12124, waiting for process exit.
+[2024-10-12 14:52:52Z INFO OSWarningChecker] Hello from .NET 8!
+[2024-10-12 14:52:52Z INFO JobServer] Successfully started websocket client.
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:52Z INFO ProcessInvokerWrapper] Finished process 12124 with exit code 0, and elapsed time 00:00:00.0628721.
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_PipelineMapping\changcheng967/Kata_speed\PipelineFolder.json
+[2024-10-12 14:52:52Z INFO PipelineDirectoryManager] Updating job run properties.
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO JobExtension] Downloading actions
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '42ee6233-b63c-441c-80e1-ebd62bdfa764', success rate: 1/1.
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:52Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:52Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871' into C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions\_temp_1be8c03b-c0e7-4a16-b9c9-0e7d7db1c05d\63a213b0-c435-4545-b42e-b03fbe252552.zip.
+[2024-10-12 14:52:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '42ee6233-b63c-441c-80e1-ebd62bdfa764', success rate: 1/1.
+[2024-10-12 14:52:53Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2024-10-12 14:52:53Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/zipball/eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 X-GitHub-Request-Id: E819:E9042:E9F41:172240:670A8D47 Http Status: OK
+[2024-10-12 14:52:53Z INFO ActionManager] Finished getting action repository.
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2024-10-12 14:52:53Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:53Z INFO ActionManager] Load action that reference repository from 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions\actions\checkout\v4'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2024-10-12 14:52:53Z INFO ActionManager] Action pre node.js file: N/A.
+[2024-10-12 14:52:53Z INFO ActionManager] Action node.js file: dist/index.js.
+[2024-10-12 14:52:53Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2024-10-12 14:52:53Z INFO JobExtension] Adding .
+[2024-10-12 14:52:53Z INFO JobExtension] Adding .
+[2024-10-12 14:52:53Z INFO JobExtension] Adding .
+[2024-10-12 14:52:53Z INFO JobExtension] Adding .
+[2024-10-12 14:52:53Z INFO JobExtension] Adding .
+[2024-10-12 14:52:53Z INFO JobExtension] Adding .
+[2024-10-12 14:52:53Z INFO JobExtension] Adding .
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO JobExtension] Total accessible running process: 260.
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO JobExtension] Start checking server connectivity.
+[2024-10-12 14:52:53Z INFO JobExtension] Check server connectivity for https://acghubeus0.actions.githubusercontent.com/_apis/health.
+[2024-10-12 14:52:53Z INFO JobExtension] Check server connectivity for https://results-receiver.actions.githubusercontent.com/health.
+[2024-10-12 14:52:53Z INFO JobExtension] Check server connectivity for https://actions-results-receiver-production.githubapp.com/health.
+[2024-10-12 14:52:53Z INFO JobExtension] Check server connectivity for https://pipelinesghubeus4.actions.githubusercontent.com/_apis/health.
+[2024-10-12 14:52:53Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "42ee6233-b63c-441c-80e1-ebd62bdfa764",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2024-10-12T14:52:52.5061863Z",
+  "finishTime": "2024-10-12T14:52:53.479217Z"
+}.
+[2024-10-12 14:52:53Z INFO JobRunner] Total job steps: 7.
+[2024-10-12 14:52:53Z INFO JobRunner] Run all job steps.
+[2024-10-12 14:52:53Z INFO StepsRunner] Processing step: DisplayName='Checkout Repository'
+[2024-10-12 14:52:53Z INFO StepsRunner] Evaluating: success()
+[2024-10-12 14:52:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '42ee6233-b63c-441c-80e1-ebd62bdfa764', success rate: 1/1.
+[2024-10-12 14:52:53Z INFO StepsRunner] Result: true
+[2024-10-12 14:52:53Z INFO StepsRunner] Starting the step.
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO StepsRunner] Which2: 'chcp'
+[2024-10-12 14:52:53Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper] Process started with process id 23264, waiting for process exit.
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper] Finished process 23264 with exit code 0, and elapsed time 00:00:00.0669852.
+[2024-10-12 14:52:53Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:53Z INFO ActionManager] Load action that reference repository from 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions\actions\checkout\v4'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2024-10-12 14:52:53Z INFO ActionManager] Action pre node.js file: N/A.
+[2024-10-12 14:52:53Z INFO ActionManager] Action node.js file: dist/index.js.
+[2024-10-12 14:52:53Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2024-10-12 14:52:53Z INFO ExecutionContext] Reserve record order 9 to 16 for post job actions.
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:53Z INFO ExecutionContext] Write event payload to C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_github_workflow\event.json
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:53Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "changcheng967/Kata_speed"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:52:53Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2024-10-12 14:52:53Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command set-env
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command set-output
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command save-state
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command add-path
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command warning
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command error
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command notice
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command debug
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command group
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2024-10-12 14:52:53Z INFO ActionCommandManager] Register action command extension for command echo
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:53Z INFO HostContext] Well known directory 'Externals': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\externals'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\externals\node20\bin\node.exe'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\Kata_speed\Kata_speed'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:53Z INFO ProcessInvokerWrapper] Process started with process id 10956, waiting for process exit.
+[2024-10-12 14:52:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:53Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2024-10-12 14:52:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:54Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:52:54Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_42ee6233-b63c-441c-80e1-ebd62bdfa764.1
+[2024-10-12 14:52:54Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2024-10-12 14:52:54Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2024-10-12 14:52:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:56Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper] Finished process 10956 with exit code 0, and elapsed time 00:00:04.3774212.
+[2024-10-12 14:52:57Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_runner_file_commands\step_summary_d61781d0-eae3-4c7e-a4c2-2d65a3f47196) is empty; skipping attachment upload
+[2024-10-12 14:52:57Z INFO StepsRunner] Step result: 
+[2024-10-12 14:52:57Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "d74a7a1f-c898-5dec-74a5-550851f0147f",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 5,
+  "startTime": "2024-10-12T14:52:53.4892294Z",
+  "finishTime": "2024-10-12T14:52:57.9860825Z"
+}.
+[2024-10-12 14:52:57Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2024-10-12 14:52:57Z INFO StepsRunner] Current state: job state = ''
+[2024-10-12 14:52:57Z INFO StepsRunner] Processing step: DisplayName='Get Branch Name (PowerShell)'
+[2024-10-12 14:52:57Z INFO StepsRunner] Evaluating: success()
+[2024-10-12 14:52:57Z INFO StepsRunner] Result: true
+[2024-10-12 14:52:57Z INFO StepsRunner] Starting the step.
+[2024-10-12 14:52:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:57Z INFO StepsRunner] Which2: 'chcp'
+[2024-10-12 14:52:57Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:57Z INFO ProcessInvokerWrapper] Process started with process id 24004, waiting for process exit.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Finished process 24004 with exit code 0, and elapsed time 00:00:00.0423123.
+[2024-10-12 14:52:58Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ExecutionContext] Write event payload to C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_github_workflow\event.json
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2024-10-12 14:52:58Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command set-env
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command set-output
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command save-state
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-path
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command warning
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command error
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command notice
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command debug
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command group
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command echo
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\17ceb1fe-09a9-49b8-b7ac-343a0ebcc83a.ps1'"'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\Kata_speed\Kata_speed'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Process started with process id 5088, waiting for process exit.
+[2024-10-12 14:52:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd74a7a1f-c898-5dec-74a5-550851f0147f', success rate: 1/1.
+[2024-10-12 14:52:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '3b0117e0-d5de-5fff-2dc8-b1fd47d9785b', success rate: 1/1.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Finished process 5088 with exit code 0, and elapsed time 00:00:00.1808228.
+[2024-10-12 14:52:58Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_runner_file_commands\step_summary_b44baf2d-18f5-48ca-b994-c1d913c40e0c) is empty; skipping attachment upload
+[2024-10-12 14:52:58Z INFO StepsRunner] Step result: 
+[2024-10-12 14:52:58Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "3b0117e0-d5de-5fff-2dc8-b1fd47d9785b",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2024-10-12T14:52:57.9866669Z",
+  "finishTime": "2024-10-12T14:52:58.2319648Z"
+}.
+[2024-10-12 14:52:58Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2024-10-12 14:52:58Z INFO StepsRunner] Current state: job state = ''
+[2024-10-12 14:52:58Z INFO StepsRunner] Processing step: DisplayName='Ensure We're Not on Main'
+[2024-10-12 14:52:58Z INFO StepsRunner] Evaluating: success()
+[2024-10-12 14:52:58Z INFO StepsRunner] Result: true
+[2024-10-12 14:52:58Z INFO StepsRunner] Starting the step.
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO StepsRunner] Which2: 'chcp'
+[2024-10-12 14:52:58Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Process started with process id 23796, waiting for process exit.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Finished process 23796 with exit code 0, and elapsed time 00:00:00.0057661.
+[2024-10-12 14:52:58Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ExecutionContext] Write event payload to C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_github_workflow\event.json
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2024-10-12 14:52:58Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command set-env
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command set-output
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command save-state
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-path
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command warning
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command error
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command notice
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command debug
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command group
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command echo
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'pwsh'
+[2024-10-12 14:52:58Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2024-10-12 14:52:58Z INFO ScriptHandler] Defaulting to powershell
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'pwsh'
+[2024-10-12 14:52:58Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2024-10-12 14:52:58Z INFO ScriptHandler] Defaulting to powershell
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\cdf4fb77-9e17-4181-9ed2-f7584cc25f03.ps1'"'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\Kata_speed\Kata_speed'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Process started with process id 10100, waiting for process exit.
+[2024-10-12 14:52:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f4b01dee-6375-5521-d08b-201049ca392c', success rate: 1/1.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Finished process 10100 with exit code 0, and elapsed time 00:00:00.1838437.
+[2024-10-12 14:52:58Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_runner_file_commands\step_summary_14949a58-db3e-413d-9679-fbe7ed4ad283) is empty; skipping attachment upload
+[2024-10-12 14:52:58Z INFO StepsRunner] Step result: 
+[2024-10-12 14:52:58Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "f4b01dee-6375-5521-d08b-201049ca392c",
+  "stepContextName": "__run_2",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2024-10-12T14:52:58.2325907Z",
+  "finishTime": "2024-10-12T14:52:58.4413183Z"
+}.
+[2024-10-12 14:52:58Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2024-10-12 14:52:58Z INFO StepsRunner] Current state: job state = ''
+[2024-10-12 14:52:58Z INFO StepsRunner] Processing step: DisplayName='Check if Branch is Behind Main'
+[2024-10-12 14:52:58Z INFO StepsRunner] Evaluating: success()
+[2024-10-12 14:52:58Z INFO StepsRunner] Result: true
+[2024-10-12 14:52:58Z INFO StepsRunner] Starting the step.
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO StepsRunner] Which2: 'chcp'
+[2024-10-12 14:52:58Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Process started with process id 18256, waiting for process exit.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Finished process 18256 with exit code 0, and elapsed time 00:00:00.0068544.
+[2024-10-12 14:52:58Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ExecutionContext] Write event payload to C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_github_workflow\event.json
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2024-10-12 14:52:58Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command set-env
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command set-output
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command save-state
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-path
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command warning
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command error
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command notice
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command debug
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command group
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2024-10-12 14:52:58Z INFO ActionCommandManager] Register action command extension for command echo
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'pwsh'
+[2024-10-12 14:52:58Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2024-10-12 14:52:58Z INFO ScriptHandler] Defaulting to powershell
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:58Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'pwsh'
+[2024-10-12 14:52:58Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2024-10-12 14:52:58Z INFO ScriptHandler] Defaulting to powershell
+[2024-10-12 14:52:58Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:58Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\e73d18c0-7e8d-452e-88c4-14d61d257705.ps1'"'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\Kata_speed\Kata_speed'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:58Z INFO ProcessInvokerWrapper] Process started with process id 15988, waiting for process exit.
+[2024-10-12 14:52:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f4b01dee-6375-5521-d08b-201049ca392c', success rate: 1/1.
+[2024-10-12 14:52:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '60aefe24-a769-54de-3498-937fda9388f2', success rate: 1/1.
+[2024-10-12 14:52:58Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:52:58Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_d74a7a1f-c898-5dec-74a5-550851f0147f.1
+[2024-10-12 14:52:58Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2024-10-12 14:52:59Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:52:59Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_3b0117e0-d5de-5fff-2dc8-b1fd47d9785b.1
+[2024-10-12 14:52:59Z INFO JobServerQueue] Try to append 1 batches web console lines for record '60aefe24-a769-54de-3498-937fda9388f2', success rate: 1/1.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] Finished process 15988 with exit code 0, and elapsed time 00:00:00.7077377.
+[2024-10-12 14:52:59Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_runner_file_commands\step_summary_2ce52449-890f-49f6-8b50-fc9d38630d76) is empty; skipping attachment upload
+[2024-10-12 14:52:59Z INFO StepsRunner] Step result: 
+[2024-10-12 14:52:59Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "60aefe24-a769-54de-3498-937fda9388f2",
+  "stepContextName": "__run_3",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2024-10-12T14:52:58.4419284Z",
+  "finishTime": "2024-10-12T14:52:59.176656Z"
+}.
+[2024-10-12 14:52:59Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2024-10-12 14:52:59Z INFO StepsRunner] Current state: job state = ''
+[2024-10-12 14:52:59Z INFO StepsRunner] Processing step: DisplayName='Check if Pull Request Exists'
+[2024-10-12 14:52:59Z INFO StepsRunner] Evaluating: success()
+[2024-10-12 14:52:59Z INFO StepsRunner] Result: true
+[2024-10-12 14:52:59Z INFO StepsRunner] Starting the step.
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:59Z INFO StepsRunner] Which2: 'chcp'
+[2024-10-12 14:52:59Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:52:59Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_f4b01dee-6375-5521-d08b-201049ca392c.1
+[2024-10-12 14:52:59Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] Process started with process id 16196, waiting for process exit.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] Finished process 16196 with exit code 0, and elapsed time 00:00:00.0136330.
+[2024-10-12 14:52:59Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:59Z INFO ExecutionContext] Write event payload to C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_github_workflow\event.json
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:59Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2024-10-12 14:52:59Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command set-env
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command set-output
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command save-state
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command add-path
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command warning
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command error
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command notice
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command debug
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command group
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2024-10-12 14:52:59Z INFO ActionCommandManager] Register action command extension for command echo
+[2024-10-12 14:52:59Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:59Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:52:59Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:52:59Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:52:59Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\67a48aad-8e5a-4768-9b1e-e90f6abd12a3.ps1'"'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\Kata_speed\Kata_speed'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] Process started with process id 21788, waiting for process exit.
+[2024-10-12 14:52:59Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2024-10-12 14:52:59Z INFO JobServerQueue] Try to append 1 batches web console lines for record '60aefe24-a769-54de-3498-937fda9388f2', success rate: 1/1.
+[2024-10-12 14:52:59Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f37d0db9-c850-5e7d-e57a-e2de3c860f93', success rate: 1/1.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:52:59Z INFO ProcessInvokerWrapper] Finished process 21788 with exit code 0, and elapsed time 00:00:00.7942195.
+[2024-10-12 14:53:00Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_runner_file_commands\step_summary_9f8d641d-399a-4f66-88e2-97adb403b5e1) is empty; skipping attachment upload
+[2024-10-12 14:53:00Z INFO StepsRunner] Step result: 
+[2024-10-12 14:53:00Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "f37d0db9-c850-5e7d-e57a-e2de3c860f93",
+  "stepContextName": "check_pr",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2024-10-12T14:52:59.1773867Z",
+  "finishTime": "2024-10-12T14:53:00.0007046Z"
+}.
+[2024-10-12 14:53:00Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2024-10-12 14:53:00Z INFO StepsRunner] Current state: job state = ''
+[2024-10-12 14:53:00Z INFO StepsRunner] Processing step: DisplayName='Create Pull Request (if none exists)'
+[2024-10-12 14:53:00Z INFO StepsRunner] Evaluating: (success() && (steps.check_pr.outputs.PR_EXIST == ''))
+[2024-10-12 14:53:00Z INFO StepsRunner] Expanded: (true && (null == ''))
+[2024-10-12 14:53:00Z INFO StepsRunner] Result: true
+[2024-10-12 14:53:00Z INFO StepsRunner] Starting the step.
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO StepsRunner] Which2: 'chcp'
+[2024-10-12 14:53:00Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Process started with process id 12424, waiting for process exit.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Finished process 12424 with exit code 0, and elapsed time 00:00:00.0205273.
+[2024-10-12 14:53:00Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:53:00Z INFO ExecutionContext] Write event payload to C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_github_workflow\event.json
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:53:00Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2024-10-12 14:53:00Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command set-env
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command set-output
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command save-state
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command add-path
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command warning
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command error
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command notice
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command debug
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command group
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command echo
+[2024-10-12 14:53:00Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:53:00Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:53:00Z INFO ScriptHandler] Which2: 'powershell'
+[2024-10-12 14:53:00Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\fda27754-73cd-4ec2-ab83-30e91a9d1dcc.ps1'"'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\Kata_speed\Kata_speed'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Process started with process id 20160, waiting for process exit.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f37d0db9-c850-5e7d-e57a-e2de3c860f93', success rate: 1/1.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '13497127-a4e3-5f77-f79f-b152535dffd8', success rate: 1/1.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_60aefe24-a769-54de-3498-937fda9388f2.1
+[2024-10-12 14:53:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '13497127-a4e3-5f77-f79f-b152535dffd8', success rate: 1/1.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_f37d0db9-c850-5e7d-e57a-e2de3c860f93.1
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Finished process 20160 with exit code 1, and elapsed time 00:00:00.5571883.
+[2024-10-12 14:53:00Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_runner_file_commands\step_summary_58c9fe61-351a-4146-8d68-83881c759e9a) is empty; skipping attachment upload
+[2024-10-12 14:53:00Z INFO StepsRunner] Step result: Failed
+[2024-10-12 14:53:00Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "13497127-a4e3-5f77-f79f-b152535dffd8",
+  "stepContextName": "create_pr",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2024-10-12T14:53:00.0022442Z",
+  "finishTime": "2024-10-12T14:53:00.6122664Z"
+}.
+[2024-10-12 14:53:00Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2024-10-12 14:53:00Z INFO StepsRunner] Current state: job state = 'Failed'
+[2024-10-12 14:53:00Z INFO StepsRunner] Processing step: DisplayName='Add 'github_actions' and 'Auto Merge' Labels'
+[2024-10-12 14:53:00Z INFO StepsRunner] Evaluating: success()
+[2024-10-12 14:53:00Z INFO StepsRunner] Result: false
+[2024-10-12 14:53:00Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2024-10-12 14:53:00Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2024-10-12 14:53:00Z INFO StepsRunner] Current state: job state = 'Failed'
+[2024-10-12 14:53:00Z INFO StepsRunner] Processing step: DisplayName='Post Checkout Repository'
+[2024-10-12 14:53:00Z INFO StepsRunner] Evaluating: always()
+[2024-10-12 14:53:00Z INFO StepsRunner] Result: true
+[2024-10-12 14:53:00Z INFO StepsRunner] Starting the step.
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO StepsRunner] Which2: 'chcp'
+[2024-10-12 14:53:00Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Process started with process id 14348, waiting for process exit.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Finished process 14348 with exit code 0, and elapsed time 00:00:00.0176111.
+[2024-10-12 14:53:00Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:53:00Z INFO ActionManager] Load action that reference repository from 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions\actions\checkout\v4'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Actions': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions'
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2024-10-12 14:53:00Z INFO ActionManager] Action pre node.js file: N/A.
+[2024-10-12 14:53:00Z INFO ActionManager] Action node.js file: dist/index.js.
+[2024-10-12 14:53:00Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:53:00Z INFO ExecutionContext] Write event payload to C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_github_workflow\event.json
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Temp': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp'
+[2024-10-12 14:53:00Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "changcheng967/Kata_speed"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2024-10-12 14:53:00Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2024-10-12 14:53:00Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command set-env
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command set-output
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command save-state
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command add-path
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command warning
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command error
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command notice
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command debug
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command group
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2024-10-12 14:53:00Z INFO ActionCommandManager] Register action command extension for command echo
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:00Z INFO HostContext] Well known directory 'Externals': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\externals'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Starting process:
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\externals\node20\bin\node.exe'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\Kata_speed\Kata_speed'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2024-10-12 14:53:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '13497127-a4e3-5f77-f79f-b152535dffd8', success rate: 1/1.
+[2024-10-12 14:53:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2ace253c-a8f4-4906-9594-8dfc14083880', success rate: 1/1.
+[2024-10-12 14:53:00Z INFO ProcessInvokerWrapper] Process started with process id 3448, waiting for process exit.
+[2024-10-12 14:53:00Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2024-10-12 14:53:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2ace253c-a8f4-4906-9594-8dfc14083880', success rate: 1/1.
+[2024-10-12 14:53:01Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2ace253c-a8f4-4906-9594-8dfc14083880', success rate: 1/1.
+[2024-10-12 14:53:01Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2024-10-12 14:53:01Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:53:01Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_13497127-a4e3-5f77-f79f-b152535dffd8.1
+[2024-10-12 14:53:01Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2024-10-12 14:53:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2ace253c-a8f4-4906-9594-8dfc14083880', success rate: 1/1.
+[2024-10-12 14:53:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2ace253c-a8f4-4906-9594-8dfc14083880', success rate: 1/1.
+[2024-10-12 14:53:03Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:03Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-10-12 14:53:03Z INFO ProcessInvokerWrapper] Finished process 3448 with exit code 0, and elapsed time 00:00:02.5620147.
+[2024-10-12 14:53:03Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp\_runner_file_commands\step_summary_e46501af-6ffe-4468-a9b3-18e5300dd58b) is empty; skipping attachment upload
+[2024-10-12 14:53:03Z INFO StepsRunner] Step result: 
+[2024-10-12 14:53:03Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "2ace253c-a8f4-4906-9594-8dfc14083880",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3,
+  "startTime": "2024-10-12T14:53:00.6153385Z",
+  "finishTime": "2024-10-12T14:53:03.2127339Z"
+}.
+[2024-10-12 14:53:03Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2024-10-12 14:53:03Z INFO StepsRunner] Current state: job state = 'Failed'
+[2024-10-12 14:53:03Z INFO JobRunner] Finalize job.
+[2024-10-12 14:53:03Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:03Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:03Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:53:03Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:03Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:03Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:53:03Z INFO JobExtension] Initialize Env context
+[2024-10-12 14:53:03Z INFO JobExtension] Initialize steps context
+[2024-10-12 14:53:03Z INFO JobExtension] Total accessible running process: 258.
+[2024-10-12 14:53:03Z INFO JobExtension] Inspecting process environment variables. PID: 17508 (msedge)
+[2024-10-12 14:53:03Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2024-10-12 14:53:03Z INFO JobExtension] Connectivity check result: https://acghubeus0.actions.githubusercontent.com/_apis/health: OK
+[2024-10-12 14:53:03Z INFO JobExtension] Connectivity check result: https://results-receiver.actions.githubusercontent.com/health: OK
+[2024-10-12 14:53:03Z INFO JobExtension] Connectivity check result: https://actions-results-receiver-production.githubapp.com/health: OK
+[2024-10-12 14:53:03Z INFO JobExtension] Connectivity check result: https://pipelinesghubeus4.actions.githubusercontent.com/_apis/health: OK
+[2024-10-12 14:53:03Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "9b23e434-76dc-44fe-bc24-75fd0b96fd3d",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2024-10-12T14:53:03.2324985Z",
+  "finishTime": "2024-10-12T14:53:03.2749809Z"
+}.
+[2024-10-12 14:53:03Z INFO JobRunner] Job result after all job steps finish: Failed
+[2024-10-12 14:53:03Z INFO JobRunner] Completing the job execution context.
+[2024-10-12 14:53:03Z INFO JobRunner] Shutting down the job server queue.
+[2024-10-12 14:53:03Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2024-10-12 14:53:03Z INFO JobServerQueue] All queue process task stopped.
+[2024-10-12 14:53:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9b23e434-76dc-44fe-bc24-75fd0b96fd3d', success rate: 1/1.
+[2024-10-12 14:53:03Z INFO JobServerQueue] Web console line queue drained.
+[2024-10-12 14:53:03Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2024-10-12 14:53:04Z INFO JobServerQueue] File upload queue drained.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Starting results-based upload queue...
+[2024-10-12 14:53:04Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_2ace253c-a8f4-4906-9594-8dfc14083880.1
+[2024-10-12 14:53:04Z INFO JobServerQueue] Got a step log file to send to results service.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_9b23e434-76dc-44fe-bc24-75fd0b96fd3d.1
+[2024-10-12 14:53:04Z INFO JobServerQueue] Got a job log file to send to results service.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\blocks\acdff0f3-c1c1-4cea-a3bb-701222c64b25_7f4a51bc-628a-5f9c-de37-136b6655c5cc.1
+[2024-10-12 14:53:04Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Results upload queue drained.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Timeline update queue drained.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Disposing job server ...
+[2024-10-12 14:53:04Z INFO JobServerQueue] Disposing results server ...
+[2024-10-12 14:53:04Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2024-10-12 14:53:04Z INFO JobServerQueue] Actions upload time: 1178 ms, Result upload time: 1669 ms
+[2024-10-12 14:53:04Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_work\_temp
+[2024-10-12 14:53:04Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-10-12 14:53:04Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-10-12 14:53:04Z INFO HostContext] Well known directory 'Diag': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag'
+[2024-10-12 14:53:04Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\_diag\.telemetry'
+[2024-10-12 14:53:04Z INFO JobRunner] Raising job completed event
+[2024-10-12 14:53:04Z INFO Worker] Job completed.

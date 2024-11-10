@@ -1,0 +1,33 @@
+diff --git a/python/selfplay/synchronous_loop.sh b/python/selfplay/synchronous_loop.sh
+index 46cfbc3d..f1eea284 100755
+--- a/python/selfplay/synchronous_loop.sh
++++ b/python/selfplay/synchronous_loop.sh
+@@ -54,7 +54,7 @@ mkdir -p "$BASEDIR"/gatekeepersgf
+ # you have strong hardware or are later into a run you may want to reduce the overhead by scaling
+ # these numbers up and doing more games and training per cycle, exporting models less frequently, etc.
+ 
+-NUM_GAMES_PER_CYCLE=500 # Every cycle, play this many games
++NUM_GAMES_PER_CYCLE=30 # Every cycle, play this many games
+ NUM_THREADS_FOR_SHUFFLING=8
+ NUM_TRAIN_SAMPLES_PER_EPOCH=100000  # Training will proceed in chunks of this many rows, subject to MAX_TRAIN_PER_DATA.
+ MAX_TRAIN_PER_DATA=8 # On average, train only this many times on each data row. Larger numbers may cause overfitting.
+@@ -67,8 +67,8 @@ SHUFFLE_KEEPROWS=600000 # Needs to be larger than MAX_TRAIN_SAMPLES_PER_CYCLE, s
+ 
+ # Paths to the selfplay and gatekeeper configs that contain board sizes, rules, search parameters, etc.
+ # See cpp/configs/training/README.md for some notes on other selfplay configs.
+-SELFPLAY_CONFIG="$GITROOTDIR"/cpp/configs/training/selfplay1.cfg
+-GATING_CONFIG="$GITROOTDIR"/cpp/configs/training/gatekeeper1.cfg
++SELFPLAY_CONFIG="$GITROOTDIR"/cpp/configs/training/selfplay1_maxsize9.cfg
++GATING_CONFIG="$GITROOTDIR"/cpp/configs/training/gatekeeper1_maxsize9.cfg
+ 
+ # Copy all the relevant scripts and configs and the katago executable to a dated directory.
+ # For archival and logging purposes - you can look back and see exactly the python code on a particular date
+@@ -76,7 +76,7 @@ DATE_FOR_FILENAME=$(date "+%Y%m%d-%H%M%S")
+ DATED_ARCHIVE="$BASEDIR"/scripts/dated/"$DATE_FOR_FILENAME"
+ mkdir -p "$DATED_ARCHIVE"
+ cp "$GITROOTDIR"/python/*.py "$GITROOTDIR"/python/selfplay/*.sh "$DATED_ARCHIVE"
+-cp "$GITROOTDIR"/cpp/katago "$DATED_ARCHIVE"
++cp -r "$GITROOTDIR"/cpp/katago "$DATED_ARCHIVE"  # Added -r for recursive copying
+ cp "$SELFPLAY_CONFIG" "$DATED_ARCHIVE"/selfplay.cfg
+ cp "$GATING_CONFIG" "$DATED_ARCHIVE"/gatekeeper.cfg
+ git show --no-patch --no-color > "$DATED_ARCHIVE"/version.txt

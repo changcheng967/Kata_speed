@@ -1,0 +1,40 @@
+[2024-11-07 21:29:38Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2024-11-07 21:29:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-11-07 21:29:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-11-07 21:29:38Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.credentials'
+[2024-11-07 21:29:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-11-07 21:29:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-11-07 21:29:38Z INFO HostContext] Well known config file 'Runner': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\.runner'
+[2024-11-07 21:29:38Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2024-11-07 21:29:38Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.22631.
+[2024-11-07 21:29:38Z INFO Listener] Version: 2.320.0
+[2024-11-07 21:29:38Z INFO Listener] Commit: 78f21670b4a58aff19b5189207f54eb2bee324d1
+[2024-11-07 21:29:38Z INFO Listener] Culture: zh-CN
+[2024-11-07 21:29:38Z INFO Listener] UI Culture: zh-CN
+[2024-11-07 21:29:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner\bin'
+[2024-11-07 21:29:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-11-07 21:29:38Z INFO Listener] Validating directory permissions for: 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner'
+[2024-11-07 21:29:38Z ERR  Terminal] WRITE ERROR: An error occurred: Permission to read the directory contents is required for 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner' and each directory up the hierarchy. Access to the path 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed' is denied.
+[2024-11-07 21:29:38Z ERR  Listener] System.UnauthorizedAccessException: Permission to read the directory contents is required for 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed\actions-runner' and each directory up the hierarchy. Access to the path 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed' is denied.
+ ---> System.UnauthorizedAccessException: Access to the path 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed' is denied.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserEntries(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at System.IO.Directory.EnumerateFileSystemEntries(String path)
+   at GitHub.Runner.Sdk.IOUtil.ValidateExecutePermission(String directory)
+   --- End of inner exception stack trace ---
+   at GitHub.Runner.Sdk.IOUtil.ValidateExecutePermission(String directory)
+   at GitHub.Runner.Listener.Program.MainAsync(IHostContext context, String[] args)
+[2024-11-07 21:29:38Z ERR  Listener] #####################################################
+[2024-11-07 21:29:38Z ERR  Listener] System.UnauthorizedAccessException: Access to the path 'C:\Users\chang\OneDrive\Documents\GitHub\Kata_speed' is denied.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserEntries(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at System.IO.Directory.EnumerateFileSystemEntries(String path)
+   at GitHub.Runner.Sdk.IOUtil.ValidateExecutePermission(String directory)
