@@ -1,0 +1,62 @@
+diff --git a/python/selfplay/shuffle.sh b/python/selfplay/shuffle.sh
+index 0ac0124b..efaaf34b 100755
+--- a/python/selfplay/shuffle.sh
++++ b/python/selfplay/shuffle.sh
+@@ -1,8 +1,8 @@
+ #!/bin/bash -eu
+ set -o pipefail
+ {
+-#Shuffles and copies selfplay training from selfplay/ to shuffleddata/current/
+-#Should be run periodically.
++# Shuffles and copies selfplay training from selfplay/ to shuffleddata/current/
++# Should be run periodically.
+ 
+ if [[ $# -lt 4 ]]
+ then
+@@ -96,25 +96,26 @@ else
+ fi
+ #set +x
+ 
+-#Just in case, give a little time for nfs
++# Just in case, give a little time for nfs
+ sleep 10
+ 
+-#rm if it already exists
+-rm -f "$BASEDIR"/shuffleddata/current_tmp
++# Ensure target directory is empty before moving
++rm -rf "$BASEDIR"/shuffleddata/current
+ 
++# Create symbolic link
+ ln -s $OUTDIR "$BASEDIR"/shuffleddata/current_tmp
+ mv -Tf "$BASEDIR"/shuffleddata/current_tmp "$BASEDIR"/shuffleddata/current
+ 
+ # CLEANUP ---------------------------------------------------------------
+ 
+-#Among shuffled dirs older than 2 hours, remove all but the most recent 5 of them.
+-#This should be VERY conservative and allow plenty of time for the training to switch
+-#to newer ones as they get generated.
++# Among shuffled dirs older than 2 hours, remove all but the most recent 5 of them.
++# This should be VERY conservative and allow plenty of time for the training to switch
++# to newer ones as they get generated.
+ echo "Cleaning up any old dirs"
+ find "$BASEDIR"/shuffleddata/ -mindepth 1 -maxdepth 1 -type d -mmin +120 | sort | head -n -5 | xargs --no-run-if-empty rm -r
+ 
+ echo "Finished shuffle at" $(date "+%Y-%m-%d %H:%M:%S")
+-#Make a little space between shuffles
++# Make a little space between shuffles
+ echo ""
+ echo ""
+ 
+diff --git a/python/selfplay/synchronous_loop.sh b/python/selfplay/synchronous_loop.sh
+index 33f4be30..d21423e2 100755
+--- a/python/selfplay/synchronous_loop.sh
++++ b/python/selfplay/synchronous_loop.sh
+@@ -44,7 +44,7 @@ mkdir -p "$BASEDIR"/selfplay
+ mkdir -p "$BASEDIR"/gatekeepersgf
+ 
+ # Parameters for the training run
+-NUM_GAMES_PER_CYCLE=90 # Every cycle, play this many games
++NUM_GAMES_PER_CYCLE=30 # Every cycle, play this many games
+ NUM_THREADS_FOR_SHUFFLING=8
+ NUM_TRAIN_SAMPLES_PER_EPOCH=100000  # Training will proceed in chunks of this many rows, subject to MAX_TRAIN_PER_DATA.
+ MAX_TRAIN_PER_DATA=8 # On average, train only this many times on each data row. Larger numbers may cause overfitting.
